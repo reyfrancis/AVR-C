@@ -17,6 +17,8 @@ Project state
 Contents
 --------
 [Notebook](https://github.com/reyfrancis/AVR-C/blob/master/1.%20Notebook/GoingBeyondArduino.ipynb)
+
+Opening the notebook in the browser is not advisable. Clone and use the Jupyter to view it properly. 
   
 License
 -------
