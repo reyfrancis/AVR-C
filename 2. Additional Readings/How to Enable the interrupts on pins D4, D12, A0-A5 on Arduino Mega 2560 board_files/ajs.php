@@ -1,0 +1,12 @@
+var OX_318bf009 = '';
+OX_318bf009 += "<"+"ins class=\'dcmads\' style=\'display:inline-block;width:600px;height:75px\'\n";
+OX_318bf009 += "data-dcm-placement=\'N4481.3480747ARDUINO/B6355354.235728082\'\n";
+OX_318bf009 += "data-dcm-rendering-mode=\'script\'\n";
+OX_318bf009 += "data-dcm-https-only\n";
+OX_318bf009 += "data-dcm-resettable-device-id=\'\'\n";
+OX_318bf009 += "data-dcm-app-id=\'\'\n";
+OX_318bf009 += "data-dcm-click-tracker=\'https%3A%2F%2Fads.supplyframe.com%2Fopenads%2Fwww%2Fdelivery%2Fck.php%3Foaparams%3D2__bannerid%3D205679__zoneid%3D561__cb%3Df188dec5f3__oadest%3D%252F%252Fanalytics.supplyframe.com%252Ftrackingservlet%252Ftrack%252F%253Faction%253DadClick%2526value1%253D%7Btaxonomy_enc%7D%2526value2%253D205679%2526value3%253D604%2526zone%253D561%2526extra%253Dquery%253D%7Bterm_enc%7D%257Ccontextualmatch%253Dnolimitation%257Clivetax%253D0%257Ccookietax%253D0%257Cectime%253D%7Bectime%7D%257Cecstatus%253D%7Becstatus%7D%257Cmanufacturer%253D%7Bmanufacturer_enc%7D%257Cpart_number%253D%7Bpart_number_enc%7D%257Ccb%253Df188dec5f3%257Ch_value%253D088d8f85845a18d31560770929%257Ch_crc%253D3975103338%257Cgeo%253Dph%257Ccnt%253Das%257Cbp%253D0.043478076886944%257Cbpf%253D0.00000012680567630168%257Ccp%253D5%257Ch_i%253Dy%2526zone%253D561%2526url%253D\'\n";
+OX_318bf009 += "data-dcm-landing-page-escapes=\'2\'>\n";
+OX_318bf009 += "<"+"script src=\'https://www.googletagservices.com/dcm/dcmads.js\'><"+"/script>\n";
+OX_318bf009 += "<"+"/ins><"+"div id=\'beacon_f188dec5f3\' style=\'position: absolute; left: 0px; top: 0px; visibility: hidden;\'><"+"img src=\'https://ads.supplyframe.com/openads/www/delivery/lg.php?bannerid=205679&amp;campaignid=8662&amp;zoneid=561&amp;loc=1&amp;referer=https%3A%2F%2Fforum.arduino.cc%2Findex.php%3Ftopic%3D187600.0&amp;cb=f188dec5f3\' width=\'0\' height=\'0\' alt=\'\' style=\'width: 0px; height: 0px;\' /><"+"/div><"+"img src=\'//analytics.supplyframe.com/trackingservlet/impression/?action=adImpression&amp;value1={taxonomy_enc}&amp;value2=205679&amp;value3=604&amp;extra=query={term_enc}|contextualmatch=nolimitation|livetax=0|cookietax=0|ectime={ectime}|ecstatus={ecstatus}|manufacturer={manufacturer_enc}|part_number={part_number_enc}|cb=f188dec5f3|h_value=088d8f85845a18d31560770929|h_crc=3975103338|geo=ph|cnt=as|bp=0.043478076886944|bpf=0.00000012680567630168|cp=5|h_i=y&amp;zone=561\' width=\'0\' height=\'0\' alt=\'\' style=\'display:none\' /><"+"script type=\'text/javascript\'>document.context=\'dW5kZWZpbmVkfA==\'; <"+"/script>\n";
+document.write(OX_318bf009);

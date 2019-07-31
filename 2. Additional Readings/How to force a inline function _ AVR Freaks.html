@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://www.avrfreaks.net/forum/how-force-inline-function -->
+<html lang="en" dir="ltr" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile# video: http://ogp.me/ns/video# product: http://ogp.me/ns/product# content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema# schema: http://schema.org/" class="js js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js boxshadow"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="shortcut icon" href="https://www.avrfreaks.net/sites/all/themes/avrfreaks/favicon.ico" type="image/vnd.microsoft.icon">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="MobileOptimized" content="width">
+<meta name="description" content="Hi there, using WinAVR20100110, Optimization = s (size), how can I tell the compiler to always inline a function. This doesn&#39;t work:">
+<meta name="HandheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="generator" content="Drupal 7 (http://drupal.org)">
+<link rel="canonical" href="https://www.avrfreaks.net/forum/how-force-inline-function">
+<link rel="shortlink" href="https://www.avrfreaks.net/node/91221">
+<meta property="og:site_name" content="AVR Freaks">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.avrfreaks.net/forum/how-force-inline-function">
+<meta property="og:title" content="How to force a inline function">
+<meta property="og:description" content="Hi there, using WinAVR20100110, Optimization = s (size), how can I tell the compiler to always inline a function. This doesn&#39;t work:">
+<meta property="og:updated_time" content="2010-07-28T10:01:30+00:00">
+<meta property="article:published_time" content="2010-07-28T10:01:30+00:00">
+<meta property="article:modified_time" content="2010-07-28T10:01:30+00:00">
+<title>How to force a inline function | AVR Freaks</title>
+<link type="text/css" rel="stylesheet" href="./How to force a inline function _ AVR Freaks_files/css_nLnURQV-OJYJJPpa_tvZDRiAtlfGhVDzO2v5EKMdlzI.css" media="all">
+<link type="text/css" rel="stylesheet" href="./How to force a inline function _ AVR Freaks_files/css_DHcXHPYBSjIVaCQZEG4ZlpLkvslnFlBCnQUCzlbRBio.css" media="all">
+<link type="text/css" rel="stylesheet" href="./How to force a inline function _ AVR Freaks_files/css_1x4u_UWci5L1vkbefEeOnvHhWMq7e3_lvkDeezG6-bE.css" media="all">
+<link type="text/css" rel="stylesheet" href="./How to force a inline function _ AVR Freaks_files/css_1EwI7L2d7PtEnjXz5YVVJW0LljSK4SXPj7Eehgu5J10.css" media="all">
+<link type="text/css" rel="stylesheet" href="./How to force a inline function _ AVR Freaks_files/css_NetvTWTpE6c5dijmsClP50xrPauHMZNcHX4hJlj9SOI.css" media="screen">
+<link type="text/css" rel="stylesheet" href="./How to force a inline function _ AVR Freaks_files/css_6b38QoA10iNo0WlQABsPuoYUzGFZrPw1WER3vGjCXdw.css" media="print">
+<link type="text/css" rel="stylesheet" href="./How to force a inline function _ AVR Freaks_files/css_uS4NjxRdC3RJ1agsmisNJLwbZc3YBKRTDDybOGIbj3k.css" media="only screen">
+
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="https://www.avrfreaks.net/sites/default/files/css/css_-5FYXt7x7pi1LDVhNX3xqD-mTMEh3bq59MoR4cM3N8Q.css" media="screen" />
+<![endif]-->
+
+<!--[if (lt IE 9)&(!IEMobile 7)]>
+<link type="text/css" rel="stylesheet" href="https://www.avrfreaks.net/sites/default/files/css/css_DqMa2yIJOsRmEDdvyvYEmkQ1UPvriDJ1S7BifKQzo5I.css" media="screen" />
+<![endif]-->
+<script async="" src="./How to force a inline function _ AVR Freaks_files/analytics.js.download"></script><script type="text/javascript" src="./How to force a inline function _ AVR Freaks_files/js_0RyHJ63yYLuaWsodCPCgSD8dcTIA0dqcDf8-7c2XdBw.js.download"></script>
+<script type="text/javascript" src="./How to force a inline function _ AVR Freaks_files/js_zFf0BHTY3Pf96jaFgeQjnpGZRFNRxTYsZKq7Q0K6A1k.js.download"></script>
+<script type="text/javascript" src="./How to force a inline function _ AVR Freaks_files/js_D513xrHxkFzR3xMs-U1B-okOiPuXCy6MX1kwfrKN5Ls.js.download"></script>
+<script type="text/javascript" src="./How to force a inline function _ AVR Freaks_files/js_UuUqwuzzmWE5GHwotz7pvF_e2TcZ_qg9dVcu2xJgvVQ.js.download"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-1473358-1", {"cookieDomain":"auto"});ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript" src="./How to force a inline function _ AVR Freaks_files/js_MbUlIYOCWfucM3dM8YlAM4sBXExMh83PgE3fvukwVUI.js.download"></script>
+<script type="text/javascript" src="./How to force a inline function _ AVR Freaks_files/modernizr.min.js.download"></script>
+<script type="text/javascript" src="./How to force a inline function _ AVR Freaks_files/js_9LxQYNcHez42saCSnQXHePouksOl8pzxQr4SokgRx18.js.download"></script>
+<script type="text/javascript" src="./How to force a inline function _ AVR Freaks_files/js_bJtuPhNLexUKWVQV80DOCxFp9jNm-U60HbWzF-t64r0.js.download"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"avrfreaks","theme_token":"2ETcA7OvHj0Oo4vDigDNLyM734kT5oSXNJ7tMlws5zQ","jquery_version":"1.7","js":{"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/misc\/jquery.form.min.js":1,"profiles\/commons\/modules\/contrib\/dialog\/misc\/ajax.js":1,"sites\/all\/modules\/contrib\/jquery_update\/js\/jquery_update.js":1,"sites\/all\/modules\/contrib\/apachesolr_sort\/apachesolr_sort.js":1,"sites\/all\/modules\/contrib\/apachesolr_autocomplete\/apachesolr_autocomplete.js":1,"sites\/all\/modules\/contrib\/apachesolr_autocomplete\/jquery-autocomplete\/jquery.autocomplete.js":1,"sites\/all\/modules\/custom\/quote\/quote.js":1,"misc\/progress.js":1,"profiles\/commons\/modules\/contrib\/ctools\/js\/modal.js":1,"profiles\/commons\/modules\/contrib\/rate\/rate.js":1,"profiles\/commons\/modules\/contrib\/rate\/templates\/fivestar\/fivestar.js":1,"sites\/all\/modules\/custom\/avrfreaks_forum\/js\/avrfreaks_forum.js":1,"sites\/all\/modules\/contrib\/google_analytics\/googleanalytics.js":1,"0":1,"sites\/all\/modules\/custom\/avrfreaks_moderate\/js\/avrfreaks_moderate.js":1,"https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/modernizr\/2.0.6\/modernizr.min.js":1,"sites\/all\/modules\/contrib\/hide_submit\/hide_submit.js":1,"sites\/all\/themes\/avrfreaks\/scripts\/modernizr.js":1,"sites\/all\/themes\/avrfreaks\/scripts\/syze.min.js":1,"sites\/all\/themes\/avrfreaks\/scripts\/script.js":1},"css":{"profiles\/commons\/modules\/contrib\/editor\/css\/components\/align.module.css":1,"profiles\/commons\/modules\/contrib\/editor\/css\/components\/resize.module.css":1,"profiles\/commons\/modules\/contrib\/editor\/css\/filter\/filter.caption.css":1,"profiles\/commons\/modules\/contrib\/editor\/modules\/editor_ckeditor\/css\/plugins\/drupalimagecaption\/editor_ckeditor.drupalimagecaption.css":1,"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"modules\/comment\/comment.css":1,"profiles\/commons\/modules\/contrib\/date\/date_api\/date.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/poll\/poll.css":1,"modules\/user\/user.css":1,"modules\/forum\/forum.css":1,"profiles\/commons\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/ckeditor\/css\/ckeditor.css":1,"profiles\/commons\/modules\/commons\/commons_media\/commons_media.css":1,"sites\/all\/modules\/contrib\/apachesolr_autocomplete\/apachesolr_autocomplete.css":1,"sites\/all\/modules\/contrib\/apachesolr_autocomplete\/jquery-autocomplete\/jquery.autocomplete.css":1,"profiles\/commons\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/custom\/quote\/quote.css":1,"sites\/all\/modules\/contrib\/tagclouds\/tagclouds.css":1,"sites\/all\/modules\/custom\/advanced_forum\/styles\/naked\/advanced-forum.naked.structure.css":1,"sites\/all\/modules\/custom\/advanced_forum\/styles\/naked\/advanced-forum.naked.images.css":1,"profiles\/commons\/modules\/contrib\/ctools\/css\/modal.css":1,"profiles\/commons\/modules\/contrib\/rate\/templates\/fivestar\/fivestar.css":1,"sites\/all\/modules\/custom\/avrfreaks_forum\/css\/forum-topic.css":1,"profiles\/commons\/modules\/contrib\/rate\/rate.css":1,"sites\/all\/modules\/contrib\/hide_submit\/hide_submit.css":1,"profiles\/commons\/themes\/contrib\/adaptivetheme\/at_core\/css\/at.layout.css":1,"sites\/all\/themes\/avrfreaks\/css\/global.base.css":1,"sites\/all\/themes\/avrfreaks\/css\/global.styles.css":1,"sites\/all\/themes\/avrfreaks\/css\/global.breakpoints.css":1,"sites\/all\/themes\/avrfreaks\/css\/community.breakpoints.css":1,"sites\/all\/themes\/avrfreaks\/css\/forum.css":1,"sites\/all\/themes\/avrfreaks\/css\/pager.css":1,"sites\/all\/themes\/avrfreaks\/css\/community.css":1,"sites\/all\/themes\/avrfreaks\/css\/print.css":1,"public:\/\/adaptivetheme\/avrfreaks_files\/avrfreaks.responsive.layout.css":1,"public:\/\/adaptivetheme\/avrfreaks_files\/avrfreaks.responsive.styles.css":1,"public:\/\/adaptivetheme\/avrfreaks_files\/avrfreaks.lt-ie9.layout.css":1,"sites\/all\/themes\/avrfreaks\/css\/lt-ie9.css":1}},"apachesolr_autocomplete":{"path":"\/apachesolr_autocomplete"},"quote_nest":"0","CToolsModal":{"loadingText":"Loading...","closeText":"Close Window","closeImage":"\u003Cimg typeof=\u0022foaf:Image\u0022 class=\u0022image-style-none\u0022 src=\u0022https:\/\/www.avrfreaks.net\/profiles\/commons\/modules\/contrib\/ctools\/images\/icon-close-window.png\u0022 alt=\u0022Close window\u0022 title=\u0022Close window\u0022 \/\u003E","throbber":"\u003Cimg typeof=\u0022foaf:Image\u0022 class=\u0022image-style-none\u0022 src=\u0022https:\/\/www.avrfreaks.net\/profiles\/commons\/modules\/contrib\/ctools\/images\/throbber.gif\u0022 alt=\u0022Loading\u0022 title=\u0022Loading...\u0022 \/\u003E"},"rate":{"basePath":"\/rate\/vote\/js","destination":"node\/91221"},"hide_submit":{"hide_submit_status":true,"hide_submit_method":"disable","hide_submit_css":"hide-submit-disable","hide_submit_abtext":"","hide_submit_atext":"","hide_submit_hide_css":"hide-submit-processing","hide_submit_hide_text":"Processing...","hide_submit_hide_fx":false,"hide_submit_reset_time":5000},"urlIsAjaxTrusted":{"\/forum\/how-force-inline-function":true,"https:\/\/community.atmel.com\/search\/site":true},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"currentPath":"node\/91221","currentPathIsAdmin":false,"adaptivetheme":{"avrfreaks":{"layout_settings":{"bigscreen":"three-col-grail","tablet_landscape":"three-col-grail","tablet_portrait":"one-col-vert","smalltouch_landscape":"one-col-vert","smalltouch_portrait":"one-col-stack"},"media_query_settings":{"bigscreen":"only screen and (min-width:1800px)","tablet_landscape":"only screen and (min-width:755px) and (max-width:1799px)","tablet_portrait":"only screen and (min-width:680px) and (max-width:754px)","smalltouch_landscape":"only screen and (min-width:321px) and (max-width:679px)","smalltouch_portrait":"only screen and (max-width:320px)"}}}});
+//--><!]]>
+</script>
+<!--[if lt IE 9]>
+<script src="https://www.avrfreaks.net/profiles/commons/themes/contrib/adaptivetheme/at_core/scripts/html5.js?ps5y5e"></script>
+<![endif]-->
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-91221 node-type-forum site-name-hidden atr-7.x-3.x atv-7.x-3.4 palette-active palette-blue-blue webkit chrome win avr-freaks ios7-fix-processed">
+  <div id="skip-link">
+    <a href="https://www.avrfreaks.net/forum/how-force-inline-function#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div class="header-wrapper">
+  <div class="header-color-row-one">
+    <header id="header" class="clearfix" role="banner">
+
+              <!-- start: Branding -->
+        <div id="branding" class="branding-elements clearfix branding-mobile">
+                      <div id="logo">
+                <a class="avr-menu-toggle mobile-menu-processed" href="https://www.avrfreaks.net/forum/how-force-inline-function#top"><img class="nav-mobile" typeof="foaf:Image" src="./How to force a inline function _ AVR Freaks_files/hamburger.png" alt="Menu"></a>
+              <a href="https://www.avrfreaks.net/" title="AVR Freaks"><img class="site-logo" typeof="foaf:Image" src="./How to force a inline function _ AVR Freaks_files/Atmel_Freaks_logo_large.png" alt="AVR Freaks"></a>              <a href="https://www.avrfreaks.net/" class="mobile-logo-link"><img class="site-logo-mobile" typeof="foaf:Image" src="./How to force a inline function _ AVR Freaks_files/mobile_logo.png" alt="AVR Freaks"></a>            </div>
+          
+                      <!-- start: Site name and Slogan hgroup -->
+            <hgroup class="element-invisible h-group" id="name-and-slogan">
+
+                              <h1 class="element-invisible" id="site-name"><a href="https://www.avrfreaks.net/" title="Home page">AVR Freaks</a></h1>
+              
+              
+            </hgroup><!-- /end #name-and-slogan -->
+          
+        </div><!-- /end #branding -->
+           
+      <!-- Navigation elements -->
+        <div id="menu-bar" class="nav clearfix"><nav id="block-menu-menu-main-menu-mobile" class="block block-menu menu-wrapper menu-bar-wrapper clearfix odd first block-count-1 block-region-menu-bar block-menu-main-menu-mobile" role="navigation">  
+      <h3 class="element-invisible block-title">Main menu mobile</h3>
+  
+  <ul class="menu clearfix"><li class="first leaf"><a href="https://www.avrfreaks.net/" class="thin">Home</a></li>
+<li class="leaf"><a href="https://community.atmel.com/communities">Communities</a></li>
+<li class="leaf"><a href="https://www.avrfreaks.net/forum" class="thin">Forums</a></li>
+<li class="leaf"><a href="https://community.atmel.com/projects" class="thin">Projects</a></li>
+<li class="leaf"><a href="https://community.atmel.com/vendors" class="thin">Vendors</a></li>
+<li class="leaf"><a href="https://www.avrfreaks.net/wiki" class="thin">Wiki</a></li>
+<li class="leaf"><a href="https://community.atmel.com/search/site" class="thick">Search</a></li>
+<li class="leaf"><a href="https://community.atmel.com/user" class="thin">My summary</a></li>
+<li class="leaf"><a href="http://www.atmel.com/About/privacy.aspx" class="thin" target="_blank">Privacy</a></li>
+<li class="leaf"><a href="http://www.atmel.com/About/contact/distributors/default.aspx?contactType=Online%20Directory" class="thin" target="_blank">Contact</a></li>
+<li class="leaf"><a href="http://www.atmel.com/About/legal.aspx" class="thin" target="_blank">Site Use Terms</a></li>
+<li class="last leaf"><a href="http://www.atmel.com/About/cookies.aspx" class="thin" target="_blank">Cookies</a></li>
+</ul>
+  </nav><nav id="block-system-main-menu" class="block block-system block-menu no-title menu-wrapper menu-bar-wrapper clearfix even last block-count-2 block-region-menu-bar block-main-menu" role="navigation">  
+  
+  <ul class="menu clearfix"><li class="first leaf"><a href="https://community.atmel.com/communities">Communities</a></li>
+<li class="leaf active-trail"><a href="https://www.avrfreaks.net/forum" class="active">Forums</a></li>
+<li class="leaf"><a href="https://community.atmel.com/projects">Projects</a></li>
+<li class="leaf"><a href="https://community.atmel.com/vendors">Vendors</a></li>
+<li class="last leaf"><a href="https://www.avrfreaks.net/wiki/wik" title="Wiki">WIKI</a></li>
+</ul>
+  </nav></div>
+      <!-- region: Header -->
+      <div class="region region-header"><div class="region-inner clearfix"><div id="block-avrfreaks-rewrites-avr-header-logout-link" class="block block-avrfreaks-rewrites no-title odd first block-count-3 block-region-header block-avr-header-logout-link"><div class="block-inner clearfix">  
+  
+  <div class="block-content content"><ul class="authentication-links"><li class="signup first"><a href="https://www.avrfreaks.net/user/register">Signup</a></li>
+<li class="login last"><a href="https://www.avrfreaks.net/user/login?destination=home-new">Login</a></li>
+</ul></div>
+  </div></div><div id="block-search-form" class="block block-search no-title even last block-count-4 block-region-header block-form" role="search"><div class="block-inner clearfix">  
+  
+  <div class="block-content content"><form action="https://www.avrfreaks.net/forum/how-force-inline-function" method="post" id="search-block-form" accept-charset="UTF-8" class="form hideSubmitButton-processed">
+  <div>
+        <div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." class="apachesolr-autocomplete unprocessed form-text form-autocomplete" placeholder="What are you interested in?" type="search" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" autocomplete="off">
+</div>
+<div class="form-item form-type-select form-item-filter-by">
+ <select id="edit-filter-by" name="filter_by" class="form-select"><option value="all">Entire Site</option><option value="forum">All Communities</option><option value="9631">AVR Freaks</option><option value="9636">Atmel SMART ARM-based MCUs</option><option value="9666">Internet of Things</option><option value="9826">Capacitive Touch</option><option value="project">Projects</option><option value="vendor">Vendors</option><option value="wiki">Wiki</option></select>
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit"></div><input type="hidden" name="form_build_id" value="form-1ae8T-W4JhOO_PFLtvW_6HEvFZ_eA-Ceb05S1ScmoDQ">
+<input type="hidden" name="form_id" value="search_block_form">
+</div>
+  </div>
+</form>
+
+</div>
+  </div></div></div></div>    </header>
+  </div>
+  <div class="header-color-row-two"></div>
+</div>
+<div id="header-second-wrapper" class="header-second">
+        <!-- Breadcrumbs -->
+    <div id="breadcrumb" class="clearfix"><nav class="breadcrumb-wrapper clearfix" role="navigation" aria-labelledby="breadcrumb-label"><h2 id="breadcrumb-label" class="element-invisible">You are here</h2><ol id="crumbs" class="clearfix"><li class="crumb crumb-first"><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://community.atmel.com/">Home</a></span></li><li class="crumb"><span class="crumb-separator"> » </span><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://community.atmel.com/communities">Communities</a></span></li><li class="crumb"><span class="crumb-separator"> » </span><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://www.avrfreaks.net/">AVR Freaks</a></span></li><li class="crumb"><span class="crumb-separator"> » </span><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://www.avrfreaks.net/forum">Forums</a></span></li><li class="crumb"><span class="crumb-separator"> » </span><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://www.avrfreaks.net/forums/tools">Tools</a></span></li><li class="crumb"><span class="crumb-separator"> » </span><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://www.avrfreaks.net/forums/compilers-and-general-programming">Compilers and General Programming</a></span></li><li class="crumb crumb-last"><span class="crumb-separator"> » </span><span typeof="v:Breadcrumb"><span property="v:title">How to force a inline function</span></span></li></ol></nav></div>    </div>
+<div id="page" class="container page">
+
+  <div id="columns" class="columns clearfix">
+    <!-- Messages and Help -->
+    
+    <!-- region: Secondary Content -->
+    
+    <div id="page-top">
+            
+          </div>
+    <div id="content-column" class="content-column" role="main">
+      <div class="content-inner">
+        
+        <!-- region: Highlighted -->
+        
+        <div id="main-content">
+
+          <!-- region: Main Content -->
+                      <div id="content" class="region">
+                <div class="mobile-menu-bar">
+                  <div id="menu-bar" class="nav clearfix"><div id="menu-bar" class="nav clearfix"><nav id="block-menu-menu-main-menu-mobile" class="block block-menu menu-wrapper menu-bar-wrapper clearfix odd first block-count-1 block-region-menu-bar block-menu-main-menu-mobile" role="navigation">  
+      <h3 class="element-invisible block-title">Main menu mobile</h3>
+  
+  <ul class="menu clearfix"><li class="first leaf"><a href="https://www.avrfreaks.net/" class="thin">Home</a></li>
+<li class="leaf"><a href="https://community.atmel.com/communities">Communities</a></li>
+<li class="leaf"><a href="https://www.avrfreaks.net/forum" class="thin">Forums</a></li>
+<li class="leaf"><a href="https://community.atmel.com/projects" class="thin">Projects</a></li>
+<li class="leaf"><a href="https://community.atmel.com/vendors" class="thin">Vendors</a></li>
+<li class="leaf"><a href="https://www.avrfreaks.net/wiki" class="thin">Wiki</a></li>
+<li class="leaf"><a href="https://community.atmel.com/search/site" class="thick">Search</a></li>
+<li class="leaf"><a href="https://community.atmel.com/user" class="thin">My summary</a></li>
+<li class="leaf"><a href="http://www.atmel.com/About/privacy.aspx" class="thin" target="_blank">Privacy</a></li>
+<li class="leaf"><a href="http://www.atmel.com/About/contact/distributors/default.aspx?contactType=Online%20Directory" class="thin" target="_blank">Contact</a></li>
+<li class="leaf"><a href="http://www.atmel.com/About/legal.aspx" class="thin" target="_blank">Site Use Terms</a></li>
+<li class="last leaf"><a href="http://www.atmel.com/About/cookies.aspx" class="thin" target="_blank">Cookies</a></li>
+</ul>
+  </nav><nav id="block-system-main-menu" class="block block-system block-menu no-title menu-wrapper menu-bar-wrapper clearfix even last block-count-2 block-region-menu-bar block-main-menu" role="navigation">  
+  
+  <ul class="menu clearfix"><li class="first leaf"><a href="https://community.atmel.com/communities">Communities</a></li>
+<li class="leaf active-trail"><a href="https://www.avrfreaks.net/forum" class="active">Forums</a></li>
+<li class="leaf"><a href="https://community.atmel.com/projects">Projects</a></li>
+<li class="leaf"><a href="https://community.atmel.com/vendors">Vendors</a></li>
+<li class="last leaf"><a href="https://www.avrfreaks.net/wiki/wik" title="Wiki">WIKI</a></li>
+</ul>
+  </nav></div></div>                </div>
+              <div class="one-column at-panel panel-display clearfix">
+  <div class="region region-one-main">
+    <div class="region-inner clearfix">
+      <div class="panel-pane pane-node-title no-title block">
+  <div class="block-inner clearfix">
+    
+            
+    
+    <div class="block-content">
+      <h2>How to force a inline function</h2>
+    </div>
+
+    
+    
+  </div>
+</div>
+<div class="panel-separator"></div><div class="panel-pane pane-node-content pane-commons-bw-group no-title block">
+  <div class="block-inner clearfix">
+    
+            
+    
+    <div class="block-content">
+        
+<div id="forum-topic-header" class="forum-topic-header clearfix">
+	
+      <div class="topic-reply-link">
+      <a href="https://www.avrfreaks.net/user/login?destination=node/91221%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/91221%23comment-form">register</a> to post comments    </div>
+    
+  
+      <div class="last-post-link">
+       <a href="https://www.avrfreaks.net/forum/how-force-inline-function#comment-618121" class="af-button-large active"><span>Go To Last Post</span></a>    </div>
+    
+      
+  <div class="topic-post-count">
+      <span>16 posts / 0 new</span>
+  </div>
+    
+  <div class="topic-post-pager">
+         </div>
+    
+  <a id="forum-topic-top"></a>
+</div>
+
+<a id="forum-topic-top"></a>
+  <div class="forum-topic-hat clearfix">
+    <div class="forum-hat-left-side">Author</div>
+    <div class="forum-hat-right-side">Message</div>
+  </div>
+<div id="post-91221" class="forum-post clearfix en posted-by-47619 article odd node-full  " about="/forum/how-force-inline-function" typeof="sioc:Post sioct:BoardPost" role="article">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><a href="https://www.avrfreaks.net/users/joeks-0" title="View user profile." class="username" xml:lang="" about="/users/joeks-0" typeof="sioc:UserAccount" property="foaf:name" datatype="">Joeks</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/joeks-0" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./How to force a inline function _ AVR Freaks_files/592212594adc7103c96d9_3.jpg" alt="Joeks&#39;s picture" title="Joeks&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: Hangaround              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Fri. Feb 3, 2006              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 100 <a href="https://www.avrfreaks.net/user/47619/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+                  Location: South Africa              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/forum/how-force-inline-function" class="active">#1</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/joeks-0" title="View user profile." class="username" xml:lang="" about="/users/joeks-0" typeof="sioc:UserAccount" property="foaf:name" datatype="">Joeks</a></span>: </span>
+              <span class="date-time">Wed. Jul 28, 2010 - 10:01 AM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="form-item form-type-item">
+  <label>Fivestar widget </label>
+ <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-f52e9047aa737f98373da5873c20e172 rate-node-91221-3-3 rate-processed" id="rate-node-91221-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-76">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-77">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-78">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-79">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-80">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>
+</div>
+              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <div class="field field-name-body field-type-text-with-summary field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Hi there,</p>
+<p>using WinAVR20100110, Optimization = s (size),  how can I tell the compiler to always inline a function.</p>
+<p>This doesn't work:</p>
+<div class="bb-quote">
+<blockquote class="bb-quote-body">
+<pre>inline void Tasks__Exit_Critical_Section(void) __attribute__((always_inline));</pre></blockquote>
+</div>
+<p>Thanks</p>
+</div></div></div><span property="dc:title" content="How to force a inline function" class="rdf-meta element-hidden"></span>        </div>
+                                          <div class="post-tags">
+            <h2 class="field-label">Tags:</h2><div class="topic-comments-tags"><a href="https://community.atmel.com/search/site?f%5B0%5D=im_taxonomy_forums%3A969&amp;f%5B1%5D=bundle%3Aforum">Tools</a>, <a href="https://community.atmel.com/search/site?f%5B0%5D=im_taxonomy_forums%3A631&amp;f%5B1%5D=bundle%3Aforum">Compilers and General Programming</a></div>          </div>
+              </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline node-action-links"><li class="comment_forbidden first"><span class=""><a href="https://www.avrfreaks.net/user/login?destination=node/91221%23comment-f/m">Log in</a> / <a href="https://www.avrfreaks.net/user/register?destination=node/91221%23comment-f/m">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/how-force-inline-function#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+<div id="forum-comments" class="comment-wrapper">
+  <a id="comment-617754"></a>
+
+<a id="forum-topic-top"></a>
+<div id="post-617754" class="forum-post clearfix en posted-by-44717 odd first comment-with-picture  " about="/comment/617754#comment-617754" typeof="sioc:Post sioct:Comment">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><img src="./How to force a inline function _ AVR Freaks_files/offline.png"><a href="https://www.avrfreaks.net/users/wek-0" title="View user profile." class="username" xml:lang="" about="/users/wek-0" typeof="sioc:UserAccount" property="foaf:name" datatype="">wek</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/wek-0" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./How to force a inline function _ AVR Freaks_files/picture-default.jpg" alt="wek&#39;s picture" title="wek&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: Raving Lunatic              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Fri. Dec 16, 2005              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 3271 <a href="https://www.avrfreaks.net/user/44717/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+                  Location: Bratislava, Slovakia              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/comment/617754#comment-617754" class="permalink" rel="bookmark">#2</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/wek-0" title="View user profile." class="username" xml:lang="" about="/users/wek-0" typeof="sioc:UserAccount" property="foaf:name" datatype="">wek</a></span>: </span>
+              <span class="date-time">Wed. Jul 28, 2010 - 10:09 AM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-46ed5c79ca5b282487d5466a89e121eb rate-comment-617754-3-3 rate-processed" id="rate-comment-617754-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-1">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-2">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-3">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-4">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-5">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <span rel="sioc:reply_of" resource="/forum/how-force-inline-function" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p></p><div class="bb-quote"><b>Joeks wrote:</b><blockquote class="bb-quote-body">Hi there,<p></p>
+<p>using WinAVR20100110, Optimization = s (size),  how can I tell the compiler to always inline a function.</p>
+<p>This doesn't work:</p>
+<div class="bb-quote">
+<blockquote class="bb-quote-body">
+<pre>inline void Tasks__Exit_Critical_Section(void) __attribute__((always_inline));</pre></blockquote>
+</div>
+<p>Thanks</p></blockquote></div>How does not work? Show us an example.<p></p>
+<p>JW</p>
+</div></div></div>        </div>
+                                      </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.avrfreaks.net/user/login?destination=node/91221%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/91221%23comment-form">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/how-force-inline-function#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+<a id="comment-617766"></a>
+
+<a id="forum-topic-top"></a>
+<div id="post-617766" class="forum-post clearfix en posted-by-47619 post-by-starter even comment-with-picture  " about="/comment/617766#comment-617766" typeof="sioc:Post sioct:Comment">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><a href="https://www.avrfreaks.net/users/joeks-0" title="View user profile." class="username" xml:lang="" about="/users/joeks-0" typeof="sioc:UserAccount" property="foaf:name" datatype="">Joeks</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/joeks-0" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./How to force a inline function _ AVR Freaks_files/592212594adc7103c96d9_3.jpg" alt="Joeks&#39;s picture" title="Joeks&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: Hangaround              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Fri. Feb 3, 2006              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 100 <a href="https://www.avrfreaks.net/user/47619/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+                  Location: South Africa              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/comment/617766#comment-617766" class="permalink" rel="bookmark">#3</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/joeks-0" title="View user profile." class="username" xml:lang="" about="/users/joeks-0" typeof="sioc:UserAccount" property="foaf:name" datatype="">Joeks</a></span>: </span>
+              <span class="date-time">Wed. Jul 28, 2010 - 11:30 AM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-8cd7907e4fa00936fe5fbcaca720ef87 rate-comment-617766-3-3 rate-processed" id="rate-comment-617766-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-6">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-7">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-8">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-9">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-10">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <span rel="sioc:reply_of" resource="/forum/how-force-inline-function" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p>I can see in the listing file that a call is made to the function , here is a part of the listing file:</p>
+<div class="bb-quote">
+<blockquote class="bb-quote-body">
+<pre>/* DE-ASSERT THE CS SIGNAL */
+	SET_BIT(PORTD,IO__PD6_nMEM_CS);
+    6fe4:	5e 9a       	sbi	0x0b, 6	; 11
+
+/* EXIT CRITICAL CONDITION */
+   Tasks__Exit_Critical_Section();
+    6fe6:	0e 94 b5 3b 	call	0x776a	; 0x776a <tasks__exit_critical_section>
+	
+	return temp_Data;
+}	
+    6fea:	81 2f       	mov	r24, r17
+    6fec:	0f 90       	pop	r0
+    6fee:	0f 90       	pop	r0
+    6ff0:	cf 91       	pop	r28
+    6ff2:	df 91       	pop	r29
+    6ff4:	1f 91       	pop	r17
+    6ff6:	08 95       	ret
+</tasks__exit_critical_section></pre></blockquote>
+</div>
+<p>What to do now?</p>
+</div></div></div>        </div>
+                                      </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.avrfreaks.net/user/login?destination=node/91221%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/91221%23comment-form">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/how-force-inline-function#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+<a id="comment-617767"></a>
+
+<a id="forum-topic-top"></a>
+<div id="post-617767" class="forum-post clearfix en posted-by-28399 odd comment-with-picture  " about="/comment/617767#comment-617767" typeof="sioc:Post sioct:Comment">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><a href="https://www.avrfreaks.net/users/lfmorrison" title="View user profile." class="username" xml:lang="" about="/users/lfmorrison" typeof="sioc:UserAccount" property="foaf:name" datatype="">lfmorrison</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/lfmorrison" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./How to force a inline function _ AVR Freaks_files/picture-default.jpg" alt="lfmorrison&#39;s picture" title="lfmorrison&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: Raving Lunatic              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Wed. Dec 8, 2004              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 4664 <a href="https://www.avrfreaks.net/user/28399/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+                  Location: Nova Scotia, Canada              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/comment/617767#comment-617767" class="permalink" rel="bookmark">#4</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/lfmorrison" title="View user profile." class="username" xml:lang="" about="/users/lfmorrison" typeof="sioc:UserAccount" property="foaf:name" datatype="">lfmorrison</a></span>: </span>
+              <span class="date-time">Wed. Jul 28, 2010 - 11:31 AM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-ab0149505df2d3b55f2fc44ab4ff1112 rate-comment-617767-3-3 rate-processed" id="rate-comment-617767-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-11">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-12">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-13">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-14">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-15">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <span rel="sioc:reply_of" resource="/forum/how-force-inline-function" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Crystal ball prediction #1:<br>
+If a function is defined in one compilation unit (C file) and then referenced by a different compilation unit (C file), then unless whole-program compilation is enabled, it will be impossible for GCC to inline the function.</p>
+</div></div></div>        </div>
+                                      </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.avrfreaks.net/user/login?destination=node/91221%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/91221%23comment-form">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/how-force-inline-function#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+<a id="comment-617770"></a>
+
+<a id="forum-topic-top"></a>
+<div id="post-617770" class="forum-post clearfix en posted-by-44717 even comment-with-picture  " about="/comment/617770#comment-617770" typeof="sioc:Post sioct:Comment">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><img src="./How to force a inline function _ AVR Freaks_files/offline.png"><a href="https://www.avrfreaks.net/users/wek-0" title="View user profile." class="username" xml:lang="" about="/users/wek-0" typeof="sioc:UserAccount" property="foaf:name" datatype="">wek</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/wek-0" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./How to force a inline function _ AVR Freaks_files/picture-default.jpg" alt="wek&#39;s picture" title="wek&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: Raving Lunatic              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Fri. Dec 16, 2005              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 3271 <a href="https://www.avrfreaks.net/user/44717/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+                  Location: Bratislava, Slovakia              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/comment/617770#comment-617770" class="permalink" rel="bookmark">#5</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/wek-0" title="View user profile." class="username" xml:lang="" about="/users/wek-0" typeof="sioc:UserAccount" property="foaf:name" datatype="">wek</a></span>: </span>
+              <span class="date-time">Wed. Jul 28, 2010 - 11:37 AM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-4931f018e8d3b4e08d7bbe0ee91d2c67 rate-comment-617770-3-3 rate-processed" id="rate-comment-617770-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-16">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-17">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-18">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-19">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-20">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <span rel="sioc:reply_of" resource="/forum/how-force-inline-function" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Post source/command line switches a complete minimal example exhibiting the problem, so that we can reproduce them.</p>
+<p>My crystal ball prediction is the same than lfmorrison's, though.</p>
+<p>JW</p>
+</div></div></div>        </div>
+                                      </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.avrfreaks.net/user/login?destination=node/91221%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/91221%23comment-form">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/how-force-inline-function#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+<a id="comment-617772"></a>
+
+<a id="forum-topic-top"></a>
+<div id="post-617772" class="forum-post clearfix en posted-by-47619 post-by-starter odd comment-with-picture  " about="/comment/617772#comment-617772" typeof="sioc:Post sioct:Comment">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><a href="https://www.avrfreaks.net/users/joeks-0" title="View user profile." class="username" xml:lang="" about="/users/joeks-0" typeof="sioc:UserAccount" property="foaf:name" datatype="">Joeks</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/joeks-0" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./How to force a inline function _ AVR Freaks_files/592212594adc7103c96d9_3.jpg" alt="Joeks&#39;s picture" title="Joeks&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: Hangaround              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Fri. Feb 3, 2006              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 100 <a href="https://www.avrfreaks.net/user/47619/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+                  Location: South Africa              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/comment/617772#comment-617772" class="permalink" rel="bookmark">#6</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/joeks-0" title="View user profile." class="username" xml:lang="" about="/users/joeks-0" typeof="sioc:UserAccount" property="foaf:name" datatype="">Joeks</a></span>: </span>
+              <span class="date-time">Wed. Jul 28, 2010 - 11:47 AM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-f6ef3ad2fb1e7c1e5ae09b1d35b01469 rate-comment-617772-3-3 rate-processed" id="rate-comment-617772-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-21">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-22">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-23">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-24">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-25">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <span rel="sioc:reply_of" resource="/forum/how-force-inline-function" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Here are my compiler options taken out of the makefile:</p>
+<div class="bb-quote">
+<blockquote class="bb-quote-body">
+<pre>#---------------- Compiler Options ----------------
+#  -g*:          generate debugging information
+#  -O*:          optimization level
+#  -f...:        tuning, see GCC manual and avr-libc documentation
+#  -Wall...:     warning level
+#  -Wa,...:      tell GCC to pass this to the assembler.
+#    -adhlns...: create assembler listing
+CFLAGS = -g$(DEBUG)
+CFLAGS += $(CDEFS) $(CINCS)
+CFLAGS += -O$(OPT)
+CFLAGS += -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
+CFLAGS += -Wall -Wstrict-prototypes -Wno-format -Wextra
+CFLAGS += -Wa,-adhlns=$(&lt;:.c=.lst)
+CFLAGS += $(patsubst %,-I%,$(EXTRAINCDIRS))
+CFLAGS += $(CSTANDARD)
+</pre></blockquote>
+</div>
+<p>It tried the -fwhole-program as you suggested, but now the linker gives "undefined reference to ..." errors.  I declare all the functions in each one's header file and include the header files in the source files.</p>
+</div></div></div>        </div>
+                                      </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.avrfreaks.net/user/login?destination=node/91221%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/91221%23comment-form">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/how-force-inline-function#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+<a id="comment-617775"></a>
+
+<a id="forum-topic-top"></a>
+<div id="post-617775" class="forum-post clearfix en posted-by-44717 even comment-with-picture  " about="/comment/617775#comment-617775" typeof="sioc:Post sioct:Comment">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><img src="./How to force a inline function _ AVR Freaks_files/offline.png"><a href="https://www.avrfreaks.net/users/wek-0" title="View user profile." class="username" xml:lang="" about="/users/wek-0" typeof="sioc:UserAccount" property="foaf:name" datatype="">wek</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/wek-0" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./How to force a inline function _ AVR Freaks_files/picture-default.jpg" alt="wek&#39;s picture" title="wek&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: Raving Lunatic              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Fri. Dec 16, 2005              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 3271 <a href="https://www.avrfreaks.net/user/44717/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+                  Location: Bratislava, Slovakia              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/comment/617775#comment-617775" class="permalink" rel="bookmark">#7</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/wek-0" title="View user profile." class="username" xml:lang="" about="/users/wek-0" typeof="sioc:UserAccount" property="foaf:name" datatype="">wek</a></span>: </span>
+              <span class="date-time">Wed. Jul 28, 2010 - 11:51 AM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-f4dafa2d23602ad15e5926d28108057f rate-comment-617775-3-3 rate-processed" id="rate-comment-617775-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-26">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-27">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-28">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-29">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-30">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <span rel="sioc:reply_of" resource="/forum/how-force-inline-function" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Add "static" and put it into a project-wide header.</p>
+<p>Or make a macro out of it.</p>
+<p>JW</p>
+</div></div></div>        </div>
+                                      </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.avrfreaks.net/user/login?destination=node/91221%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/91221%23comment-form">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/how-force-inline-function#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+<a id="comment-617976"></a>
+
+<a id="forum-topic-top"></a>
+<div id="post-617976" class="forum-post clearfix en posted-by-47619 post-by-starter odd comment-with-picture  " about="/comment/617976#comment-617976" typeof="sioc:Post sioct:Comment">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><a href="https://www.avrfreaks.net/users/joeks-0" title="View user profile." class="username" xml:lang="" about="/users/joeks-0" typeof="sioc:UserAccount" property="foaf:name" datatype="">Joeks</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/joeks-0" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./How to force a inline function _ AVR Freaks_files/592212594adc7103c96d9_3.jpg" alt="Joeks&#39;s picture" title="Joeks&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: Hangaround              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Fri. Feb 3, 2006              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 100 <a href="https://www.avrfreaks.net/user/47619/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+                  Location: South Africa              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/comment/617976#comment-617976" class="permalink" rel="bookmark">#8</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/joeks-0" title="View user profile." class="username" xml:lang="" about="/users/joeks-0" typeof="sioc:UserAccount" property="foaf:name" datatype="">Joeks</a></span>: </span>
+              <span class="date-time">Thu. Jul 29, 2010 - 06:55 AM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-3e3b913cc7103f1ceba3f9b9dafac80d rate-comment-617976-3-3 rate-processed" id="rate-comment-617976-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-31">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-32">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-33">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-34">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-35">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <span rel="sioc:reply_of" resource="/forum/how-force-inline-function" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Ok, thanks, will do the macro thing</p>
+<p>JP</p>
+</div></div></div>        </div>
+                                      </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.avrfreaks.net/user/login?destination=node/91221%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/91221%23comment-form">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/how-force-inline-function#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+<a id="comment-617981"></a>
+
+<a id="forum-topic-top"></a>
+<div id="post-617981" class="forum-post clearfix en posted-by-2243 even comment-with-picture  " about="/comment/617981#comment-617981" typeof="sioc:Post sioct:Comment">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><img src="./How to force a inline function _ AVR Freaks_files/offline.png"><a href="https://www.avrfreaks.net/users/danni" title="View user profile." class="username" xml:lang="" about="/users/danni" typeof="sioc:UserAccount" property="foaf:name" datatype="">danni</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/danni" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./How to force a inline function _ AVR Freaks_files/picture-default.jpg" alt="danni&#39;s picture" title="danni&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: Raving Lunatic              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Wed. Sep 5, 2001              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 2993 <a href="https://www.avrfreaks.net/user/2243/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/comment/617981#comment-617981" class="permalink" rel="bookmark">#9</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/danni" title="View user profile." class="username" xml:lang="" about="/users/danni" typeof="sioc:UserAccount" property="foaf:name" datatype="">danni</a></span>: </span>
+              <span class="date-time">Thu. Jul 29, 2010 - 07:20 AM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-1b147febced9969eefa417d54dded516 rate-comment-617981-3-3 rate-processed" id="rate-comment-617981-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-36">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-37">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-38">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-39">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-40">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <span rel="sioc:reply_of" resource="/forum/how-force-inline-function" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><div class="bb-quote">
+<blockquote class="bb-quote-body">
+<pre>// always inline function x:
+
+#define AIL(x)   static x __attribute__ ((always_inline)); static x
+
+
+// never inline function x:
+
+#define NIL(x)   x __attribute__ ((noinline)); x
+</pre></blockquote>
+</div>
+<p>Peter</p>
+</div></div></div>        </div>
+                                      </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.avrfreaks.net/user/login?destination=node/91221%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/91221%23comment-form">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/how-force-inline-function#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+<a id="comment-618002"></a>
+
+<a id="forum-topic-top"></a>
+<div id="post-618002" class="forum-post clearfix en posted-by-28397 odd comment-with-picture comment-with-signature  " about="/comment/618002#comment-618002" typeof="sioc:Post sioct:Comment">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><a href="https://www.avrfreaks.net/users/clawson" title="View user profile." class="username" xml:lang="" about="/users/clawson" typeof="sioc:UserAccount" property="foaf:name" datatype="">clawson</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/clawson" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./How to force a inline function _ AVR Freaks_files/picture-28397-1517303903.gif" alt="clawson&#39;s picture" title="clawson&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: Moderator              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Mon. Jul 18, 2005              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 95739 <a href="https://www.avrfreaks.net/user/28397/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+                  Location: (using avr-gcc in) Finchingfield, Essex, England              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/comment/618002#comment-618002" class="permalink" rel="bookmark">#10</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/clawson" title="View user profile." class="username" xml:lang="" about="/users/clawson" typeof="sioc:UserAccount" property="foaf:name" datatype="">clawson</a></span>: </span>
+              <span class="date-time">Thu. Jul 29, 2010 - 08:58 AM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-87ff5d44a89c439938287d0d8a362e47 rate-comment-618002-3-3 rate-processed" id="rate-comment-618002-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-41">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-42">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-43">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-44">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-45">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <span rel="sioc:reply_of" resource="/forum/how-force-inline-function" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p></p><div class="bb-quote">Quote:<blockquote class="bb-quote-body"><br>
+Ok, thanks, will do the macro thing<br>
+</blockquote></div><br>
+Eh? A static inline function in a .h is a FAR better idea. For one thing it's not polluted with '\' line terminators if it spans multiple lines and for another the input and return values are type checked by the C compiler.<p></p>
+</div></div></div>        </div>
+                                  <div class="author-signature">
+            <p><a href="http://www.nongnu.org/avr-libc/user-manual/FAQ.html" target="_blank" rel="nofollow"><img alt="" class="attr__format__default attr__typeof__foaf:Image image-style-none img__fid__251241 img__view_mode__default media-image" src="./How to force a inline function _ AVR Freaks_files/faq_0.jpg"></a></p>
+          </div>
+                      </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.avrfreaks.net/user/login?destination=node/91221%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/91221%23comment-form">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/how-force-inline-function#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+<a id="comment-618011"></a>
+
+<a id="forum-topic-top"></a>
+<div id="post-618011" class="forum-post clearfix en posted-by-47619 post-by-starter even comment-with-picture  " about="/comment/618011#comment-618011" typeof="sioc:Post sioct:Comment">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><a href="https://www.avrfreaks.net/users/joeks-0" title="View user profile." class="username" xml:lang="" about="/users/joeks-0" typeof="sioc:UserAccount" property="foaf:name" datatype="">Joeks</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/joeks-0" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./How to force a inline function _ AVR Freaks_files/592212594adc7103c96d9_3.jpg" alt="Joeks&#39;s picture" title="Joeks&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: Hangaround              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Fri. Feb 3, 2006              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 100 <a href="https://www.avrfreaks.net/user/47619/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+                  Location: South Africa              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/comment/618011#comment-618011" class="permalink" rel="bookmark">#11</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/joeks-0" title="View user profile." class="username" xml:lang="" about="/users/joeks-0" typeof="sioc:UserAccount" property="foaf:name" datatype="">Joeks</a></span>: </span>
+              <span class="date-time">Thu. Jul 29, 2010 - 09:31 AM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-a9f4dcfbc24b90c64a7cb6f84bb39db8 rate-comment-618011-3-3 rate-processed" id="rate-comment-618011-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-46">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-47">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-48">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-49">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-50">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <span rel="sioc:reply_of" resource="/forum/how-force-inline-function" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p>I hear you but my macro/function is "really short", here it is:</p>
+<div class="bb-quote">
+<blockquote class="bb-quote-body">
+<pre>#define Tasks__Enter_Critical_Section()	{\
+	{\
+	DISABLE_GLOBAL_INTERRUPTS();\
+	GPIOR0++;\
+	ENABLE_GLOBAL_INTERRUPTS();\
+}\
+}\</pre></blockquote>
+</div>
+<p>[code]</p>
+<p>Just for now easier to put it in macro</p>
+</div></div></div>        </div>
+                                      </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.avrfreaks.net/user/login?destination=node/91221%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/91221%23comment-form">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/how-force-inline-function#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+<a id="comment-618014"></a>
+
+<a id="forum-topic-top"></a>
+<div id="post-618014" class="forum-post clearfix en posted-by-4475 odd comment-with-picture comment-with-signature  " about="/comment/618014#comment-618014" typeof="sioc:Post sioct:Comment">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><a href="https://www.avrfreaks.net/users/johanekdahl" title="View user profile." class="username" xml:lang="" about="/users/johanekdahl" typeof="sioc:UserAccount" property="foaf:name" datatype="">JohanEkdahl</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/johanekdahl" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./How to force a inline function _ AVR Freaks_files/picture-4475-1517246134.jpg" alt="JohanEkdahl&#39;s picture" title="JohanEkdahl&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: 10k+ Postman              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Wed. Mar 27, 2002              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 26988 <a href="https://www.avrfreaks.net/user/4475/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+                  Location: Lund, Sweden              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/comment/618014#comment-618014" class="permalink" rel="bookmark">#12</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/johanekdahl" title="View user profile." class="username" xml:lang="" about="/users/johanekdahl" typeof="sioc:UserAccount" property="foaf:name" datatype="">JohanEkdahl</a></span>: </span>
+              <span class="date-time">Thu. Jul 29, 2010 - 09:34 AM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-72984c89bd409df7fa2fc6ad242f2560 rate-comment-618014-3-3 rate-processed" id="rate-comment-618014-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-51">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-52">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-53">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-54">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-55">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <span rel="sioc:reply_of" resource="/forum/how-force-inline-function" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p>What are you trying to achieve? If it is handling an atomicity situation, why not use the stuff already available in avrlibc?</p>
+</div></div></div>        </div>
+                                  <div class="author-signature">
+            <p><span style="color:#FF0000">As of January 15, 2018, <strong>Site fix-up</strong> work has begun! Now <strong>do your part</strong> and <strong>report</strong> any bugs or deficiencies <a href="https://www.avrfreaks.net/forum/consolidating-site-errors-and-deficiencies" target="_blank" rel="nofollow">here</a>.&nbsp;</span></p>
+<p><span style="color:#FF0000">No guarantees, but if we don't report problems they won't get much of &nbsp;a chance to be fixed! Details/discussions at link given just above.</span></p>
+<p>&nbsp;</p>
+<p>"Some questions have no answers."[C Baird] "There comes a point where the spoon-feeding has to stop and the independent thinking has to start." [C Lawson] "There are always ways to disagree, without being disagreeable."[E Weddington] "Words represent concepts. Use the wrong words, communicate the wrong concept." [J Morin] "<span style="background-color:rgb(255, 255, 255)">Persistence only goes so far if you set yourself up for failure.</span>" [Kartman]</p>
+          </div>
+                      </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.avrfreaks.net/user/login?destination=node/91221%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/91221%23comment-form">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/how-force-inline-function#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+<a id="comment-618015"></a>
+
+<a id="forum-topic-top"></a>
+<div id="post-618015" class="forum-post clearfix en posted-by-28397 even comment-with-picture comment-with-signature  " about="/comment/618015#comment-618015" typeof="sioc:Post sioct:Comment">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><a href="https://www.avrfreaks.net/users/clawson" title="View user profile." class="username" xml:lang="" about="/users/clawson" typeof="sioc:UserAccount" property="foaf:name" datatype="">clawson</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/clawson" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./How to force a inline function _ AVR Freaks_files/picture-28397-1517303903.gif" alt="clawson&#39;s picture" title="clawson&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: Moderator              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Mon. Jul 18, 2005              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 95739 <a href="https://www.avrfreaks.net/user/28397/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+                  Location: (using avr-gcc in) Finchingfield, Essex, England              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/comment/618015#comment-618015" class="permalink" rel="bookmark">#13</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/clawson" title="View user profile." class="username" xml:lang="" about="/users/clawson" typeof="sioc:UserAccount" property="foaf:name" datatype="">clawson</a></span>: </span>
+              <span class="date-time">Thu. Jul 29, 2010 - 09:34 AM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-a99357ebf8b6fb3ca333293ba5bba86d rate-comment-618015-3-3 rate-processed" id="rate-comment-618015-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-56">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-57">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-58">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-59">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-60">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <span rel="sioc:reply_of" resource="/forum/how-force-inline-function" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Which becomes:</p>
+<div class="bb-quote">
+<blockquote class="bb-quote-body">
+<pre>static inline void Tasks__Enter_Critical_Section(void)   { 
+   DISABLE_GLOBAL_INTERRUPTS();
+   GPIOR0++;
+   ENABLE_GLOBAL_INTERRUPTS();
+}</pre></blockquote>
+</div>
+<p>If nothing else it's not peppered with \ \ \ \</p>
+</div></div></div>        </div>
+                                  <div class="author-signature">
+            <p><a href="http://www.nongnu.org/avr-libc/user-manual/FAQ.html" target="_blank" rel="nofollow"><img alt="" class="attr__format__default attr__typeof__foaf:Image image-style-none img__fid__251241 img__view_mode__default media-image" src="./How to force a inline function _ AVR Freaks_files/faq_0.jpg"></a></p>
+          </div>
+                      </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.avrfreaks.net/user/login?destination=node/91221%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/91221%23comment-form">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/how-force-inline-function#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+<a id="comment-618022"></a>
+
+<a id="forum-topic-top"></a>
+<div id="post-618022" class="forum-post clearfix en posted-by-47619 post-by-starter odd comment-with-picture  " about="/comment/618022#comment-618022" typeof="sioc:Post sioct:Comment">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><a href="https://www.avrfreaks.net/users/joeks-0" title="View user profile." class="username" xml:lang="" about="/users/joeks-0" typeof="sioc:UserAccount" property="foaf:name" datatype="">Joeks</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/joeks-0" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./How to force a inline function _ AVR Freaks_files/592212594adc7103c96d9_3.jpg" alt="Joeks&#39;s picture" title="Joeks&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: Hangaround              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Fri. Feb 3, 2006              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 100 <a href="https://www.avrfreaks.net/user/47619/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+                  Location: South Africa              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/comment/618022#comment-618022" class="permalink" rel="bookmark">#14</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/joeks-0" title="View user profile." class="username" xml:lang="" about="/users/joeks-0" typeof="sioc:UserAccount" property="foaf:name" datatype="">Joeks</a></span>: </span>
+              <span class="date-time">Thu. Jul 29, 2010 - 09:49 AM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-c6c796e109efdc627d6a34e17e56d64b rate-comment-618022-3-3 rate-processed" id="rate-comment-618022-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-61">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-62">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-63">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-64">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-65">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <span rel="sioc:reply_of" resource="/forum/how-force-inline-function" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p>But this code is also called from other c-files, so can't declare is as static??</p>
+</div></div></div>        </div>
+                                      </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.avrfreaks.net/user/login?destination=node/91221%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/91221%23comment-form">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/how-force-inline-function#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+<a id="comment-618034"></a>
+
+<a id="forum-topic-top"></a>
+<div id="post-618034" class="forum-post clearfix en posted-by-4475 even comment-with-picture comment-with-signature  " about="/comment/618034#comment-618034" typeof="sioc:Post sioct:Comment">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><a href="https://www.avrfreaks.net/users/johanekdahl" title="View user profile." class="username" xml:lang="" about="/users/johanekdahl" typeof="sioc:UserAccount" property="foaf:name" datatype="">JohanEkdahl</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/johanekdahl" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./How to force a inline function _ AVR Freaks_files/picture-4475-1517246134.jpg" alt="JohanEkdahl&#39;s picture" title="JohanEkdahl&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: 10k+ Postman              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Wed. Mar 27, 2002              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 26988 <a href="https://www.avrfreaks.net/user/4475/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+                  Location: Lund, Sweden              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/comment/618034#comment-618034" class="permalink" rel="bookmark">#15</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/johanekdahl" title="View user profile." class="username" xml:lang="" about="/users/johanekdahl" typeof="sioc:UserAccount" property="foaf:name" datatype="">JohanEkdahl</a></span>: </span>
+              <span class="date-time">Thu. Jul 29, 2010 - 10:34 AM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-52a890b3fbb438baff611d1bf266533f rate-comment-618034-3-3 rate-processed" id="rate-comment-618034-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-66">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-67">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-68">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-69">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-70">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <span rel="sioc:reply_of" resource="/forum/how-force-inline-function" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p></p><div class="bb-quote">Quote:<blockquote class="bb-quote-body"><br>
+But this code is also called from other c-files<br>
+</blockquote></div><br>
+You have to decide: Either the function is inlined, or it is actually called (eg from other source files). Of-course you can't have both.<p></p>
+<p>One exceprion to the rule that you should not place something that actually generates code in a .h file are inlined functions. Since they will not be called in the low-level sense (no CALL instruction will be generated) but the code actually inserted at every place you have a C-level call to it this will not generate the usual problems with duplicated code generation. Indeed, the very core of inlining is that the code gets duplicated.</p>
+<p>Understand this:</p>
+<p>For a normal <span style="font-weight:bold">non-inlined</span> function the compiler generates code only once. Calls from the same source file will can be resolved by the compiler. Calls from other source files has to be left to the linker to resolve.</p>
+<p>For an inlined function the work is done entirely by the compiler, duplicating the functions code in every place you have a call to it at the C level. The linker will never know that there was a function. It has nothing to resolve, because the compiler has already done all the work.</p>
+<p></p><div class="bb-quote">Quote:<blockquote class="bb-quote-body">so can't declare is as static??</blockquote></div><br>
+The only way you can get an inlined function to be useed in several source files is to make the implementation seen in every source file. The natural way to do this is to place the implementation in an #included file.<p></p>
+<p>Next, to make sure that the compiler can at all times inline the function it has to know that there will be no ordinary calls (with a CALL instruction) from other source files (that has to be resolved by the linker). You do this by telling the compiler explicitly that the function is only visible in the currently compiled source file with the keyword static.</p>
+<p>If such an implementation is seen in several separate compilations of separate source files, each will see "it's own copy" of the static function.</p>
+</div></div></div>        </div>
+                                  <div class="author-signature">
+            <p><span style="color:#FF0000">As of January 15, 2018, <strong>Site fix-up</strong> work has begun! Now <strong>do your part</strong> and <strong>report</strong> any bugs or deficiencies <a href="https://www.avrfreaks.net/forum/consolidating-site-errors-and-deficiencies" target="_blank" rel="nofollow">here</a>.&nbsp;</span></p>
+<p><span style="color:#FF0000">No guarantees, but if we don't report problems they won't get much of &nbsp;a chance to be fixed! Details/discussions at link given just above.</span></p>
+<p>&nbsp;</p>
+<p>"Some questions have no answers."[C Baird] "There comes a point where the spoon-feeding has to stop and the independent thinking has to start." [C Lawson] "There are always ways to disagree, without being disagreeable."[E Weddington] "Words represent concepts. Use the wrong words, communicate the wrong concept." [J Morin] "<span style="background-color:rgb(255, 255, 255)">Persistence only goes so far if you set yourself up for failure.</span>" [Kartman]</p>
+          </div>
+                      </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.avrfreaks.net/user/login?destination=node/91221%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/91221%23comment-form">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/how-force-inline-function#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+<a id="comment-618121"></a>
+
+<a id="forum-topic-top"></a>
+<div id="post-618121" class="forum-post clearfix en posted-by-198264 odd last comment-with-picture comment-with-signature  " about="/comment/618121#comment-618121" typeof="sioc:Post sioct:Comment">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><img src="./How to force a inline function _ AVR Freaks_files/offline.png"><a href="https://www.avrfreaks.net/users/stusan6319" title="View user profile." class="username" xml:lang="" about="/users/stusan6319" typeof="sioc:UserAccount" property="foaf:name" datatype="">stu_san</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/stusan6319" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./How to force a inline function _ AVR Freaks_files/144730339743dff4986390f_3.jpg" alt="stu_san&#39;s picture" title="stu_san&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: Raving Lunatic              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Fri. Dec 30, 2005              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 2327 <a href="https://www.avrfreaks.net/user/198264/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+                  Location: Fort Collins, CO USA              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/comment/618121#comment-618121" class="permalink" rel="bookmark">#16</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/stusan6319" title="View user profile." class="username" xml:lang="" about="/users/stusan6319" typeof="sioc:UserAccount" property="foaf:name" datatype="">stu_san</a></span>: </span>
+              <span class="date-time">Thu. Jul 29, 2010 - 03:40 PM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-55a1f1f25d54e0bd518f9ecf22119fff rate-comment-618121-3-3 rate-processed" id="rate-comment-618121-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-71">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-72">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-73">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-74">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-75">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <span rel="sioc:reply_of" resource="/forum/how-force-inline-function" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Along with Johan's excellent explanation, I'd like to add the following:  Unless the inlined function is fairly simple, the compiler may require use of most of the registers to execute the function.  In which case, the overhead generated by a call is not much more than what the compiler would need to do anyway for the inlined function.</p>
+<p>I would look at the generated assembly for the raw function (not inlined) and see how many "call-used" registers are kept.  If quite a few are saved, the function will need those registers no matter what.  In that case, don't worry about inlining, since the return on investment is low.</p>
+<p>I use inlined functions heavily, but in general I use it to break a huge function into more manageable chunks.  In fact, in that case, the compiler will generally inline the code for me (if the optimization is set larger than -O1, I think, which my code always is).</p>
+<p>Since your function is named Tasks__Exit_Critical_Section, you might be interested in how FreeRTOS does this.  Inside of tasks.h is:<br>
+</p><div class="bb-quote">
+<blockquote class="bb-quote-body">
+<pre>#define taskEXIT_CRITICAL()    portEXIT_CRITICAL()</pre></blockquote>
+</div>
+<p>Inside of portmacro.h is<br>
+</p><div class="bb-quote">
+<blockquote class="bb-quote-body">
+<pre>#define portEXIT_CRITICAL()  \
+    asm volatile ( "pop	 __tmp_reg__          \n\t" \
+                   "out  __SREG__, __tmp_reg__" ::: "memory" )
+</pre></blockquote>
+</div>
+<p>So FreeRTOS has used the macro definition method to generate this "inlined" function.</p>
+<p>Stu</p>
+</div></div></div>        </div>
+                                  <div class="author-signature">
+            <p>Engineering seems to boil down to:  Cheap.  Fast.  Good.  Choose two.  Sometimes choose only <span style="font-style:italic">one</span>.</p>
+<p>Newbie? Be sure to read the thread <a href="https://www.avrfreaks.net/index.php?name=PNphpBB2&amp;file=viewtopic&amp;t=70673" class="bb-url" rel="nofollow">Newbie? Start here!</a></p>
+          </div>
+                      </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.avrfreaks.net/user/login?destination=node/91221%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/91221%23comment-form">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/how-force-inline-function#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+    <div class="pane-avrfreaks-select"><form action="https://www.avrfreaks.net/forum/how-force-inline-function" method="post" id="avrfreaks-forum-select-form" accept-charset="UTF-8" class="form hideSubmitButton-processed">
+  <div>
+        
+  <div class="form-item form-type-select form-item-taxonomy-forum">
+  <label for="edit-taxonomy-forum">Jump To </label>
+ <select id="edit-taxonomy-forum" name="taxonomy_forum" class="form-select"><option value="https://www.avrfreaks.net/forums/avr-microcontrollers" class="level-2">-AVR Microcontrollers</option><option value="https://www.avrfreaks.net/forums/megaavr-and-tinyavr" class="level-3">--megaAVR and tinyAVR</option><option value="https://www.avrfreaks.net/forums/avr-xmega" class="level-3">--AVR XMEGA</option><option value="https://www.avrfreaks.net/forums/avr-uc3" class="level-3">--AVR UC3</option><option value="https://www.avrfreaks.net/forums/tools" class="level-2">-Tools</option><option value="https://www.avrfreaks.net/forums/arduino" class="level-3">--Arduino</option><option value="https://www.avrfreaks.net/forums/atmel-studio-avr-related" class="level-3">--Atmel Studio (AVR-related)</option><option value="https://www.avrfreaks.net/forums/atmel-software-framework-asf-and-atmel-start-asfv4-all-architectures" class="level-3">--Atmel Software Framework (ASF) and Atmel Start (ASFv4), all architectures</option><option value="https://www.avrfreaks.net/forums/evaluation-and-development-kits-avr-related" class="level-3">--Evaluation and Development Kits (AVR-related)</option><option value="https://www.avrfreaks.net/forums/system-debuggers-and-programmers" class="level-3">--In-System Debuggers and Programmers</option><option value="https://www.avrfreaks.net/forums/compilers-and-general-programming" class="level-3" selected="selected">--Compilers and General Programming</option><option value="https://www.avrfreaks.net/forums/learning-and-information" class="level-2">-Learning and Information</option><option value="https://www.avrfreaks.net/forums/general-electronics" class="level-3">--General Electronics</option><option value="https://www.avrfreaks.net/forums/tutorials" class="level-3">--Tutorials</option><option value="https://www.avrfreaks.net/forums/avr-freaks-projects" class="level-3">--AVR Freaks Projects</option><option value="https://www.avrfreaks.net/forums/miscellaneous" class="level-2">-Miscellaneous</option><option value="https://www.avrfreaks.net/forums/marketplace" class="level-3">--Marketplace</option><option value="https://www.avrfreaks.net/forums/atmel-smart-arm-based-mcus" class="level-1">Atmel SMART ARM-based MCUs</option><option value="https://www.avrfreaks.net/forums/atmel-smart-arm-based-mcus-and-mpus" class="level-2">-Atmel SMART ARM-based MCUs and MPUs</option><option value="https://www.avrfreaks.net/forums/atmel-cortex-mpus" class="level-3">--Atmel Cortex-A MPUs</option><option value="https://www.avrfreaks.net/forums/atmel-cortex-m-mcus" class="level-3">--Atmel Cortex-M MCUs</option><option value="https://www.avrfreaks.net/forums/atmel-arm7-mcus" class="level-3">--Atmel ARM7 MCUs</option><option value="https://www.avrfreaks.net/forums/tools-1" class="level-2">-Tools</option><option value="https://www.avrfreaks.net/forums/evaluation-and-development-kits-arm-related" class="level-3">--Evaluation and Development Kits (ARM-related)</option><option value="https://www.avrfreaks.net/forums/system-debuggers-and-programmers-arm-related" class="level-3">--In-System Debuggers and Programmers (ARM-related)</option><option value="https://www.avrfreaks.net/forums/atmel-studio-arm-related" class="level-3">--Atmel Studio (ARM-related)</option><option value="https://www.avrfreaks.net/forums/compilers-assemblers-linkers-and-general-programming-arm-related" class="level-3">--Compilers, Assemblers, Linkers and General Programming (ARM-related)</option><option value="https://www.avrfreaks.net/forums/operating-systems" class="level-2">-Operating Systems</option><option value="https://www.avrfreaks.net/forums/linux" class="level-3">--Linux</option><option value="https://www.avrfreaks.net/forums/android" class="level-3">--Android</option><option value="https://www.avrfreaks.net/forums/wince" class="level-3">--WinCE</option><option value="https://www.avrfreaks.net/forums/%C2%B5cos-ii-real-time-kernel" class="level-3">--µC/OS-II - Real-Time Kernel</option><option value="https://www.avrfreaks.net/forums/internet-things" class="level-1">Internet of Things</option><option value="https://www.avrfreaks.net/forums/wireless-2" class="level-2">-Wireless</option><option value="https://www.avrfreaks.net/forums/general-wireless-discussions" class="level-3">--General Wireless Discussions</option><option value="https://www.avrfreaks.net/forums/80211wi-fi" class="level-3">--802.11/Wi-Fi</option><option value="https://www.avrfreaks.net/forums/802154zigbee" class="level-3">--802.15.4/ZigBee</option><option value="https://www.avrfreaks.net/forums/bluetooth" class="level-3">--Bluetooth</option><option value="https://www.avrfreaks.net/forums/security-0" class="level-2">-Security</option><option value="https://www.avrfreaks.net/forums/general-security-discussions" class="level-3">--General Security Discussions</option><option value="https://www.avrfreaks.net/forums/capacitive-touch" class="level-1">Capacitive Touch</option><option value="https://www.avrfreaks.net/forums/capacitive-touch-solutions" class="level-2">-Capacitive Touch Solutions</option><option value="https://www.avrfreaks.net/forums/general-capacitive-touch-discussions" class="level-3">--General Capacitive Touch Discussions</option></select>
+</div>
+<input type="hidden" name="form_build_id" value="form-SMB3he1y6DdksSc2JfS4U8rdpQ2XNxuBSN-wXgRAk8E">
+<input type="hidden" name="form_id" value="avrfreaks_forum_select_form">
+
+  </div>
+</form>
+
+</div>
+        </div>
+    </div>
+
+    
+    
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+            </div>
+          
+          
+
+          
+        </div><!-- /end #main-content -->
+
+        <!-- region: Content Aside -->
+        
+      </div><!-- /end .content-inner -->
+    </div><!-- /end #content-column -->
+
+    <!-- regions: Sidebar first and Sidebar second -->
+        
+  </div><!-- /end #columns -->
+
+  <!-- region: Tertiary Content -->
+  
+  <!-- region: Footer -->
+  
+</div>
+<div id="footer-second" class="footer-wrapper"><div class="region region-footer-second"><div class="region-inner clearfix"><div id="block-block-6" class="block block-block no-title odd first block-count-5 block-region-footer-second block-6"><div class="block-inner clearfix">  
+  
+  <div class="block-content content"><p>© 2018 Microchip Technology Inc.</p>
+</div>
+  </div></div><nav id="block-menu-menu-footer-links" class="block block-menu no-title even last block-count-6 block-region-footer-second block-menu-footer-links" role="navigation"><div class="block-inner clearfix">  
+  
+  <div class="block-content content"><ul class="menu clearfix"><li class="first leaf"><a href="https://www.microchip.com/about-us/legal-information/privacy-policy" target="_blank">Privacy</a></li>
+<li class="leaf"><a href="https://www.microchip.com/about-us/contact-us" target="_blank">Contact</a></li>
+<li class="last leaf"><a href="https://www.microchip.com/about-us/legal-information/website-usage-and-limitation-of-liability" target="_blank">Site Use Terms</a></li>
+</ul></div>
+  </div></nav></div></div></div>
+  
+
+</body></html>

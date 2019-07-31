@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0104)https://www.ibm.com/support/knowledgecenter/SSLTBW_2.1.0/com.ibm.zos.v2r1.cbclx01/cplr175.htm?view=embed -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="security" content="public">
+<meta name="Robots" content="index,follow">
+<meta name="DC.Type" content="reference">
+<meta name="DC.Title" content="Scope resolution operator :: (C++ only)">
+<meta name="DC.subject" content="scope resolution operator, description, operators, :: (scope resolution), :: (scope resolution operator), name hiding, names, hidden, qualified name, type name, qualified">
+<meta name="keywords" content="scope resolution operator, description, operators, :: (scope resolution), :: (scope resolution operator), name hiding, names, hidden, qualified name, type name, qualified">
+<meta name="DC.Relation" scheme="URI" content="primary_expressions.htm">
+<meta name="DC.Relation" scheme="URI" content="cplr059.htm">
+<meta name="DC.Relation" scheme="URI" content="namespace.htm">
+<meta name="copyright" content="© Copyright IBM Corporation 1998, 2015">
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 1998, 2015">
+<meta name="DC.Date" scheme="iso8601" content="2015-02-06">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="cplr175">
+<meta name="DC.Language" content="en-us">
+<meta name="IBM.Country" content="ZZ">
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css">
+<link rel="Start" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.1.0/com.ibm.zos.v2r1.cbclx01/primary_expressions.htm">
+<title>Scope resolution operator&nbsp;:: (C++ only)</title>
+<link type="text/css" href="./globaltopic.css" rel="stylesheet"><script type="text/javascript" charset="utf-8" src="./globaltopic.js.download"></script><link type="text/css" href="./spinner.css" rel="stylesheet"></head>
+<body id="cplr175" clickeventadded="true">
+<h1 class="title topictitle1" style="display: none;">Scope resolution operator&nbsp;:: (C++ only)</h1>
+<div class="body refbody"><div class="section"><div class="p">The <samp class="ph codeph">::</samp> (scope resolution) operator is used to
+qualify hidden names so that you can still use them. You can use the unary
+scope operator if a namespace scope or global scope name is hidden by an explicit
+declaration of the same name in a block or class. For example:  <pre class="pre codeblock"><code>int count = 0;
+
+int main(void) {
+  int count = 0;
+  ::count = 1;  // set global count to 1
+  count = 2;    // set local count to 2
+  return 0;
+}</code></pre>
+The declaration of <samp class="ph codeph">count</samp> declared in the <samp class="ph codeph">main</samp> function
+hides the integer named <samp class="ph codeph">count</samp> declared in global namespace
+scope. The statement <samp class="ph codeph">::count = 1</samp> accesses the variable named <samp class="ph codeph">count</samp> declared
+in global namespace scope.</div>
+</div>
+<div class="section"><p class="p">You can also use the class scope operator to qualify class names
+or class member names. If a class member name is hidden, you can use it by
+qualifying it with its class name and the class scope operator.</p>
+</div>
+<div class="section"><div class="p">In the following example, the declaration of the variable <samp class="ph codeph">X</samp> hides
+the class type <samp class="ph codeph">X</samp>, but you can still use the static class
+member <samp class="ph codeph">count</samp> by qualifying it with the class type <samp class="ph codeph">X</samp> and
+the scope resolution operator.  <pre class="pre codeblock"><code>#include &lt;iostream&gt;
+using namespace std;
+
+class X
+{
+public:
+      static int count;
+};
+int X::count = 10;                // define static data member
+
+int main ()
+{
+      int X = 0;                  // hides class type X
+      cout &lt;&lt; X::count &lt;&lt; endl;   // use static member of class X
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.1.0/com.ibm.zos.v2r1.cbclx01/primary_expressions.htm?view=kc">Primary expressions</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br>
+<div><a class="link" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.1.0/com.ibm.zos.v2r1.cbclx01/cplr059.htm?view=kc">Scope of class names (C++ only)</a></div>
+<div><a class="link" href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.1.0/com.ibm.zos.v2r1.cbclx01/namespace.htm?view=kc">Namespaces (C++ only)</a></div>
+</div>
+</div>
+</body></html>

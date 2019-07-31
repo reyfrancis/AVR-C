@@ -1,0 +1,26 @@
+.transition-to-full-opacity {
+  animation-delay: 0.5s;
+  animation-duration: 0.5s;
+  animation-name: fadeInProducts;
+  animation-fill-mode: both;
+}
+
+.transition-to-full-opacity-dynamic-initial {
+  opacity: 0;
+}
+
+.transition-to-full-opacity-dynamic-final {
+  animation-duration: 1s;
+  animation-name: fadeInProducts;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInProducts {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

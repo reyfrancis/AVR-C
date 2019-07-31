@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://www.avrfreaks.net/forum/displaying-registers-during-simulation -->
+<html lang="en" dir="ltr" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile# video: http://ogp.me/ns/video# product: http://ogp.me/ns/product# content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema# schema: http://schema.org/" class="js js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js boxshadow"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="shortcut icon" href="https://www.avrfreaks.net/sites/all/themes/avrfreaks/favicon.ico" type="image/vnd.microsoft.icon">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="MobileOptimized" content="width">
+<meta name="description" content="Brand new to AS7, and just tried using the simulator for the first time (ATMega328P).  Works quite well, but I&#39;m wondering - is there any way to display">
+<meta name="HandheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="generator" content="Drupal 7 (http://drupal.org)">
+<link rel="canonical" href="https://www.avrfreaks.net/forum/displaying-registers-during-simulation">
+<link rel="shortlink" href="https://www.avrfreaks.net/node/357111">
+<meta property="og:site_name" content="AVR Freaks">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.avrfreaks.net/forum/displaying-registers-during-simulation">
+<meta property="og:title" content="Displaying registers during simulation">
+<meta property="og:description" content="Brand new to AS7, and just tried using the simulator for the first time (ATMega328P).  Works quite well, but I&#39;m wondering - is there any way to display">
+<meta property="og:updated_time" content="2018-01-19T17:58:23+00:00">
+<meta property="article:published_time" content="2018-01-19T16:43:22+00:00">
+<meta property="article:modified_time" content="2018-01-19T17:58:23+00:00">
+<title>Displaying registers during simulation | AVR Freaks</title>
+<link type="text/css" rel="stylesheet" href="./Displaying registers during simulation _ AVR Freaks_files/css_nLnURQV-OJYJJPpa_tvZDRiAtlfGhVDzO2v5EKMdlzI.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Displaying registers during simulation _ AVR Freaks_files/css_DHcXHPYBSjIVaCQZEG4ZlpLkvslnFlBCnQUCzlbRBio.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Displaying registers during simulation _ AVR Freaks_files/css_1x4u_UWci5L1vkbefEeOnvHhWMq7e3_lvkDeezG6-bE.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Displaying registers during simulation _ AVR Freaks_files/css_1EwI7L2d7PtEnjXz5YVVJW0LljSK4SXPj7Eehgu5J10.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Displaying registers during simulation _ AVR Freaks_files/css_NetvTWTpE6c5dijmsClP50xrPauHMZNcHX4hJlj9SOI.css" media="screen">
+<link type="text/css" rel="stylesheet" href="./Displaying registers during simulation _ AVR Freaks_files/css_6b38QoA10iNo0WlQABsPuoYUzGFZrPw1WER3vGjCXdw.css" media="print">
+<link type="text/css" rel="stylesheet" href="./Displaying registers during simulation _ AVR Freaks_files/css_uS4NjxRdC3RJ1agsmisNJLwbZc3YBKRTDDybOGIbj3k.css" media="only screen">
+
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="https://www.avrfreaks.net/sites/default/files/css/css_-5FYXt7x7pi1LDVhNX3xqD-mTMEh3bq59MoR4cM3N8Q.css" media="screen" />
+<![endif]-->
+
+<!--[if (lt IE 9)&(!IEMobile 7)]>
+<link type="text/css" rel="stylesheet" href="https://www.avrfreaks.net/sites/default/files/css/css_DqMa2yIJOsRmEDdvyvYEmkQ1UPvriDJ1S7BifKQzo5I.css" media="screen" />
+<![endif]-->
+<script async="" src="./Displaying registers during simulation _ AVR Freaks_files/analytics.js.download"></script><script type="text/javascript" src="./Displaying registers during simulation _ AVR Freaks_files/js_0RyHJ63yYLuaWsodCPCgSD8dcTIA0dqcDf8-7c2XdBw.js.download"></script>
+<script type="text/javascript" src="./Displaying registers during simulation _ AVR Freaks_files/js_zFf0BHTY3Pf96jaFgeQjnpGZRFNRxTYsZKq7Q0K6A1k.js.download"></script>
+<script type="text/javascript" src="./Displaying registers during simulation _ AVR Freaks_files/js_D513xrHxkFzR3xMs-U1B-okOiPuXCy6MX1kwfrKN5Ls.js.download"></script>
+<script type="text/javascript" src="./Displaying registers during simulation _ AVR Freaks_files/js_UuUqwuzzmWE5GHwotz7pvF_e2TcZ_qg9dVcu2xJgvVQ.js.download"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-1473358-1", {"cookieDomain":"auto"});ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript" src="./Displaying registers during simulation _ AVR Freaks_files/js_MbUlIYOCWfucM3dM8YlAM4sBXExMh83PgE3fvukwVUI.js.download"></script>
+<script type="text/javascript" src="./Displaying registers during simulation _ AVR Freaks_files/modernizr.min.js.download"></script>
+<script type="text/javascript" src="./Displaying registers during simulation _ AVR Freaks_files/js_9LxQYNcHez42saCSnQXHePouksOl8pzxQr4SokgRx18.js.download"></script>
+<script type="text/javascript" src="./Displaying registers during simulation _ AVR Freaks_files/js_bJtuPhNLexUKWVQV80DOCxFp9jNm-U60HbWzF-t64r0.js.download"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"avrfreaks","theme_token":"qz9RlJUgRRcQiPjXPuWDHBBWoK0Yi3acLwswv5p7OD4","jquery_version":"1.7","js":{"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/misc\/jquery.form.min.js":1,"profiles\/commons\/modules\/contrib\/dialog\/misc\/ajax.js":1,"sites\/all\/modules\/contrib\/jquery_update\/js\/jquery_update.js":1,"sites\/all\/modules\/contrib\/apachesolr_sort\/apachesolr_sort.js":1,"sites\/all\/modules\/contrib\/apachesolr_autocomplete\/apachesolr_autocomplete.js":1,"sites\/all\/modules\/contrib\/apachesolr_autocomplete\/jquery-autocomplete\/jquery.autocomplete.js":1,"sites\/all\/modules\/custom\/quote\/quote.js":1,"misc\/progress.js":1,"profiles\/commons\/modules\/contrib\/ctools\/js\/modal.js":1,"profiles\/commons\/modules\/contrib\/rate\/rate.js":1,"profiles\/commons\/modules\/contrib\/rate\/templates\/fivestar\/fivestar.js":1,"sites\/all\/modules\/custom\/avrfreaks_forum\/js\/avrfreaks_forum.js":1,"sites\/all\/modules\/contrib\/google_analytics\/googleanalytics.js":1,"0":1,"sites\/all\/modules\/custom\/avrfreaks_moderate\/js\/avrfreaks_moderate.js":1,"https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/modernizr\/2.0.6\/modernizr.min.js":1,"sites\/all\/modules\/contrib\/hide_submit\/hide_submit.js":1,"sites\/all\/themes\/avrfreaks\/scripts\/modernizr.js":1,"sites\/all\/themes\/avrfreaks\/scripts\/syze.min.js":1,"sites\/all\/themes\/avrfreaks\/scripts\/script.js":1},"css":{"profiles\/commons\/modules\/contrib\/editor\/css\/components\/align.module.css":1,"profiles\/commons\/modules\/contrib\/editor\/css\/components\/resize.module.css":1,"profiles\/commons\/modules\/contrib\/editor\/css\/filter\/filter.caption.css":1,"profiles\/commons\/modules\/contrib\/editor\/modules\/editor_ckeditor\/css\/plugins\/drupalimagecaption\/editor_ckeditor.drupalimagecaption.css":1,"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"modules\/comment\/comment.css":1,"profiles\/commons\/modules\/contrib\/date\/date_api\/date.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/poll\/poll.css":1,"modules\/user\/user.css":1,"modules\/forum\/forum.css":1,"profiles\/commons\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/ckeditor\/css\/ckeditor.css":1,"profiles\/commons\/modules\/commons\/commons_media\/commons_media.css":1,"sites\/all\/modules\/contrib\/apachesolr_autocomplete\/apachesolr_autocomplete.css":1,"sites\/all\/modules\/contrib\/apachesolr_autocomplete\/jquery-autocomplete\/jquery.autocomplete.css":1,"profiles\/commons\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/custom\/quote\/quote.css":1,"sites\/all\/modules\/contrib\/tagclouds\/tagclouds.css":1,"sites\/all\/modules\/custom\/advanced_forum\/styles\/naked\/advanced-forum.naked.structure.css":1,"sites\/all\/modules\/custom\/advanced_forum\/styles\/naked\/advanced-forum.naked.images.css":1,"profiles\/commons\/modules\/contrib\/ctools\/css\/modal.css":1,"profiles\/commons\/modules\/contrib\/rate\/templates\/fivestar\/fivestar.css":1,"sites\/all\/modules\/custom\/avrfreaks_forum\/css\/forum-topic.css":1,"profiles\/commons\/modules\/contrib\/rate\/rate.css":1,"sites\/all\/modules\/contrib\/hide_submit\/hide_submit.css":1,"profiles\/commons\/themes\/contrib\/adaptivetheme\/at_core\/css\/at.layout.css":1,"sites\/all\/themes\/avrfreaks\/css\/global.base.css":1,"sites\/all\/themes\/avrfreaks\/css\/global.styles.css":1,"sites\/all\/themes\/avrfreaks\/css\/global.breakpoints.css":1,"sites\/all\/themes\/avrfreaks\/css\/community.breakpoints.css":1,"sites\/all\/themes\/avrfreaks\/css\/forum.css":1,"sites\/all\/themes\/avrfreaks\/css\/pager.css":1,"sites\/all\/themes\/avrfreaks\/css\/community.css":1,"sites\/all\/themes\/avrfreaks\/css\/print.css":1,"public:\/\/adaptivetheme\/avrfreaks_files\/avrfreaks.responsive.layout.css":1,"public:\/\/adaptivetheme\/avrfreaks_files\/avrfreaks.responsive.styles.css":1,"public:\/\/adaptivetheme\/avrfreaks_files\/avrfreaks.lt-ie9.layout.css":1,"sites\/all\/themes\/avrfreaks\/css\/lt-ie9.css":1}},"apachesolr_autocomplete":{"path":"\/apachesolr_autocomplete"},"quote_nest":"0","CToolsModal":{"loadingText":"Loading...","closeText":"Close Window","closeImage":"\u003Cimg typeof=\u0022foaf:Image\u0022 class=\u0022image-style-none\u0022 src=\u0022https:\/\/www.avrfreaks.net\/profiles\/commons\/modules\/contrib\/ctools\/images\/icon-close-window.png\u0022 alt=\u0022Close window\u0022 title=\u0022Close window\u0022 \/\u003E","throbber":"\u003Cimg typeof=\u0022foaf:Image\u0022 class=\u0022image-style-none\u0022 src=\u0022https:\/\/www.avrfreaks.net\/profiles\/commons\/modules\/contrib\/ctools\/images\/throbber.gif\u0022 alt=\u0022Loading\u0022 title=\u0022Loading...\u0022 \/\u003E"},"rate":{"basePath":"\/rate\/vote\/js","destination":"node\/357111"},"hide_submit":{"hide_submit_status":true,"hide_submit_method":"disable","hide_submit_css":"hide-submit-disable","hide_submit_abtext":"","hide_submit_atext":"","hide_submit_hide_css":"hide-submit-processing","hide_submit_hide_text":"Processing...","hide_submit_hide_fx":false,"hide_submit_reset_time":5000},"urlIsAjaxTrusted":{"\/forum\/displaying-registers-during-simulation":true,"https:\/\/community.atmel.com\/search\/site":true},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"currentPath":"node\/357111","currentPathIsAdmin":false,"adaptivetheme":{"avrfreaks":{"layout_settings":{"bigscreen":"three-col-grail","tablet_landscape":"three-col-grail","tablet_portrait":"one-col-vert","smalltouch_landscape":"one-col-vert","smalltouch_portrait":"one-col-stack"},"media_query_settings":{"bigscreen":"only screen and (min-width:1800px)","tablet_landscape":"only screen and (min-width:755px) and (max-width:1799px)","tablet_portrait":"only screen and (min-width:680px) and (max-width:754px)","smalltouch_landscape":"only screen and (min-width:321px) and (max-width:679px)","smalltouch_portrait":"only screen and (max-width:320px)"}}}});
+//--><!]]>
+</script>
+<!--[if lt IE 9]>
+<script src="https://www.avrfreaks.net/profiles/commons/themes/contrib/adaptivetheme/at_core/scripts/html5.js?ps5y5e"></script>
+<![endif]-->
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-357111 node-type-forum site-name-hidden atr-7.x-3.x atv-7.x-3.4 palette-active palette-blue-blue webkit chrome win avr-freaks ios7-fix-processed">
+  <div id="skip-link">
+    <a href="https://www.avrfreaks.net/forum/displaying-registers-during-simulation#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div class="header-wrapper">
+  <div class="header-color-row-one">
+    <header id="header" class="clearfix" role="banner">
+
+              <!-- start: Branding -->
+        <div id="branding" class="branding-elements clearfix branding-mobile">
+                      <div id="logo">
+                <a class="avr-menu-toggle mobile-menu-processed" href="https://www.avrfreaks.net/forum/displaying-registers-during-simulation#top"><img class="nav-mobile" typeof="foaf:Image" src="./Displaying registers during simulation _ AVR Freaks_files/hamburger.png" alt="Menu"></a>
+              <a href="https://www.avrfreaks.net/" title="AVR Freaks"><img class="site-logo" typeof="foaf:Image" src="./Displaying registers during simulation _ AVR Freaks_files/Atmel_Freaks_logo_large.png" alt="AVR Freaks"></a>              <a href="https://www.avrfreaks.net/" class="mobile-logo-link"><img class="site-logo-mobile" typeof="foaf:Image" src="./Displaying registers during simulation _ AVR Freaks_files/mobile_logo.png" alt="AVR Freaks"></a>            </div>
+          
+                      <!-- start: Site name and Slogan hgroup -->
+            <hgroup class="element-invisible h-group" id="name-and-slogan">
+
+                              <h1 class="element-invisible" id="site-name"><a href="https://www.avrfreaks.net/" title="Home page">AVR Freaks</a></h1>
+              
+              
+            </hgroup><!-- /end #name-and-slogan -->
+          
+        </div><!-- /end #branding -->
+           
+      <!-- Navigation elements -->
+        <div id="menu-bar" class="nav clearfix"><nav id="block-menu-menu-main-menu-mobile" class="block block-menu menu-wrapper menu-bar-wrapper clearfix odd first block-count-1 block-region-menu-bar block-menu-main-menu-mobile" role="navigation">  
+      <h3 class="element-invisible block-title">Main menu mobile</h3>
+  
+  <ul class="menu clearfix"><li class="first leaf"><a href="https://www.avrfreaks.net/" class="thin">Home</a></li>
+<li class="leaf"><a href="https://community.atmel.com/communities">Communities</a></li>
+<li class="leaf"><a href="https://www.avrfreaks.net/forum" class="thin">Forums</a></li>
+<li class="leaf"><a href="https://community.atmel.com/projects" class="thin">Projects</a></li>
+<li class="leaf"><a href="https://community.atmel.com/vendors" class="thin">Vendors</a></li>
+<li class="leaf"><a href="https://www.avrfreaks.net/wiki" class="thin">Wiki</a></li>
+<li class="leaf"><a href="https://community.atmel.com/search/site" class="thick">Search</a></li>
+<li class="leaf"><a href="https://community.atmel.com/user" class="thin">My summary</a></li>
+<li class="leaf"><a href="http://www.atmel.com/About/privacy.aspx" class="thin" target="_blank">Privacy</a></li>
+<li class="leaf"><a href="http://www.atmel.com/About/contact/distributors/default.aspx?contactType=Online%20Directory" class="thin" target="_blank">Contact</a></li>
+<li class="leaf"><a href="http://www.atmel.com/About/legal.aspx" class="thin" target="_blank">Site Use Terms</a></li>
+<li class="last leaf"><a href="http://www.atmel.com/About/cookies.aspx" class="thin" target="_blank">Cookies</a></li>
+</ul>
+  </nav><nav id="block-system-main-menu" class="block block-system block-menu no-title menu-wrapper menu-bar-wrapper clearfix even last block-count-2 block-region-menu-bar block-main-menu" role="navigation">  
+  
+  <ul class="menu clearfix"><li class="first leaf"><a href="https://community.atmel.com/communities">Communities</a></li>
+<li class="leaf active-trail"><a href="https://www.avrfreaks.net/forum" class="active">Forums</a></li>
+<li class="leaf"><a href="https://community.atmel.com/projects">Projects</a></li>
+<li class="leaf"><a href="https://community.atmel.com/vendors">Vendors</a></li>
+<li class="last leaf"><a href="https://www.avrfreaks.net/wiki/wik" title="Wiki">WIKI</a></li>
+</ul>
+  </nav></div>
+      <!-- region: Header -->
+      <div class="region region-header"><div class="region-inner clearfix"><div id="block-avrfreaks-rewrites-avr-header-logout-link" class="block block-avrfreaks-rewrites no-title odd first block-count-3 block-region-header block-avr-header-logout-link"><div class="block-inner clearfix">  
+  
+  <div class="block-content content"><ul class="authentication-links"><li class="signup first"><a href="https://www.avrfreaks.net/user/register">Signup</a></li>
+<li class="login last"><a href="https://www.avrfreaks.net/user/login?destination=home-new">Login</a></li>
+</ul></div>
+  </div></div><div id="block-search-form" class="block block-search no-title even last block-count-4 block-region-header block-form" role="search"><div class="block-inner clearfix">  
+  
+  <div class="block-content content"><form action="https://www.avrfreaks.net/forum/displaying-registers-during-simulation" method="post" id="search-block-form" accept-charset="UTF-8" class="form hideSubmitButton-processed">
+  <div>
+        <div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." class="apachesolr-autocomplete unprocessed form-text form-autocomplete" placeholder="What are you interested in?" type="search" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" autocomplete="off">
+</div>
+<div class="form-item form-type-select form-item-filter-by">
+ <select id="edit-filter-by" name="filter_by" class="form-select"><option value="all">Entire Site</option><option value="forum">All Communities</option><option value="9631">AVR Freaks</option><option value="9636">Atmel SMART ARM-based MCUs</option><option value="9666">Internet of Things</option><option value="9826">Capacitive Touch</option><option value="project">Projects</option><option value="vendor">Vendors</option><option value="wiki">Wiki</option></select>
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit"></div><input type="hidden" name="form_build_id" value="form-p3wrfPOunL4RHTiu-T4uxpyFVLnE5fNoRXLfUTA57Xw">
+<input type="hidden" name="form_id" value="search_block_form">
+</div>
+  </div>
+</form>
+
+</div>
+  </div></div></div></div>    </header>
+  </div>
+  <div class="header-color-row-two"></div>
+</div>
+<div id="header-second-wrapper" class="header-second">
+        <!-- Breadcrumbs -->
+    <div id="breadcrumb" class="clearfix"><nav class="breadcrumb-wrapper clearfix" role="navigation" aria-labelledby="breadcrumb-label"><h2 id="breadcrumb-label" class="element-invisible">You are here</h2><ol id="crumbs" class="clearfix"><li class="crumb crumb-first"><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://community.atmel.com/">Home</a></span></li><li class="crumb"><span class="crumb-separator"> » </span><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://community.atmel.com/communities">Communities</a></span></li><li class="crumb"><span class="crumb-separator"> » </span><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://www.avrfreaks.net/">AVR Freaks</a></span></li><li class="crumb"><span class="crumb-separator"> » </span><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://www.avrfreaks.net/forum">Forums</a></span></li><li class="crumb"><span class="crumb-separator"> » </span><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://www.avrfreaks.net/forums/tools">Tools</a></span></li><li class="crumb"><span class="crumb-separator"> » </span><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://www.avrfreaks.net/forums/atmel-studio-avr-related">Atmel Studio (AVR-related)</a></span></li><li class="crumb crumb-last"><span class="crumb-separator"> » </span><span typeof="v:Breadcrumb"><span property="v:title">Displaying registers during simulation</span></span></li></ol></nav></div>    </div>
+<div id="page" class="container page">
+
+  <div id="columns" class="columns clearfix">
+    <!-- Messages and Help -->
+    
+    <!-- region: Secondary Content -->
+    
+    <div id="page-top">
+            
+          </div>
+    <div id="content-column" class="content-column" role="main">
+      <div class="content-inner">
+        
+        <!-- region: Highlighted -->
+        
+        <div id="main-content">
+
+          <!-- region: Main Content -->
+                      <div id="content" class="region">
+                <div class="mobile-menu-bar">
+                  <div id="menu-bar" class="nav clearfix"><div id="menu-bar" class="nav clearfix"><nav id="block-menu-menu-main-menu-mobile" class="block block-menu menu-wrapper menu-bar-wrapper clearfix odd first block-count-1 block-region-menu-bar block-menu-main-menu-mobile" role="navigation">  
+      <h3 class="element-invisible block-title">Main menu mobile</h3>
+  
+  <ul class="menu clearfix"><li class="first leaf"><a href="https://www.avrfreaks.net/" class="thin">Home</a></li>
+<li class="leaf"><a href="https://community.atmel.com/communities">Communities</a></li>
+<li class="leaf"><a href="https://www.avrfreaks.net/forum" class="thin">Forums</a></li>
+<li class="leaf"><a href="https://community.atmel.com/projects" class="thin">Projects</a></li>
+<li class="leaf"><a href="https://community.atmel.com/vendors" class="thin">Vendors</a></li>
+<li class="leaf"><a href="https://www.avrfreaks.net/wiki" class="thin">Wiki</a></li>
+<li class="leaf"><a href="https://community.atmel.com/search/site" class="thick">Search</a></li>
+<li class="leaf"><a href="https://community.atmel.com/user" class="thin">My summary</a></li>
+<li class="leaf"><a href="http://www.atmel.com/About/privacy.aspx" class="thin" target="_blank">Privacy</a></li>
+<li class="leaf"><a href="http://www.atmel.com/About/contact/distributors/default.aspx?contactType=Online%20Directory" class="thin" target="_blank">Contact</a></li>
+<li class="leaf"><a href="http://www.atmel.com/About/legal.aspx" class="thin" target="_blank">Site Use Terms</a></li>
+<li class="last leaf"><a href="http://www.atmel.com/About/cookies.aspx" class="thin" target="_blank">Cookies</a></li>
+</ul>
+  </nav><nav id="block-system-main-menu" class="block block-system block-menu no-title menu-wrapper menu-bar-wrapper clearfix even last block-count-2 block-region-menu-bar block-main-menu" role="navigation">  
+  
+  <ul class="menu clearfix"><li class="first leaf"><a href="https://community.atmel.com/communities">Communities</a></li>
+<li class="leaf active-trail"><a href="https://www.avrfreaks.net/forum" class="active">Forums</a></li>
+<li class="leaf"><a href="https://community.atmel.com/projects">Projects</a></li>
+<li class="leaf"><a href="https://community.atmel.com/vendors">Vendors</a></li>
+<li class="last leaf"><a href="https://www.avrfreaks.net/wiki/wik" title="Wiki">WIKI</a></li>
+</ul>
+  </nav></div></div>                </div>
+              <div class="one-column at-panel panel-display clearfix">
+  <div class="region region-one-main">
+    <div class="region-inner clearfix">
+      <div class="panel-pane pane-node-title no-title block">
+  <div class="block-inner clearfix">
+    
+            
+    
+    <div class="block-content">
+      <h2>Displaying registers during simulation</h2>
+    </div>
+
+    
+    
+  </div>
+</div>
+<div class="panel-separator"></div><div class="panel-pane pane-node-content pane-commons-bw-group no-title block">
+  <div class="block-inner clearfix">
+    
+            
+    
+    <div class="block-content">
+        
+<div id="forum-topic-header" class="forum-topic-header clearfix">
+	
+      <div class="topic-reply-link">
+      <a href="https://www.avrfreaks.net/user/login?destination=node/357111%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/357111%23comment-form">register</a> to post comments    </div>
+    
+  
+      <div class="last-post-link">
+       <a href="https://www.avrfreaks.net/forum/displaying-registers-during-simulation#comment-2373341" class="af-button-large active"><span>Go To Last Post</span></a>    </div>
+    
+      
+  <div class="topic-post-count">
+      <span>4 posts / 0 new</span>
+  </div>
+    
+  <div class="topic-post-pager">
+         </div>
+    
+  <a id="forum-topic-top"></a>
+</div>
+
+<a id="forum-topic-top"></a>
+  <div class="forum-topic-hat clearfix">
+    <div class="forum-hat-left-side">Author</div>
+    <div class="forum-hat-right-side">Message</div>
+  </div>
+<div id="post-357111" class="forum-post clearfix en posted-by-588481 article odd node-full  " about="/forum/displaying-registers-during-simulation" typeof="sioc:Post sioct:BoardPost" role="article">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><a href="https://www.avrfreaks.net/users/jgalak" title="View user profile." class="username" xml:lang="" about="/users/jgalak" typeof="sioc:UserAccount" property="foaf:name" datatype="">jgalak</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/jgalak" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./Displaying registers during simulation _ AVR Freaks_files/picture-default.jpg" alt="jgalak&#39;s picture" title="jgalak&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: Wannabe              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Tue. Jan 9, 2018              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 69 <a href="https://www.avrfreaks.net/user/588481/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/forum/displaying-registers-during-simulation" class="active">#1</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/jgalak" title="View user profile." class="username" xml:lang="" about="/users/jgalak" typeof="sioc:UserAccount" property="foaf:name" datatype="">jgalak</a></span>: </span>
+              <span class="date-time">Fri. Jan 19, 2018 - 04:43 PM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="form-item form-type-item">
+  <label>Fivestar widget </label>
+ <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-08165c6402d3a218438bcb16607c7aa5 rate-node-357111-3-3 rate-processed" id="rate-node-357111-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-16">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-17">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-18">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-19">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-20">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>
+</div>
+              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <div class="field field-name-body field-type-text-with-summary field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Brand new to AS7, and just tried using the simulator for the first time (ATMega328P).&nbsp; Works quite well, but I'm wondering - is there any way to display the registers, and especially the IO registers, with their labels rather than just by number/memory location?&nbsp; Better yet, to show the bit information?</p>
+<p>&nbsp;</p>
+<p>The status register is great - separate push button for each bit, with a mouseover of what the bit is, letting you set or clear the flags as needed.&nbsp; For other registers, I have to look up the location in the datasheet, find it in the memory map, figure out the hex value of a change in a single control bit, etc.&nbsp; Certainly doable (and beats not having a simulator), but kind of a PITA, especially for a newbie.</p>
+</div></div></div><span property="dc:title" content="Displaying registers during simulation" class="rdf-meta element-hidden"></span>        </div>
+                          <div class="forum-post-solution">
+            <span>This topic has a solution. <a href="https://www.avrfreaks.net/comment/2373246#comment-2373246" class="permalink" rel="bookmark">Jump to the solution.</a></span>          </div>
+                                  <div class="post-tags">
+            <h2 class="field-label">Tags:</h2><div class="topic-comments-tags"><a href="https://community.atmel.com/search/site?f%5B0%5D=im_taxonomy_forums%3A969&amp;f%5B1%5D=bundle%3Aforum">Tools</a>, <a href="https://community.atmel.com/search/site?f%5B0%5D=im_taxonomy_forums%3A621&amp;f%5B1%5D=bundle%3Aforum">Atmel Studio (AVR-related)</a>, <a href="https://community.atmel.com/search/site?f%5B0%5D=im_field_tags%3A7051&amp;f%5B1%5D=bundle%3Aforum">solved</a></div>          </div>
+              </div>
+    </div>
+          <div class="post-update">
+        Last Edited: <span class="date-time">Fri. Jan 19, 2018 - 05:58 PM</span>      </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline node-action-links"><li class="comment_forbidden first"><span class=""><a href="https://www.avrfreaks.net/user/login?destination=node/357111%23comment-f/m">Log in</a> / <a href="https://www.avrfreaks.net/user/register?destination=node/357111%23comment-f/m">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/displaying-registers-during-simulation#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+<div id="forum-comments" class="comment-wrapper">
+  <a id="comment-2373246"></a>
+
+<a id="forum-topic-top"></a>
+<div id="post-2373246" class="forum-post clearfix en posted-by-412551 odd first comment-with-picture comment-with-signature  " about="/comment/2373246#comment-2373246" typeof="sioc:Post sioct:Comment">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><a href="https://www.avrfreaks.net/users/gregmuth" title="View user profile." class="username" xml:lang="" about="/users/gregmuth" typeof="sioc:UserAccount" property="foaf:name" datatype="">Greg_Muth</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/gregmuth" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./Displaying registers during simulation _ AVR Freaks_files/picture-412551-1460384687.png" alt="Greg_Muth&#39;s picture" title="Greg_Muth&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: Posting Freak              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Sat. Dec 13, 2014              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 1209 <a href="https://www.avrfreaks.net/user/412551/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+                  Location: Portland, OR, US              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel solved">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+            <span>This reply has been marked as the solution.</span>&nbsp;            <a href="https://www.avrfreaks.net/comment/2373246#comment-2373246" class="permalink" rel="bookmark">#2</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/gregmuth" title="View user profile." class="username" xml:lang="" about="/users/gregmuth" typeof="sioc:UserAccount" property="foaf:name" datatype="">Greg_Muth</a></span>: </span>
+              <span class="date-time">Fri. Jan 19, 2018 - 04:49 PM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-d913934c65bc59ee57ffd0dea8933ab7 rate-comment-2373246-3-3 rate-processed" id="rate-comment-2373246-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-1">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-2">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-3">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-4">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-5">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <span rel="sioc:reply_of" resource="/forum/displaying-registers-during-simulation" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p>&nbsp;</p>
+<p>Debug -&gt; Windows -&gt; I/O</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div></div></div>        </div>
+                                  <div class="author-signature">
+            <p>Greg Muth</p>
+<p>Portland, OR, US</p>
+<p>Xplained/Pro/Mini Boards mostly</p>
+<p>&nbsp;</p>
+<p><span style="font-size:18px"><span style="font-family:comic sans ms,cursive">Make Xmega Great Again!</span></span></p>
+<p>&nbsp;</p>
+          </div>
+                      </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.avrfreaks.net/user/login?destination=node/357111%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/357111%23comment-form">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/displaying-registers-during-simulation#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+<a id="comment-2373251"></a>
+
+<a id="forum-topic-top"></a>
+<div id="post-2373251" class="forum-post clearfix en posted-by-209309 even comment-with-picture comment-with-signature  " about="/comment/2373251#comment-2373251" typeof="sioc:Post sioct:Comment">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><img src="./Displaying registers during simulation _ AVR Freaks_files/offline.png"><a href="https://www.avrfreaks.net/users/jgmdesign" title="View user profile." class="username" xml:lang="" about="/users/jgmdesign" typeof="sioc:UserAccount" property="foaf:name" datatype="">jgmdesign</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/jgmdesign" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./Displaying registers during simulation _ AVR Freaks_files/picture-209309-1549043469.jpg" alt="jgmdesign&#39;s picture" title="jgmdesign&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: Moderator              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Mon. Mar 19, 2007              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 15651 <a href="https://www.avrfreaks.net/user/209309/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+                  Location: Long Island New York              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/comment/2373251#comment-2373251" class="permalink" rel="bookmark">#3</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/jgmdesign" title="View user profile." class="username" xml:lang="" about="/users/jgmdesign" typeof="sioc:UserAccount" property="foaf:name" datatype="">jgmdesign</a></span>: </span>
+              <span class="date-time">Fri. Jan 19, 2018 - 04:50 PM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-1b3fa69efc473e6ce22f2a92148ef372 rate-comment-2373251-3-3 rate-processed" id="rate-comment-2373251-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-6">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-7">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-8">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-9">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-10">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <span rel="sioc:reply_of" resource="/forum/displaying-registers-during-simulation" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Sure!&nbsp; Like this:</p>
+<p><img alt="" src="./Displaying registers during simulation _ AVR Freaks_files/2018-01-19 11_45_35-GccApplication1 (Debugging) - AtmelStudio.png"></p>
+<p>&nbsp;</p>
+<p>Jim</p>
+</div></div></div>        </div>
+                                  <div class="author-signature">
+            <p>I would rather attempt something great and fail, than attempt nothing and succeed - Fortune Cookie</p>
+<p>&nbsp;</p>
+<p>"The critical shortage here is not stuff, but time." - Johan Ekdahl</p>
+<p>&nbsp;</p>
+<p>"If you want a career with a known path - become an undertaker. Dead people don't sue!" - Kartman</p>
+<p><strong>"Why is there a "Highway to Hell" and only a "Stairway to Heaven"? A prediction of the expected traffic load?"</strong>&nbsp; - Lee "theusch"</p>
+<p>&nbsp;</p>
+<p>Speak sweetly. It makes your words easier to digest when at a later date you have to eat them ;-)&nbsp; - Source Unknown</p>
+<p><strong>Please Read: <a href="https://www.avrfreaks.net/wiki/atmel-community-code-conduct" target="_blank" rel="nofollow"><em>Code-of-Conduct</em></a></strong></p>
+<p>Atmel Studio6.2/AS7, DipTrace, Quartus, MPLAB user</p>
+          </div>
+                      </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.avrfreaks.net/user/login?destination=node/357111%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/357111%23comment-form">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/displaying-registers-during-simulation#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+<a id="comment-2373341"></a>
+
+<a id="forum-topic-top"></a>
+<div id="post-2373341" class="forum-post clearfix en posted-by-588481 post-by-starter odd last comment-with-picture  " about="/comment/2373341#comment-2373341" typeof="sioc:Post sioct:Comment">
+    <div class="forum-post-info clearfix">        
+    <div class="forum-author-name-block">
+              <div class="author-pane"><a href="https://www.avrfreaks.net/users/jgalak" title="View user profile." class="username" xml:lang="" about="/users/jgalak" typeof="sioc:UserAccount" property="foaf:name" datatype="">jgalak</a>  <div class="user-picture">
+    <a href="https://www.avrfreaks.net/users/jgalak" title="View user profile."><img typeof="foaf:Image" class="image-style-thumbnail" src="./Displaying registers during simulation _ AVR Freaks_files/picture-default.jpg" alt="jgalak&#39;s picture" title="jgalak&#39;s picture"></a>  </div>
+</div>          </div>
+    <div class="forum-post-panel-sub">
+      <div class="forum-post-user-rate">
+                  Level: Wannabe              </div>
+      <div class="forum-post-panel-joined">
+                  Joined: Tue. Jan 9, 2018              </div>
+      <div class="forum-post-panel-posts">
+                  Posts: 69 <a href="https://www.avrfreaks.net/user/588481/content">View posts</a>              </div>
+      <div class="forum-post-user-location">
+              </div>
+          </div>
+  </div>
+    <div class="avr-forum-post-wrapper">
+    <div class="avr-forum-post-panel-main clearfix">
+      <div class="forum-post-upper-panel ">
+        <div class="avr-forum-posted-on">
+          <div class="forum-post-number">
+                        <a href="https://www.avrfreaks.net/comment/2373341#comment-2373341" class="permalink" rel="bookmark">#4</a></div>
+          <div class="forum-post-rating">
+            <div class="post-date">
+              <span class="label-text">Posted <span class="topic-posted-by"> by <a href="https://www.avrfreaks.net/users/jgalak" title="View user profile." class="username" xml:lang="" about="/users/jgalak" typeof="sioc:UserAccount" property="foaf:name" datatype="">jgalak</a></span>: </span>
+              <span class="date-time">Fri. Jan 19, 2018 - 05:58 PM</span>                                        </div>
+                          <div class="rating-widget">
+                <div class="rate-widget-3 rate-widget clear-block rate-average rate-widget-fivestar rate-ac039c037f4016b656eca67649deca37 rate-comment-2373341-3-3 rate-processed" id="rate-comment-2373341-3-3"><div class="item-list"><ul class="rate-fivestar-processed"><li class="even first"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-1" id="rate-button-11">1</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-2" id="rate-button-12">2</span></li><li class="even"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-3" id="rate-button-13">3</span></li><li class="odd"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-4" id="rate-button-14">4</span></li><li class="even last"><span class="rate-button rate-fivestar-btn-empty rate-fivestar-5" id="rate-button-15">5</span></li></ul></div><div class="rate-info">Total votes: 0</div></div>              
+              </div>   
+                      </div>
+        </div>
+      </div>
+        <div class="forum-post-content">
+          <span rel="sioc:reply_of" resource="/forum/displaying-registers-during-simulation" class="rdf-meta element-hidden"></span><div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Aha!&nbsp; That's exactly what I was looking for.&nbsp; Thanks!</p>
+</div></div></div>        </div>
+                                      </div>
+    </div>
+        <div class="forum-post-footer clearfix">
+      <div class="forum-post-links">
+        <ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.avrfreaks.net/user/login?destination=node/357111%23comment-form">Log in</a> or <a href="https://www.avrfreaks.net/user/register?destination=node/357111%23comment-form">register</a> to post comments</span></li>
+</ul>          <a href="https://www.avrfreaks.net/forum/displaying-registers-during-simulation#forum-topic-top" title="Jump to top of page" class="af-button-small"><span>Top</span></a>
+      </div>
+    </div>
+</div>
+    <div class="pane-avrfreaks-select"><form action="https://www.avrfreaks.net/forum/displaying-registers-during-simulation" method="post" id="avrfreaks-forum-select-form" accept-charset="UTF-8" class="form hideSubmitButton-processed">
+  <div>
+        
+  <div class="form-item form-type-select form-item-taxonomy-forum">
+  <label for="edit-taxonomy-forum">Jump To </label>
+ <select id="edit-taxonomy-forum" name="taxonomy_forum" class="form-select"><option value="https://www.avrfreaks.net/forums/avr-microcontrollers" class="level-2">-AVR Microcontrollers</option><option value="https://www.avrfreaks.net/forums/megaavr-and-tinyavr" class="level-3">--megaAVR and tinyAVR</option><option value="https://www.avrfreaks.net/forums/avr-xmega" class="level-3">--AVR XMEGA</option><option value="https://www.avrfreaks.net/forums/avr-uc3" class="level-3">--AVR UC3</option><option value="https://www.avrfreaks.net/forums/tools" class="level-2">-Tools</option><option value="https://www.avrfreaks.net/forums/arduino" class="level-3">--Arduino</option><option value="https://www.avrfreaks.net/forums/atmel-studio-avr-related" class="level-3" selected="selected">--Atmel Studio (AVR-related)</option><option value="https://www.avrfreaks.net/forums/atmel-software-framework-asf-and-atmel-start-asfv4-all-architectures" class="level-3">--Atmel Software Framework (ASF) and Atmel Start (ASFv4), all architectures</option><option value="https://www.avrfreaks.net/forums/evaluation-and-development-kits-avr-related" class="level-3">--Evaluation and Development Kits (AVR-related)</option><option value="https://www.avrfreaks.net/forums/system-debuggers-and-programmers" class="level-3">--In-System Debuggers and Programmers</option><option value="https://www.avrfreaks.net/forums/compilers-and-general-programming" class="level-3">--Compilers and General Programming</option><option value="https://www.avrfreaks.net/forums/learning-and-information" class="level-2">-Learning and Information</option><option value="https://www.avrfreaks.net/forums/general-electronics" class="level-3">--General Electronics</option><option value="https://www.avrfreaks.net/forums/tutorials" class="level-3">--Tutorials</option><option value="https://www.avrfreaks.net/forums/avr-freaks-projects" class="level-3">--AVR Freaks Projects</option><option value="https://www.avrfreaks.net/forums/miscellaneous" class="level-2">-Miscellaneous</option><option value="https://www.avrfreaks.net/forums/marketplace" class="level-3">--Marketplace</option><option value="https://www.avrfreaks.net/forums/atmel-smart-arm-based-mcus" class="level-1">Atmel SMART ARM-based MCUs</option><option value="https://www.avrfreaks.net/forums/atmel-smart-arm-based-mcus-and-mpus" class="level-2">-Atmel SMART ARM-based MCUs and MPUs</option><option value="https://www.avrfreaks.net/forums/atmel-cortex-mpus" class="level-3">--Atmel Cortex-A MPUs</option><option value="https://www.avrfreaks.net/forums/atmel-cortex-m-mcus" class="level-3">--Atmel Cortex-M MCUs</option><option value="https://www.avrfreaks.net/forums/atmel-arm7-mcus" class="level-3">--Atmel ARM7 MCUs</option><option value="https://www.avrfreaks.net/forums/tools-1" class="level-2">-Tools</option><option value="https://www.avrfreaks.net/forums/evaluation-and-development-kits-arm-related" class="level-3">--Evaluation and Development Kits (ARM-related)</option><option value="https://www.avrfreaks.net/forums/system-debuggers-and-programmers-arm-related" class="level-3">--In-System Debuggers and Programmers (ARM-related)</option><option value="https://www.avrfreaks.net/forums/atmel-studio-arm-related" class="level-3">--Atmel Studio (ARM-related)</option><option value="https://www.avrfreaks.net/forums/compilers-assemblers-linkers-and-general-programming-arm-related" class="level-3">--Compilers, Assemblers, Linkers and General Programming (ARM-related)</option><option value="https://www.avrfreaks.net/forums/operating-systems" class="level-2">-Operating Systems</option><option value="https://www.avrfreaks.net/forums/linux" class="level-3">--Linux</option><option value="https://www.avrfreaks.net/forums/android" class="level-3">--Android</option><option value="https://www.avrfreaks.net/forums/wince" class="level-3">--WinCE</option><option value="https://www.avrfreaks.net/forums/%C2%B5cos-ii-real-time-kernel" class="level-3">--µC/OS-II - Real-Time Kernel</option><option value="https://www.avrfreaks.net/forums/internet-things" class="level-1">Internet of Things</option><option value="https://www.avrfreaks.net/forums/wireless-2" class="level-2">-Wireless</option><option value="https://www.avrfreaks.net/forums/general-wireless-discussions" class="level-3">--General Wireless Discussions</option><option value="https://www.avrfreaks.net/forums/80211wi-fi" class="level-3">--802.11/Wi-Fi</option><option value="https://www.avrfreaks.net/forums/802154zigbee" class="level-3">--802.15.4/ZigBee</option><option value="https://www.avrfreaks.net/forums/bluetooth" class="level-3">--Bluetooth</option><option value="https://www.avrfreaks.net/forums/security-0" class="level-2">-Security</option><option value="https://www.avrfreaks.net/forums/general-security-discussions" class="level-3">--General Security Discussions</option><option value="https://www.avrfreaks.net/forums/capacitive-touch" class="level-1">Capacitive Touch</option><option value="https://www.avrfreaks.net/forums/capacitive-touch-solutions" class="level-2">-Capacitive Touch Solutions</option><option value="https://www.avrfreaks.net/forums/general-capacitive-touch-discussions" class="level-3">--General Capacitive Touch Discussions</option></select>
+</div>
+<input type="hidden" name="form_build_id" value="form-v0CYFB8gAbXl_avNj3TaV3eE1GLdPsLJ_cILzLaF46s">
+<input type="hidden" name="form_id" value="avrfreaks_forum_select_form">
+
+  </div>
+</form>
+
+</div>
+        </div>
+    </div>
+
+    
+    
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+            </div>
+          
+          
+
+          
+        </div><!-- /end #main-content -->
+
+        <!-- region: Content Aside -->
+        
+      </div><!-- /end .content-inner -->
+    </div><!-- /end #content-column -->
+
+    <!-- regions: Sidebar first and Sidebar second -->
+        
+  </div><!-- /end #columns -->
+
+  <!-- region: Tertiary Content -->
+  
+  <!-- region: Footer -->
+  
+</div>
+<div id="footer-second" class="footer-wrapper"><div class="region region-footer-second"><div class="region-inner clearfix"><div id="block-block-6" class="block block-block no-title odd first block-count-5 block-region-footer-second block-6"><div class="block-inner clearfix">  
+  
+  <div class="block-content content"><p>© 2018 Microchip Technology Inc.</p>
+</div>
+  </div></div><nav id="block-menu-menu-footer-links" class="block block-menu no-title even last block-count-6 block-region-footer-second block-menu-footer-links" role="navigation"><div class="block-inner clearfix">  
+  
+  <div class="block-content content"><ul class="menu clearfix"><li class="first leaf"><a href="https://www.microchip.com/about-us/legal-information/privacy-policy" target="_blank">Privacy</a></li>
+<li class="leaf"><a href="https://www.microchip.com/about-us/contact-us" target="_blank">Contact</a></li>
+<li class="last leaf"><a href="https://www.microchip.com/about-us/legal-information/website-usage-and-limitation-of-liability" target="_blank">Site Use Terms</a></li>
+</ul></div>
+  </div></nav></div></div></div>
+  
+
+</body></html>
