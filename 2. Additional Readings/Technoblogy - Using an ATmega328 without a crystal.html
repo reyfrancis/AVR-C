@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0036)http://www.technoblogy.com/show?1YO1 -->
+<html class="wf-opensans-n4-active wf-droidsansmono-n4-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Technoblogy - Using an ATmega328 without a crystal</title>
+<link rel="stylesheet" type="text/css" href="./Technoblogy - Using an ATmega328 without a crystal_files/technology.css">
+<script id="twitter-wjs" src="./Technoblogy - Using an ATmega328 without a crystal_files/widgets.js.download"></script><script src="./Technoblogy - Using an ATmega328 without a crystal_files/webfont.js.download"></script>
+<link rel="stylesheet" href="./Technoblogy - Using an ATmega328 without a crystal_files/css" media="all"><script>
+  WebFont.load({
+    google: {
+      families: ['Open Sans', 'Droid Sans Mono']
+    }
+  });
+</script>
+<style type="text/css"><!--
+#content table {
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+th, td {
+    padding: 0 4px 0 4px;
+}
+
+.logo { width:241px; height:40px; }
+
+.box {
+	border:1px #CCCCCC solid;
+	padding: 0 8px 16px 8px;
+}
+
+--></style>
+<script>
+function tg(name,link,title){
+  if (title === undefined) title=name;
+  var e=document.getElementById('h'+name);
+  if(e.style.display==''){
+    e.style.display='none';
+    link.innerHTML='► '+title;
+  } else {
+    e.style.display='';
+    link.innerHTML='▼ '+title;
+  }
+}
+</script>
+<style id="stylesheet" type="text/css"><!--
+--></style>
+<meta name="DESCRIPTION" content="Arduino and AVR projects">
+<link rel="icon" type="image/x-icon" href="http://www.technoblogy.com/pictures/KVM/favicon.ico">
+<link rel="shortcut" type="image/x-icon" href="http://www.technoblogy.com/pictures/KVM/favicon.ico">
+<link rel="alternate" type="application/rss+xml" href="http://www.technoblogy.com/rss?KVM+3" title="Technoblogy Feed">
+<script type="text/javascript" async="" src="./Technoblogy - Using an ATmega328 without a crystal_files/embed.js.download"></script><link rel="prefetch" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.81e9bdc293cf1db0e7899fb23e870851.css"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.4f78a44956523083e2be1589c3559f2b.js"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.bc2d7f92867d043b9259278c2d17cff0.js"><link rel="prefetch" as="script" href="https://disqus.com/next/config.js"></head>
+<body>
+<div id="container">
+<div id="header"><a href="http://www.technoblogy.com/show?KVM"><img src="./Technoblogy - Using an ATmega328 without a crystal_files/logo.png" alt="Logo" class="logo"></a>
+<h1 id="title">Technoblogy</h1>
+<div class="description">
+<p>Arduino and AVR projects</p>
+</div>
+<div class="headernav">
+<div id="searchform">
+<form action="http://www.technoblogy.com/search.html" method="post" enctype="application/x-www-form-urlencoded" class="searchform"><input type="text" name="find" size="20" maxlength="240" class="searchinput"><input type="hidden" name="id" value="KVM">&nbsp;<input type="submit" name="q" value="Search" id="search"></form>
+</div>
+</div>
+</div>
+<div id="wiki">
+<div id="navigation">
+<div class="menu"><h3>Recent posts</h3>
+<h4><a onclick="tg(&#39;2018&#39;,this)" href="javascript:void(0)">▼ 2019</a></h4>
+<div id="h2019">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?2JMU">Simple DataFlash Board</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2KGV">Magic 3D Clock</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?L6I">Tiny TFT Graphics Library</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1YJO">Illuminated Button Matrix</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2G8T">Two-Digit Thermometer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2HQ2">Minimal ATSAMD21 Computer 2</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2833">Minimal ATSAMD21 Computer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2G9S">Tiny Thermocouple Thermometer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2H0K">Twelve PWM Outputs from an ATtiny85</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2FCL">Tiny Function Generator PCB</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2GPX">ATtiny10 Thermometer PCB</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2G8A">ATtiny10 Thermometer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2AEE">Lisp Badge</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;2018&#39;,this)" href="javascript:void(0)">► 2018</a></h4>
+<div id="h2018" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?2F5D">ATtiny85 Weather Station [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2EDJ">Widget Dashboard</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2E6L">Tiny MIDI Player</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2EA7">Colour Graphics Library</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2C86">I2C GPS Module PCB</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2D8S">Tiny Terminal 2</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2CFT">Tiny Function Plotter</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1LJI">I2C GPS Module</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2BET">Simple LCD Character Display</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2AUF">Alcohol Unit Counter</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?283C">Tiny Machine-Code Monitor</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?28WK">One Input 20-key Keypad Interface</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?26SM">Programmable Signal Generator</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?24R7">Minimal Tiny I2C Routines</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1ZIY">ATtiny85 20MHz Internal Clock</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?201J">ATtiny10 POV Pendant</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?25TN">IR Remote Wand</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?24A9">IR Remote Control Detective [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?22KY">Harmonic Function Generator</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?23OS">Tiny Graphics Library</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?20UO">Secret Maze PCB</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?22HF">Tiny Function Generator Sine Wave</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?20W6">Tiny Function Generator</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?20IY">Secret Maze</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?20MO">Playing Notes on the ATtiny85</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1Y7J">Tiny Colour Watch</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;2017&#39;,this)" href="javascript:void(0)">► 2017</a></h4>
+<div id="h2017" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?1YON">Continuity Tester</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1YQY">Programming the ATtiny10</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?LBR">Proto Power Supply</a></li>
+<li class="on"><a class="auto" href="http://www.technoblogy.com/show?1YO1">Using an ATmega328 without a crystal</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1YHJ">Bounce-Free Rotary Encoder</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1MP7">Four-Channel Thermometer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1RB9">Flexible GPS Parser</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1OPB">Tiny Face Watch</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1ONY">Driving Four RGB LEDs from an ATtiny85</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?LKP">Big Text for Little Display</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?WNM">ATtiny85 Graphics Display</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1MG3">Tiny Time 2 Watch</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1NGL">10 or 12-bit DAC from the ATtiny85</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1LJD">Simple 1-Wire Interface</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1L02">Audio Pitch Shifter</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1KTO">Tiny Lisp Computer 2 PCB</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1K2Z">GameBone Simple Electronic Game</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;2016&#39;,this)" href="javascript:void(0)">► 2016</a></h4>
+<div id="h2016" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?1JH5">Tiny Time Watch</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1INT">Tiny Lisp Computer 2</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1GX1">Tiny Lisp Computer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1H44">Text Display for the Arduino Uno</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1GYR">Simple PS/2 Keyboard Interface</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1G29">Making Your Own I2C Peripherals</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?19OV">Using the ATmega1284 with the Arduino IDE</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?OK8">Digital Clock Using Lisp</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1BGY">Making millis() tell the time</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?19YT">A Lightweight Alternative to tone</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1258">Adjustable Load</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?190D">Programming ATtinys with Arduino 1.6.8 [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?11TQ">Digital Music Box [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?TWD">Using the Arduino IDE Without Cores</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?ZSX">Flashing Thermometer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?VMT">Portable Lab Power Supply</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?ZU7">ATtiny85 Sound Level Meter</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;2015&#39;,this)" href="javascript:void(0)">► 2015</a></h4>
+<div id="h2015" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?ZR2">ATtiny85 Bargraph Voltmeter</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?LNQ">TinyNav Simple GPS Navigator [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?Z8M">Dot Matrix Clock</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?YEL">Simple Rotary Encoder Interface [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?Y8Y">Driving LED Displays with Fewer I/O Lines</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?V14">Infrared Controlled Buggy</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?V15">Powering Projects from a 1.5V Battery</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?V29">IR Remote Control Switch</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?U5U">Odometer/Speedometer Pendant [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?VOO">Push-Button On/Off Switches</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?VSX">Simple ATtiny USI UART 2</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?VFT">Sony NEX/Alpha Remote Control</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?V6F">IR Remote Control Receiver</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?V2K">Bulls &amp; Cows Game 2</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?UVE">IR Remote Control Tool (NEC)</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?ULT">IR Remote Control Tool</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?NLS">Bulls &amp; Cows Game</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?TV4">Tiny Terminal</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?P6U">Choosing a Friendly AVR Chip</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;2014&#39;,this)" href="javascript:void(0)">► 2014</a></h4>
+<div id="h2014" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?S8V">Simple GPS Odometer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?RQ3">Simple Compass Display</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?RPG">Tiny GPS Speedometer [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?SJ0">Minimal GPS Parser [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?RPY">Simple ATtiny USI UART</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?R64">Timescale Clock</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?Q7H">Tiny Synth</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?QVN">Waveform Generation using an ATtiny85</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?QBB">Audio Sample Player</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?P6X">ATtiny85 Analogue Clock</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?OGU">Radio Time Code Clock</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?LE0">Four PWM Outputs from the ATtiny85</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?NMX">ATtiny-Based Beginner's Kit</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?NNJ">MINIL Machine-Code Monitor</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?NGM">One Input Keypad Interface</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?M1H">Conundrometer Game</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?LSE">Getting Extra Pins on ATtiny</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?KVO">Simple Tones for ATtiny</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?KX0">ATtiny Low Power</a></li>
+</ul>
+</div></div>
+</div>
+<div id="colophon"><h3>Topics</h3>
+<h4><a onclick="tg(&#39;Games&#39;,this)" href="javascript:void(0)">► Games</a></h4>
+<div id="hGames" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?M1H">Conundrometer Game</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?NLS">Bulls &amp; Cows Game</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?V2K">Bulls &amp; Cows Game 2</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1K2Z">GameBone Simple Electronic Game</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?20IY">Secret Maze</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?20UO">Secret Maze PCB</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;Music&#39;,this,&#39;Sound &amp; Music&#39;)" href="javascript:void(0)">► Sound &amp; Music</a></h4>
+<div id="hMusic" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?QBB">Audio Sample Player</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?KVO">Simple Tones for ATtiny</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?QVN">Waveform Generation using an ATtiny85</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?Q7H">Tiny Synth</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?ZU7">ATtiny85 Sound Level Meter</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?11TQ">Digital Music Box [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?19YT">A Lightweight Alternative to tone</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1L02">Audio Pitch Shifter</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?20MO">Playing Notes on the ATtiny85</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?20W6">Tiny Function Generator</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?22HF">Tiny Function Generator Sine Wave</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?22KY">Harmonic Function Generator</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2E6L">Tiny MIDI Player</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2FCL">Tiny Function Generator PCB</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;Clocks&#39;,this,&#39;Watches &amp; Clocks&#39;)" href="javascript:void(0)">► Watches &amp; Clocks</a></h4>
+<div id="hClocks" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?OGU">Radio Time Code Clock</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?P6X">ATtiny85 Analogue Clock</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?R64">Timescale Clock</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?Z8M">Dot Matrix Clock</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?OK8">Digital Clock Using Lisp</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1JH5">Tiny Time Watch</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1MG3">Tiny Time 2 Watch</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1OPB">Tiny Face Watch</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1Y7J">Tiny Colour Watch</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2KGV">Magic 3D Clock</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;GPS&#39;,this)" href="javascript:void(0)">► GPS</a></h4>
+<div id="hGPS" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?RPY">Simple ATtiny USI UART</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?VSX">Simple ATtiny USI UART 2</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?SJ0">Minimal GPS Parser [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?RPG">Tiny GPS Speedometer [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?RQ3">Simple Compass Display</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?S8V">Simple GPS Odometer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?U5U">Odometer/Speedometer Pendant [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?LNQ">TinyNav Simple GPS Navigator [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1RB9">Flexible GPS Parser</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1LJI">I2C GPS Module</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2C86">I2C GPS Module PCB</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;Supplies&#39;,this,&#39;Power Supplies&#39;)" href="javascript:void(0)">► Power Supplies</a></h4>
+<div id="hSupplies" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?VMT">Portable Lab Power Supply</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1258">Adjustable Load</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?LBR">Proto Power Supply</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;Computers&#39;,this)" href="javascript:void(0)">► Computers</a></h4>
+<div id="hComputers" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?NNJ">MINIL Machine-Code Monitor</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1GX1">Tiny Lisp Computer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1INT">Tiny Lisp Computer 2</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1KTO">Tiny Lisp Computer 2 PCB</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?283C">Tiny Machine-Code Monitor</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2AEE">Lisp Badge</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2833">Minimal ATSAMD21 Computer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2HQ2">Minimal ATSAMD21 Computer 2</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;Graphics&#39;,this)" href="javascript:void(0)">► Graphics</a></h4>
+<div id="hGraphics" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?TV4">Tiny Terminal</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?WNM">ATtiny85 Graphics Display</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?LKP">Big Text for Little Display</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?23OS">Tiny Graphics Library</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2CFT">Tiny Function Plotter</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2D8S">Tiny Terminal 2</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2EA7">Colour Graphics Library</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2EDJ">Widget Dashboard</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?L6I">Tiny TFT Graphics Library</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;Thermometers&#39;,this)" href="javascript:void(0)">► Thermometers</a></h4>
+<div id="hThermometers" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?ZSX">Flashing Thermometer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1LJD">Simple 1-Wire Interface</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1MP7">Four-Channel Thermometer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?23OS">Tiny Graphics Library</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2F5D">ATtiny85 Weather Station [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2G8A">ATtiny10 Thermometer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2GPX">ATtiny10 Thermometer PCB</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2G9S">Tiny Thermocouple Thermometer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2G8T">Two-Digit Thermometer</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;Tools&#39;,this)" href="javascript:void(0)">► Tools</a></h4>
+<div id="hTools" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?ULT">IR Remote Control Tool</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?UVE">IR Remote Control Tool (NEC)</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?V6F">IR Remote Control Receiver</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?VFT">Sony NEX/Alpha Remote Control</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?V29">IR Remote Control Switch</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?ZR2">ATtiny85 Bargraph Voltmeter</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1ONY">Driving Four RGB LEDs from an ATtiny85</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1YON">Continuity Tester</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?24A9">IR Remote Control Detective [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?25TN">IR Remote Wand</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?26SM">Programmable Signal Generator</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2AUF">Alcohol Unit Counter</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1YJO">Illuminated Button Matrix</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2JMU">Simple DataFlash Board</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;Tutorials&#39;,this)" href="javascript:void(0)">► Tutorials</a></h4>
+<div id="hTutorials" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?KX0">ATtiny Low Power</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?LSE">Getting Extra Pins on ATtiny</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?NGM">One Input Keypad Interface</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?NMX">ATtiny-Based Beginner's Kit</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?LE0">Four PWM Outputs from the ATtiny85</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?P6U">Choosing a Friendly AVR Chip</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?VOO">Push-Button On/Off Switches</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?V15">Powering Projects from a 1.5V Battery</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?Y8Y">Driving LED Displays with Fewer I/O Lines</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?YEL">Simple Rotary Encoder Interface [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?TWD">Using the Arduino IDE Without Cores</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?190D">Programming ATtinys with Arduino 1.6.8 [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?19OV">Using the ATmega1284 with the Arduino IDE</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1G29">Making Your Own I2C Peripherals</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1LJD">Simple 1-Wire Interface</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1NGL">10 or 12-bit DAC from the ATtiny85</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1YHJ">Bounce-Free Rotary Encoder</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1YO1">Using an ATmega328 without a crystal</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1YQY">Programming the ATtiny10</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1ZIY">ATtiny85 20MHz Internal Clock</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?24R7">Minimal Tiny I2C Routines</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?28WK">One Input 20-key Keypad Interface</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2BET">Simple LCD Character Display</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2H0K">Twelve PWM Outputs from an ATtiny85</a></li>
+</ul>
+</div>
+<h3>By processor</h3>
+<h4><a onclick="tg(&#39;ATtiny10&#39;,this)" href="javascript:void(0)">► ATtiny10</a></h4>
+<div id="hATtiny10" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?1YQY">Programming the ATtiny10</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?201J">ATtiny10 POV Pendant</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2G8A">ATtiny10 Thermometer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2GPX">ATtiny10 Thermometer PCB</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;ATtiny2313&#39;,this)" href="javascript:void(0)">► ATtiny2313</a></h4>
+<div id="hATtiny2313" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?S8V">Simple GPS Odometer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?Y8Y">Driving LED Displays with Fewer I/O Lines</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?Z8M">Dot Matrix Clock</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;ATtiny84&#39;,this)" href="javascript:void(0)">► ATtiny84</a></h4>
+<div id="hATtiny84" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?OGU">Radio Time Code Clock</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?R64">Timescale Clock</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?ULT">IR Remote Control Tool</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?UVE">IR Remote Control Tool (NEC)</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?VSX">Simple ATtiny USI UART 2</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?U5U">Odometer/Speedometer Pendant [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1258">Adjustable Load</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2AUF">Alcohol Unit Counter</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2G8T">Two-Digit Thermometer</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;ATtiny841&#39;,this)" href="javascript:void(0)">► ATtiny841</a></h4>
+<div id="hATtiny841" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?1G29">Making Your Own I2C Peripherals</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1LJI">I2C GPS Module</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2C86">I2C GPS Module PCB</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;ATtiny85&#39;,this)" href="javascript:void(0)">► ATtiny85</a></h4>
+<div id="hATtiny85" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?KX0">ATtiny Low Power</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?KVO">Simple Tones for ATtiny</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?NNJ">MINIL Machine-Code Monitor</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?LE0">Four PWM Outputs from the ATtiny85</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?P6X">ATtiny85 Analogue Clock</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?QBB">Audio Sample Player</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?QVN">Waveform Generation using an ATtiny85</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?Q7H">Tiny Synth</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?RPY">Simple ATtiny USI UART</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?RPG">Tiny GPS Speedometer [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?RQ3">Simple Compass Display</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?TV4">Tiny Terminal</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?V6F">IR Remote Control Receiver</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?VFT">Sony NEX/Alpha Remote Control</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?VSX">Simple ATtiny USI UART 2</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?VOO">Push-Button On/Off Switches</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?V29">IR Remote Control Switch</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?V14">Infrared Controlled Buggy</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?YEL">Simple Rotary Encoder Interface [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?LNQ">TinyNav Simple GPS Navigator [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?ZR2">ATtiny85 Bargraph Voltmeter</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?ZU7">ATtiny85 Sound Level Meter</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?ZSX">Flashing Thermometer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?11TQ">Digital Music Box [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1JH5">Tiny Time Watch</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1K2Z">GameBone Simple Electronic Game</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1L02">Audio Pitch Shifter</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1LJD">Simple 1-Wire Interface</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1NGL">10 or 12-bit DAC from the ATtiny85</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1MG3">Tiny Time 2 Watch</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?WNM">ATtiny85 Graphics Display</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?LKP">Big Text for Little Display</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1ONY">Driving Four RGB LEDs from an ATtiny85</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1OPB">Tiny Face Watch</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1RB9">Flexible GPS Parser</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1MP7">Four-Channel Thermometer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1YHJ">Bounce-Free Rotary Encoder</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1YON">Continuity Tester</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1Y7J">Tiny Colour Watch</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?20MO">Playing Notes on the ATtiny85</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?20IY">Secret Maze</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?20W6">Tiny Function Generator</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?22HF">Tiny Function Generator Sine Wave</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?20UO">Secret Maze PCB</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?23OS">Tiny Graphics Library</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?22KY">Harmonic Function Generator</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?24A9">IR Remote Control Detective [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?25TN">IR Remote Wand</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1ZIY">ATtiny85 20MHz Internal Clock</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?26SM">Programmable Signal Generator</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?283C">Tiny Machine-Code Monitor</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2CFT">Tiny Function Plotter</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2D8S">Tiny Terminal 2</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2EA7">Colour Graphics Library</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2E6L">Tiny MIDI Player</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2EDJ">Widget Dashboard</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2F5D">ATtiny85 Weather Station [Updated]</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2FCL">Tiny Function Generator PCB</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2H0K">Twelve PWM Outputs from an ATtiny85</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2G9S">Tiny Thermocouple Thermometer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?L6I">Tiny TFT Graphics Library</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2KGV">Magic 3D Clock</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;ATtiny861&#39;,this)" href="javascript:void(0)">► ATtiny861</a></h4>
+<div id="hATtiny861" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?VMT">Portable Lab Power Supply</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;ATtiny88&#39;,this)" href="javascript:void(0)">► ATtiny88</a></h4>
+<div id="hATtiny88" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?1YJO">Illuminated Button Matrix</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;ATmega328&#39;,this)" href="javascript:void(0)">► ATmega328</a></h4>
+<div id="hATmega328" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?M1H">Conundrometer Game</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?NLS">Bulls &amp; Cows Game</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?V2K">Bulls &amp; Cows Game 2</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?19YT">A Lightweight Alternative to tone</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?OK8">Digital Clock Using Lisp</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1GYR">Simple PS/2 Keyboard Interface</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1H44">Text Display for the Arduino Uno</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1GX1">Tiny Lisp Computer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1YO1">Using an ATmega328 without a crystal</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?LBR">Proto Power Supply</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2BET">Simple LCD Character Display</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;ATmega1284&#39;,this)" href="javascript:void(0)">► ATmega1284</a></h4>
+<div id="hATmega1284" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?19OV">Using the ATmega1284 with the Arduino IDE</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1INT">Tiny Lisp Computer 2</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?1KTO">Tiny Lisp Computer 2 PCB</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2AEE">Lisp Badge</a></li>
+</ul>
+</div>
+<h4><a onclick="tg(&#39;ATSAMD21&#39;,this)" href="javascript:void(0)">► ATSAMD21</a></h4>
+<div id="hATSAMD21" style="display: none;">
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?2833">Minimal ATSAMD21 Computer</a></li>
+<li><a class="auto" href="http://www.technoblogy.com/show?2HQ2">Minimal ATSAMD21 Computer 2</a></li>
+</ul>
+</div>
+<h3>About me</h3>
+<ul>
+<li><a class="auto" href="http://www.technoblogy.com/show?LIC">About me</a></li>
+<li>
+<script type="text/javascript">// <![CDATA[
+email = "david" + String.fromCharCode(64) + "technoblogy.com"
+document.write('<A href="mailto:' + email + '">Contact me<\/a>')
+// ]]></script><a href="mailto:david@technoblogy.com">Contact me</a>
+</li>
+</ul>
+<p><a class="twitter-follow-button" href="https://twitter.com/technoblogy" data-show-count="false">Follow @technoblogy</a></p>
+<script type="text/javascript">// <![CDATA[
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+// ]]></script>
+<h3>Feeds</h3>
+<p><a href="http://www.technoblogy.com/rss?KVM+3">RSS feed</a></p></div>
+<div id="content">
+<h2>Using an ATmega328 without a crystal</h2>
+<p class="date">3rd November 2017</p>
+<p>For simple applications based on an ATmega328 you don't need an Arduino Uno; you can just build your application around a chip on a prototyping board. And unless you need accurate timing, or are going to use the serial interface (which requires accurate timing), you don't need an external crystal and capacitors, because the ATmega328 has a built-in internal clock:</p>
+<p class="center"><img src="./Technoblogy - Using an ATmega328 without a crystal_files/breadboard.jpg" alt="Breadboard.jpg" width="450" height="350"></p>
+<p>This short article describes how to program an ATmega328 on a breadboard using the Arduino IDE. Unfortunately by default the Arduino IDE doesn't include a <strong>Boards</strong> option for&nbsp;an ATmega328 without an external crystal, but it's easy to add one. You can then program the chip using In-System Programming, using a programmer such as the Sparkfun Tiny AVR Programmer <sup id="cite_ref1"><a href="http://www.technoblogy.com/show?1YO1#cite_note1">[1]</a></sup>:</p>
+<p class="center"><img src="./Technoblogy - Using an ATmega328 without a crystal_files/breadboard2.jpg" alt="Breadboard2.jpg" width="720" height="364"></p>
+<p>There are already several articles on the web explaining how to do this, but I couldn't find one that provided a boards.txt file that works with the latest Arduino IDE, version 1.8.X, so I created one and thought it would be useful to make it available.</p>
+<h3>Adding support for an ATmega328 without an external crystal</h3>
+<p>The following procedure works with the Arduino IDE versions 1.8 and upwards.</p>
+<ul>
+<li>Download the <strong>ATmegaBreadboard</strong> hardware configuration from my repository on GitHub <a href="https://github.com/technoblogy/atmegabreadboard" target="_blank">ATmegaBreadboard</a>.</li>
+<li>Copy it to the&nbsp;<strong>hardware</strong>&nbsp;folder in your&nbsp;<strong>Arduino</strong>&nbsp;folder in your <strong>Documents</strong> folder. If there isn't already a <strong>hardware</strong> folder there, create one first.</li>
+<li>Restart the Arduino IDE.</li>
+</ul>
+<p>This should add an&nbsp;<strong>ATmegaBreadboard</strong>&nbsp;heading to the <strong>Board</strong> menu.</p>
+<p>Now, when you want to program an ATmega328 or ATmega168 choose <strong>Board</strong> from the <strong>Tools</strong> menu, and select the appropriate&nbsp;option under the&nbsp;<strong>ATmegaBreadboard</strong>&nbsp;heading.</p>
+<p>Then choose the options you want from the subsequent menus; for example&nbsp;<strong>B.O.D. Disabled</strong>,&nbsp;<strong>ATmega328P</strong>, and&nbsp;<strong>8&nbsp;MHz (internal)</strong>. Choose the correct programmer from the <strong>Programmer</strong> option on the <strong>Tools</strong> menu; for example, <strong>USBtinyISP</strong> if you're using the Sparkfun Tiny AVR Programmer shown above. Choose&nbsp;<strong>Burn Bootloader</strong>&nbsp;to set the fuses appropriately; then choose&nbsp;<strong>Upload</strong>&nbsp;to upload the program.</p>
+<p>Note that if you use&nbsp;<strong>Burn Bootloader</strong> to&nbsp;program the ATmega168/328 to use a crystal, you'll have to have the crystal present if you want to reprogram the fuses back to using the internal clock.</p><hr>
+<ol>
+<li id="cite_note1"><a href="http://www.technoblogy.com/show?1YO1#cite_ref1">^</a> <a href="https://www.sparkfun.com/products/11801" target="_blank">Tiny AVR Programmer</a> on Sparkfun.</li>
+</ol>
+<hr><div id="disqus_thread"><iframe id="dsq-app3495" name="dsq-app3495" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./Technoblogy - Using an ATmega328 without a crystal_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 1829px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+<script type="text/javascript">
+var disqus_developer = 1;
+var disqus_shortname = 'technoblogy';
+var disqus_identifier = '1YO1';
+var disqus_url = 'http://www.technoblogy.com/show?1YO1';
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+<div id="footer"><p style="text-align: center;">Copyright ©&nbsp;2014-2018
+<script type="text/javascript">// <![CDATA[
+email = "david" + String.fromCharCode(64) + "technoblogy.com"
+document.write('<A href="mailto:' + email + '">David Johnson-Davies<\/a>')
+// ]]></script><a href="mailto:david@technoblogy.com">David Johnson-Davies</a>
+</p></div>
+</div>
+
+
+<iframe style="display: none;" src="./Technoblogy - Using an ATmega328 without a crystal_files/saved_resource(1).html"></iframe></body></html>

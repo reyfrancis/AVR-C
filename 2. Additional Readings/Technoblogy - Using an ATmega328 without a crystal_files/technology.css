@@ -1,0 +1,114 @@
+/* Technology Stylesheet */
+
+body { margin: 0; font-size: 14px; line-height: 22px; font-family: "Open Sans", "Helvetica", "Arial", sans-serif; background: url('bg.gif') repeat-x; }
+
+#container { width: 1024px; margin: 0 auto;}
+
+h2 { margin-top: 22px; }
+
+h3 { color: #009bbc; }
+
+pre { background-color: #eeeeee; padding: 8px;}
+
+ul li {
+	margin:11px 0px 0px -22px;
+	list-style-type: square;
+}
+
+sup, sub {
+	vertical-align: baseline;
+	position: relative;
+	top: -0.4em;
+}
+
+sub { top: 0.4em; }
+
+pre { font-family: Monaco, Consolas, "Lucida Console", "Courier New", Courier, monospace; }
+
+
+table { border-collapse: collapse; margin: 10px 0 }
+
+td { border: 1px solid #DDD; vertical-align: top; padding: 2px; }
+
+a:link, a:visited {text-decoration: none; color: #009bbc; }
+
+a:hover {text-decoration: underline; color: #009bbc; }
+
+/* Styles */
+
+.center { text-align:center; }
+
+/* Textarea */
+
+.wysiwyg { margin-top: 0; }
+
+.wysiwyg textarea {width: 720px; }
+
+.headernav {
+	width: 960px;
+        margin: 0 auto 0 auto;
+}
+
+#usernav, #searchform {
+	margin-top: 22px;
+	float: right;
+	clear: both;
+	width: 200px;
+}
+
+.searchinput { width: 10em; }
+
+.logo { 
+	display: block;
+	margin: 0 auto 0 auto;
+	padding-right: 719px;
+}
+
+#title { display: none; }
+
+#header {
+	padding-top: 32px;
+}
+
+.description {
+	width: 960px;
+        margin: 0 auto;
+	padding-bottom: 4px;
+}
+
+#wiki {
+	width: 960px;
+        margin: 0 auto;
+	padding-bottom: 16px;
+}
+
+#content {
+	width: 720px;
+}
+
+#navigation, #colophon {
+	margin-left: 40px;
+	margin-bottom: 0;
+	width: 200px;
+        float: right;
+        clear: both;
+}
+
+#colophon h3, #navigation h3 { color: black; }
+
+#colophon h4, #navigation h4 { margin-bottom:0; margin-top:0; }
+
+#colophon li, #navigation li {
+	list-style:none;
+	margin: 0 0 0 18px;
+	text-indent: -18px;
+}
+
+#colophon ul, #navigation ul {
+	padding-left:0;
+	margin-bottom:0; margin-top:0;
+}
+
+h4 a:link, h4 a:visited {color: black; }
+
+
