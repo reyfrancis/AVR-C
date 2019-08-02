@@ -1,0 +1,851 @@
+
+<!-- saved from url=(0093)https://www.arduino.cc/reference/en/language/variables/variable-scope-%2Dqualifiers/volatile/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="./Arduino Reference_files/privacy-modal.css"><link rel="stylesheet" href="./Arduino Reference_files/newsletter-modal.css"><link rel="stylesheet" href="./Arduino Reference_files/footer.css"><link rel="stylesheet" href="./Arduino Reference_files/header.css">
+    
+<script async="" src="./Arduino Reference_files/gtm.js.download"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl+ '&gtm_auth=H-ItcuNVhUEYsNQhXxT-vg&gtm_preview=env-2&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NK2TW8L');
+</script>
+
+<link rel="stylesheet" href="./Arduino Reference_files/style.css" type="text/css">
+
+<link rel="icon" href="https://www.arduino.cc/reference/favicon.ico">
+
+<meta name="description" content="The Arduino programming language Reference, organized into Functions, Variable and Constant, and Structure keywords.">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+
+
+<title>Arduino Reference</title>
+<script src="./Arduino Reference_files/jquery-3.3.1.min.js.download"></script><script type="text/javascript" src="./Arduino Reference_files/notice" async="" referrerpolicy="origin" crossorigin="true"></script><script src="./Arduino Reference_files/header.js.download"></script><script src="./Arduino Reference_files/footer.js.download"></script><script src="./Arduino Reference_files/newsletter-modal.js.download"></script><script src="./Arduino Reference_files/login.js.download"></script></head>
+
+<body><div class="icons" style="display: none;"><svg xmlns="http://www.w3.org/2000/svg">
+  <symbol viewBox="0 0 18 18" id="icon-Global-Menu_Home-BBCube">
+    <title>Toggle Navigation</title>
+    <g>
+      <path d="M4 3.158C4 3.623 3.623 4 3.158 4H.842C.377 4 0 3.623 0 3.158V.842C0 .377.377 0 .842 0h2.316C3.623 0 4 .377 4 .842v2.316zM18 3.158c0 .465-.377.842-.842.842h-2.316C14.377 4 14 3.623 14 3.158V.842c0-.465.377-.842.842-.842h2.316c.465 0 .842.377.842.842v2.316zM11 3.158c0 .465-.377.842-.842.842H7.842C7.377 4 7 3.623 7 3.158V.842C7 .377 7.377 0 7.842 0h2.316c.465 0 .842.377.842.842v2.316zM4 17.158c0 .465-.377.842-.842.842H.842C.377 18 0 17.623 0 17.158v-2.316C0 14.377.377 14 .842 14h2.316c.465 0 .842.377.842.842v2.316zM18 17.158c0 .465-.377.842-.842.842h-2.316c-.465 0-.842-.377-.842-.842v-2.316c0-.465.377-.842.842-.842h2.316c.465 0 .842.377.842.842v2.316zM11 17.158c0 .465-.377.842-.842.842H7.842C7.377 18 7 17.623 7 17.158v-2.316c0-.465.377-.842.842-.842h2.316c.465 0 .842.377.842.842v2.316zM4 10.158c0 .465-.377.842-.842.842H.842C.377 11 0 10.623 0 10.158V7.842C0 7.377.377 7 .842 7h2.316c.465 0 .842.377.842.842v2.316zM18 10.158c0 .465-.377.842-.842.842h-2.316c-.465 0-.842-.377-.842-.842V7.842c0-.465.377-.842.842-.842h2.316c.465 0 .842.377.842.842v2.316zM11 10.158c0 .465-.377.842-.842.842H7.842C7.377 11 7 10.623 7 10.158V7.842C7 7.377 7.377 7 7.842 7h2.316c.465 0 .842.377.842.842v2.316z"></path>
+    </g>
+  </symbol>
+  <symbol viewBox="0 0 130.208 28.333" id="icon-Global-WebApp_Compressed">
+    <title>Create Logo</title>
+    <g>
+      <path d="M51.066 14.02c0-6.424-5.416-11.655-12.082-11.655-.612 0-1.24.045-1.854.13-5.18.738-8.646 4.463-10.588 7.32-1.942-2.856-5.41-6.58-10.583-7.32-.62-.085-1.243-.13-1.86-.13-6.663 0-12.084 5.23-12.084 11.654 0 6.425 5.422 11.654 12.082 11.654.615 0 1.242-.047 1.862-.13 5.175-.744 8.64-4.467 10.583-7.33 1.942 2.863 5.407 6.586 10.588 7.33.615.083 1.243.13 1.863.13 6.656 0 12.073-5.228 12.073-11.655zm-35.69 7.432c-.43.062-.856.097-1.28.097-4.384 0-7.95-3.38-7.95-7.53S9.71 6.49 14.1 6.49c.42 0 .848.034 1.275.093 4.88.698 7.865 5.508 8.877 7.433-1.016 1.932-4 6.74-8.877 7.434zm13.463-7.433c1.007-1.93 3.995-6.736 8.87-7.434.426-.06.857-.093 1.273-.093 4.387 0 7.95 3.38 7.95 7.527 0 4.15-3.563 7.53-7.943 7.53-.42 0-.855-.035-1.282-.097-4.874-.695-7.86-5.505-8.87-7.434z"></path>
+      <rect x="10.77" y="12.884" width="7.257" height="2.335"></rect>
+      <polygon points="39.79,15.219 42.246,15.219 42.246,12.884 39.79,12.884 39.79,10.422 37.45,10.422 37.45,12.884 34.989,12.884 34.989,15.219 37.45,15.219 37.45,17.68 39.79,17.68"></polygon>
+      <path d="M51.934 2.826c-.09-.21-.215-.393-.365-.542-.15-.15-.33-.27-.53-.36-.207-.09-.426-.134-.66-.134-.237 0-.46.043-.663.133-.204.09-.382.21-.53.36-.15.15-.274.334-.364.543-.088.208-.135.432-.135.68 0 .233.047.46.135.67.09.218.214.397.363.55.15.154.327.274.53.362.205.09.428.137.663.137.235 0 .453-.045.66-.137.202-.088.38-.208.53-.36.148-.154.274-.334.364-.55.088-.21.133-.44.133-.672 0-.248-.045-.472-.133-.68zm-.375 1.2c-.066.162-.16.3-.28.42-.123.122-.257.217-.41.29-.15.07-.312.107-.49.107-.18 0-.35-.038-.502-.107-.16-.073-.292-.168-.41-.29-.114-.12-.206-.258-.273-.42-.065-.16-.1-.332-.1-.52s.035-.364.1-.527c.067-.17.16-.308.273-.43.118-.12.25-.214.41-.28.153-.067.322-.102.5-.102.18 0 .343.035.493.1.153.068.288.162.41.283.12.123.214.26.28.43.068.162.104.338.104.525 0 .188-.035.36-.105.522zM50.745 3.67c.096-.044.168-.115.22-.2.053-.083.08-.178.08-.28 0-.162-.06-.302-.172-.42-.116-.12-.31-.176-.582-.176-.104 0-.195 0-.276.008-.082.004-.16.01-.236.018v1.69h.427v-.556h.172l.297.557h.48l-.41-.64zm-.424-.227c-.057 0-.098-.004-.126-.013v-.455c.028-.008.075-.017.138-.017.182 0 .273.085.273.245 0 .162-.093.24-.284.24z"></path>
+    </g>
+    <g>
+      <path d="M79.724 11.917c0-1.647-.737-2.264-2.487-2.264h-2.162v4.426h2.248c1.338-.002 2.4-.5 2.4-2.163z"></path>
+      <polygon points="96.968,15.502 100.691,15.502 98.821,9.91"></polygon>
+      <path d="M58.66 2.498v23.074h69.573V2.498H58.66zm9.002 17.276c-3.07 0-5.147-1.664-5.147-5.678 0-3.74 2.145-5.8 5.3-5.8 1.133 0 2.3.276 2.934.67l-.464 1.287c-.635-.515-1.63-.755-2.505-.755-2.538 0-3.79 1.647-3.79 4.563 0 3.02 1.252 4.53 3.774 4.53 1.115 0 2.264-.326 2.796-.67l.344 1.168c-.875.463-2.04.686-3.242.686zm12.44-.172l-2.402-4.34h-2.625v4.34h-1.39V8.453h3.604c2.812 0 3.893 1.183 3.893 3.413 0 1.56-.79 2.642-2.076 3.122l2.642 4.615H80.1zm11.94-9.95h-6.175v3.637h5.593v1.183h-5.593v3.91h6.176v1.22h-7.565V8.45h7.565v1.202zm10.02 9.95l-.995-2.95H96.59l-.96 2.95h-1.39l3.894-11.15h1.475l3.91 11.15h-1.457zm11.12-9.95h-3.842v9.95h-1.39v-9.95h-3.86v-1.2h9.092v1.2zm10.054 0h-6.176v3.637h5.593v1.183h-5.593v3.91h6.176v1.22h-7.565V8.45h7.566v1.202z"></path>
+    </g>
+  </symbol>
+  <symbol viewBox="0 0 24.202 24.276" id="icon-Global-user-profile">
+    <title>User Profile</title>
+    <path d="M20.912 19.718h-1c0-3.827-.883-6.2-5.28-6.2h-5.44c-4.397 0-5.28 2.23-5.28 5.825h-1v-.115c.017-3.337.81-6.71 6.28-6.71h5.44c5.534 0 6.28 3.64 6.28 7.2zM11.95 13.156c-2.464 0-4.468-2.1-4.468-4.68s2.004-4.68 4.467-4.68c2.462 0 4.466 2.1 4.466 4.68s-2.004 4.68-4.467 4.68zm0-8.36c-1.913 0-3.468 1.65-3.468 3.68 0 2.03 1.555 3.68 3.467 3.68 1.91 0 3.466-1.65 3.466-3.68 0-2.03-1.555-3.68-3.467-3.68zM12.034 23.98C5.436 23.98.07 18.61.07 12.013S5.435.05 12.033.05 24 5.415 24 12.013 18.63 23.98 12.033 23.98zm0-22.43C6.264 1.55 1.57 6.242 1.57 12.013S6.262 22.48 12.033 22.48 22.5 17.783 22.5 12.013 17.803 1.55 12.033 1.55z"></path>
+  </symbol>
+  <symbol viewBox="0 0 20.597 18.807" id="icon-Home-Grid-Open_in_new">
+    <title>Open Link in New Tab</title>
+    <rect x="14.542" y="-.105" transform="matrix(-.707 -.707 .707 -.707 23.247 19.503)" width="2.241" height="10.084"></rect>
+    <path d="M20.597 1.123c0-.62-.5-1.12-1.12-1.12h-7.843V2h6.93v6.966h2.033V1.123zM19.24 18.807H1.356c-.747 0-1.355-.64-1.355-1.424V1.426C0 .64.608.003 1.355.003H8.24l.03 1.982H1.99l-.03 14.807h16.604v-3.988h2.032v4.58c0 .784-.608 1.423-1.355 1.423z"></path>
+  </symbol>
+</svg></div>
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NK2TW8L&gtm_auth=H-ItcuNVhUEYsNQhXxT-vg&gtm_preview=env-2&gtm_cookies_win=x"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+<div id="header" class="temporary"><header id="ino-header">
+
+  <nav class="arduino-nav">
+
+    <!-- logo -->
+    <div class="logo">
+      <a href="https://www.arduino.cc/" class="logo-link" role="button" aria-label="Homepage"></a>
+      <a href="https://www.arduino.cc/" class="logo-link-resellers" role="button" aria-label="Resellers Homepage"></a>
+    </div>
+
+    <!-- main nav -->
+    <div class="main-nav" style="">
+
+      <ul class="ul-burger">
+        <li class="burger-menu">
+          <a class="burger" role="button" aria-label="Toggle Menu">
+            <img src="./Arduino Reference_files/burger_menu.svg" alt="Open Navigation">
+          </a>
+        </li>
+      </ul>
+
+      <ul class="nav-left">
+
+        <!-- search form mobile -->
+        <li class="level-1 show-mobile search-container">
+          <a id="search-bar-mobile">
+            <form role="search" id="searchform-mobile" method="GET" action="https://www.google.com/search">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="oe" value="UTF-8">
+              <input type="text" placeholder="Search" value="" name="q" title="" class="search-typing" aria-label="search">
+              <i class="clear-icon">×</i>
+              <input type="hidden" name="domains" value="https://www.arduino.cc" class="fill-it">
+              <input type="hidden" name="sitesearch" value="https://www.arduino.cc" class="fill-it">
+            </form>
+          </a>
+        </li>
+        <!-- search form end -->
+
+        <!-- user menu mobile -->
+        <li class="user-mobile level-1 signin-mobile">
+          <div class="login-button" style="display: block;">
+            <a href="https://www.arduino.cc/reference/en/language/variables/variable-scope--qualifiers/volatile/">Sign In</a>
+          </div>
+        </li>
+        <li class="user-mobile profile-mobile level-1">
+          <div class="auth-required" style="display: none;">
+            <a href="https://id.arduino.cc/">Profile</a>
+          </div>
+        </li>
+        <li class="user-mobile profile-mobile level-1">
+          <div class="auth-required" style="display: none;">
+            <a href="https://store.arduino.cc/digital/subscriptions">My Plans</a>
+          </div>
+        </li>
+        <li class="logout user-mobile signout-mobile level-1">
+          <div class="auth-required" style="display: none;">
+            <a>Sign Out</a>
+          </div>
+        </li>
+        <!-- user menu mobile end -->
+
+        <li class="level-1" id="home">
+          <a href="https://www.arduino.cc/">Home</a>
+        </li>
+
+        <li class="has-submenu level-1">
+          <a href="https://store.arduino.cc/">Store</a>
+        </li>
+
+        <li class="has-submenu level-1" id="software">
+          <a role="button">Software</a>
+          <ul class="nav-submenu">
+            <li><a href="https://create.arduino.cc/" target="_blank" rel="noopener">Online Tools</a></li>
+            <li><a href="https://www.arduino.cc/en/Main/Software">Downloads</a></li>
+          </ul>
+        </li>
+
+        <li class="level-1" id="education">
+          <a href="https://www.arduino.cc/en/Main/Education">
+            <span class="full">Education</span>
+            <span class="shorten">Edu</span>
+          </a>
+        </li>
+
+        <li class="has-submenu level-1" id="resources">
+          <a role="button">Resources</a>
+          <ul class="nav-submenu">
+            <li><a href="https://www.arduino.cc/en/Main/Products">Products</a></li>
+            <li><a href="https://www.arduino.cc/en/Guide/HomePage">Getting Started</a></li>
+            <li><a href="https://www.arduino.cc/en/Tutorial/HomePage">Tutorials</a></li>
+            <li><a href="https://www.arduino.cc/reference/en">Reference</a></li>
+            <li><a href="https://www.arduino.cc/en/IoT/HomePage">IoT Cloud</a></li>
+          </ul>
+        </li>
+
+
+        <li class="has-submenu level-1" id="community">
+          <a role="button">Community</a>
+          <ul class="nav-submenu">
+            <li><a href="https://forum.arduino.cc/">Forum</a></li>
+            <li><a href="https://blog.arduino.cc/">Blog</a></li>
+            <li><a href="https://create.arduino.cc/projecthub" target="_blank" rel="noopener">Project Hub</a></li>
+            <li><a href="http://playground.arduino.cc/">Playground</a></li>
+            <li><a href="https://www.arduino.cc/en/ArduinoAtHeart/Products">AtHeart</a></li>
+          </ul>
+        </li>
+
+
+        <li class="has-submenu level-1" id="help">
+          <a role="button">Help</a>
+          <ul class="nav-submenu">
+            <li><a href="https://www.arduino.cc/en/Main/FAQ">FAQ</a></li>
+            <li><a href="https://www.arduino.cc/en/ContactUs">Contact Us</a></li>
+            <li><a href="https://store.arduino.cc/store-support">Store Support</a></li>
+          </ul>
+        </li>
+
+        <!-- fake mobile button -->
+        <li class="level-1">
+          <div class="show-mobile fake-button">
+          </div>
+        </li>
+        <!-- fake mobile button end -->
+
+      </ul>
+      <!-- main nav end -->
+
+      <!-- nav right -->
+      <ul class="nav-right">
+
+        <!-- search form -->
+        <li class="level-1 header-hide-mobile">
+          <a id="search-bar">
+            <form role="search" id="searchform" method="GET" action="https://www.google.com/search">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="oe" value="UTF-8">
+              <input type="text" placeholder="Search" value="" name="q" title="" class="search-typing">
+              <i class="clear-icon">×</i>
+              <input type="hidden" name="domains" value="https://www.arduino.cc" class="fill-it">
+              <input type="hidden" name="sitesearch" value="https://www.arduino.cc" class="fill-it">
+            </form>
+          </a>
+        </li>
+        <!-- search form end -->
+
+        <!-- language-selector -->
+        <!--<li class="language-selector has-submenu level-1">
+
+          <a><div class="selected-language eng"></div></a>
+
+          <div class="nav-submenu">
+            <div class="caret"></div>
+            <div class="dropdown-box">
+            <div class="left-col">
+              <h5>Language</h5>
+              <ul>
+              <li><button class="language-btn"><img src="https://cdn.arduino.cc/header-footer/cy8d1ikufm/images/language_eng.svg"></button>English</li>
+              <li><button class="language-btn"><img src="https://cdn.arduino.cc/header-footer/cy8d1ikufm/images/language_ita.svg"></button>Italian</li>
+              <li><button class="language-btn"><img src="https://cdn.arduino.cc/header-footer/cy8d1ikufm/images/language_china.svg"></button>Chinese</li>
+              </ul>
+            </div>
+            <div class="right-col">
+              <h5>Currency</h5>
+              <ul>
+              <li><button class="currency-btn">EUR</button>Euro</li>
+              <li><button class="currency-btn">USD</button>Dollar</li>
+              <li><button class="currency-btn">GBP</button>Pound</li>
+              <li><button class="currency-btn">CHF</button>Franc</li>
+              <li><button class="currency-btn">HUF</button>Forint</li>
+              </ul>
+            </div>
+            </div>
+          </div>
+
+        </li>-->
+        <!-- language-selector end -->
+
+        <!-- quotes start -->
+        <li class="level-1 quotes-dropdown-trigger has-submenu">
+          <a id="quotes-link">
+            <div id="quotes"><span class="badge">0</span><img src="./Arduino Reference_files/icon_quotes.svg" alt="Show Quotes"></div>
+          </a>
+
+          <div class="quotes-submenu">
+            <div class="caret"></div>
+            <div class="dropdown-box">
+              <div class="cart-close-button"></div>
+              <p class="loading-content">Loading ...</p>
+
+            </div>
+          </div>
+        </li>
+        <!-- quotes end -->
+
+        <!-- cart start -->
+        <li class="level-1 cart-dropdown-trigger has-submenu">
+          <a id="cart-link">
+            <div id="cart"><span class="badge" style="display: none;">0</span><img src="./Arduino Reference_files/cart.svg" alt="Show Cart">
+            </div>
+          </a>
+
+          <div class="cart-submenu">
+            <div class="caret"></div>
+            <div class="dropdown-box">    <div class="cart-close-button"></div>
+    <div class="block block-cart">
+                <div class="block-content">
+                                        <p class="empty">You have no items in your <a href="https://store.arduino.cc/checkout/cart/">shopping cart</a>.</p>
+                                </div>
+    </div>
+</div>
+          </div>
+        </li>
+        <!-- cart end -->
+
+        <!-- geolocation button start -->
+        <li class="level-1 store-location-button has-submenu" title="Select your location">
+          <a aria-label="Change Store location">
+            <div class="store-location">
+              <img src="./Arduino Reference_files/icon_geolocation.svg" alt="Store Location">
+            </div>
+          </a>
+
+          <div class="nav-submenu">
+            <div class="caret"></div>
+            <div class="dropdown-box">
+              <div class="cart-close-button"></div>
+              <p class="empty eu-africa">
+                Not shopping from Africa or Europe?
+                <a class="change-location">Change location here.</a>
+              </p>
+              <p class="empty america-asia">
+                Not shopping from America, Asia or Oceania?
+                <a class="change-location">Change location here.</a>
+              </p>
+            </div>
+          </div>
+        </li>
+        <!-- geolocation end -->
+
+        <li class="level-1">
+          <div class="login-button" style="display: block;">
+            <a href="https://www.arduino.cc/reference/en/language/variables/variable-scope--qualifiers/volatile/">
+              <span>Sign In</span>
+            </a>
+          </div>
+        </li>
+
+        <li class="profile-dropdown auth-required has-submenu level-1" style="display: none;">
+          <a data-hj-suppress="" class="submenu-toggle profile" aria-label="user profile">
+            <img class="user" src="./Arduino Reference_files/global_user_profile.svg" alt="User Profile">
+            <svg class="default">
+              <use xlink:href="#icon-Global-user-profile"></use>
+            </svg>
+            <span class="badge">0</span>
+          </a>
+
+          <div class="nav-submenu">
+            <div class="caret"></div>
+            <div class="dropdown-box">
+              <ul>
+                <li>
+                  <a href="https://id.arduino.cc/">Profile</a>
+                </li>
+                <li class="forum-messages">
+                  <a href="https://forum.arduino.cc/index.php?action=pm">Messages</a>
+                </li>
+                <li>
+                  <a href="https://store.arduino.cc/digital/subscriptions">My Plans</a>
+                </li>
+                <li class="logout">
+                  <a>Sign Out</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </li>
+
+      </ul>
+      <!-- nav right -->
+    </div>
+  </nav>
+  <div id="consent-modal-container"><div id="privacy-and-terms-modal" class="arduino-modal info-modal" action="https://api2.arduino.cc/consent/v1/approval/byUser/me" style="display: none;">
+  <div id="privacy-and-terms-modal-backdrop" class="modal-backdrop"></div>
+  <div class="modal-body approve-privacy-policy">
+
+    <h1>OUR PRIVACY POLICY HAS BEEN UPDATED</h1>
+
+    <form id="terms-privacy-form" novalidate="">
+      <p>
+        We updated recently our <a href="https://www.arduino.cc/PrivacyPolicy/en/" target="_blank" rel="noopener">Privacy policy</a>, please accept the new <a href="https://www.arduino.cc/en/Main/TermsOfService" target="_blank" rel="noopener">Terms of service</a>.
+      </p>
+      <ul class="privacy-settings">
+        <li>
+          <div id="privacy-and-terms-consent-error" class="upper-error-notif">Please accept our privacy policy and terms to continue using our services</div>
+          <label class="checkbox">
+                <input type="checkbox" id="privacy-and-terms-consent" name="privacy-consent" value="privacy_approval">
+
+                <span class="custom-checkbox"></span>
+                <span>I confirm to have read the <a href="https://www.arduino.cc/PrivacyPolicy/en/" target="_blank" rel="noopener">Privacy Policy</a> and to accept the <a href="https://www.arduino.cc/en/Main/TermsOfService" target="_blank" rel="noopener">Terms of Service</a></span>
+              </label>
+        </li>
+      </ul>
+      <section class="buttons-wrapper">
+        <button name="Ok" type="submit" class="primary button" id="privacy-and-terms-ok-button">
+                <span>AGREE AND CONTINUE</span>
+              </button>
+        <p id="privacy-modal-decline-link">or <a href="https://www.arduino.cc/reference/en/language/variables/variable-scope--qualifiers/volatile/#">log out</a> and continue the navigation.</p>
+      </section>
+    </form>
+  </div>
+</div>
+</div>
+</header></div>
+
+    <div id="reference">
+      <div class="container row">
+        <div class="first-column">
+          <div class="sidebar-nav">
+            <ul class="documentation-page-nav">
+    <li class="has-submenu">
+        <div class="bullet-icon">
+            <span class="icon"></span>
+            <span class="line"></span>
+        </div>
+        <a class="parent" href="https://www.arduino.cc/reference/en/#page-title">Language</a>
+        <ul class="reference-menu">
+            <li><a class="functions" href="https://www.arduino.cc/reference/en/#functions">functions</a></li>
+            <li><a class="variables active" href="https://www.arduino.cc/reference/en/#variables">variables</a></li>
+            <li><a class="structure" href="https://www.arduino.cc/reference/en/#structure">structure</a></li>
+        </ul>
+    </li>
+    <li>
+        <div class="bullet-icon">
+            <span class="icon"></span>
+            <span class="line"></span>
+        </div>
+        <a href="https://www.arduino.cc/en/Reference/Libraries">Libraries</a>
+    </li>
+    <li>
+        <div class="bullet-icon">
+            <span class="icon"></span>
+            <span class="line"></span>
+        </div>
+        <a href="https://www.arduino.cc/glossary/en">Glossary</a>
+    </li>
+</ul>
+
+<div class="licence">
+    <p>
+        The Arduino Reference text is licensed under a <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">Creative Commons Attribution-Share Alike 3.0 License</a>.
+    </p>
+    <p>
+       Find anything that can be improved? <a href="https://github.com/arduino/reference-en" target="_blank" rel="noopener">Suggest corrections and new documentation via GitHub.</a>
+    </p>
+    <p>
+       Doubts on how to use Github? Learn everything you need to know in <a href="https://create.arduino.cc/projecthub/Arduino_Genuino/contribute-to-the-arduino-reference-af7c37" target="_blank" rel="noopener">this tutorial</a>.
+    </p>
+</div>
+<div id="ad_container_zone" class="adv-banner"><script src="./Arduino Reference_files/ajs.php"></script></div>
+
+            <div>
+	<p class="last-github-update-timestamp">Last Update: 6/3/2019</p>
+	<a id="edit-page-btn" href="https://github.com/arduino/reference-en/edit/master/Language/Variables/Variable%20Scope%20&amp;%20Qualifiers/volatile.adoc" class="primary-button" role="button" language="en" path="Language/Variables/Variable Scope &amp; Qualifiers/volatile.adoc">Edit This Page</a>	
+</div>
+          </div>
+        </div>
+
+        <div class="single-page">
+          
+
+
+
+
+
+
+<div class="breadcrumbs">
+    <a href="https://www.arduino.cc/reference/en/">Reference</a>
+    
+      
+      
+        
+          <span>
+            &gt; <a href="https://www.arduino.cc/reference/en/">Language</a>
+          </span>
+        
+        
+      
+    
+      
+      
+        
+          <span>
+            &gt; <a href="https://www.arduino.cc/reference/en/#variables"> Variables</a>
+          </span>
+        
+        
+      
+    
+      
+      
+        
+          <span>
+            &gt; Variable scope qualifiers
+          </span>
+        
+        
+      
+    
+      
+      
+        
+          <span>
+            &gt; Volatile
+          </span>
+        
+        
+      
+    
+      
+      
+    
+</div>
+
+          <h1>volatile</h1>
+          [Variable Scope &amp; Qualifiers]
+          <div id="overview" class="openblock">
+<div class="content">
+<h3 id="_description" class="float">Description</h3>
+<div class="paragraph">
+<p><code>volatile</code> is a keyword known as a variable <em>qualifier</em>, it is usually used before the datatype of a variable, to modify the way in which the compiler and subsequent program treat the variable.</p>
+</div>
+<div class="paragraph">
+<p>Declaring a variable <code>volatile</code> is a directive to the compiler. The compiler is software which translates your C/C++ code into the machine code, which are the real instructions for the Atmega chip in the Arduino.</p>
+</div>
+<div class="paragraph">
+<p>Specifically, it directs the compiler to load the variable from RAM and not from a storage register, which is a temporary memory location where program variables are stored and manipulated. Under certain conditions, the value for a variable stored in registers can be inaccurate.</p>
+</div>
+<div class="paragraph">
+<p>A variable should be declared <code>volatile</code> whenever its value can be changed by something beyond the control of the code section in which it appears, such as a concurrently executing thread. In the Arduino, the only place that this is likely to occur is in sections of code associated with interrupts, called an interrupt service routine.</p>
+</div>
+<h3 id="_int_or_long_volatiles" class="float">int or long volatiles</h3>
+<div class="paragraph">
+<p>If the <code>volatile</code> variable is bigger than a byte (e.g. a 16 bit int or a 32 bit long), then the microcontroller can not read it in one step, because it is an 8 bit microcontroller. This means that while your main code section (e.g. your loop) reads the first 8 bits of the variable, the interrupt might already change the second 8 bits. This will produce random values for the variable.</p>
+</div>
+<div class="paragraph">
+<p>Remedy:</p>
+</div>
+<div class="paragraph">
+<p>While the variable is read, interrupts need to be disabled, so they can’t mess with the bits, while they are read.
+There are several ways to do this:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><mark>LANGUAGE</mark> <a href="https://www.arduino.cc/reference/en/language/functions/interrupts/nointerrupts">noInterrupts</a></p>
+</li>
+<li>
+<p>use the ATOMIC_BLOCK macro. Atomic operations are single MCU operations - the smallest possible unit.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="howtouse" class="openblock">
+<div class="content">
+<h3 id="_example_code" class="float">Example Code</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-arduino hljs" data-lang="arduino"><span class="hljs-comment">// toggles LED when interrupt pin changes state</span>
+
+<span class="hljs-keyword">int</span> pin = <span class="hljs-number">13</span>;
+<span class="hljs-keyword">volatile</span> <span class="hljs-keyword">byte</span> state = <span class="hljs-literal">LOW</span>;
+
+<span class="hljs-keyword">void</span> <span class="hljs-built_in">setup</span>() {
+  <span class="hljs-built_in">pinMode</span>(pin, <span class="hljs-literal">OUTPUT</span>);
+  <span class="hljs-built_in">attachInterrupt</span>(digitalPinToInterrupt(<span class="hljs-number">2</span>), <span class="hljs-built_in">blink</span>, CHANGE);
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-built_in">loop</span>() {
+  <span class="hljs-built_in">digitalWrite</span>(pin, state);
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-built_in">blink</span>() {
+  state = !state;
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-arduino hljs" data-lang="arduino"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;util/atomic.h&gt;</span> // this library includes the ATOMIC_BLOCK macro.</span>
+<span class="hljs-keyword">volatile</span> <span class="hljs-keyword">int</span> input_from_interrupt;
+
+  ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+    <span class="hljs-comment">// code with interrupts blocked (consecutive atomic operations will not get interrupted)</span>
+    <span class="hljs-keyword">int</span> result = input_from_interrupt;
+  }</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="see_also" class="openblock">
+<div class="content">
+<h3 id="_see_also" class="float">See also</h3>
+<div class="ulist language">
+<ul><li>
+                    <p>
+                      <mark>Language</mark>
+                      <a href="https://www.arduino.cc/reference/en/language/variables/variable-scope--qualifiers/const/">
+                        
+                          const
+                        
+                      </a>
+                    </p>
+                  </li><li>
+                    <p>
+                      <mark>Language</mark>
+                      <a href="https://www.arduino.cc/reference/en/language/variables/variable-scope--qualifiers/scope/">
+                        
+                          scope
+                        
+                      </a>
+                    </p>
+                  </li><li>
+                    <p>
+                      <mark>Language</mark>
+                      <a href="https://www.arduino.cc/reference/en/language/variables/variable-scope--qualifiers/static/">
+                        
+                          static
+                        
+                      </a>
+                    </p>
+                  </li>
+<li>
+<p><mark>LANGUAGE</mark> <a href="https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt">attachInterrupt</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+        </div>
+
+        
+      </div>
+    </div>
+    
+<div>
+  <div id="newsletter-modal"><div id="newsletter-popup-privacy" class="arduino-modal info-modal" action="https://api2.arduino.cc/consent/v1/subscription" style="display: none;">
+  <!-- Step 1.5, approve the privacy policy -->
+  <div id="privacy-modal-backdrop" class="modal-backdrop"></div>
+  <div class="modal-body approve-privacy-policy">
+
+    <h1>Privacy consent</h1>
+
+    <div>
+      <p>
+        Arduino cares about the privacy and personal data of its users. The <a href="https://www.arduino.cc/en/Main/PrivacyPolicy" target="_blank" rel="noopener">privacy policy</a> is meant to inform you on how we process your personal data when you use our services.
+      </p>
+
+      <ul class="privacy-settings">
+        <li>
+          <div id="privacy-consent-error" class="upper-error-notif">Please confirm that you have read the privacy policy</div>
+          <label class="checkbox">
+            <input type="checkbox" id="privacy-consent" name="privacy-consent" value="privacy_approval">
+
+            <span class="custom-checkbox"></span>
+            <span>I confirm to have read the privacy policy<span class="required-asterisk">*</span></span>
+          </label>
+        </li>
+        <li>
+          <div id="newsletter-error" class="upper-error-notif">Please confirm your consent to receive the newsletter</div>
+          <label class="checkbox">
+            <input type="checkbox" id="newsletter-consent" name="newsletter-consent" value="newsletter_approval" checked="">
+
+            <span class="custom-checkbox"></span>
+            <span>I confirm my consent to receive your newsletter<span class="required-asterisk">*</span></span>
+          </label>
+        </li>
+        <li>
+          <label class="checkbox">
+            <input type="checkbox" id="marketing-consent" value="marketing_approval">
+            <span class="custom-checkbox"></span>
+            <span>I confirm my consent to the processing of my personal data for marketing purposes, consisting in commercial offers sent via email</span>
+          </label>
+        </li>
+        <li>
+          <label class="checkbox">
+            <input type="checkbox" id="tracking-consent" value="tracking_approval">
+            <span class="custom-checkbox"></span>
+            <span>I confirm my consent to automated processing of my personal data, by means of profiling, in order to receive commercial offers customized on the basis of my browsing and purchasing behavior</span>
+          </label>
+        </li>
+      </ul>
+      <div class="my-error-notification">
+        <div id="newsletterSubscribeStatus"></div>
+      </div>
+      <section class="buttons-wrapper">
+        <button name="Cancel" class="button secondary" id="newsletter-privacy-policy-cancel-button">Cancel</button>
+        <button name="Ok" class="primary button" id="newsletter-privacy-policy-ok-button">Ok</button>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- step 2, confirm popup -->
+<div id="newsletter-popup-confirm" class="arduino-modal info-modal" style="display: none;">
+     <div class="modal-backdrop"></div>
+  <div id="confirm-newsletter-modal-backdrop" class="modal-body confirm-email">
+    <h1>Confirm your email address</h1>
+    <div id="newsletterModalBody">
+      <p>
+        We need to confirm your email address.<br> To complete the subscription, please click the link in the email we just sent you.
+      </p>
+      <p>
+        Thank you for subscribing!
+      </p>
+      <section class="buttons-wrapper">
+        <button name="Ok" class="button" id="confirm-email-ok-button">Ok</button>
+      </section>
+    </div>
+  </div>
+</div>
+</div>
+  <div id="footer"><div id="footer-block" style="margin-top: 91.2031px;">
+  <div class="newsletter-form">
+    <h4 id="newsletter-input-label">Newsletter</h4>
+    <div class="subscribe-wrapper">
+      <div id="newsletter-email-error" class="upper-error-notif">Please insert a valid email</div>
+      <div class="input-wrapper">
+        <input id="newsletter-email" aria-labelledby="newsletter-input-label" type="email" name="email" class="email" placeholder="Enter your email to sign up">
+        <button id="subscribe-btn" aria-label="Subscribe" class="button">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <section class="footer-links-wrapper">
+    <ul id="footer-list">
+      <li>
+        <a href="https://www.arduino.cc/en/Main/TermsOfService">
+          <span class="text">Terms Of Service</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.arduino.cc/en/Main/PrivacyPolicy">
+          <span class="text">Privacy Policy</span>
+        </a>
+      </li>
+      <li>
+        <div id="teconsent">
+        </div>
+      </li>
+      <li>
+        <a href="https://www.arduino.cc/en/Main/ContactUs">
+          <span class="text">Contact Us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.arduino.cc/en/Main/AboutUs">
+          <span class="text">About Us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://store.arduino.cc/distributors">
+          <span class="text">Distributors</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://careers.arduino.cc/">
+          <span class="text">Careers</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.arduino.cc/en/Main/Security">
+          <span class="text">Security</span>
+        </a>
+      </li>
+    </ul><!-- footer-list -->
+    <div class="footer-note">
+      <p>
+        <a href="https://www.arduino.cc/en/Main/CopyrightNotice">
+          <span class="text">
+            © <span id="current-year">2019</span> Arduino
+          </span>
+        </a>
+      </p>
+    </div>
+  </section>
+  <ul class="social-btn-list">
+    <li>
+      <a href="https://www.facebook.com/official.arduino" target="_blank" id="facebook" class="facebook" rel="noopener">
+        <img src="./Arduino Reference_files/icon-facebook.svg" alt="facebook">
+        <p class="follow-us">follow us on Facebook</p>
+      </a>
+    </li>
+    <li>
+      <a href="https://twitter.com/arduino" target="_blank" id="twitter" class="twitter" rel="noopener">
+        <img src="./Arduino Reference_files/icon-twitter.svg" alt="twitter">
+        <p class="follow-us">follow us on Twitter</p>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.instagram.com/arduino.cc/" target="_blank" id="instagram" class="instagram" rel="noopener">
+        <img src="./Arduino Reference_files/icon-instagram.svg" alt="instagram">
+        <p class="follow-us">follow us on Instagram</p>
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/arduino/" target="_blank" id="github" class="github" rel="noopener">
+        <img src="./Arduino Reference_files/icon-github.svg" alt="github">
+        <p class="follow-us">Arduino on GitHub</p>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.flickr.com/photos/arduino_cc" target="_blank" id="flickr" class="flickr" rel="noopener">
+        <img src="./Arduino Reference_files/icon-flickr.svg" alt="flickr">
+        <p class="follow-us">follow us on Flickr</p>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/user/arduinoteam" target="_blank" id="youtube" class="youtube" rel="noopener">
+        <img src="./Arduino Reference_files/icon-youtube.svg" alt="youtube">
+        <p class="follow-us">follow us on YouTube</p>
+      </a>
+    </li>
+  </ul>
+
+  <button id="go-top" class="go-top-footer-btn" aria-label="Scroll Top">
+    <span class="arrow-1"></span>
+    <span class="arrow-2"></span>
+    <span class="arrow-3"></span>
+  </button>
+</div><!-- footer-block -->
+</div>
+</div>
+ <script src="./Arduino Reference_files/loader.js.download" type="text/javascript"></script>
+<script>
+    var bootTracking = function bootIntercom() {
+        if (!window.ArduinoAuthHelper) {
+            return;
+        }
+
+        if (!window.ArduinoAuthHelper.getProfile()) {
+            return;
+        }
+
+        if (!window.ArduinoAuthHelper.getConsents()) {
+            return;
+        }
+
+        var consents = window.ArduinoAuthHelper.getConsents();
+        if (!consents.tracking) {
+            return;
+        }
+
+        var profile = window.ArduinoAuthHelper.getProfile();
+
+        if(window.Intercom) {
+            window.Intercom('boot', {
+            app_id: 'sv6pf2jo',
+            user_id: profile.id,
+            user_hash: consents.identity_hash,
+            });
+        }
+    };
+
+    var authOptions = {
+      authURI: "https://auth.arduino.cc/login",
+      redirectURI: window.location.href,
+      clientID: "reference",
+      scopes: ["profile:core", "profile:public"]
+    };
+    ArduinoHeaderAndFooter({auth: 'default', authOptions: authOptions}).then(function () {
+      
+      bootTracking();
+    });
+
+    
+    var arduinoAdvOptions = {
+        breakpointDesktop: 768,
+        breakpointMobile: 768,
+        zoneIdDesktop: 564,
+        zoneIdTablet: 563,
+        zoneIdMobile: 563
+    };
+</script>
+<script src="./Arduino Reference_files/scripts.js.download"></script>
+<script type="text/javascript" src="./Arduino Reference_files/postscribe.min.js.download"></script>
+<script type="text/javascript" src="./Arduino Reference_files/banner.js.download"></script>
+
+
+</body></html>

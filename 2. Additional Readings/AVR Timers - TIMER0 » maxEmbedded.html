@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://maxembedded.com/2011/06/avr-timers-timer0/ -->
+<html lang="en-US" class="js"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./AVR Timers - TIMER0 » maxEmbedded_files/sdk.js.download" async="" crossorigin="anonymous"></script><script async="" src="http://graph.facebook.com/?callback=WPCOMSharing.update_facebook_count&amp;ids=http%3A%2F%2Fmaxembedded.com%2F2011%2F06%2Favr-timers-timer0%2F&amp;_=1564715759717"></script><div class="fit-vids-style" id="fit-vids-style" style="display: none;">­<style>.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></div>
+	
+	<title>AVR Timers - TIMER0 » maxEmbedded</title>
+			
+	
+	<link rel="stylesheet" href="./AVR Timers - TIMER0 » maxEmbedded_files/style(2).css" type="text/css">
+	<link rel="pingback" href="http://maxembedded.com/xmlrpc.php">
+
+	<!--[if lt IE 9]>
+		<script src="http://maxembedded.com/wp-content/themes/Lucid/js/html5.js" type="text/javascript"></script>
+	<![endif]-->
+
+	<script async="" src="./AVR Timers - TIMER0 » maxEmbedded_files/saved_resource(4)" data-sumo-site-id="0fd0db72897a06dfbe8d8a51e8dd6d29407f1ace096366e7da1906ab3fdbbaf7" data-sumo-platform="wordpress"></script><script async="" src="./AVR Timers - TIMER0 » maxEmbedded_files/analytics.js.download"></script><script type="text/javascript">
+		document.documentElement.className = 'js';
+	</script>
+
+	
+<!-- This site is optimized with the Yoast SEO plugin v11.7 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="http://maxembedded.com/2011/06/avr-timers-timer0/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AVR Timers - TIMER0 » maxEmbedded">
+<meta property="og:description" content="Hello friends! Welcome back to the second part of the AVR Timers Series. In the previous post, we have discussed the basic concepts of AVR Timers. Let me summarize it: We have seen how timers are made up of registers, whose value automatically increases/decreases. Thus, the terms timer/counter are used interchangeably. In AVR, there are …">
+<meta property="og:url" content="http://maxembedded.com/2011/06/avr-timers-timer0/">
+<meta property="og:site_name" content="maxEmbedded">
+<meta property="article:publisher" content="https://www.facebook.com/maxEmbedded">
+<meta property="article:author" content="maxEmbedded">
+<meta property="article:tag" content="avr timers">
+<meta property="article:tag" content="counters">
+<meta property="article:tag" content="timers">
+<meta property="article:section" content="Atmel AVR">
+<meta property="article:published_time" content="2011-06-24T16:20:09+00:00">
+<meta property="article:modified_time" content="2015-11-04T07:19:12+00:00">
+<meta property="og:updated_time" content="2015-11-04T07:19:12+00:00">
+<meta property="og:image" content="http://maxembedded.files.wordpress.com/2011/06/avr_series.png">
+<script type="application/ld+json" class="yoast-schema-graph yoast-schema-graph--main">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"http://maxembedded.com/#organization","name":"maxEmbedded","url":"http://maxembedded.com/","sameAs":["https://www.facebook.com/maxEmbedded","https://www.youtube.com/user/THEmaxEmbedded","https://twitter.com/maxEmbedded"],"logo":{"@type":"ImageObject","@id":"http://maxembedded.com/#logo","url":"https://i1.wp.com/maxembedded.com/wp-content/uploads/2015/05/maxEmbedded-logo.png?fit=1200%2C1200","width":1200,"height":1200,"caption":"maxEmbedded"},"image":{"@id":"http://maxembedded.com/#logo"}},{"@type":"WebSite","@id":"http://maxembedded.com/#website","url":"http://maxembedded.com/","name":"maxEmbedded","publisher":{"@id":"http://maxembedded.com/#organization"},"potentialAction":{"@type":"SearchAction","target":"http://maxembedded.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"http://maxembedded.com/2011/06/avr-timers-timer0/#primaryimage","url":"https://i0.wp.com/maxembedded.com/wp-content/uploads/2012/12/avr-timers-4.png?fit=470%2C174","width":470,"height":174},{"@type":"WebPage","@id":"http://maxembedded.com/2011/06/avr-timers-timer0/#webpage","url":"http://maxembedded.com/2011/06/avr-timers-timer0/","inLanguage":"en-US","name":"AVR Timers - TIMER0 &raquo; maxEmbedded","isPartOf":{"@id":"http://maxembedded.com/#website"},"primaryImageOfPage":{"@id":"http://maxembedded.com/2011/06/avr-timers-timer0/#primaryimage"},"datePublished":"2011-06-24T16:20:09+00:00","dateModified":"2015-11-04T07:19:12+00:00"},{"@type":"Article","@id":"http://maxembedded.com/2011/06/avr-timers-timer0/#article","isPartOf":{"@id":"http://maxembedded.com/2011/06/avr-timers-timer0/#webpage"},"author":{"@id":"http://maxembedded.com/#/schema/person/27b78b901e4e172ed8a4470908abe188"},"headline":"AVR Timers &#8211; TIMER0","datePublished":"2011-06-24T16:20:09+00:00","dateModified":"2015-11-04T07:19:12+00:00","commentCount":"264","mainEntityOfPage":{"@id":"http://maxembedded.com/2011/06/avr-timers-timer0/#webpage"},"publisher":{"@id":"http://maxembedded.com/#organization"},"image":{"@id":"http://maxembedded.com/2011/06/avr-timers-timer0/#primaryimage"},"keywords":"avr timers,counters,timers","articleSection":"Atmel AVR,Microcontrollers"},{"@type":["Person"],"@id":"http://maxembedded.com/#/schema/person/27b78b901e4e172ed8a4470908abe188","name":"Mayank","image":{"@type":"ImageObject","@id":"http://maxembedded.com/#authorlogo","url":"http://2.gravatar.com/avatar/861cb6ee77e733ee31a32ffa329ed89f?s=96&d=wavatar&r=g","caption":"Mayank"},"description":"Max is the founder and admin of maxEmbedded. He describes himself as an 'embedded electronics freak' and an Apple/Linux fan. He likes to experiment, learn and share new things in this field. Furthermore, he likes to write stuffs on his website for techie newbies and loves to teach others. In his spare time, you will find him with volunteering somewhere!","sameAs":["maxEmbedded","prasadmayank","https://twitter.com/maxnmiaggi"]}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="http://s0.wp.com/">
+<link rel="dns-prefetch" href="http://secure.gravatar.com/">
+<link rel="dns-prefetch" href="http://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="maxEmbedded » Feed" href="http://maxembedded.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="maxEmbedded » Comments Feed" href="http://maxembedded.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="maxEmbedded » AVR Timers – TIMER0 Comments Feed" href="http://maxembedded.com/2011/06/avr-timers-timer0/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/maxembedded.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=9f16a1992218bd53ca50718010da4ab4"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./AVR Timers - TIMER0 » maxEmbedded_files/wp-emoji-release.min.js(1).download" type="text/javascript" defer=""></script>
+		<meta content="Lucid v.2.5" name="generator">
+	<style type="text/css">
+		body { color: #; }
+		#content-area a { color: #0da4d3; }
+		ul.nav li a { color: # !important; }
+		ul.nav > li.current_page_item > a, ul#top-menu > li:hover > a, ul.nav > li.current-cat > a { color: #; }
+		h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: #; }
+
+		#sidebar a { color:#; }
+		.footer-widget { color:# }
+		#footer a, ul#bottom-menu li a { color:# }
+	</style>
+
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="./AVR Timers - TIMER0 » maxEmbedded_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="google_font_open_sans-css" href="./AVR Timers - TIMER0 » maxEmbedded_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="google_font_open_sans_condensed-css" href="./AVR Timers - TIMER0 » maxEmbedded_files/css(1)" type="text/css" media="all">
+<!-- Inline jetpack_facebook_likebox -->
+<style id="jetpack_facebook_likebox-inline-css" type="text/css">
+.widget_facebook_likebox {
+	overflow: hidden;
+}
+
+</style>
+<link rel="stylesheet" id="et-shortcodes-css-css" href="./AVR Timers - TIMER0 » maxEmbedded_files/shortcodes.css" type="text/css" media="all">
+<link rel="stylesheet" id="et-shortcodes-responsive-css-css" href="./AVR Timers - TIMER0 » maxEmbedded_files/shortcodes_responsive.css" type="text/css" media="all">
+<link rel="stylesheet" id="social-logos-css" href="./AVR Timers - TIMER0 » maxEmbedded_files/social-logos.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="./AVR Timers - TIMER0 » maxEmbedded_files/jetpack.css" type="text/css" media="all">
+<link rel="stylesheet" id="fancybox-css" href="./AVR Timers - TIMER0 » maxEmbedded_files/jquery.fancybox-1.3.4.css" type="text/css" media="screen">
+<link rel="stylesheet" id="et_page_templates-css" href="./AVR Timers - TIMER0 » maxEmbedded_files/page_templates.css" type="text/css" media="screen">
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/jquery.js.download"></script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/jquery-migrate.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/related-posts.min.js.download"></script>
+<link rel="https://api.w.org/" href="http://maxembedded.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://maxembedded.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://maxembedded.com/wp-includes/wlwmanifest.xml"> 
+
+<link rel="shortlink" href="https://wp.me/p4sQoO-5t">
+<link rel="alternate" type="application/json+oembed" href="http://maxembedded.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fmaxembedded.com%2F2011%2F06%2Favr-timers-timer0%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://maxembedded.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fmaxembedded.com%2F2011%2F06%2Favr-timers-timer0%2F&amp;format=xml">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64366034-1', 'auto');
+  ga('send', 'pageview');
+
+</script><script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('//maxembedded.com/?wordfence_lh=1&hid=7EEEB481BCF4564656B295755FAC187E');
+</script>
+<link rel="dns-prefetch" href="http://v0.wordpress.com/">
+<link rel="dns-prefetch" href="http://widgets.wp.com/">
+<link rel="dns-prefetch" href="http://s0.wp.com/">
+<link rel="dns-prefetch" href="http://0.gravatar.com/">
+<link rel="dns-prefetch" href="http://1.gravatar.com/">
+<link rel="dns-prefetch" href="http://2.gravatar.com/">
+<link rel="dns-prefetch" href="http://jetpack.wordpress.com/">
+<link rel="dns-prefetch" href="http://s1.wp.com/">
+<link rel="dns-prefetch" href="http://s2.wp.com/">
+<link rel="dns-prefetch" href="http://public-api.wordpress.com/">
+<link rel="dns-prefetch" href="http://i0.wp.com/">
+<link rel="dns-prefetch" href="http://i1.wp.com/">
+<link rel="dns-prefetch" href="http://i2.wp.com/">
+		<style>
+				</style>
+	<link rel="shortcut icon" href="http://maxembedded.org/wp-content/uploads/2014/02/maxembedd-logo1.png"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"><style>
+		#featured .flex-direction-nav a:hover, #video-slider-section .flex-direction-nav a:hover { background-color: #00befe; }
+			#featured_section .active-slide .post-meta, #featured_section .switcher_hover .post-meta, .et_tab_link_hover .post-meta { background: #0da4d3; }
+			h3.main-title { background-color: #0da4d3; -moz-box-shadow: inset 0 0 10px rgba(0,133,245,0.1); -webkit-box-shadow: inset 0 0 10px rgba(0,133,245,0.1); box-shadow: inset 0 0 10px rgba(0,133,245,0.1); border: 1px solid #0085f5; }
+				.widget li { background: url(http://maxembedded.com/wp-content/themes/Lucid/images/widget-blue-bullet.png) no-repeat 24px 24px; }
+				.footer-widget li { background: url(http://maxembedded.com/wp-content/themes/Lucid/images/widget-blue-bullet.png) no-repeat 0 4px; }
+				.et_mobile_menu li a { background-image: url(http://maxembedded.com/wp-content/themes/Lucid/images/widget-blue-bullet.png); }
+		a { color: #0da4d3; }
+		.et_video_play { background-color: #0da4d3; }
+		#second-menu > ul > li > a:hover { background-color: #0da4d3; -moz-box-shadow: inset 0 0 10px rgba(0,0,0,0.3); -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.3); box-shadow: inset 0 0 10px rgba(0,0,0,0.3); }
+		#second-menu ul ul li a:hover { background-color: #33b0ff; }
+		#second-menu ul.nav li ul { background: #0da4d3; }
+		#second-menu ul ul li a { border-top: 1px solid #33b0ff; }
+		</style><style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #d8d8d8; background-image: url("http://maxembedded.com/wp-content/uploads/2014/03/maxE-background-1.jpg"); background-position: center top; background-size: auto; background-repeat: repeat-x; background-attachment: scroll; }
+</style>
+	<link rel="stylesheet" type="text/css" href="./AVR Timers - TIMER0 » maxEmbedded_files/shCore.css"><link rel="stylesheet" type="text/css" href="./AVR Timers - TIMER0 » maxEmbedded_files/shThemeDefault.css"><style type="text/css" id="syntaxhighlighteranchor"></style>
+			<style type="text/css" id="wp-custom-css">
+				/*
+Welcome to Custom CSS!
+
+CSS (Cascading Style Sheets) is a kind of code that tells the browser how
+to render a web page. You may delete these comments and get started with
+your customizations.
+
+By default, your stylesheet will be loaded after the theme stylesheets,
+which means that your rules can take precedence and override the theme CSS
+rules. Just write here what you want to change, you don't need to copy all
+your theme's stylesheet content.
+*/
+#main-area {
+	padding-top: 100px;
+}			</style>
+		<style type="text/css">#mc_embed_signup input.mce_inline_error { border-color:#6B0505; } #mc_embed_signup div.mce_inline_error { margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff; }</style><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./AVR Timers - TIMER0 » maxEmbedded_files/hovercard.min(1).css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./AVR Timers - TIMER0 » maxEmbedded_files/services.min(1).css"><script charset="utf-8" src="./AVR Timers - TIMER0 » maxEmbedded_files/75.24140aaed98b7590ab7a.js.download"></script><script charset="utf-8" src="./AVR Timers - TIMER0 » maxEmbedded_files/77.24140aaed98b7590ab7a.js.download"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#1d3c78;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style><script type="text/javascript" async="" src="./AVR Timers - TIMER0 » maxEmbedded_files/saved_resource(5)"></script></head>
+<body class="post-template-default single single-post postid-339 single-format-standard custom-background chrome et_includes_sidebar" style="zoom: 1;">
+		<header id="main-header">
+		<div class="container clearfix">
+			<a href="http://maxembedded.com/2011/06/avr-timers-timer0/#" class="mobile_nav closed">Pages Menu<span></span><ul id="mobile_menu" class="et_mobile_menu"><li id="menu-item-3269" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3269 et_first_mobile_item"><a href="http://maxembedded.com/index/"><span class="main_text">maxEmbedded Index</span></a></li>
+<li id="menu-item-3347" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3347"><a href="http://maxembedded.com/" class="sf-with-ul"><span class="main_text">Categories<span class="sf-sub-indicator"> »</span></span></a>
+<ul class="sub-menu" style="display: none; visibility: hidden;">
+	<li id="menu-item-3345" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3345"><a href="http://maxembedded.com/category/featured/">Featured</a></li>
+	<li id="menu-item-3340" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3340"><a href="http://maxembedded.com/category/getting-started/">Getting Started</a></li>
+	<li id="menu-item-3341" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3341"><a href="http://maxembedded.com/category/robotics-2/">Robotics</a></li>
+	<li id="menu-item-3342" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3342"><a href="http://maxembedded.com/category/electronics/">Electronics</a></li>
+	<li id="menu-item-3348" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3348"><a href="http://maxembedded.com/category/e-linux/">e-Linux</a></li>
+	<li id="menu-item-3343" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3343"><a href="http://maxembedded.com/category/computer-vision/">Computer Vision</a></li>
+	<li id="menu-item-3339" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-3339"><a href="http://maxembedded.com/category/microcontrollers-2/">Microcontrollers</a></li>
+	<li id="menu-item-3346" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3346"><a href="http://maxembedded.com/category/single-board-computers/">Single Board Computers</a></li>
+	<li id="menu-item-3344" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3344"><a href="http://maxembedded.com/category/offbeat/">Offbeat</a></li>
+</ul>
+</li>
+<li id="menu-item-3250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3250"><a href="http://maxembedded.com/tools/"><span class="main_text">Tools</span></a></li>
+</ul></a>			<nav id="top-menu">
+				<ul id="menu-global-menu" class="nav sf-js-enabled" style="visibility: visible;"><li id="menu-item-3269" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3269"><a href="http://maxembedded.com/index/"><span class="main_text" style="display: block; opacity: 1; margin-top: 0px;">maxEmbedded Index</span><span class="menu_slide" style="display: block;">maxEmbedded Index</span></a></li>
+<li id="menu-item-3347" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3347"><a href="http://maxembedded.com/" class="sf-with-ul"><span class="main_text" style="display: block; opacity: 1; margin-top: 0px;">Categories<span class="sf-sub-indicator"> »</span></span><span class="menu_slide" style="display: block;">Categories<span class="sf-sub-indicator"> »</span></span></a>
+<ul class="sub-menu" style="visibility: hidden; display: none;">
+	<li id="menu-item-3345" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3345"><a href="http://maxembedded.com/category/featured/">Featured</a></li>
+	<li id="menu-item-3340" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3340"><a href="http://maxembedded.com/category/getting-started/">Getting Started</a></li>
+	<li id="menu-item-3341" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3341"><a href="http://maxembedded.com/category/robotics-2/">Robotics</a></li>
+	<li id="menu-item-3342" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3342"><a href="http://maxembedded.com/category/electronics/">Electronics</a></li>
+	<li id="menu-item-3348" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3348"><a href="http://maxembedded.com/category/e-linux/">e-Linux</a></li>
+	<li id="menu-item-3343" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3343"><a href="http://maxembedded.com/category/computer-vision/">Computer Vision</a></li>
+	<li id="menu-item-3339" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-3339"><a href="http://maxembedded.com/category/microcontrollers-2/">Microcontrollers</a></li>
+	<li id="menu-item-3346" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3346"><a href="http://maxembedded.com/category/single-board-computers/">Single Board Computers</a></li>
+	<li id="menu-item-3344" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3344"><a href="http://maxembedded.com/category/offbeat/">Offbeat</a></li>
+</ul>
+</li>
+<li id="menu-item-3250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3250"><a href="http://maxembedded.com/tools/"><span class="main_text" style="display: block; opacity: 1; margin-top: 0px;">Tools</span><span class="menu_slide" style="display: block;">Tools</span></a></li>
+</ul>			</nav>
+
+			<div id="social-icons"><a href="https://twitter.com/maxEmbedded" target="_blank"><img alt="Twitter" src="./AVR Timers - TIMER0 » maxEmbedded_files/twitter.png"></a><a href="http://maxembedded.com/feed/" target="_blank"><img alt="Rss" src="./AVR Timers - TIMER0 » maxEmbedded_files/rss.png"></a><a href="https://www.facebook.com/maxEmbedded" target="_blank"><img alt="Facebook" src="./AVR Timers - TIMER0 » maxEmbedded_files/facebook.png"></a></div> <!-- end #social-icons -->
+			<div id="search">
+				<div id="search-form">
+					<form method="get" id="searchform" action="http://maxembedded.com//">
+						<input type="text" value="Search This Site..." name="s" id="searchinput">
+						<input type="image" alt="Submit" src="./AVR Timers - TIMER0 » maxEmbedded_files/search_btn.png" id="searchsubmit">
+					</form>
+				</div> <!-- end #search-form -->
+			</div> <!-- end #search -->
+		</div> <!-- end .container -->
+	</header> <!-- end #main-header -->
+
+	
+	<div class="container">
+		<div id="logo-area">
+			<a href="http://maxembedded.com/">
+								<img src="./AVR Timers - TIMER0 » maxEmbedded_files/header-white.png" alt="maxEmbedded" id="logo">
+			</a>
+
+					</div>
+	</div> <!-- end .container -->
+	<div id="secondary-menu">
+		<div class="container">
+			<a href="http://maxembedded.com/2011/06/avr-timers-timer0/#" class="mobile_nav closed">Categories Menu<span></span><ul id="category_mobile_menu" class="et_mobile_menu"><li id="menu-item-3327" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3327 et_first_mobile_item"><a href="http://maxembedded.com/"><span class="main_text">Home</span></a></li>
+<li id="menu-item-3228" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3228"><a href="http://maxembedded.com/index/"><span class="main_text">mE Index</span></a></li>
+<li id="menu-item-3338" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3338"><a href="http://maxembedded.com/category/getting-started/"><span class="main_text">Getting Started</span></a></li>
+<li id="menu-item-3224" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-3224"><a href="http://maxembedded.com/category/microcontrollers-2/atmel-avr/" class="sf-with-ul"><span class="main_text">Atmel AVR<span class="sf-sub-indicator"> »</span></span></a>
+<ul class="sub-menu" style="display: none; visibility: hidden;">
+	<li id="menu-item-3335" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3335"><a href="http://maxembedded.com/tag/avr-basics/">AVR Basics</a></li>
+	<li id="menu-item-3334" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3334"><a href="http://maxembedded.com/tag/avr-adc/">AVR ADC</a></li>
+	<li id="menu-item-3336" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3336"><a href="http://maxembedded.com/tag/avr-serial/">AVR Serial</a></li>
+	<li id="menu-item-3337" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3337"><a href="http://maxembedded.com/tag/avr-timers/">AVR Timers</a></li>
+</ul>
+</li>
+<li id="menu-item-3329" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3329"><a href="http://maxembedded.com/category/electronics/"><span class="main_text">Electronics</span></a></li>
+<li id="menu-item-3333" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3333"><a href="http://maxembedded.com/" class="sf-with-ul"><span class="main_text">More<span class="sf-sub-indicator"> »</span></span></a>
+<ul class="sub-menu" style="display: none; visibility: hidden;">
+	<li id="menu-item-3483" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3483"><a href="http://maxembedded.com/search/">Search</a></li>
+	<li id="menu-item-3237" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3237"><a href="http://maxembedded.com/code-gallery/">Code Gallery</a></li>
+	<li id="menu-item-3485" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3485"><a href="http://maxembedded.com/blogroll/">Blogroll</a></li>
+	<li id="menu-item-3328" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3328"><a href="http://maxembedded.com/category/robotics-2/">Robotics</a></li>
+	<li id="menu-item-3247" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3247"><a href="http://maxembedded.com/category/e-linux/">e-Linux</a></li>
+	<li id="menu-item-3330" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3330"><a href="http://maxembedded.com/category/computer-vision/">Computer Vision</a></li>
+	<li id="menu-item-3246" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3246"><a href="http://maxembedded.com/category/microcontrollers-2/msp430/">MSP430</a></li>
+	<li id="menu-item-3331" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3331"><a href="http://maxembedded.com/category/single-board-computers/">Single Board Computers</a></li>
+	<li id="menu-item-3332" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3332"><a href="http://maxembedded.com/tools/">Tools</a></li>
+	<li id="menu-item-3484" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3484"><a href="http://maxembedded.com/sitemap/">Sitemap</a></li>
+</ul>
+</li>
+<li id="menu-item-3501" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3501"><a href="http://maxembedded.com/about/" class="sf-with-ul"><span class="main_text">About<span class="sf-sub-indicator"> »</span></span></a>
+<ul class="sub-menu" style="display: none; visibility: hidden;">
+	<li id="menu-item-3236" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3236"><a href="http://maxembedded.com/contact/">Contact</a></li>
+	<li id="menu-item-3316" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3316"><a href="http://maxembedded.com/credits/">Credits</a></li>
+</ul>
+</li>
+</ul></a>			<nav id="second-menu" class="clearfix">
+				<ul id="menu-top-menu" class="nav sf-js-enabled" style="visibility: visible;"><li id="menu-item-3327" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3327"><a href="http://maxembedded.com/"><span class="main_text">Home</span><span class="menu_slide" style="display: block;">Home</span></a></li>
+<li id="menu-item-3228" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3228"><a href="http://maxembedded.com/index/"><span class="main_text">mE Index</span><span class="menu_slide" style="display: block;">mE Index</span></a></li>
+<li id="menu-item-3338" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3338"><a href="http://maxembedded.com/category/getting-started/"><span class="main_text" style="display: block; opacity: 1; margin-top: 0px;">Getting Started</span><span class="menu_slide" style="display: block;">Getting Started</span></a></li>
+<li id="menu-item-3224" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-3224"><a href="http://maxembedded.com/category/microcontrollers-2/atmel-avr/" class="sf-with-ul"><span class="main_text" style="display: block; opacity: 1; margin-top: 0px;">Atmel AVR<span class="sf-sub-indicator"> »</span></span><span class="menu_slide" style="display: block;">Atmel AVR<span class="sf-sub-indicator"> »</span></span></a>
+<ul class="sub-menu" style="visibility: hidden; display: none;">
+	<li id="menu-item-3335" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3335"><a href="http://maxembedded.com/tag/avr-basics/">AVR Basics</a></li>
+	<li id="menu-item-3334" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3334"><a href="http://maxembedded.com/tag/avr-adc/">AVR ADC</a></li>
+	<li id="menu-item-3336" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3336"><a href="http://maxembedded.com/tag/avr-serial/">AVR Serial</a></li>
+	<li id="menu-item-3337" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3337"><a href="http://maxembedded.com/tag/avr-timers/">AVR Timers</a></li>
+</ul>
+</li>
+<li id="menu-item-3329" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3329"><a href="http://maxembedded.com/category/electronics/"><span class="main_text" style="display: block; opacity: 1; margin-top: 0px;">Electronics</span><span class="menu_slide" style="display: block;">Electronics</span></a></li>
+<li id="menu-item-3333" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3333"><a href="http://maxembedded.com/" class="sf-with-ul"><span class="main_text">More<span class="sf-sub-indicator"> »</span></span><span class="menu_slide" style="display: block;">More<span class="sf-sub-indicator"> »</span></span></a>
+<ul class="sub-menu" style="display: none; visibility: hidden;">
+	<li id="menu-item-3483" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3483"><a href="http://maxembedded.com/search/">Search</a></li>
+	<li id="menu-item-3237" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3237"><a href="http://maxembedded.com/code-gallery/">Code Gallery</a></li>
+	<li id="menu-item-3485" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3485"><a href="http://maxembedded.com/blogroll/">Blogroll</a></li>
+	<li id="menu-item-3328" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3328"><a href="http://maxembedded.com/category/robotics-2/">Robotics</a></li>
+	<li id="menu-item-3247" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3247"><a href="http://maxembedded.com/category/e-linux/">e-Linux</a></li>
+	<li id="menu-item-3330" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3330"><a href="http://maxembedded.com/category/computer-vision/">Computer Vision</a></li>
+	<li id="menu-item-3246" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3246"><a href="http://maxembedded.com/category/microcontrollers-2/msp430/">MSP430</a></li>
+	<li id="menu-item-3331" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3331"><a href="http://maxembedded.com/category/single-board-computers/">Single Board Computers</a></li>
+	<li id="menu-item-3332" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3332"><a href="http://maxembedded.com/tools/">Tools</a></li>
+	<li id="menu-item-3484" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3484"><a href="http://maxembedded.com/sitemap/">Sitemap</a></li>
+</ul>
+</li>
+<li id="menu-item-3501" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3501"><a href="http://maxembedded.com/about/" class="sf-with-ul"><span class="main_text">About<span class="sf-sub-indicator"> »</span></span><span class="menu_slide" style="display: block;">About<span class="sf-sub-indicator"> »</span></span></a>
+<ul class="sub-menu" style="display: none; visibility: hidden;">
+	<li id="menu-item-3236" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3236"><a href="http://maxembedded.com/contact/">Contact</a></li>
+	<li id="menu-item-3316" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3316"><a href="http://maxembedded.com/credits/">Credits</a></li>
+</ul>
+</li>
+</ul>			</nav>
+		</div> <!-- end .container -->
+	</div> <!-- end #secondary-menu -->
+	<div id="main-area">
+		<div class="container">
+
+<div id="content-area" class="clearfix">
+	<div id="left-area">
+		<div id="breadcrumbs" class="clearfix">
+					<a href="http://maxembedded.com/" class="breadcrumbs_home">Home</a> <span class="raquo">»</span>
+
+									<a href="http://maxembedded.com/category/microcontrollers-2/atmel-avr/">Atmel AVR</a> <span class="raquo">»</span> AVR Timers – TIMER0					</div> <!-- end #breadcrumbs -->			
+	<article id="post-339" class="entry clearfix post-339 post type-post status-publish format-standard has-post-thumbnail hentry category-atmel-avr category-microcontrollers-2 tag-avr-timers tag-counters tag-timers">
+		<p class="meta-info">Posted  by <a href="http://maxembedded.com/author/maxmiaggi/" title="Posts by Mayank" rel="author">Mayank</a> on Jun 24, 2011 in <a href="http://maxembedded.com/category/microcontrollers-2/atmel-avr/" rel="category tag">Atmel AVR</a>, <a href="http://maxembedded.com/category/microcontrollers-2/" rel="category tag">Microcontrollers</a> | <span class="comments-number"><a href="http://maxembedded.com/2011/06/avr-timers-timer0/#respond">256 comments</a></span></p>
+							<div class="post-thumbnail">
+				<img src="./AVR Timers - TIMER0 » maxEmbedded_files/avr-timers-4.png" alt="AVR Timers – TIMER0" width="630" height="210">			</div> 	<!-- end .post-thumbnail -->
+		
+		<div class="post_content clearfix">
+			<h1 class="title">AVR Timers – TIMER0</h1>
+
+			<p style="text-align: justify;"><a href="./AVR Timers - TIMER0 » maxEmbedded_files/avr_series.png"><img class="alignright size-full wp-image-105" title="AVR Series" src="./AVR Timers - TIMER0 » maxEmbedded_files/avr_series.png" alt="AVR Series" width="140" height="105" data-recalc-dims="1"></a>Hello friends! Welcome back to the second part of the AVR Timers Series. In the <a title="Introduction to AVR Timers" href="http://maxembedded.wordpress.com/2011/06/22/introduction-to-avr-timers/" target="_blank">previous post</a>, we have discussed the basic concepts of AVR Timers. Let me summarize it:</p>
+<ul style="text-align: justify;">
+<li>We have seen how timers are made up of registers, whose value automatically increases/decreases. Thus, the terms timer/counter are used interchangeably.</li>
+<li>In AVR, there are three types of timers – <a title="AVR Timers – TIMER0" href="http://maxembedded.com/2011/06/24/avr-timers-timer0-2/" target="_blank">TIMER0</a>, <a title="AVR Timers – TIMER1" href="http://maxembedded.com/2011/06/28/avr-timers-timer1/" target="_blank">TIMER1</a> and <a title="AVR Timers – TIMER2" href="http://maxembedded.com/2011/06/29/avr-timers-timer2/" target="_blank">TIMER2</a>. Of these, TIMER1 is a 16-bit timer whereas others are 8-bit timers.</li>
+<li>We have seen how prescalers are used to trade duration with resolution.</li>
+<li>We have also discussed how to choose an appropriate value of a prescaler.</li>
+<li>And then, to finish off, we learnt about interrupts.</li>
+</ul>
+<p style="text-align: justify;">So, I will move towards its implementation directly. I have assumed that you have understood the concepts discussed above.</p>
+<p style="text-align: justify;">In this tutorial, we will learn to use TIMER0. Since timer is a peripheral, it can be activated by setting some bits in some registers. Instead of discussing all the registers at once, we will be discussing them as and when necessary. For those who are new to the term ‘register’, they can read about it from <a title="I/O Port Operations in AVR" href="http://maxembedded.wordpress.com/2011/06/10/port-operations-in-avr/" target="_blank">this page</a>. To have an idea about AVR Peripherals, view <a title="AVR Basics" href="http://maxembedded.wordpress.com/2011/06/09/avr-basics/" target="_blank">this page</a> (you need to scroll down a bit).</p>
+<h1><span style="color: #ff6600;">Problem Statement</span></h1>
+<p style="text-align: justify;">Let’s define a problem statement for us. The simplest one being the LED flasher. Let’s say, we need to flash an LED every 6 ms and we are have a CPU clock frequency of 32 kHz.</p>
+<p style="text-align: justify;">Well, I know that an LED flashing at every 6 ms will be always visible as <em>on</em> by our eye, but I could not find any simpler example which does not include prescalers. Take this as a demonstration.</p>
+<h1><span style="color: #ff6600;"><strong>Methodology</strong></span></h1>
+<p style="text-align: justify;">Now, as per the following formula, with a clock frequency of 32 kHz and 8-bit counter, the maximum delay possible is of 8 ms. This is quite low (for us, but not for the MCU). Hence for a delay of 6 ms, we need a timer count of 191. This can easily be achieved with an 8-bit counter (MAX = 255).</p>
+<p style="text-align: justify;"><a href="./AVR Timers - TIMER0 » maxEmbedded_files/timer-count.png"><img class="aligncenter size-full wp-image-323" title="Timer Count" src="./AVR Timers - TIMER0 » maxEmbedded_files/timer-count.png" alt="Timer Count" width="446" height="68" srcset="https://i2.wp.com/maxembedded.com/wp-content/uploads/2011/06/timer-count.png?w=446 446w, https://i2.wp.com/maxembedded.com/wp-content/uploads/2011/06/timer-count.png?resize=300%2C45 300w" sizes="(max-width: 446px) 100vw, 446px" data-recalc-dims="1"></a>Thus, what we need to do is quite simple. We need to keep a track of the counter value. As soon as it reaches 191, we toggle the LED value and reset the counter. For this, we need the help of the following registers.</p>
+<h3 style="text-align: justify;">TCNT0 Register</h3>
+<p style="text-align: justify;">The <strong>Timer/Counter Register</strong> – TCNT0 is as follows:</p>
+<div style="width: 650px" class="wp-caption aligncenter"><a href="./AVR Timers - TIMER0 » maxEmbedded_files/tcnt0-register.png"><img class="size-full wp-image-332" title="TCNT0 Register" src="./AVR Timers - TIMER0 » maxEmbedded_files/tcnt0-register.png" alt="TCNT0 Register" width="640" height="108" srcset="https://i1.wp.com/maxembedded.com/wp-content/uploads/2011/06/tcnt0-register.png?w=1037 1037w, https://i1.wp.com/maxembedded.com/wp-content/uploads/2011/06/tcnt0-register.png?resize=300%2C50 300w, https://i1.wp.com/maxembedded.com/wp-content/uploads/2011/06/tcnt0-register.png?resize=1024%2C173 1024w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1"></a><p class="wp-caption-text">TCNT0 Register</p></div>
+<p style="text-align: justify;">This is where the uint 8-bit counter of the timer resides. The value of the counter is stored here and increases/decreases automatically. Data can be both read/written from this register.</p>
+<p style="text-align: justify;">Now we know where the counter value lies. But this register won’t be activated unless we activate the timer! Thus we need to set the timer up. How? Read on…</p>
+<h3 style="text-align: justify;">TCCR0 Register</h3>
+<p style="text-align: justify;">The <strong>Timer/Counter Control Register</strong> – TCCR0 is as follows:</p>
+<div style="width: 650px" class="wp-caption aligncenter"><a href="./AVR Timers - TIMER0 » maxEmbedded_files/tccr0-register-cs.png"><img class="size-full wp-image-334" title="TCCR0 Register" src="./AVR Timers - TIMER0 » maxEmbedded_files/tccr0-register-cs.png" alt="TCCR0 Register" width="640" height="105" srcset="https://i2.wp.com/maxembedded.com/wp-content/uploads/2011/06/tccr0-register-cs.png?w=1052 1052w, https://i1.wp.com/maxembedded.com/wp-content/uploads/2011/06/tccr0-register-cs.png?resize=300%2C49 300w, https://i0.wp.com/maxembedded.com/wp-content/uploads/2011/06/tccr0-register-cs.png?resize=1024%2C169 1024w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1"></a><p class="wp-caption-text">TCCR0 Register</p></div>
+<p style="text-align: justify;">Right now, we will concentrate on the highlighted bits. The other bits will be discussed as and when necessary. By selecting these three <strong>Clock Select Bits</strong>, <strong>CS02:00</strong>, we set the timer up by choosing proper prescaler. The possible combinations are shown below.</p>
+<div style="width: 650px" class="wp-caption aligncenter"><a href="./AVR Timers - TIMER0 » maxEmbedded_files/clock-select-bit-description-n1024.png"><img class="size-full wp-image-335" title="Clock Select Bit Description" src="./AVR Timers - TIMER0 » maxEmbedded_files/clock-select-bit-description-n1024.png" alt="Clock Select Bit Description" width="640" height="255" srcset="https://i0.wp.com/maxembedded.com/wp-content/uploads/2011/06/clock-select-bit-description-n1024.png?w=700 700w, https://i1.wp.com/maxembedded.com/wp-content/uploads/2011/06/clock-select-bit-description-n1024.png?resize=300%2C119 300w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1"></a><p class="wp-caption-text">Clock Select Bit Description</p></div>
+<p style="text-align: justify;">For this problem statement, we choose <strong>No Prescaling</strong>. Ignore the bits highlighted in grey. We will be using it later in this tutorial. Thus, we initialize the counter as:</p>
+<pre style="text-align: justify;">TCCR0 |= (1 &lt;&lt; CS00);</pre>
+<p style="text-align: justify;">Please note that if you do not initialize this register, all the bits will remain as zero and the timer/counter will remain stopped.</p>
+<p style="text-align: justify;">Thus now we are ready to write a code for this. To learn about I/O port operations in AVR, view <a title="I/O Port Operations in AVR" href="http://maxembedded.wordpress.com/2011/06/10/port-operations-in-avr/" target="_blank">this</a>. To know about bit manipulations, view <a title="Programming 101" href="http://www.avrfreaks.net/index.php?name=PNphpBB2&amp;file=viewtopic&amp;t=37871" target="_blank">this</a>.</p>
+<h3 style="text-align: justify;">&nbsp;Code</h3>
+<div><div id="highlighter_399196" class="syntaxhighlighter  cpp"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div><div class="line number29 index28 alt2">29</div><div class="line number30 index29 alt1">30</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp preprocessor">#include &lt;avr/io.h&gt;</code></div><div class="line number2 index1 alt1"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number3 index2 alt2"><code class="cpp keyword bold">void</code> <code class="cpp plain">timer0_init()</code></div><div class="line number4 index3 alt1"><code class="cpp plain">{</code></div><div class="line number5 index4 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// set up timer with no prescaling</code></div><div class="line number6 index5 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">TCCR0 |= (1 &lt;&lt; CS00);</code></div><div class="line number7 index6 alt2"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// initialize counter</code></div><div class="line number9 index8 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">TCNT0 = 0;</code></div><div class="line number10 index9 alt1"><code class="cpp plain">}</code></div><div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number12 index11 alt1"><code class="cpp color1 bold">int</code> <code class="cpp plain">main(</code><code class="cpp keyword bold">void</code><code class="cpp plain">)</code></div><div class="line number13 index12 alt2"><code class="cpp plain">{</code></div><div class="line number14 index13 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// connect led to pin PC0</code></div><div class="line number15 index14 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">DDRC |= (1 &lt;&lt; 0);</code></div><div class="line number16 index15 alt1"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number17 index16 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// initialize timer</code></div><div class="line number18 index17 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">timer0_init();</code></div><div class="line number19 index18 alt2"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number20 index19 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// loop forever</code></div><div class="line number21 index20 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">while</code><code class="cpp plain">(1)</code></div><div class="line number22 index21 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number23 index22 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// check if the timer count reaches 191</code></div><div class="line number24 index23 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">if</code> <code class="cpp plain">(TCNT0 &gt;= 191)</code></div><div class="line number25 index24 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number26 index25 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">PORTC ^= (1 &lt;&lt; 0);&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// toggles the led</code></div><div class="line number27 index26 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">TCNT0 = 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// reset counter</code></div><div class="line number28 index27 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number29 index28 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number30 index29 alt1"><code class="cpp plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p style="text-align: justify;">I guess the code is pretty simple and straightforward. It doesn’t need any explanation. Or maybe one thing needs explanation. In the if statement, I have used</p>
+<div><div id="highlighter_586907" class="syntaxhighlighter nogutter  cpp"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp keyword bold">if</code> <code class="cpp plain">(TCNT0 &gt;= 191)</code></div></div></td></tr></tbody></table></div></div>
+<p style="text-align: justify;">instead of</p>
+<div><div id="highlighter_826905" class="syntaxhighlighter nogutter  cpp"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp keyword bold">if</code> <code class="cpp plain">(TCNT0 == 191)</code></div></div></td></tr></tbody></table></div></div>
+<p style="text-align: justify;">This is because sometimes due to missed compares or unexpected increment, this condition may <em>never</em> be true. Thus to remain on the safer side, we use ‘&gt;=’ instead of ‘==’.</p>
+<h1><span style="color: #ff6600;">Problem Statement Redefined</span></h1>
+<p style="text-align: justify;">Now let’s change the above problem statement to the following. We need to flash an LED every 8 ms and we have an XTAL of 16 MHz. Well, 8 ms is still low, but it’s good enough for the following illustration.</p>
+<h3 style="text-align: justify;">Methodology – Using Prescalers</h3>
+<p style="text-align: justify;">Now since the CPU clock frequency is 16 MHz, the maximum time delay that it can measure is 16 μs! But 8 ms (which is quite a small duration for us) is way much larger. So what do we do? Yes, you guessed right (I hope so ;))! We use a prescaler in order to trade duration with resolution. Now the following table summarizes the results of using different prescalers 8, 64, 256 and 1024. See <a title="Introduction to AVR Timers" href="http://maxembedded.wordpress.com/2011/06/22/introduction-to-avr-timers/" target="_blank">previous tutorial</a> for details.</p>
+<div style="width: 478px" class="wp-caption aligncenter"><a href="./AVR Timers - TIMER0 » maxEmbedded_files/prescaler-selection.png"><img class="size-full wp-image-344" title="Prescaler Selection" src="./AVR Timers - TIMER0 » maxEmbedded_files/prescaler-selection.png" alt="Prescaler Selection" width="468" height="271" srcset="https://i0.wp.com/maxembedded.com/wp-content/uploads/2011/06/prescaler-selection.png?w=468 468w, https://i2.wp.com/maxembedded.com/wp-content/uploads/2011/06/prescaler-selection.png?resize=300%2C173 300w" sizes="(max-width: 468px) 100vw, 468px" data-recalc-dims="1"></a><p class="wp-caption-text">Prescaler Selection</p></div>
+<p style="text-align: justify;">From the values of the counter, we can easily rule out the top three prescalers as they are above the maximum limit of an 8-bit counter (which is 255). Thus we use a prescaler of 1024. Now refer to the descriptions of clock select bits as shown in the TCCR0 register. Have a look at the selection highlighted in grey. This implements a prescaler of 1024. The rest remains the same. Moving to the coding part, we simply change the initialize function and the compare value. The rest remains the same.</p>
+<h3 style="text-align: justify;">Code</h3>
+<div><div id="highlighter_878961" class="syntaxhighlighter  cpp"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div><div class="line number29 index28 alt2">29</div><div class="line number30 index29 alt1">30</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp preprocessor">#include &lt;avr/io.h&gt;</code></div><div class="line number2 index1 alt1"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number3 index2 alt2"><code class="cpp keyword bold">void</code> <code class="cpp plain">timer0_init()</code></div><div class="line number4 index3 alt1"><code class="cpp plain">{</code></div><div class="line number5 index4 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// set up timer with prescaler = 1024</code></div><div class="line number6 index5 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">TCCR0 |= (1 &lt;&lt; CS02)|(1 &lt;&lt; CS00);</code></div><div class="line number7 index6 alt2"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// initialize counter</code></div><div class="line number9 index8 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">TCNT0 = 0;</code></div><div class="line number10 index9 alt1"><code class="cpp plain">}</code></div><div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number12 index11 alt1"><code class="cpp color1 bold">int</code> <code class="cpp plain">main(</code><code class="cpp keyword bold">void</code><code class="cpp plain">)</code></div><div class="line number13 index12 alt2"><code class="cpp plain">{</code></div><div class="line number14 index13 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// connect led to pin PC0</code></div><div class="line number15 index14 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">DDRC |= (1 &lt;&lt; 0);</code></div><div class="line number16 index15 alt1"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number17 index16 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// initialize timer</code></div><div class="line number18 index17 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">timer0_init();</code></div><div class="line number19 index18 alt2"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number20 index19 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// loop forever</code></div><div class="line number21 index20 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">while</code><code class="cpp plain">(1)</code></div><div class="line number22 index21 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number23 index22 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// check if the timer count reaches 124</code></div><div class="line number24 index23 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">if</code> <code class="cpp plain">(TCNT0 &gt;= 124)</code></div><div class="line number25 index24 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number26 index25 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">PORTC ^= (1 &lt;&lt; 0);&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// toggles the led</code></div><div class="line number27 index26 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">TCNT0 = 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// reset counter</code></div><div class="line number28 index27 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number29 index28 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number30 index29 alt1"><code class="cpp plain">}</code></div></div></td></tr></tbody></table></div></div>
+<h1><span style="color: #ff6600;">Problem Statement Redefined Again!</span></h1>
+<p style="text-align: justify;">Now let’s change the problem statement to something you can <em>actually see!</em> Let’s flash an LED every 50 ms (you can surely see the LED flashing this time ;)). We have an XTAL of 16 MHz.</p>
+<h3 style="text-align: justify;">Methodology – Using Interrupts</h3>
+<p style="text-align: justify;">So now, we have to flash the LED every 50 ms. With CPU frequency 16 MHz, even a maximum delay of 16.384 ms can be achieved using a 1024 prescaler. So what do we do now? Well, we use interrupts.</p>
+<p style="text-align: justify;">The concept here is that the hardware generates an interrupt every time the timer overflows. Since the required delay is greater than the maximum possible delay, obviously the timer will overflow. And whenever the timer overflows, an interrupt is fired. Now the question is <em>how many times should the interrupt be fired?</em></p>
+<p style="text-align: justify;">For this, let’s do some calculation. Let’s choose a prescaler, say 256. Thus, as per the calculations, it should take 4.096 ms for the timer to overflow. Now as soon as the timer overflows, an interrupt is fired and an Interrupt Service Routine (ISR) is executed. Now,</p>
+<p style="text-align: justify;">50 ms ÷ 4.096 ms = 12.207</p>
+<p style="text-align: justify;">Thus, in simple terms, by the time the timer has overflown 12 times, 49.152 ms would have passed. After that, when the timer undergoes 13th iteration, it would achieve a delay of 50 ms. Thus, in the 13th iteration, we need a delay of 50 – 49.152 = 0.848 ms. At a frequency of 62.5 kHz (prescaler = 256), each tick takes 0.016 ms. Thus to achieve a delay of 0.848 ms, it would require 53 ticks. Thus, in the 13th iteration, we only allow the timer to count up to 53, and then reset it. All this can be achieved in the ISR as follows:</p>
+<div><div id="highlighter_345094" class="syntaxhighlighter  cpp"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div><div class="line number29 index28 alt2">29</div><div class="line number30 index29 alt1">30</div><div class="line number31 index30 alt2">31</div><div class="line number32 index31 alt1">32</div><div class="line number33 index32 alt2">33</div><div class="line number34 index33 alt1">34</div><div class="line number35 index34 alt2">35</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp comments">// global variable to count the number of overflows</code></div><div class="line number2 index1 alt1"><code class="cpp keyword bold">volatile</code> <code class="cpp plain">uint8_t tot_overflow;</code></div><div class="line number3 index2 alt2"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number4 index3 alt1"><code class="cpp comments">// TIMER0 overflow interrupt service routine</code></div><div class="line number5 index4 alt2"><code class="cpp comments">// called whenever TCNT0 overflows</code></div><div class="line number6 index5 alt1"><code class="cpp plain">ISR(TIMER0_OVF_vect)</code></div><div class="line number7 index6 alt2"><code class="cpp plain">{</code></div><div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// keep a track of number of overflows</code></div><div class="line number9 index8 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">tot_overflow++;</code></div><div class="line number10 index9 alt1"><code class="cpp plain">}</code></div><div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number12 index11 alt1"><code class="cpp color1 bold">int</code> <code class="cpp plain">main(</code><code class="cpp keyword bold">void</code><code class="cpp plain">)</code></div><div class="line number13 index12 alt2"><code class="cpp plain">{</code></div><div class="line number14 index13 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// connect led to pin PC0</code></div><div class="line number15 index14 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">DDRC |= (1 &lt;&lt; 0);</code></div><div class="line number16 index15 alt1"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number17 index16 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// initialize timer</code></div><div class="line number18 index17 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">timer0_init();</code></div><div class="line number19 index18 alt2"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number20 index19 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// loop forever</code></div><div class="line number21 index20 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">while</code><code class="cpp plain">(1)</code></div><div class="line number22 index21 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number23 index22 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// check if no. of overflows = 12</code></div><div class="line number24 index23 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">if</code> <code class="cpp plain">(tot_overflow &gt;= 12)&nbsp; </code><code class="cpp comments">// NOTE: '&gt;=' is used</code></div><div class="line number25 index24 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number26 index25 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// check if the timer count reaches 53</code></div><div class="line number27 index26 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">if</code> <code class="cpp plain">(TCNT0 &gt;= 53)</code></div><div class="line number28 index27 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number29 index28 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">PORTC ^= (1 &lt;&lt; 0);&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// toggles the led</code></div><div class="line number30 index29 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">TCNT0 = 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// reset counter</code></div><div class="line number31 index30 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">tot_overflow = 0;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// reset overflow counter</code></div><div class="line number32 index31 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number33 index32 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number34 index33 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number35 index34 alt2"><code class="cpp plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p style="text-align: justify;">Please note that the code is not yet ready. Not until you learn how to enable the interrupt feature. For this, you should be aware of the following registers.</p>
+<h3 style="text-align: justify;">TIMSK Register</h3>
+<p style="text-align: justify;">The <strong>Timer/Counter Interrupt Mask</strong> – TIMSK Register is as follows. It is a common register for all the three timers. For TIMER0, bits 1 and 0 are allotted. Right now, we are interested in the 0th bit <strong>TOIE0</strong>. Setting this bit to ‘1’ enables the TIMER0 overflow interrupt.</p>
+<div style="width: 650px" class="wp-caption aligncenter"><a href="./AVR Timers - TIMER0 » maxEmbedded_files/timsk-h.png"><img class="size-full wp-image-352" title="TIMSK Register" src="./AVR Timers - TIMER0 » maxEmbedded_files/timsk-h.png" alt="TIMSK Register" width="640" height="106" srcset="https://i1.wp.com/maxembedded.com/wp-content/uploads/2011/06/timsk-h.png?w=1042 1042w, https://i2.wp.com/maxembedded.com/wp-content/uploads/2011/06/timsk-h.png?resize=300%2C49 300w, https://i0.wp.com/maxembedded.com/wp-content/uploads/2011/06/timsk-h.png?resize=1024%2C170 1024w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1"></a><p class="wp-caption-text">TIMSK Register</p></div>
+<h3 style="text-align: justify;">TIFR Register</h3>
+<p style="text-align: justify;">The <strong>Timer/Counter Interrupt Flag Register</strong>– TIFR is as follows. Even though we are not using it in our code, you should be aware of it.</p>
+<div style="width: 650px" class="wp-caption aligncenter"><a href="./AVR Timers - TIMER0 » maxEmbedded_files/tifr-h.png"><img class="size-full wp-image-353" title="TIFR Register" src="./AVR Timers - TIMER0 » maxEmbedded_files/tifr-h.png" alt="TIFR Register" width="640" height="102" srcset="https://i2.wp.com/maxembedded.com/wp-content/uploads/2011/06/tifr-h.png?w=1059 1059w, https://i1.wp.com/maxembedded.com/wp-content/uploads/2011/06/tifr-h.png?resize=300%2C48 300w, https://i1.wp.com/maxembedded.com/wp-content/uploads/2011/06/tifr-h.png?resize=1024%2C164 1024w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1"></a><p class="wp-caption-text">TIFR Register</p></div>
+<p style="text-align: justify;">This is also a register shared by all the timers. Even here, bits 1 and 0 are allotted for TIMER0. At present we are interested in the 0th bit <strong>TOV0</strong> bit. This bit is set (one) whenever TIMER0 overflows. This bit is reset (zero) whenever the Interrupt Service Routine (ISR) is executed. If there is no ISR to execute, we can clear it manually by writing one to it.</p>
+<p style="text-align: justify;">In this example, since we are using ISR, we need not care about this bit (thus this register as a whole).</p>
+<p style="text-align: justify;"><strong>Enabling Global Interrupts</strong></p>
+<p style="text-align: justify;">In the AVRs, there’s only one single bit which handles all the interrupts. Thus, to enable it, we need to enable the global interrupts. This is done by calling a function named sei(). Don’t worry much about it, we simply need to call it once, that’s all.</p>
+<h3 style="text-align: justify;">Final Code</h3>
+<div><div id="highlighter_903785" class="syntaxhighlighter collapsed  cpp"><div class="toolbar"><span><a href="http://maxembedded.com/2011/06/avr-timers-timer0/#" class="toolbar_item command_expandSource expandSource">+ expand source</a></span><span><a href="http://maxembedded.com/2011/06/avr-timers-timer0/#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div><div class="line number29 index28 alt2">29</div><div class="line number30 index29 alt1">30</div><div class="line number31 index30 alt2">31</div><div class="line number32 index31 alt1">32</div><div class="line number33 index32 alt2">33</div><div class="line number34 index33 alt1">34</div><div class="line number35 index34 alt2">35</div><div class="line number36 index35 alt1">36</div><div class="line number37 index36 alt2">37</div><div class="line number38 index37 alt1">38</div><div class="line number39 index38 alt2">39</div><div class="line number40 index39 alt1">40</div><div class="line number41 index40 alt2">41</div><div class="line number42 index41 alt1">42</div><div class="line number43 index42 alt2">43</div><div class="line number44 index43 alt1">44</div><div class="line number45 index44 alt2">45</div><div class="line number46 index45 alt1">46</div><div class="line number47 index46 alt2">47</div><div class="line number48 index47 alt1">48</div><div class="line number49 index48 alt2">49</div><div class="line number50 index49 alt1">50</div><div class="line number51 index50 alt2">51</div><div class="line number52 index51 alt1">52</div><div class="line number53 index52 alt2">53</div><div class="line number54 index53 alt1">54</div><div class="line number55 index54 alt2">55</div><div class="line number56 index55 alt1">56</div><div class="line number57 index56 alt2">57</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp preprocessor">#include &lt;avr/io.h&gt;</code></div><div class="line number2 index1 alt1"><code class="cpp preprocessor">#include &lt;avr/interrupt.h&gt;</code></div><div class="line number3 index2 alt2"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number4 index3 alt1"><code class="cpp comments">// global variable to count the number of overflows</code></div><div class="line number5 index4 alt2"><code class="cpp keyword bold">volatile</code> <code class="cpp plain">uint8_t tot_overflow;</code></div><div class="line number6 index5 alt1"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number7 index6 alt2"><code class="cpp comments">// initialize timer, interrupt and variable</code></div><div class="line number8 index7 alt1"><code class="cpp keyword bold">void</code> <code class="cpp plain">timer0_init()</code></div><div class="line number9 index8 alt2"><code class="cpp plain">{</code></div><div class="line number10 index9 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// set up timer with prescaler = 256</code></div><div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">TCCR0 |= (1 &lt;&lt; CS02);</code></div><div class="line number12 index11 alt1"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number13 index12 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// initialize counter</code></div><div class="line number14 index13 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">TCNT0 = 0;</code></div><div class="line number15 index14 alt2"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number16 index15 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// enable overflow interrupt</code></div><div class="line number17 index16 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">TIMSK |= (1 &lt;&lt; TOIE0);</code></div><div class="line number18 index17 alt1"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number19 index18 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// enable global interrupts</code></div><div class="line number20 index19 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">sei();</code></div><div class="line number21 index20 alt2"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number22 index21 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// initialize overflow counter variable</code></div><div class="line number23 index22 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">tot_overflow = 0;</code></div><div class="line number24 index23 alt1"><code class="cpp plain">}</code></div><div class="line number25 index24 alt2"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number26 index25 alt1"><code class="cpp comments">// TIMER0 overflow interrupt service routine</code></div><div class="line number27 index26 alt2"><code class="cpp comments">// called whenever TCNT0 overflows</code></div><div class="line number28 index27 alt1"><code class="cpp plain">ISR(TIMER0_OVF_vect)</code></div><div class="line number29 index28 alt2"><code class="cpp plain">{</code></div><div class="line number30 index29 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// keep a track of number of overflows</code></div><div class="line number31 index30 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">tot_overflow++;</code></div><div class="line number32 index31 alt1"><code class="cpp plain">}</code></div><div class="line number33 index32 alt2"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number34 index33 alt1"><code class="cpp color1 bold">int</code> <code class="cpp plain">main(</code><code class="cpp keyword bold">void</code><code class="cpp plain">)</code></div><div class="line number35 index34 alt2"><code class="cpp plain">{</code></div><div class="line number36 index35 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// connect led to pin PC0</code></div><div class="line number37 index36 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">DDRC |= (1 &lt;&lt; 0);</code></div><div class="line number38 index37 alt1"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number39 index38 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// initialize timer</code></div><div class="line number40 index39 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">timer0_init();</code></div><div class="line number41 index40 alt2"><code class="cpp spaces">&nbsp;</code>&nbsp;</div><div class="line number42 index41 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// loop forever</code></div><div class="line number43 index42 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">while</code><code class="cpp plain">(1)</code></div><div class="line number44 index43 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number45 index44 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// check if no. of overflows = 12</code></div><div class="line number46 index45 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">if</code> <code class="cpp plain">(tot_overflow &gt;= 12)&nbsp; </code><code class="cpp comments">// NOTE: '&gt;=' is used</code></div><div class="line number47 index46 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number48 index47 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// check if the timer count reaches 53</code></div><div class="line number49 index48 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">if</code> <code class="cpp plain">(TCNT0 &gt;= 53)</code></div><div class="line number50 index49 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number51 index50 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">PORTC ^= (1 &lt;&lt; 0);&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// toggles the led</code></div><div class="line number52 index51 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">TCNT0 = 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// reset counter</code></div><div class="line number53 index52 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">tot_overflow = 0;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="cpp comments">// reset overflow counter</code></div><div class="line number54 index53 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number55 index54 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number56 index55 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number57 index56 alt2"><code class="cpp plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p style="text-align: justify;">So friends, we are done with the basics of TIMER0. What remains to be discussed in it are CTC Mode and PWM Mode. We will be discussing them in upcoming posts. In the <a title="AVR Timers – TIMER1" href="http://maxembedded.wordpress.com/2011/06/28/avr-timers-timer1/" target="_blank">next post</a>, we will discuss how to apply the same concepts to use TIMER1, and then to <a title="AVR Timers – TIMER2" href="http://maxembedded.wordpress.com/2011/06/29/avr-timers-timer2/" target="_blank">TIMER2</a>.</p>
+<p style="text-align: justify;">Till then, enjoy flashing LEDs at different intervals! ;)</p>
+<p style="text-align: justify;"><strong>And please comment below to encourage me to keep on updating interesting stuffs! :) Also you can grab the RSS Feeds or subscribe to my blog to stay updated!</strong></p>
+<p style="text-align: justify;">Thank You!</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Loved it? Share it!</h3><div class="sd-content"><ul><li class="share-facebook"><a rel="nofollow noopener noreferrer" data-shared="sharing-facebook-339" class="share-facebook sd-button share-icon" href="http://maxembedded.com/2011/06/avr-timers-timer0/?share=facebook&amp;nb=1" target="_blank" title="Click to share on Facebook"><span>Facebook</span></a></li><li class="share-twitter"><a rel="nofollow noopener noreferrer" data-shared="sharing-twitter-339" class="share-twitter sd-button share-icon" href="http://maxembedded.com/2011/06/avr-timers-timer0/?share=twitter&amp;nb=1" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-linkedin"><a rel="nofollow noopener noreferrer" data-shared="sharing-linkedin-339" class="share-linkedin sd-button share-icon" href="http://maxembedded.com/2011/06/avr-timers-timer0/?share=linkedin&amp;nb=1" target="_blank" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li><a href="http://maxembedded.com/2011/06/avr-timers-timer0/#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-email share-service-visible"><a rel="nofollow noopener noreferrer" data-shared="" class="share-email sd-button share-icon" href="http://maxembedded.com/2011/06/avr-timers-timer0/?share=email&amp;nb=1" target="_blank" title="Click to email this to a friend"><span>Email</span></a></li><li class="share-print"><a rel="nofollow noopener noreferrer" data-shared="" class="share-print sd-button share-icon" href="http://maxembedded.com/2011/06/avr-timers-timer0/#print" target="_blank" title="Click to print"><span>Print</span></a></li><li class="share-end"></li><li class="share-tumblr"><a rel="nofollow noopener noreferrer" data-shared="" class="share-tumblr sd-button share-icon" href="http://maxembedded.com/2011/06/avr-timers-timer0/?share=tumblr&amp;nb=1" target="_blank" title="Click to share on Tumblr"><span>Tumblr</span></a></li><li class="share-end"></li></ul></div></div></div></div></div><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-loaded" id="like-post-wrapper-65979954-339-5d43aaed4e416" data-src="https://widgets.wp.com/likes/#blog_id=65979954&amp;post_id=339&amp;origin=maxembedded.com&amp;obj_id=65979954-339-5d43aaed4e416" data-name="like-post-frame-65979954-339-5d43aaed4e416"><h3 class="sd-title">Like this:</h3><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px; display: none;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><iframe name="like-post-frame-65979954-339-5d43aaed4e416" src="./AVR Timers - TIMER0 » maxEmbedded_files/saved_resource(7).html" height="55px" width="100%" frameborder="0" scrolling="no"></iframe><span class="sd-text-color"></span><a class="sd-link-color"></a></div>
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-visual jp-relatedposts-grid "><div class="jp-relatedposts-post jp-relatedposts-post0 jp-relatedposts-post-thumbs" data-post-id="381" data-post-format="false"><a class="jp-relatedposts-post-a" href="http://maxembedded.com/2011/06/avr-timers-timer2/" title="AVR Timers - TIMER2
+
+Hello friends! Welcome to the tutorial on the TIMER2 of AVR ATMEGA16/32. I hope that you have already come across and read the following posts, in which the basic concepts and applications of AVR Timers are discussed. Introduction to AVR Timers AVR Timers - TIMER0 AVR Timers - TIMER1 In…" rel="nofollow" data-origin="339" data-position="0"><img class="jp-relatedposts-post-img" src="./AVR Timers - TIMER0 » maxEmbedded_files/clock-select-bit-description-110.png" width="350" alt="AVR Timers - TIMER2"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="http://maxembedded.com/2011/06/avr-timers-timer2/" title="AVR Timers - TIMER2
+
+Hello friends! Welcome to the tutorial on the TIMER2 of AVR ATMEGA16/32. I hope that you have already come across and read the following posts, in which the basic concepts and applications of AVR Timers are discussed. Introduction to AVR Timers AVR Timers - TIMER0 AVR Timers - TIMER1 In…" rel="nofollow" data-origin="339" data-position="0">AVR Timers - TIMER2</a></h4><p class="jp-relatedposts-post-excerpt">Hello friends! Welcome to the tutorial on the TIMER2 of AVR ATMEGA16/32. I hope that you have already come across and read the following posts, in which the basic concepts and applications of AVR Timers are discussed. Introduction to AVR Timers AVR Timers - TIMER0 AVR Timers - TIMER1 In…</p><p class="jp-relatedposts-post-date" style="display: block;">June 29, 2011</p><p class="jp-relatedposts-post-context">In "Atmel AVR"</p></div><div class="jp-relatedposts-post jp-relatedposts-post1 jp-relatedposts-post-thumbs" data-post-id="361" data-post-format="false"><a class="jp-relatedposts-post-a" href="http://maxembedded.com/2011/06/avr-timers-timer1/" title="AVR Timers - TIMER1
+
+Hello folks! Welcome back! In this tutorial, we will come across TIMER1 of the AVR. I hope that you have read and understood the previous posts: Introduction to AVR Timers AVR Timers - TIMER0 So basically, in this tutorial, we will do whatever we did in the previous one. In…" rel="nofollow" data-origin="339" data-position="1"><img class="jp-relatedposts-post-img" src="./AVR Timers - TIMER0 » maxEmbedded_files/clock-select-bits-description.png" width="350" alt="AVR Timers - TIMER1"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="http://maxembedded.com/2011/06/avr-timers-timer1/" title="AVR Timers - TIMER1
+
+Hello folks! Welcome back! In this tutorial, we will come across TIMER1 of the AVR. I hope that you have read and understood the previous posts: Introduction to AVR Timers AVR Timers - TIMER0 So basically, in this tutorial, we will do whatever we did in the previous one. In…" rel="nofollow" data-origin="339" data-position="1">AVR Timers - TIMER1</a></h4><p class="jp-relatedposts-post-excerpt">Hello folks! Welcome back! In this tutorial, we will come across TIMER1 of the AVR. I hope that you have read and understood the previous posts: Introduction to AVR Timers AVR Timers - TIMER0 So basically, in this tutorial, we will do whatever we did in the previous one. In…</p><p class="jp-relatedposts-post-date" style="display: block;">June 28, 2011</p><p class="jp-relatedposts-post-context">In "Atmel AVR"</p></div><div class="jp-relatedposts-post jp-relatedposts-post2 jp-relatedposts-post-thumbs" data-post-id="312" data-post-format="false"><a class="jp-relatedposts-post-a" href="http://maxembedded.com/2011/06/introduction-to-avr-timers/" title="Introduction to AVR Timers
+
+Timers Timers are used everywhere. Without timers, you would end up nowhere! The range of timers vary from a few microseconds (like the ticks of a processor) to many hours (like the lecture classes  ), and AVR is suitable for the whole range! AVR boasts of having a very accurate timer,…" rel="nofollow" data-origin="339" data-position="2"><img class="jp-relatedposts-post-img" src="./AVR Timers - TIMER0 » maxEmbedded_files/avr-timer-intro.jpg" width="350" alt="Introduction to AVR Timers"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="http://maxembedded.com/2011/06/introduction-to-avr-timers/" title="Introduction to AVR Timers
+
+Timers Timers are used everywhere. Without timers, you would end up nowhere! The range of timers vary from a few microseconds (like the ticks of a processor) to many hours (like the lecture classes  ), and AVR is suitable for the whole range! AVR boasts of having a very accurate timer,…" rel="nofollow" data-origin="339" data-position="2">Introduction to AVR Timers</a></h4><p class="jp-relatedposts-post-excerpt">Timers Timers are used everywhere. Without timers, you would end up nowhere! The range of timers vary from a few microseconds (like the ticks of a processor) to many hours (like the lecture classes&nbsp;&nbsp;), and AVR is suitable for the whole range! AVR boasts of having a very accurate timer,…</p><p class="jp-relatedposts-post-date" style="display: block;">June 22, 2011</p><p class="jp-relatedposts-post-context">In "Atmel AVR"</p></div></div></div>								</div> 	<!-- end .post_content -->
+	</article> <!-- end .entry -->
+
+	
+	<script async="" src="./AVR Timers - TIMER0 » maxEmbedded_files/f.txt"></script>
+<!-- 728x90-Leaderboard-New -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-2127326018455564" data-ad-slot="2319276130"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+	<!-- You can start editing here. -->
+
+<section id="comment-wrap">
+			<h1 id="comments" class="page_title">256 Comments</h1>
+
+					<div class="comment_navigation_top clearfix">
+				<div class="nav-previous"><a href="http://maxembedded.com/2011/06/avr-timers-timer0/comment-page-6/#comments"><span class="meta-nav">←</span> Older Comments</a></div>
+				<div class="nav-next"></div>
+			</div> <!-- .navigation -->
+		
+					<ol class="commentlist clearfix">
+					<li class="comment even thread-even depth-1" id="li-comment-181286">
+		<article id="comment-181286" class="comment-body clearfix">
+			<div class="comment_postinfo">
+				<div class="comment_avatar">
+					<img alt="" src="./AVR Timers - TIMER0 » maxEmbedded_files/1047b0a24fcb3b07adf202cc364c232c" srcset="http://1.gravatar.com/avatar/1047b0a24fcb3b07adf202cc364c232c?s=80&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-40 photo grav-hashed grav-hijack" height="40" width="40" id="grav-1047b0a24fcb3b07adf202cc364c232c-0">				</div> <!-- end .comment_avatar -->
+
+				<span class="fn">masterlowry</span>				<span class="comment_date">
+					January 20, 2018				</span>
+							</div> <!-- end .comment_postinfo -->
+
+			<div class="comment_area">
+				
+				<div class="comment-content clearfix">
+					<p>That definitely will help me at my exam next week!</p>
+
+					<div class="reply-container"><a rel="nofollow" class="comment-reply-link" href="http://maxembedded.com/2011/06/avr-timers-timer0/#comment-181286" data-commentid="181286" data-postid="339" data-belowelement="comment-181286" data-respondelement="respond" aria-label="Reply to masterlowry">Reply</a></div>				</div> <!-- end comment-content-->
+			</div> <!-- end comment_area-->
+		</article> <!-- end comment-body -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-181481">
+		<article id="comment-181481" class="comment-body clearfix">
+			<div class="comment_postinfo">
+				<div class="comment_avatar">
+					<img alt="" src="./AVR Timers - TIMER0 » maxEmbedded_files/d9112bddb3ff7e0d6552aff5e65f5d36" srcset="http://1.gravatar.com/avatar/d9112bddb3ff7e0d6552aff5e65f5d36?s=80&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-40 photo grav-hashed grav-hijack" height="40" width="40" id="grav-d9112bddb3ff7e0d6552aff5e65f5d36-0">				</div> <!-- end .comment_avatar -->
+
+				<span class="fn">Vaibhav Malviya</span>				<span class="comment_date">
+					March 18, 2018				</span>
+							</div> <!-- end .comment_postinfo -->
+
+			<div class="comment_area">
+				
+				<div class="comment-content clearfix">
+					<p>What wold be the changes if I want to use Atmega128 ??????</p>
+
+					<div class="reply-container"><a rel="nofollow" class="comment-reply-link" href="http://maxembedded.com/2011/06/avr-timers-timer0/#comment-181481" data-commentid="181481" data-postid="339" data-belowelement="comment-181481" data-respondelement="respond" aria-label="Reply to Vaibhav Malviya">Reply</a></div>				</div> <!-- end comment-content-->
+			</div> <!-- end comment_area-->
+		</article> <!-- end comment-body -->
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-183199">
+		<article id="comment-183199" class="comment-body clearfix">
+			<div class="comment_postinfo">
+				<div class="comment_avatar">
+					<img alt="" src="./AVR Timers - TIMER0 » maxEmbedded_files/bd15a28b1ddd400b876f9a44108c6f4d" srcset="http://2.gravatar.com/avatar/bd15a28b1ddd400b876f9a44108c6f4d?s=80&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-40 photo grav-hashed grav-hijack" height="40" width="40" id="grav-bd15a28b1ddd400b876f9a44108c6f4d-0">				</div> <!-- end .comment_avatar -->
+
+				<span class="fn">Rushi Somvanshi</span>				<span class="comment_date">
+					April 28, 2018				</span>
+							</div> <!-- end .comment_postinfo -->
+
+			<div class="comment_area">
+				
+				<div class="comment-content clearfix">
+					<p>I wrote this code sir but got no output on serial monitor!!!!</p>
+<p>void setup() {<br>
+  Serial.begin(9600);<br>
+  pinMode(13,OUTPUT);<br>
+  TCCR1A = 0;<br>
+  TCCR1B|=((1&lt;&lt;WGM12)|(1&lt;&lt;CS12));<br>
+  TCNT1=0;<br>
+  TIMSK1|=(1&lt;&lt;OCIE1A)|(1&lt;&lt;OCIE1B);</p>
+<p>  OCR1A=31249;<br>
+  OCR1B=15624;</p>
+<p>}<br>
+  ISR (TIMER1_COMPA_vect)<br>
+  {<br>
+    Serial.println(millis());<br>
+      }<br>
+ISR (TIMER1_COMPB_vect)<br>
+  {<br>
+    Serial.println(millis());<br>
+      }</p>
+<p>void loop() {<br>
+  // put your main code here, to run repeatedly:</p>
+<p>}</p>
+
+					<div class="reply-container"><a rel="nofollow" class="comment-reply-link" href="http://maxembedded.com/2011/06/avr-timers-timer0/#comment-183199" data-commentid="183199" data-postid="339" data-belowelement="comment-183199" data-respondelement="respond" aria-label="Reply to Rushi Somvanshi">Reply</a></div>				</div> <!-- end comment-content-->
+			</div> <!-- end comment_area-->
+		</article> <!-- end comment-body -->
+</li><!-- #comment-## -->
+			</ol>
+		
+					<div class="comment_navigation_bottom clearfix">
+				<div class="nav-previous"><a href="http://maxembedded.com/2011/06/avr-timers-timer0/comment-page-6/#comments"><span class="meta-nav">←</span> Older Comments</a></div>
+				<div class="nav-next"></div>
+			</div> <!-- .navigation -->
+		
+						
+		<div id="respond" class="comment-respond">
+							<h3 id="reply-title" class="comment-reply-title">Leave a Reply					<small><a rel="nofollow" id="cancel-comment-reply-link" href="http://maxembedded.com/2011/06/avr-timers-timer0/#respond" style="display:none;">Cancel reply</a></small>
+				</h3>
+						<form id="commentform" class="comment-form">
+				<iframe title="Comment Form" src="./AVR Timers - TIMER0 » maxEmbedded_files/saved_resource(8).html" style="width: 100%; height: 58px; border: 0px;" name="jetpack_remote_comment" class="jetpack_remote_comment" id="jetpack_remote_comment" sandbox="allow-same-origin allow-top-navigation allow-scripts allow-forms allow-popups" scrolling="no"></iframe>
+									<!--[if !IE]><!-->
+					<script>
+						document.addEventListener('DOMContentLoaded', function () {
+							var commentForms = document.getElementsByClassName('jetpack_remote_comment');
+							for (var i = 0; i < commentForms.length; i++) {
+								commentForms[i].allowTransparency = false;
+								commentForms[i].scrolling = 'no';
+							}
+						});
+					</script>
+					<!--<![endif]-->
+							<input id="ak_js" name="ak_js" type="hidden" value="1564715765765"></form>
+		</div>
+
+		
+		<input type="hidden" name="comment_parent" id="comment_parent" value="">
+
+		<p class="akismet_comment_form_privacy_notice">This site uses Akismet to reduce spam. <a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">Learn how your comment data is processed</a>.</p>	
+</section>	</div> <!-- end #left_area -->
+
+		<div id="sidebar">
+		<div id="search-2" class="widget widget_search"><h4 class="widgettitle">Search maxEmbedded</h4><form role="search" method="get" id="searchform" class="searchform" action="http://maxembedded.com/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s">
+					<input type="submit" id="searchsubmit" value="Search">
+				</div>
+			</form></div> <!-- end .widget --><div id="ettabbedwidget-2" class="widget widget_ettabbedwidget">		<ul id="tab-controls" class="clearfix">
+			<li class="first active"><a href="http://maxembedded.com/2011/06/avr-timers-timer0/#"><span>Popular</span></a></li>
+			<li class="second"><a href="http://maxembedded.com/2011/06/avr-timers-timer0/#"><span>Recent</span></a></li>
+			<li class="last"><a href="http://maxembedded.com/2011/06/avr-timers-timer0/#"><span>Random</span></a></li>
+		</ul>
+
+		<div id="all-tabs">
+			<div id="popular-tab">
+				<ul>
+									<li class="clearfix">
+	<span class="post-meta">Mon<span>20</span></span>
+	<h4><a href="http://maxembedded.com/2011/06/the-adc-of-the-avr/">The ADC of the AVR</a></h4>
+	<p class="meta-info">Posted by <a href="http://maxembedded.com/author/maxmiaggi/" title="Posts by Mayank" rel="author">Mayank</a> in <a href="http://maxembedded.com/category/microcontrollers-2/atmel-avr/" rel="category tag">Atmel AVR</a>, <a href="http://maxembedded.com/category/microcontrollers-2/" rel="category tag">Microcontrollers</a></p>
+</li>									<li class="clearfix">
+	<span class="post-meta">Fri<span>24</span></span>
+	<h4><a href="http://maxembedded.com/2011/06/avr-timers-timer0/">AVR Timers – TIMER0</a></h4>
+	<p class="meta-info">Posted by <a href="http://maxembedded.com/author/maxmiaggi/" title="Posts by Mayank" rel="author">Mayank</a> in <a href="http://maxembedded.com/category/microcontrollers-2/atmel-avr/" rel="category tag">Atmel AVR</a>, <a href="http://maxembedded.com/category/microcontrollers-2/" rel="category tag">Microcontrollers</a></p>
+</li>									<li class="clearfix">
+	<span class="post-meta">Tue<span>06</span></span>
+	<h4><a href="http://maxembedded.com/2011/09/rf-module-interfacing-without-microcontrollers/">RF Module Interfacing without Microcontrollers</a></h4>
+	<p class="meta-info">Posted by <a href="http://maxembedded.com/author/maxmiaggi/" title="Posts by Mayank" rel="author">Mayank</a> in <a href="http://maxembedded.com/category/electronics/" rel="category tag">Electronics</a></p>
+</li>									<li class="clearfix">
+	<span class="post-meta">Thu<span>16</span></span>
+	<h4><a href="http://maxembedded.com/2011/06/lcd-interfacing-with-avr/">LCD Interfacing with AVR</a></h4>
+	<p class="meta-info">Posted by <a href="http://maxembedded.com/author/maxmiaggi/" title="Posts by Mayank" rel="author">Mayank</a> in <a href="http://maxembedded.com/category/microcontrollers-2/atmel-avr/" rel="category tag">Atmel AVR</a>, <a href="http://maxembedded.com/category/microcontrollers-2/" rel="category tag">Microcontrollers</a></p>
+</li>									<li class="clearfix">
+	<span class="post-meta">Thu<span>20</span></span>
+	<h4><a href="http://maxembedded.com/2012/12/making-an-rf-car/">Making an RF Car</a></h4>
+	<p class="meta-info">Posted by <a href="http://maxembedded.com/author/yashtambi/" title="Posts by Yash" rel="author">Yash</a> in <a href="http://maxembedded.com/category/electronics/" rel="category tag">Electronics</a>, <a href="http://maxembedded.com/category/robotics-2/" rel="category tag">Robotics</a></p>
+</li>								</ul>
+			</div> <!-- end #popular-tab -->
+
+			<div id="recent-tab">
+				<ul>
+									<li class="clearfix">
+	<span class="post-meta">Mon<span>11</span></span>
+	<h4><a href="http://maxembedded.com/2016/07/turn-raspberry-pi-development-server/">How to Turn Your Raspberry Pi Into a Development Server</a></h4>
+	<p class="meta-info">Posted by <a href="http://maxembedded.com/author/irinapapuc/" title="Posts by Irina Papuc" rel="author">Irina Papuc</a> in <a href="http://maxembedded.com/category/iot/" rel="category tag">IoT</a>, <a href="http://maxembedded.com/category/single-board-computers/raspberry-pi/" rel="category tag">Raspberry Pi</a>, <a href="http://maxembedded.com/category/single-board-computers/" rel="category tag">Single Board Computers</a></p>
+</li>									<li class="clearfix">
+	<span class="post-meta">Fri<span>06</span></span>
+	<h4><a href="http://maxembedded.com/2016/05/getting-started-esp8266-wifi-module/">Getting Started with ESP8266 WiFi Module</a></h4>
+	<p class="meta-info">Posted by <a href="http://maxembedded.com/author/maxmiaggi/" title="Posts by Mayank" rel="author">Mayank</a> in <a href="http://maxembedded.com/category/microcontrollers-2/expressif-esp8266/" rel="category tag">Expressif ESP8266</a>, <a href="http://maxembedded.com/category/featured/" rel="category tag">Featured</a>, <a href="http://maxembedded.com/category/getting-started/" rel="category tag">Getting Started</a>, <a href="http://maxembedded.com/category/iot/" rel="category tag">IoT</a>, <a href="http://maxembedded.com/category/microcontrollers-2/" rel="category tag">Microcontrollers</a></p>
+</li>									<li class="clearfix">
+	<span class="post-meta">Thu<span>24</span></span>
+	<h4><a href="http://maxembedded.com/2016/03/using-microchip-mplab-xpress-ide-and-evaluation-board/">Using Microchip MPLAB Xpress IDE and Evaluation Board</a></h4>
+	<p class="meta-info">Posted by <a href="http://maxembedded.com/author/maxmiaggi/" title="Posts by Mayank" rel="author">Mayank</a> in <a href="http://maxembedded.com/category/featured/" rel="category tag">Featured</a>, <a href="http://maxembedded.com/category/getting-started/" rel="category tag">Getting Started</a>, <a href="http://maxembedded.com/category/microcontrollers-2/microchip-pic/" rel="category tag">Microchip PIC</a>, <a href="http://maxembedded.com/category/microcontrollers-2/" rel="category tag">Microcontrollers</a></p>
+</li>									<li class="clearfix">
+	<span class="post-meta">Sun<span>14</span></span>
+	<h4><a href="http://maxembedded.com/2015/06/setting-up-avr-gcc-toolchain-on-linux-and-mac-os-x/">Setting up AVR-GCC Toolchain on Linux and Mac OS X</a></h4>
+	<p class="meta-info">Posted by <a href="http://maxembedded.com/author/maxmiaggi/" title="Posts by Mayank" rel="author">Mayank</a> in <a href="http://maxembedded.com/category/microcontrollers-2/atmel-avr/" rel="category tag">Atmel AVR</a>, <a href="http://maxembedded.com/category/microcontrollers-2/" rel="category tag">Microcontrollers</a></p>
+</li>									<li class="clearfix">
+	<span class="post-meta">Sun<span>05</span></span>
+	<h4><a href="http://maxembedded.com/2015/04/raspberry-pi-headless-setup/">Raspberry Pi – Headless Setup</a></h4>
+	<p class="meta-info">Posted by <a href="http://maxembedded.com/author/maxmiaggi/" title="Posts by Mayank" rel="author">Mayank</a> in <a href="http://maxembedded.com/category/e-linux/" rel="category tag">e-Linux</a>, <a href="http://maxembedded.com/category/featured/" rel="category tag">Featured</a>, <a href="http://maxembedded.com/category/getting-started/" rel="category tag">Getting Started</a>, <a href="http://maxembedded.com/category/single-board-computers/raspberry-pi/" rel="category tag">Raspberry Pi</a>, <a href="http://maxembedded.com/category/single-board-computers/" rel="category tag">Single Board Computers</a></p>
+</li>								</ul>
+			</div> <!-- end #recent-tab -->
+
+			<div id="random-tab">
+				<ul>
+									<li class="clearfix">
+	<span class="post-meta">Mon<span>06</span></span>
+	<h4><a href="http://maxembedded.com/2011/06/basics-of-microcontrollers/">Basics of Microcontrollers</a></h4>
+	<p class="meta-info">Posted by <a href="http://maxembedded.com/author/maxmiaggi/" title="Posts by Mayank" rel="author">Mayank</a> in <a href="http://maxembedded.com/category/getting-started/" rel="category tag">Getting Started</a>, <a href="http://maxembedded.com/category/microcontrollers-2/" rel="category tag">Microcontrollers</a></p>
+</li>									<li class="clearfix">
+	<span class="post-meta">Thu<span>09</span></span>
+	<h4><a href="http://maxembedded.com/2011/06/avr-basics/">AVR Basics</a></h4>
+	<p class="meta-info">Posted by <a href="http://maxembedded.com/author/maxmiaggi/" title="Posts by Mayank" rel="author">Mayank</a> in <a href="http://maxembedded.com/category/microcontrollers-2/atmel-avr/" rel="category tag">Atmel AVR</a>, <a href="http://maxembedded.com/category/microcontrollers-2/" rel="category tag">Microcontrollers</a></p>
+</li>									<li class="clearfix">
+	<span class="post-meta">Sun<span>09</span></span>
+	<h4><a href="http://maxembedded.com/2014/02/inter-integrated-circuits-i2c-basics/">Inter-Integrated Circuits – I2C Basics</a></h4>
+	<p class="meta-info">Posted by <a href="http://maxembedded.com/author/maxmiaggi/" title="Posts by Mayank" rel="author">Mayank</a> in <a href="http://maxembedded.com/category/microcontrollers-2/atmel-avr/" rel="category tag">Atmel AVR</a>, <a href="http://maxembedded.com/category/microcontrollers-2/" rel="category tag">Microcontrollers</a></p>
+</li>									<li class="clearfix">
+	<span class="post-meta">Tue<span>28</span></span>
+	<h4><a href="http://maxembedded.com/2011/06/avr-timers-timer1/">AVR Timers – TIMER1</a></h4>
+	<p class="meta-info">Posted by <a href="http://maxembedded.com/author/maxmiaggi/" title="Posts by Mayank" rel="author">Mayank</a> in <a href="http://maxembedded.com/category/microcontrollers-2/atmel-avr/" rel="category tag">Atmel AVR</a>, <a href="http://maxembedded.com/category/microcontrollers-2/" rel="category tag">Microcontrollers</a></p>
+</li>									<li class="clearfix">
+	<span class="post-meta">Mon<span>20</span></span>
+	<h4><a href="http://maxembedded.com/2011/06/the-adc-of-the-avr/">The ADC of the AVR</a></h4>
+	<p class="meta-info">Posted by <a href="http://maxembedded.com/author/maxmiaggi/" title="Posts by Mayank" rel="author">Mayank</a> in <a href="http://maxembedded.com/category/microcontrollers-2/atmel-avr/" rel="category tag">Atmel AVR</a>, <a href="http://maxembedded.com/category/microcontrollers-2/" rel="category tag">Microcontrollers</a></p>
+</li>								</ul>
+			</div> <!-- end #popular-tab -->
+		</div> <!-- end #all-tabs -->
+</div> <!-- end .widget --><div id="categories-2" class="widget widget_categories"><h4 class="widgettitle">Browse maxE by Categories</h4><form action="http://maxembedded.com/" method="get"><label class="screen-reader-text" for="cat">Browse maxE by Categories</label><select name="cat" id="cat" class="postform">
+	<option value="-1">Select Category</option>
+	<option class="level-0" value="2">Computer Vision</option>
+	<option class="level-0" value="3">e-Linux</option>
+	<option class="level-0" value="4">Electronics</option>
+	<option class="level-0" value="364">Featured</option>
+	<option class="level-0" value="365">Getting Started</option>
+	<option class="level-0" value="679">Guest Articles</option>
+	<option class="level-0" value="684">IoT</option>
+	<option class="level-0" value="6">Microcontrollers</option>
+	<option class="level-1" value="11">&nbsp;&nbsp;&nbsp;Atmel AVR</option>
+	<option class="level-1" value="683">&nbsp;&nbsp;&nbsp;Expressif ESP8266</option>
+	<option class="level-1" value="681">&nbsp;&nbsp;&nbsp;Microchip PIC</option>
+	<option class="level-1" value="7">&nbsp;&nbsp;&nbsp;MSP430</option>
+	<option class="level-0" value="8">Offbeat</option>
+	<option class="level-0" value="9">Robotics</option>
+	<option class="level-0" value="10">Single Board Computers</option>
+	<option class="level-1" value="18">&nbsp;&nbsp;&nbsp;BeagleBone Black</option>
+	<option class="level-1" value="20">&nbsp;&nbsp;&nbsp;Raspberry Pi</option>
+</select>
+</form>
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+	var dropdown = document.getElementById( "cat" );
+	function onCatChange() {
+		if ( dropdown.options[ dropdown.selectedIndex ].value > 0 ) {
+			dropdown.parentNode.submit();
+		}
+	}
+	dropdown.onchange = onCatChange;
+})();
+/* ]]> */
+</script>
+
+			</div> <!-- end .widget --><div id="text-3" class="widget widget_text"><h4 class="widgettitle">Subscribe to maxEmbedded</h4>			<div class="textwidget"><!-- Begin MailChimp Signup Form -->
+<link href="./AVR Timers - TIMER0 » maxEmbedded_files/classic-081711.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="http://maxembedded.us11.list-manage.com/subscribe/post?u=7653f7fee3c20d3345c445bd0&amp;id=fafcfc7bc0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="novalidate">
+    <div id="mc_embed_signup_scroll">
+	
+<div class="mc-field-group">
+	<label for="mce-EMAIL">Email Address </label>
+	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" aria-required="true">
+</div>
+	<div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;"><input type="text" name="b_7653f7fee3c20d3345c445bd0_fafcfc7bc0" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/mc-validate.js.download"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='MMERGE3';ftypes[3]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<!--End mc_embed_signup--></div>
+		</div> <!-- end .widget --><div id="facebook-likebox-2" class="widget widget_facebook_likebox"><h4 class="widgettitle"><a href="https://www.facebook.com/maxEmbedded">Like maxE on Facebook</a></h4>		<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div><iframe name="fb_xdm_frame_https" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./AVR Timers - TIMER0 » maxEmbedded_files/xd_arbiter.html" style="border: none;"></iframe></div><div></div></div></div>
+		<div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/maxEmbedded" data-width="200" data-height="130" data-hide-cover="false" data-show-facepile="false" data-show-posts="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=249643311490&amp;container_width=172&amp;height=130&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2FmaxEmbedded&amp;locale=en_US&amp;sdk=joey&amp;show_facepile=false&amp;show_posts=false&amp;width=200"><span style="vertical-align: top; width: 0px; height: 0px; overflow: hidden;"><iframe name="f2d409af335b9e4" width="200px" height="130px" title="fb:page Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./AVR Timers - TIMER0 » maxEmbedded_files/page.html" style="border: none; visibility: visible; width: 0px; height: 0px;"></iframe></span></div>
+		</div> <!-- end .widget --><div id="adsensewidget-4" class="widget widget_adsensewidget"><h4 class="widgettitle">Sponsored Links</h4>		<div style="overflow: hidden;">
+			<script async="" src="./AVR Timers - TIMER0 » maxEmbedded_files/f.txt"></script>
+<!-- 300x600-Skyscraper-New -->
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-2127326018455564" data-ad-slot="2179675338"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>			<div class="clearfix"></div>
+		</div> <!-- end adsense -->
+	</div> <!-- end .widget -->	</div> <!-- end #sidebar -->
+</div> 	<!-- end #content-area -->
+
+
+		</div> <!-- end .container -->
+	</div> <!-- end #main-area -->
+	<footer id="main-footer">
+			<div id="footer-divider"></div>
+			<div class="container">
+			<div id="footer-widgets" class="clearfix">
+				<div class="footer-widget" style="min-height: 392px;"><div id="text-2" class="f_widget widget_text"><h4 class="widgettitle">Copyright</h4>			<div class="textwidget"><p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0;" src="./AVR Timers - TIMER0 » maxEmbedded_files/88x31.png" data-recalc-dims="1"></a><br><span>maxEmbedded</span> by <a href="http://maxembedded.com/" rel="cc:attributionURL">Mayank Prasad</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>.</p>
+<p>© Copyright 2011-2014 by maxEmbedded. Some rights reserved.</p>
+</div>
+		</div> <!-- end .footer-widget --></div> <!-- end .footer-widget --><div class="footer-widget" style="min-height: 392px;"><div id="tag_cloud-2" class="f_widget widget_tag_cloud"><h4 class="widgettitle">Tags</h4><div class="tagcloud"><a href="http://maxembedded.com/tag/accelerometer/" class="tag-cloud-link tag-link-378 tag-link-position-1" style="font-size: 9.9842519685039pt;" aria-label="accelerometer (2 items)">accelerometer</a>
+<a href="http://maxembedded.com/tag/adapter/" class="tag-cloud-link tag-link-591 tag-link-position-2" style="font-size: 8pt;" aria-label="adapter (1 item)">adapter</a>
+<a href="http://maxembedded.com/tag/adc/" class="tag-cloud-link tag-link-27 tag-link-position-3" style="font-size: 12.409448818898pt;" aria-label="adc (4 items)">adc</a>
+<a href="http://maxembedded.com/tag/assembly/" class="tag-cloud-link tag-link-545 tag-link-position-4" style="font-size: 8pt;" aria-label="assembly (1 item)">assembly</a>
+<a href="http://maxembedded.com/tag/avr-adc/" class="tag-cloud-link tag-link-367 tag-link-position-5" style="font-size: 12.409448818898pt;" aria-label="avr adc (4 items)">avr adc</a>
+<a href="http://maxembedded.com/tag/avr-basics/" class="tag-cloud-link tag-link-366 tag-link-position-6" style="font-size: 16.59842519685pt;" aria-label="avr basics (11 items)">avr basics</a>
+<a href="http://maxembedded.com/tag/avr-eeprom/" class="tag-cloud-link tag-link-673 tag-link-position-7" style="font-size: 8pt;" aria-label="avr eeprom (1 item)">avr eeprom</a>
+<a href="http://maxembedded.com/tag/avr-interrupts/" class="tag-cloud-link tag-link-680 tag-link-position-8" style="font-size: 8pt;" aria-label="avr interrupts (1 item)">avr interrupts</a>
+<a href="http://maxembedded.com/tag/avr-serial/" class="tag-cloud-link tag-link-379 tag-link-position-9" style="font-size: 14.062992125984pt;" aria-label="avr serial (6 items)">avr serial</a>
+<a href="http://maxembedded.com/tag/avr-timers/" class="tag-cloud-link tag-link-60 tag-link-position-10" style="font-size: 15.165354330709pt;" aria-label="avr timers (8 items)">avr timers</a>
+<a href="http://maxembedded.com/tag/basics/" class="tag-cloud-link tag-link-369 tag-link-position-11" style="font-size: 22pt;" aria-label="basics (36 items)">basics</a>
+<a href="http://maxembedded.com/tag/bootloader/" class="tag-cloud-link tag-link-80 tag-link-position-12" style="font-size: 8pt;" aria-label="bootloader (1 item)">bootloader</a>
+<a href="http://maxembedded.com/tag/code-gallery/" class="tag-cloud-link tag-link-558 tag-link-position-13" style="font-size: 8pt;" aria-label="code gallery (1 item)">code gallery</a>
+<a href="http://maxembedded.com/tag/code-optimization/" class="tag-cloud-link tag-link-546 tag-link-position-14" style="font-size: 8pt;" aria-label="code optimization (1 item)">code optimization</a>
+<a href="http://maxembedded.com/tag/color-spaces/" class="tag-cloud-link tag-link-672 tag-link-position-15" style="font-size: 8pt;" aria-label="color spaces (1 item)">color spaces</a>
+<a href="http://maxembedded.com/tag/counters/" class="tag-cloud-link tag-link-671 tag-link-position-16" style="font-size: 14.614173228346pt;" aria-label="counters (7 items)">counters</a>
+<a href="http://maxembedded.com/tag/cv-basics/" class="tag-cloud-link tag-link-376 tag-link-position-17" style="font-size: 11.307086614173pt;" aria-label="cv basics (3 items)">cv basics</a>
+<a href="http://maxembedded.com/tag/filter-circuit/" class="tag-cloud-link tag-link-594 tag-link-position-18" style="font-size: 8pt;" aria-label="filter circuit (1 item)">filter circuit</a>
+<a href="http://maxembedded.com/tag/i2c/" class="tag-cloud-link tag-link-172 tag-link-position-19" style="font-size: 8pt;" aria-label="i2c (1 item)">i2c</a>
+<a href="http://maxembedded.com/tag/ir-sensor/" class="tag-cloud-link tag-link-184 tag-link-position-20" style="font-size: 9.9842519685039pt;" aria-label="ir sensor (2 items)">ir sensor</a>
+<a href="http://maxembedded.com/tag/matlab/" class="tag-cloud-link tag-link-577 tag-link-position-21" style="font-size: 8pt;" aria-label="matlab (1 item)">matlab</a>
+<a href="http://maxembedded.com/tag/msp430-basics/" class="tag-cloud-link tag-link-381 tag-link-position-22" style="font-size: 11.307086614173pt;" aria-label="msp430 basics (3 items)">msp430 basics</a>
+<a href="http://maxembedded.com/tag/opencv/" class="tag-cloud-link tag-link-578 tag-link-position-23" style="font-size: 8pt;" aria-label="opencv (1 item)">opencv</a>
+<a href="http://maxembedded.com/tag/pcb-design/" class="tag-cloud-link tag-link-675 tag-link-position-24" style="font-size: 11.307086614173pt;" aria-label="pcb design (3 items)">pcb design</a>
+<a href="http://maxembedded.com/tag/power-supply/" class="tag-cloud-link tag-link-254 tag-link-position-25" style="font-size: 8pt;" aria-label="power supply (1 item)">power supply</a>
+<a href="http://maxembedded.com/tag/printed-circuit-boards/" class="tag-cloud-link tag-link-676 tag-link-position-26" style="font-size: 11.307086614173pt;" aria-label="printed circuit boards (3 items)">printed circuit boards</a>
+<a href="http://maxembedded.com/tag/pwm/" class="tag-cloud-link tag-link-261 tag-link-position-27" style="font-size: 9.9842519685039pt;" aria-label="pwm (2 items)">pwm</a>
+<a href="http://maxembedded.com/tag/raspberry-pi-2/" class="tag-cloud-link tag-link-678 tag-link-position-28" style="font-size: 12.409448818898pt;" aria-label="raspberry pi (4 items)">raspberry pi</a>
+<a href="http://maxembedded.com/tag/rf-communication/" class="tag-cloud-link tag-link-273 tag-link-position-29" style="font-size: 9.9842519685039pt;" aria-label="rf communication (2 items)">rf communication</a>
+<a href="http://maxembedded.com/tag/rf-module/" class="tag-cloud-link tag-link-274 tag-link-position-30" style="font-size: 9.9842519685039pt;" aria-label="rf module (2 items)">rf module</a>
+<a href="http://maxembedded.com/tag/robotics/" class="tag-cloud-link tag-link-281 tag-link-position-31" style="font-size: 8pt;" aria-label="robotics (1 item)">robotics</a>
+<a href="http://maxembedded.com/tag/robot-locomotion/" class="tag-cloud-link tag-link-279 tag-link-position-32" style="font-size: 9.9842519685039pt;" aria-label="robot locomotion (2 items)">robot locomotion</a>
+<a href="http://maxembedded.com/tag/rs232/" class="tag-cloud-link tag-link-621 tag-link-position-33" style="font-size: 9.9842519685039pt;" aria-label="rs232 (2 items)">rs232</a>
+<a href="http://maxembedded.com/tag/sbc-basics/" class="tag-cloud-link tag-link-674 tag-link-position-34" style="font-size: 12.409448818898pt;" aria-label="sbc basics (4 items)">sbc basics</a>
+<a href="http://maxembedded.com/tag/sensors/" class="tag-cloud-link tag-link-290 tag-link-position-35" style="font-size: 12.409448818898pt;" aria-label="sensors (4 items)">sensors</a>
+<a href="http://maxembedded.com/tag/serial/" class="tag-cloud-link tag-link-291 tag-link-position-36" style="font-size: 14.062992125984pt;" aria-label="Serial (6 items)">Serial</a>
+<a href="http://maxembedded.com/tag/spi/" class="tag-cloud-link tag-link-308 tag-link-position-37" style="font-size: 9.9842519685039pt;" aria-label="spi (2 items)">spi</a>
+<a href="http://maxembedded.com/tag/ssd/" class="tag-cloud-link tag-link-312 tag-link-position-38" style="font-size: 8pt;" aria-label="ssd (1 item)">ssd</a>
+<a href="http://maxembedded.com/tag/timers/" class="tag-cloud-link tag-link-329 tag-link-position-39" style="font-size: 14.614173228346pt;" aria-label="timers (7 items)">timers</a>
+<a href="http://maxembedded.com/tag/toolchain/" class="tag-cloud-link tag-link-332 tag-link-position-40" style="font-size: 8pt;" aria-label="toolchain (1 item)">toolchain</a>
+<a href="http://maxembedded.com/tag/transformer/" class="tag-cloud-link tag-link-334 tag-link-position-41" style="font-size: 8pt;" aria-label="transformer (1 item)">transformer</a>
+<a href="http://maxembedded.com/tag/uart/" class="tag-cloud-link tag-link-338 tag-link-position-42" style="font-size: 9.9842519685039pt;" aria-label="uart (2 items)">uart</a>
+<a href="http://maxembedded.com/tag/usart/" class="tag-cloud-link tag-link-344 tag-link-position-43" style="font-size: 9.9842519685039pt;" aria-label="usart (2 items)">usart</a>
+<a href="http://maxembedded.com/tag/voltage-regulator/" class="tag-cloud-link tag-link-349 tag-link-position-44" style="font-size: 8pt;" aria-label="voltage regulator (1 item)">voltage regulator</a>
+<a href="http://maxembedded.com/tag/wireless/" class="tag-cloud-link tag-link-539 tag-link-position-45" style="font-size: 9.9842519685039pt;" aria-label="wireless (2 items)">wireless</a></div>
+</div> <!-- end .footer-widget --></div> <!-- end .footer-widget --><div class="footer-widget last" style="min-height: 392px;"><div id="top-posts-2" class="f_widget widget_top-posts"><h4 class="widgettitle">Top Posts &amp; Pages</h4><ul>				<li>
+										<a href="http://maxembedded.com/2011/06/avr-timers-timer0/" class="bump-view" data-bump-view="tp">
+						AVR Timers - TIMER0					</a>
+										</li>
+								<li>
+										<a href="http://maxembedded.com/2011/06/the-adc-of-the-avr/" class="bump-view" data-bump-view="tp">
+						The ADC of the AVR					</a>
+										</li>
+								<li>
+										<a href="http://maxembedded.com/2013/09/the-usart-of-the-avr/" class="bump-view" data-bump-view="tp">
+						The USART of the AVR					</a>
+										</li>
+								<li>
+										<a href="http://maxembedded.com/2011/07/avr-timers-ctc-mode/" class="bump-view" data-bump-view="tp">
+						AVR Timers - CTC Mode					</a>
+										</li>
+								<li>
+										<a href="http://maxembedded.com/2013/08/how-to-build-an-ir-sensor/" class="bump-view" data-bump-view="tp">
+						How to build an IR Sensor					</a>
+										</li>
+								<li>
+										<a href="http://maxembedded.com/2013/11/the-spi-of-the-avr/" class="bump-view" data-bump-view="tp">
+						The SPI of the AVR					</a>
+										</li>
+								<li>
+										<a href="http://maxembedded.com/2011/06/introduction-to-avr-timers/" class="bump-view" data-bump-view="tp">
+						Introduction to AVR Timers					</a>
+										</li>
+				</ul></div> <!-- end .footer-widget --></div> <!-- end .footer-widget -->			</div> <!-- end #footer-widgets -->
+		</div> <!-- end .container -->
+
+					<div id="bottom-advertisment">
+				<div class="container">
+					<script async="" src="./AVR Timers - TIMER0 » maxEmbedded_files/f.txt"></script>
+<!-- 728x90-Leaderboard-New -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-2127326018455564" data-ad-slot="2319276130"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>				</div> <!-- end .container -->
+			</div>
+			</footer> <!-- end #main-footer -->
+
+	<div id="footer-bottom">
+		<div class="container clearfix">
+			<ul id="bottom-menu" class="bottom-nav"><li id="menu-item-3259" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3259"><a href="http://maxembedded.com/?page_id=1108">Home</a></li>
+<li id="menu-item-3240" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3240"><a href="http://maxembedded.com/copyright/">Copyright</a></li>
+<li id="menu-item-3239" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3239"><a href="http://maxembedded.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-3317" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3317"><a href="http://maxembedded.com/credits/">Credits</a></li>
+<li id="menu-item-3487" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3487"><a href="http://maxembedded.com/sitemap/">Sitemap</a></li>
+<li id="menu-item-3260" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3260"><a href="http://maxembedded.com/contact/">Contact</a></li>
+</ul>
+			<p id="copyright">© Copyright 2011-2014 by maxEmbedded. Some rights reserved.</p>
+
+			<p id="copyright" align="center"><br>maxEmbedded is a free and open source platform to share knowledge and learn about the concepts of robotics, embedded systems and computer vision. People from around the world who are enthusiastic about these topics and willing to support the open source community are invited to share their information, knowledge and expertise by means of written tutorials and videos on the website.</p>
+
+
+		</div> <!-- end .container -->
+	</div> <!-- end #footer-bottom -->
+
+	<script async="">(function(s,u,m,o,j,v){j=u.createElement(m);v=u.getElementsByTagName(m)[0];j.async=1;j.src=o;j.dataset.sumoSiteId='0fd0db72897a06dfbe8d8a51e8dd6d29407f1ace096366e7da1906ab3fdbbaf7';j.dataset.sumoPlatform='wordpress';v.parentNode.insertBefore(j,v)})(window,document,'script','//load.sumo.com/');</script>    <script type="application/javascript">
+      var ajaxurl = "http://maxembedded.com/wp-admin/admin-ajax.php";
+
+      function sumo_add_woocommerce_coupon(code) {
+        jQuery.post(ajaxurl, {
+          action: 'sumo_add_woocommerce_coupon',
+          code: code,
+        });
+      }
+
+      function sumo_remove_woocommerce_coupon(code) {
+        jQuery.post(ajaxurl, {
+          action: 'sumo_remove_woocommerce_coupon',
+          code: code,
+        });
+      }
+
+      function sumo_get_woocommerce_cart_subtotal(callback) {
+        jQuery.ajax({
+          method: 'POST',
+          url: ajaxurl,
+          dataType: 'html',
+          data: {
+            action: 'sumo_get_woocommerce_cart_subtotal',
+          },
+          success: function(subtotal) {
+            return callback(null, subtotal);
+          },
+          error: function(err) {
+            return callback(err, 0);
+          }
+        });
+      }
+    </script>
+    	<div style="display:none">
+	<div class="grofile-hash-map-1047b0a24fcb3b07adf202cc364c232c">
+	</div>
+	<div class="grofile-hash-map-d9112bddb3ff7e0d6552aff5e65f5d36">
+	</div>
+	<div class="grofile-hash-map-bd15a28b1ddd400b876f9a44108c6f4d">
+	</div>
+	</div>
+
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"http:\/\/maxembedded.com\/2011\/06\/avr-timers-timer0\/":339};
+	</script>
+					
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/shCore.js.download"></script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/shBrushCpp.js.download"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://maxembedded.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://maxembedded.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/photon.min.js.download"></script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/devicepx-jetpack.js.download"></script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/gprofiles.js(1).download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/wpgroho.js(1).download"></script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/superfish.js.download"></script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/jquery.flexslider-min.js.download"></script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/jquery.fitvids.js.download"></script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/custom.js.download"></script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/comment-reply.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var jpfbembed = {"appid":"249643311490","locale":"en_US"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/facebook-embed.min.js.download"></script><div id="fb-root"></div>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/jquery.easing-1.3.pack.js.download"></script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/jquery.fancybox-1.3.4.pack.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var et_ptemplates_strings = {"captcha":"Captcha","fill":"Fill","field":"field","invalid":"Invalid email"};
+var et_ptemplates_strings = {"captcha":"Captcha","fill":"Fill","field":"field","invalid":"Invalid email"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/et-ptemplates-frontend.js.download"></script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/wp-embed.min.js.download"></script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/postmessage.min.js.download"></script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/jquery.jetpack-resize.min.js.download"></script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/queuehandler.min.js.download"></script>
+<script async="async" type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/form.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/sharing.min.js.download"></script>
+<script type="text/javascript">
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-twitter', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-linkedin', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-tumblr', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtumblr', 'menubar=1,resizable=1,width=450,height=450' );
+				return false;
+			});
+</script>
+	<iframe src="./AVR Timers - TIMER0 » maxEmbedded_files/master.html" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+	<div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+	
+		<!--[if IE]>
+		<script type="text/javascript">
+			if ( 0 === window.location.hash.indexOf( '#comment-' ) ) {
+				// window.location.reload() doesn't respect the Hash in IE
+				window.location.hash = window.location.hash;
+			}
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+			(function () {
+				var comm_par_el = document.getElementById( 'comment_parent' ),
+					comm_par = ( comm_par_el && comm_par_el.value ) ? comm_par_el.value : '',
+					frame = document.getElementById( 'jetpack_remote_comment' ),
+					tellFrameNewParent;
+
+				tellFrameNewParent = function () {
+					if ( comm_par ) {
+						frame.src = "http://jetpack.wordpress.com/jetpack-comment/?blogid=65979954&postid=339&comment_registration=0&require_name_email=1&stc_enabled=0&stb_enabled=0&show_avatars=1&avatar_default=wavatar&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en_US&jetpack_version=7.5.3&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=3cc6e611a2c12a8ef32a07f0ca4cf0ab7e28d9b8#parent=http%3A%2F%2Fmaxembedded.com%2F2011%2F06%2Favr-timers-timer0%2F" + '&replytocom=' + parseInt( comm_par, 10 ).toString();
+					} else {
+						frame.src = "http://jetpack.wordpress.com/jetpack-comment/?blogid=65979954&postid=339&comment_registration=0&require_name_email=1&stc_enabled=0&stb_enabled=0&show_avatars=1&avatar_default=wavatar&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en_US&jetpack_version=7.5.3&show_cookie_consent=10&has_cookie_consent=0&token_key=%3Bnormal%3B&sig=3cc6e611a2c12a8ef32a07f0ca4cf0ab7e28d9b8#parent=http%3A%2F%2Fmaxembedded.com%2F2011%2F06%2Favr-timers-timer0%2F";
+					}
+				};
+
+				
+				if ( 'undefined' !== typeof addComment ) {
+					addComment._Jetpack_moveForm = addComment.moveForm;
+
+					addComment.moveForm = function ( commId, parentId, respondId, postId ) {
+						var returnValue = addComment._Jetpack_moveForm( commId, parentId, respondId, postId ),
+							cancelClick, cancel;
+
+						if ( false === returnValue ) {
+							cancel = document.getElementById( 'cancel-comment-reply-link' );
+							cancelClick = cancel.onclick;
+							cancel.onclick = function () {
+								var cancelReturn = cancelClick.call( this );
+								if ( false !== cancelReturn ) {
+									return cancelReturn;
+								}
+
+								if ( ! comm_par ) {
+									return cancelReturn;
+								}
+
+								comm_par = 0;
+
+								tellFrameNewParent();
+
+								return cancelReturn;
+							};
+						}
+
+						if ( comm_par == parentId ) {
+							return returnValue;
+						}
+
+						comm_par = parentId;
+
+						tellFrameNewParent();
+
+						return returnValue;
+					};
+				}
+
+				
+				// Do the post message bit after the dom has loaded.
+				document.addEventListener( 'DOMContentLoaded', function () {
+					var iframe_url = "http:\/\/jetpack.wordpress.com";
+					if ( window.postMessage ) {
+						if ( document.addEventListener ) {
+							window.addEventListener( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						} else if ( document.attachEvent ) {
+							window.attachEvent( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						}
+					}
+				})
+
+			})();
+		</script>
+
+		<script type="text/javascript" src="./AVR Timers - TIMER0 » maxEmbedded_files/e-201931.js.download" async="async" defer="defer"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:7.5.3',blog:'65979954',post:'339',tz:'-7',srv:'maxembedded.com'} ]);
+	_stq.push([ 'clickTrackerInit', '65979954', '339' ]);
+</script>
+
+<div id="fancybox-tmp"></div><div id="fancybox-loading"><div></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap"><div id="fancybox-outer"><div class="fancybox-bg" id="fancybox-bg-n"></div><div class="fancybox-bg" id="fancybox-bg-ne"></div><div class="fancybox-bg" id="fancybox-bg-e"></div><div class="fancybox-bg" id="fancybox-bg-se"></div><div class="fancybox-bg" id="fancybox-bg-s"></div><div class="fancybox-bg" id="fancybox-bg-sw"></div><div class="fancybox-bg" id="fancybox-bg-w"></div><div class="fancybox-bg" id="fancybox-bg-nw"></div><div id="fancybox-content"></div><a id="fancybox-close"></a><div id="fancybox-title"></div><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div><div id="sharing_email" style="display: none;">
+		<form action="http://maxembedded.com/2011/06/avr-timers-timer0/" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input type="email" name="target_email" id="target_email" value="">
+
+			
+				<label for="source_name">Your Name</label>
+				<input type="text" name="source_name" id="source_name" value="">
+
+				<label for="source_email">Your Email Address</label>
+				<input type="email" name="source_email" id="source_email" value="">
+
+						<input type="text" id="jetpack-source_f_name" name="source_f_name" class="input" value="" size="25" autocomplete="off" title="This field is for validation and should not be changed">
+			
+			<img style="float: right; display: none" class="loading" src="./AVR Timers - TIMER0 » maxEmbedded_files/loading.gif" alt="loading" width="16" height="16">
+			<input type="submit" value="Send Email" class="sharing_send">
+			<a rel="nofollow" href="http://maxembedded.com/2011/06/avr-timers-timer0/#cancel" class="sharing_cancel" role="button">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div><iframe id="sumome-jquery-iframe" title="Sumo Hidden Content" style="display: none;" src="./AVR Timers - TIMER0 » maxEmbedded_files/saved_resource(9).html"></iframe></body></html>

@@ -1,0 +1,2202 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/ -->
+<html lang="en-AU" class="yes-js js_active js dh-no-ie dh-enable-animation dh-history"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://d3s11pzv7w3h1q.cloudfront.net/">
+<link rel="preconnect" href="https://dojft4652t1in.cloudfront.net/">
+<link rel="preconnect" href="https://d21d43znxvr466.cloudfront.net/">
+<link rel="preconnect" href="https://fonts.gstatic.com/">
+<link rel="preconnect" href="https://www.google-analytics.com/">
+<link rel="apple-touch-icon-precomposed" href="https://dojft4652t1in.cloudfront.net/wp-content/themes/protostack/assets/images/apple-icon-57.png">   
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://dojft4652t1in.cloudfront.net/wp-content/themes/protostack/assets/images/apple-icon-72.png">   
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://dojft4652t1in.cloudfront.net/wp-content/themes/protostack/assets/images/apple-icon-114.png"> 
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://protostack.com.au/xmlrpc.php">
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+<script src="https://d3s11pzv7w3h1q.cloudfront.net/wp-content/plugins/sitesao-core/assets/vendor/html5shiv.min.js"></script>
+<![endif]-->
+				<script async="" src="./Atmega168 Timer interrupts - Protostack_files/analytics.js.download"></script><script>document.documentElement.className = document.documentElement.className + ' yes-js js_active js'</script>
+			<link type="text/css" media="all" href="./Atmega168 Timer interrupts - Protostack_files/autoptimize_3086d805217011226eefe09ea6708210.css" rel="stylesheet"><title>Atmega168 Timer interrupts - Protostack</title>
+
+<!-- This site is optimized with the Yoast SEO Premium plugin v11.7 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Atmega168 Timer interrupts - Protostack">
+<meta property="og:description" content="This tutorial will teach you about the 8 and 16 bit timers on an ATmega168 microcontroller. Because the ATmega168 is very similar to the ATmega48, ATmega88 and ATmega328, the examples should also work on these. For other AVR microcontrollers the general principles will apply but the specifics may vary. What are the 8 and 16 bit timers? Consider a wrist...">
+<meta property="og:url" content="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/">
+<meta property="og:site_name" content="Protostack">
+<meta property="article:publisher" content="https://www.facebook.com/Protostack">
+<meta property="article:section" content="AVR Microcontrollers">
+<meta property="article:published_time" content="2010-09-23T19:04:22+00:00">
+<meta property="article:modified_time" content="2017-02-19T03:56:28+00:00">
+<meta property="og:updated_time" content="2017-02-19T03:56:28+00:00">
+<meta property="og:image" content="https://dojft4652t1in.cloudfront.net/wp-content/uploads/atmega168_timer_interrupts_01.jpg">
+<meta property="og:image:secure_url" content="https://dojft4652t1in.cloudfront.net/wp-content/uploads/atmega168_timer_interrupts_01.jpg">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="461">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="This tutorial will teach you about the 8 and 16 bit timers on an ATmega168 microcontroller. Because the ATmega168 is very similar to the ATmega48, ATmega88 and ATmega328, the examples should also work on these. For other AVR microcontrollers the general principles will apply but the specifics may vary. What are the 8 and 16 bit timers? Consider a wrist...">
+<meta name="twitter:title" content="Atmega168 Timer interrupts - Protostack">
+<meta name="twitter:site" content="@Protostack">
+<meta name="twitter:image" content="https://dojft4652t1in.cloudfront.net/wp-content/uploads/atmega168_timer_interrupts_01.jpg">
+<meta name="twitter:creator" content="@protostack">
+<script type="application/ld+json" class="yoast-schema-graph yoast-schema-graph--main">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://protostack.com.au/#organization","name":"Protostack Pty Ltd","url":"https://protostack.com.au/","sameAs":["https://www.facebook.com/Protostack","https://www.instagram.com/protostack/","https://www.linkedin.com/company/protostack","https://twitter.com/Protostack"],"logo":{"@type":"ImageObject","@id":"https://protostack.com.au/#logo","url":"https://dojft4652t1in.cloudfront.net/wp-content/uploads/logo.png","width":1633,"height":375,"caption":"Protostack Pty Ltd"},"image":{"@id":"https://protostack.com.au/#logo"}},{"@type":"WebSite","@id":"https://protostack.com.au/#website","url":"https://protostack.com.au/","name":"Protostack","publisher":{"@id":"https://protostack.com.au/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://protostack.com.au/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#primaryimage","url":"https://dojft4652t1in.cloudfront.net/wp-content/uploads/atmega168_timer_interrupts_01.jpg","width":1024,"height":461},{"@type":"WebPage","@id":"https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#webpage","url":"https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/","inLanguage":"en-AU","name":"Atmega168 Timer interrupts - Protostack","isPartOf":{"@id":"https://protostack.com.au/#website"},"primaryImageOfPage":{"@id":"https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#primaryimage"},"datePublished":"2010-09-23T19:04:22+00:00","dateModified":"2017-02-19T03:56:28+00:00"},{"@type":"Article","@id":"https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#article","isPartOf":{"@id":"https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#webpage"},"author":{"@id":"https://protostack.com.au/#/schema/person/355b585ea3a889738f63bef8f2373b95"},"headline":"Atmega168 Timer interrupts","datePublished":"2010-09-23T19:04:22+00:00","dateModified":"2017-02-19T03:56:28+00:00","commentCount":"18","mainEntityOfPage":{"@id":"https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#webpage"},"publisher":{"@id":"https://protostack.com.au/#organization"},"image":{"@id":"https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#primaryimage"},"articleSection":"AVR Microcontrollers,Tutorials"},{"@type":["Person"],"@id":"https://protostack.com.au/#/schema/person/355b585ea3a889738f63bef8f2373b95","name":"Daniel Garcia","image":{"@type":"ImageObject","@id":"https://protostack.com.au/#authorlogo","url":"https://secure.gravatar.com/avatar/0a4c4e45369d90d3ef6d7f5a49d8fea9?s=96&d=mm&r=g","caption":"Daniel Garcia"},"sameAs":["https://twitter.com/protostack"]}]}</script>
+<!-- / Yoast SEO Premium plugin. -->
+
+<link rel="dns-prefetch" href="https://dojft4652t1in.cloudfront.net/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Protostack » Feed" href="https://protostack.com.au/feed/">
+<link rel="alternate" type="application/rss+xml" title="Protostack » Comments Feed" href="https://protostack.com.au/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Protostack » Atmega168 Timer interrupts Comments Feed" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/protostack.com.au\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.2"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Atmega168 Timer interrupts - Protostack_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		
+	
+
+
+
+
+
+
+
+
+<link rel="stylesheet" id="dh-google-font-karla-css" href="./Atmega168 Timer interrupts - Protostack_files/css" type="text/css" media="all">
+
+
+
+
+
+
+
+<script type="text/javascript" src="./Atmega168 Timer interrupts - Protostack_files/jquery.js.download"></script>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var GDPR = {"ajaxurl":"https:\/\/protostack.com.au\/wp-admin\/admin-ajax.php","logouturl":"","i18n":{"aborting":"Aborting","logging_out":"You are being logged out.","continue":"Continue","cancel":"Cancel","ok":"OK","close_account":"Close your account?","close_account_warning":"Your account will be closed and all data will be permanently deleted and cannot be recovered. Are you sure?","are_you_sure":"Are you sure?","policy_disagree":"By disagreeing you will no longer have access to our site and will be logged out."},"is_user_logged_in":"","refresh":"1"};
+/* ]]> */
+</script>
+
+
+
+
+
+<link rel="https://api.w.org/" href="https://protostack.com.au/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://protostack.com.au/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://d3s11pzv7w3h1q.cloudfront.net/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.2.2">
+<meta name="generator" content="WooCommerce 3.6.5">
+<link rel="shortlink" href="https://protostack.com.au/?p=235">
+<link rel="alternate" type="application/json+oembed" href="https://protostack.com.au/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fprotostack.com.au%2F2010%2F09%2Ftimer-interrupts-on-an-atmega168%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://protostack.com.au/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fprotostack.com.au%2F2010%2F09%2Ftimer-interrupts-on-an-atmega168%2F&amp;format=xml">
+	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<meta name="generator" content="Powered by Slider Revolution 5.4.8.1 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.">
+<script type="text/javascript">function setREVStartSize(e){									
+						try{ e.c=jQuery(e.c);var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
+							if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})					
+						}catch(d){console.log("Failure at Presize of Slider:"+d)}						
+					};</script>
+<!-- WooCommerce Google Analytics Integration -->
+		<script type="text/javascript">
+			var gaProperty = 'UA-5416592-1';
+			var disableStr = 'ga-disable-' + gaProperty;
+			if ( document.cookie.indexOf( disableStr + '=true' ) > -1 ) {
+				window[disableStr] = true;
+			}
+			function gaOptout() {
+				document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+				window[disableStr] = true;
+			}
+		</script>
+		<script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga( 'create', 'UA-5416592-1', 'auto' );
+		ga( 'set', 'dimension1', 'no' );
+ga( 'require', 'ec' );</script>
+		<!-- /WooCommerce Google Analytics Integration --></head> 
+<body class="post-template-default single single-post postid-235 single-format-standard woocommerce-js page-layout-full-width">
+<a class="sr-only sr-only-focusable" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#main">Skip to main content</a>
+<div class="offcanvas-overlay"></div>	
+<div class="offcanvas open">
+	<div class="offcanvas-wrap">
+		<div class="offcanvas-user clearfix">
+									            <a class="offcanvas-user-wishlist-link" href="https://protostack.com.au/wishlist/"><i class="fa fa-heart-o"></i> My Wishlist</a>
+                        <a class="offcanvas-user-account-link" href="https://protostack.com.au/my-account/"><i class="fa fa-user"></i> Login</a>
+					</div>
+		<nav class="offcanvas-navbar mobile-offcanvas-navbar" itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" role="navigation">
+			<ul id="menu-mobile" class="offcanvas-nav"><li id="menu-item-6432" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-6432"><a title="Home" href="https://protostack.com.au/">Home</a></li>
+<li id="menu-item-5865" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5865 dropdown"><a title="Boards, Kits &amp; More" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#" class="dropdown-hover">Boards, Kits &amp; More <span class="caret"></span></a>
+<ul role="menu" class="dropdown-menu">
+	<li id="menu-item-5868" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5868"><a title="Microcontroller Boards" href="https://protostack.com.au/product-category/boards/microcontroller-boards/">Microcontroller Boards</a></li>
+	<li id="menu-item-5869" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5869"><a title="Prototyping" href="https://protostack.com.au/product-category/boards/prototyping/">Prototyping</a></li>
+	<li id="menu-item-5870" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5870"><a title="Solderless Breadboards" href="https://protostack.com.au/product-category/boards/solderless-breadboards/">Solderless Breadboards</a></li>
+	<li id="menu-item-5601" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5601"><a title="Kits &amp; Modules" href="https://protostack.com.au/product-category/kits-and-modules/">Kits &amp; Modules</a></li>
+	<li id="menu-item-5600" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5600"><a title="Accessories" href="https://protostack.com.au/product-category/accessories/">Accessories</a></li>
+	<li id="menu-item-5602" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5602"><a title="Tools" href="https://protostack.com.au/product-category/tools/">Tools</a></li>
+</ul>
+</li>
+<li id="menu-item-5866" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5866 dropdown"><a title="Cables &amp; Connectors" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#" class="dropdown-hover">Cables &amp; Connectors <span class="caret"></span></a>
+<ul role="menu" class="dropdown-menu">
+	<li id="menu-item-5877" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5877"><a title="Stacking Headers" href="https://protostack.com.au/product-category/connectors/stacking-headers/">Stacking Headers</a></li>
+	<li id="menu-item-5876" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5876"><a title="Polarized Headers" href="https://protostack.com.au/product-category/connectors/polarized-headers/">Polarized Headers</a></li>
+	<li id="menu-item-5871" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5871"><a title="DuPont Style" href="https://protostack.com.au/product-category/connectors/dupont-style-connectors/">DuPont Style</a></li>
+	<li id="menu-item-5872" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5872"><a title="Headers" href="https://protostack.com.au/product-category/connectors/headers/">Headers</a></li>
+	<li id="menu-item-5874" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5874"><a title="IDC" href="https://protostack.com.au/product-category/connectors/idc/">IDC</a></li>
+	<li id="menu-item-5873" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5873"><a title="IC Sockets" href="https://protostack.com.au/product-category/connectors/ic-sockets/">IC Sockets</a></li>
+	<li id="menu-item-5875" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5875"><a title="Other" href="https://protostack.com.au/product-category/connectors/other-connectors/">Other</a></li>
+	<li id="menu-item-5598" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5598"><a title="Cables" href="https://protostack.com.au/product-category/cables/">Cables</a></li>
+</ul>
+</li>
+<li id="menu-item-5867" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5867 dropdown"><a title="Components" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#" class="dropdown-hover">Components <span class="caret"></span></a>
+<ul role="menu" class="dropdown-menu">
+	<li id="menu-item-5593" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5593"><a title="Microcontrollers" href="https://protostack.com.au/product-category/microcontrollers/">Microcontrollers</a></li>
+	<li id="menu-item-5596" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5596"><a title="Passive Components" href="https://protostack.com.au/product-category/passive-components/">Passive Components</a></li>
+	<li id="menu-item-5597" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5597"><a title="Semiconductors" href="https://protostack.com.au/product-category/semiconductors/">Semiconductors</a></li>
+	<li id="menu-item-5592" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5592"><a title="Integrated Circuits" href="https://protostack.com.au/product-category/integrated-circuits/">Integrated Circuits</a></li>
+	<li id="menu-item-5591" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5591"><a title="Hardware" href="https://protostack.com.au/product-category/hardware/">Hardware</a></li>
+	<li id="menu-item-5595" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5595"><a title="LED/LCD" href="https://protostack.com.au/product-category/led-lcd/">LED/LCD</a></li>
+	<li id="menu-item-5594" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5594"><a title="Buttons and Switches" href="https://protostack.com.au/product-category/buttons-and-switches/">Buttons and Switches</a></li>
+	<li id="menu-item-5599" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5599"><a title="Sensors" href="https://protostack.com.au/product-category/sensors/">Sensors</a></li>
+	<li id="menu-item-5603" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5603"><a title="Other" href="https://protostack.com.au/product-category/other/">Other</a></li>
+</ul>
+</li>
+<li id="menu-item-5452" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-5452"><a title="Blog" href="https://protostack.com.au/blog/">Blog</a></li>
+<li id="menu-item-5454" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5454"><a title="Tutorials" href="https://protostack.com.au/tutorials/">Tutorials</a></li>
+<li id="menu-item-5455" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5455"><a title="Contact Us" href="https://protostack.com.au/contact-us/">Contact Us</a></li>
+</ul>		</nav>
+					</div>
+</div>
+<div id="wrapper" class="wide-wrap">
+	<header id="header" class="header-container page-heading-default header-type-classic header-navbar-classic header-scroll-resize header-navbar-fixed" itemscope="itemscope" itemtype="https://schema.org/Organization" role="banner">
+			<div class="topbar">
+			<div class="container topbar-wap">
+				<div class="row">
+					<div class="col-sm-6 col-left-topbar">
+						<div class="left-topbar">
+	            			Microcontroller Development Boards, Kits and More		            				            			
+						</div>
+					</div>
+					<div class="col-sm-6 col-right-topbar">
+						<div class="right-topbar">
+							<div class="user-login">
+	            				<ul class="nav top-nav">
+	            					<li id="menu-item-761" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-761"><a title="My Account" href="https://protostack.com.au/my-account/">My Account</a></li>
+<li id="menu-item-762" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-762"><a title="Checkout" href="https://protostack.com.au/checkout/">Checkout</a></li>
+	            					<li class="menu-item">
+	            						<a data-rel="loginModal" href="https://protostack.com.au/my-account/"> 
+	            							Login			            								            				</a>
+			            					            					</li>
+	            				</ul>
+	            			</div>
+
+														
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	    <div class="navbar-container" style="height: 60px;">
+		<div class="navbar navbar-default  navbar-scroll-fixed navbar-fixed-top fixed-transition" style="top: 0px;">
+			<div class="navbar-default-wrap">
+				<div class="container">
+					<div class="row">
+						<div class="navbar-default-col">
+							<div class="navbar-wrap">
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar bar-top"></span> 
+										<span class="icon-bar bar-middle"></span> 
+										<span class="icon-bar bar-bottom"></span>
+									</button>
+																		<a class="navbar-search-button search-icon-mobile" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#">
+										<svg xml:space="preserve" style="enable-background:new 0 0 612 792;" viewBox="0 0 612 792" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1">
+											<g>
+												<g>
+													<g>
+														<path d="M231,104c125.912,0,228,102.759,228,229.5c0,53.034-18.029,101.707-48.051,140.568l191.689,192.953
+															c5.566,5.604,8.361,12.928,8.361,20.291c0,7.344-2.795,14.688-8.361,20.291C597.091,713.208,589.798,716,582.5,716
+															s-14.593-2.792-20.139-8.396L370.649,514.632C332.043,544.851,283.687,563,231,563C105.088,563,3,460.241,3,333.5
+															S105.088,104,231,104z M231,505.625c94.295,0,171-77.208,171-172.125s-76.705-172.125-171-172.125
+															c-94.295,0-171,77.208-171,172.125S136.705,505.625,231,505.625z"></path>
+													</g>
+												</g>
+											</g>
+										</svg>
+									</a>
+																    								     										<a href="https://protostack.com.au/cart/" title="View Cart" class="cart-icon-mobile"><svg xml:space="preserve" style="enable-background:new 0 0 459.529 459.529;" viewBox="0 0 459.529 459.529" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1">
+	<g>
+		<g>
+			<path d="M17,55.231h48.733l69.417,251.033c1.983,7.367,8.783,12.467,16.433,12.467h213.35c6.8,0,12.75-3.967,15.583-10.2
+				l77.633-178.5c2.267-5.383,1.7-11.333-1.417-16.15c-3.117-4.817-8.5-7.65-14.167-7.65H206.833c-9.35,0-17,7.65-17,17
+				s7.65,17,17,17H416.5l-62.9,144.5H164.333L94.917,33.698c-1.983-7.367-8.783-12.467-16.433-12.467H17c-9.35,0-17,7.65-17,17
+				S7.65,55.231,17,55.231z"></path>
+			<path d="M135.433,438.298c21.25,0,38.533-17.283,38.533-38.533s-17.283-38.533-38.533-38.533S96.9,378.514,96.9,399.764
+				S114.183,438.298,135.433,438.298z"></path>
+			<path d="M376.267,438.298c0.85,0,1.983,0,2.833,0c10.2-0.85,19.55-5.383,26.35-13.317c6.8-7.65,9.917-17.567,9.35-28.05
+				c-1.417-20.967-19.833-37.117-41.083-35.7c-21.25,1.417-37.117,20.117-35.7,41.083
+				C339.433,422.431,356.15,438.298,376.267,438.298z"></path>
+		</g>
+	</g>
+</svg> </a>
+																		<div class="navbar-brand-title">
+										<a class="navbar-brand" itemprop="url" title="Protostack" href="https://protostack.com.au/">
+																							<img class="logo" alt="Protostack" src="./Atmega168 Timer interrupts - Protostack_files/logo.png">
+																						<img class="logo-fixed" alt="Protostack" src="./Atmega168 Timer interrupts - Protostack_files/logo-fixed.png">
+											<img class="logo-mobile" alt="Protostack" src="./Atmega168 Timer interrupts - Protostack_files/logo-mobile.png">
+											<span itemprop="name" class="sr-only sr-only-focusable">Protostack</span>
+										</a>
+									</div>
+								</div>
+								<nav class="collapse navbar-collapse primary-navbar-collapse" itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" role="navigation">
+									<ul id="menu-primary" class="nav navbar-nav primary-nav sf-js-enabled sf-arrows"><li id="menu-item-753" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-753 dh-megamenu-menu megamenu dropdown"><a title="Shop" href="https://protostack.com.au/shop/" class="dropdown-hover sf-with-ul"><span class="underline">Shop</span> <span class="caret"></span></a>
+<ul role="menu" class="dropdown-menu" style="display: none;">
+	<li id="menu-item-5499" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5499 mega-col-4 dropdown-submenu"><h3 class="megamenu-title">Boards, Kits &amp; More <span class="caret"></span></h3>
+	<ul role="menu" class="dropdown-menu" style="display: none;">
+		<li id="menu-item-5449" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5449"><a title="Microcontroller Boards" href="https://protostack.com.au/product-category/boards/microcontroller-boards/">Microcontroller Boards</a></li>
+		<li id="menu-item-5450" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5450"><a title="Prototyping Boards" href="https://protostack.com.au/product-category/boards/prototyping/">Prototyping Boards</a></li>
+		<li id="menu-item-5446" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5446"><a title="Solderless Breadboards" href="https://protostack.com.au/product-category/boards/solderless-breadboards/">Solderless Breadboards</a></li>
+		<li id="menu-item-5476" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5476"><a title="Kits &amp; Modules" href="https://protostack.com.au/product-category/kits-and-modules/">Kits &amp; Modules</a></li>
+		<li id="menu-item-5501" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5501"><a title="Accessories" href="https://protostack.com.au/product-category/accessories/">Accessories</a></li>
+		<li id="menu-item-5512" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5512"><a title="Tools" href="https://protostack.com.au/product-category/tools/">Tools</a></li>
+	</ul>
+</li>
+	<li id="menu-item-5500" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5500 mega-col-4 dropdown-submenu"><h3 class="megamenu-title">Cables &amp; Connectors <span class="caret"></span></h3>
+	<ul role="menu" class="dropdown-menu" style="display: none;">
+		<li id="menu-item-5497" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5497"><a title="Stacking Headers" href="https://protostack.com.au/product-category/connectors/stacking-headers/">Stacking Headers</a></li>
+		<li id="menu-item-5496" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5496"><a title="Polarized Headers" href="https://protostack.com.au/product-category/connectors/polarized-headers/">Polarized Headers</a></li>
+		<li id="menu-item-5491" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5491"><a title="DuPont Style" href="https://protostack.com.au/product-category/connectors/dupont-style-connectors/">DuPont Style</a></li>
+		<li id="menu-item-5492" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5492"><a title="Headers" href="https://protostack.com.au/product-category/connectors/headers/">Headers</a></li>
+		<li id="menu-item-5494" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5494"><a title="IDC" href="https://protostack.com.au/product-category/connectors/idc/">IDC</a></li>
+		<li id="menu-item-5493" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5493"><a title="IC Sockets" href="https://protostack.com.au/product-category/connectors/ic-sockets/">IC Sockets</a></li>
+		<li id="menu-item-5495" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5495"><a title="Other Connectors" href="https://protostack.com.au/product-category/connectors/other-connectors/">Other Connectors</a></li>
+		<li id="menu-item-5502" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5502"><a title="Cables" href="https://protostack.com.au/product-category/cables/">Cables</a></li>
+	</ul>
+</li>
+	<li id="menu-item-5498" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5498 mega-col-4 dropdown-submenu"><h3 class="megamenu-title">Components <span class="caret"></span></h3>
+	<ul role="menu" class="dropdown-menu" style="display: none;">
+		<li id="menu-item-5507" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5507"><a title="Microcontrollers" href="https://protostack.com.au/product-category/microcontrollers/">Microcontrollers</a></li>
+		<li id="menu-item-5509" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5509"><a title="Passive Components" href="https://protostack.com.au/product-category/passive-components/">Passive Components</a></li>
+		<li id="menu-item-5510" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5510"><a title="Semiconductors" href="https://protostack.com.au/product-category/semiconductors/">Semiconductors</a></li>
+		<li id="menu-item-5505" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5505"><a title="Integrated Circuits" href="https://protostack.com.au/product-category/integrated-circuits/">Integrated Circuits</a></li>
+		<li id="menu-item-5504" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5504"><a title="Hardware" href="https://protostack.com.au/product-category/hardware/">Hardware</a></li>
+		<li id="menu-item-5506" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5506"><a title="LED/LCD" href="https://protostack.com.au/product-category/led-lcd/">LED/LCD</a></li>
+		<li id="menu-item-5503" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5503"><a title="Buttons and Switches" href="https://protostack.com.au/product-category/buttons-and-switches/">Buttons and Switches</a></li>
+		<li id="menu-item-5511" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5511"><a title="Sensors" href="https://protostack.com.au/product-category/sensors/">Sensors</a></li>
+		<li id="menu-item-5508" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-5508"><a title="Other Components" href="https://protostack.com.au/product-category/other/">Other Components</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-760" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-760"><a title="Blog" href="https://protostack.com.au/blog/"><span class="underline">Blog</span></a></li>
+<li id="menu-item-763" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-763"><a title="Tutorials" href="https://protostack.com.au/tutorials/"><span class="underline">Tutorials</span></a></li>
+<li id="menu-item-5438" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5438"><a title="Contact Us" href="https://protostack.com.au/contact-us/"><span class="underline">Contact Us</span></a></li>
+</ul>								</nav>
+								<div class="header-right">
+																				<div class="navbar-search">
+												<a class="navbar-search-button" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#">
+													<svg xml:space="preserve" style="enable-background:new 0 0 612 792;" viewBox="0 0 612 792" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1">
+														<g>
+															<g>
+																<g>
+																	<path d="M231,104c125.912,0,228,102.759,228,229.5c0,53.034-18.029,101.707-48.051,140.568l191.689,192.953
+																		c5.566,5.604,8.361,12.928,8.361,20.291c0,7.344-2.795,14.688-8.361,20.291C597.091,713.208,589.798,716,582.5,716
+																		s-14.593-2.792-20.139-8.396L370.649,514.632C332.043,544.851,283.687,563,231,563C105.088,563,3,460.241,3,333.5
+																		S105.088,104,231,104z M231,505.625c94.295,0,171-77.208,171-172.125s-76.705-172.125-171-172.125
+																		c-94.295,0-171,77.208-171,172.125S136.705,505.625,231,505.625z"></path>
+																</g>
+															</g>
+														</g>
+													</svg>
+												</a>
+												<div class="search-form-wrap show-popup hide">
+																								</div>
+											</div>
+														            			<div class="navbar-minicart navbar-minicart-topbar"><div class="navbar-minicart"><a class="minicart-link" href="https://protostack.com.au/cart/"><span class="minicart-icon"><svg xml:space="preserve" style="enable-background:new 0 0 459.529 459.529;" viewBox="0 0 459.529 459.529" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1">
+	<g>
+		<g>
+			<path d="M17,55.231h48.733l69.417,251.033c1.983,7.367,8.783,12.467,16.433,12.467h213.35c6.8,0,12.75-3.967,15.583-10.2
+				l77.633-178.5c2.267-5.383,1.7-11.333-1.417-16.15c-3.117-4.817-8.5-7.65-14.167-7.65H206.833c-9.35,0-17,7.65-17,17
+				s7.65,17,17,17H416.5l-62.9,144.5H164.333L94.917,33.698c-1.983-7.367-8.783-12.467-16.433-12.467H17c-9.35,0-17,7.65-17,17
+				S7.65,55.231,17,55.231z"></path>
+			<path d="M135.433,438.298c21.25,0,38.533-17.283,38.533-38.533s-17.283-38.533-38.533-38.533S96.9,378.514,96.9,399.764
+				S114.183,438.298,135.433,438.298z"></path>
+			<path d="M376.267,438.298c0.85,0,1.983,0,2.833,0c10.2-0.85,19.55-5.383,26.35-13.317c6.8-7.65,9.917-17.567,9.35-28.05
+				c-1.417-20.967-19.833-37.117-41.083-35.7c-21.25,1.417-37.117,20.117-35.7,41.083
+				C339.433,422.431,356.15,438.298,376.267,438.298z"></path>
+		</g>
+	</g>
+</svg><span>0</span></span></a></div></div>															            			<div class="navbar-wishlist">
+					            				<a class="wishlist" href="https://protostack.com.au/wishlist/">
+					            					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 249.3 249.3" style="enable-background:new 0 0 249.3 249.3;" xml:space="preserve">
+												<path d="M249.183,88.644c-0.94-17.571-8.379-34.07-20.947-46.458c-12.756-12.574-29.414-19.499-46.904-19.499
+													c-26.191,0-44.735,20.23-54.697,31.099c-0.567,0.618-1.176,1.282-1.771,1.924c-0.319-0.362-0.636-0.723-0.938-1.067
+													C114.82,44.27,95.87,22.687,67.972,22.687c-17.49,0-34.147,6.925-46.903,19.499C8.5,54.574,1.061,71.073,0.121,88.644
+													c-0.934,17.467,3.507,32.624,14.396,49.146c9.759,14.811,35.173,38.228,53.97,53.78c19.32,15.986,44.767,35.042,56.272,35.042
+													c11.686,0,37.043-19.016,56.256-34.968c18.651-15.485,43.925-38.883,53.775-53.86C242.119,126.64,250.379,110.983,249.183,88.644z
+													 M222.258,129.542c-7.157,10.885-27.331,30.995-50.201,50.044c-27.269,22.714-43.414,31.666-47.286,32.022
+													c-3.866-0.403-20.051-9.445-47.453-32.201c-23.004-19.104-43.208-39.146-50.276-49.871c-9.011-13.672-12.694-26.036-11.943-40.092
+													c1.527-28.539,25.246-51.758,52.872-51.758c21.107,0,36.443,17.468,44.683,26.851c4.844,5.518,7.513,8.557,11.999,8.557
+													c4.631,0,7.618-3.259,13.04-9.174c8.994-9.813,24.047-26.234,43.639-26.234c27.627,0,51.345,23.219,52.873,51.758
+													C234.965,103.659,231.392,115.652,222.258,129.542z"></path>
+												</svg>
+					            				</a>
+					            			</div>
+					            										</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header-search-overlay hide">
+				<div class="container">
+					<div class="header-search-overlay-wrap">
+						<form method="GET" class="searchform" action="https://protostack.com.au/" role="form">
+					<input type="search" class="searchinput" name="s" autocomplete="off" value="" placeholder="Search...">
+					<input type="submit" class="searchsubmit hidden" name="submit" value="Search">
+					<input type="hidden" name="post_type" value="product">
+				</form>						<button type="button" class="close">
+							<span aria-hidden="true" class="fa fa-times"></span><span class="sr-only">Close</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>				<div class="heading-container">
+		<div class="container heading-standar">
+							<div class="page-breadcrumb" itemprop="breadcrumb">
+					<ul class="breadcrumb" prefix="v: http://rdf.data-vocabulary.org/#"><li><span typeof="v:Breadcrumb"><a href="https://protostack.com.au/" property="v:title" rel="v:url" class="home"><span>Home</span></a></span></li><li><span typeof="v:Breadcrumb"><a href="https://protostack.com.au/category/tutorials/" property="v:title" rel="v:url"><span>Tutorials</span></a></span></li><li><span typeof="v:Breadcrumb"><a href="https://protostack.com.au/category/tutorials/avr-microcontrollers/" property="v:title" rel="v:url"><span>AVR Microcontrollers</span></a></span></li><li><span typeof="v:Breadcrumb" property="v:title">Atmega168 Timer interrupts</span></li></ul>				</div>
+					</div>
+	</div>
+			<div class="content-container">
+		<div class="container">
+			<div class="row">
+												<div class="col-md-12 main-wrap" data-itemprop="mainContentOfPage" role="main">
+					<div class="main-content">
+																	<article id="post-235" class="post-235 post type-post status-publish format-standard has-post-thumbnail hentry category-avr-microcontrollers category-tutorials" itemtype="https://schema.org/Article" itemscope="">
+							<div class="hentry-wrap">
+								<div class="entry-featured "><img width="1024" height="461" src="./Atmega168 Timer interrupts - Protostack_files/atmega168_timer_interrupts_01.jpg" class="attachment-dh-thumbnail size-dh-thumbnail wp-post-image" alt="" data-itemprop="image" srcset="https://dojft4652t1in.cloudfront.net/wp-content/uploads/atmega168_timer_interrupts_01.jpg 1024w, https://d3s11pzv7w3h1q.cloudfront.net/wp-content/uploads/atmega168_timer_interrupts_01-800x360.jpg 800w, https://d21d43znxvr466.cloudfront.net/wp-content/uploads/atmega168_timer_interrupts_01-500x225.jpg 500w, https://dojft4652t1in.cloudfront.net/wp-content/uploads/atmega168_timer_interrupts_01-768x346.jpg 768w" sizes="(max-width: 1024px) 100vw, 1024px"></div>								<div class="entry-header">
+									<h1 class="entry-title" data-itemprop="name">Atmega168 Timer interrupts</h1>
+									<div class="entry-meta icon-meta">
+										<span class="meta-date"><i class="fa fa-clock-o"></i><time datetime="2010-09-24T05:04:22+10:00" data-itemprop="dateCreated">September 24, 2010</time></span>
+<span class="meta-category"><i class="fa fa-folder-open-o"></i><a href="https://protostack.com.au/category/tutorials/avr-microcontrollers/">AVR Microcontrollers</a>, <a href="https://protostack.com.au/category/tutorials/">Tutorials</a></span>
+<span class="meta-comment"><i class="fa fa-comment-o"></i><a href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comments" title="View all comments on: “Atmega168 Timer interrupts”" class="meta-comments">18 Comments</a></span> <meta content="UserComments:18" itemprop="interactionCount">									</div>
+								</div>
+								<div class="entry-content" data-itemprop="mainContentOfPage">
+									<p>This tutorial will teach you about the 8 and 16 bit timers on an <a href="https://protostack.com.au/shop/microcontrollers/atmega168a-pu-atmel-8-bit-16k-avr-microcontroller/">ATmega168</a> microcontroller. Because the ATmega168 is very similar to the ATmega48, ATmega88 and ATmega328, the examples should also work on these. For other AVR microcontrollers the general principles will apply but the specifics may vary.</p>
+<h3>What are the 8 and 16 bit timers?</h3>
+<p>Consider a wrist watch. At regular intervals it ticks and the hand moves to the next number. At any point in time you can read the accumulated count (the time) and once the time reaches a certain threshold, an event occurs (the alarm rings). Timers on AVR microcontrollers are a little like this.</p>
+<p>The <a href="https://protostack.com.au/shop/microcontrollers/atmega168a-pu-atmel-8-bit-16k-avr-microcontroller/">ATmega168</a> has two 8-bit and one 16-bit timers. This means that there are 3 sets of counters, each with the ability to count at different rates. The two 8-bit counters can count to 255 whilst the 16 bit counter can count to 65,536.</p>
+<p>When the counters reach certain thresholds we can trigger interrupts, which cause Interrupt Service Routines (ISRs) to be executed. Timers are very handy because they allow operations to run automatically, independently of the main processing thread.</p>
+<p><span id="more-235"></span></p>
+<h3>8 bit timer registers</h3>
+<p>The ATmega168 has 2, 8-bit timers: Counter0 and Counter2. Each of these timers are controlled by the following registers.</p>
+<table>
+<tbody><tr>
+<th>Counter0</th>
+<th>Counter2</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>TCCR0A</td>
+<td>TCCR2A</td>
+<td>Timer/Counter Control Register A</td>
+</tr>
+<tr>
+<td>TCCR0B</td>
+<td>TCCR2B</td>
+<td>Timer/Counter Control Register B</td>
+</tr>
+<tr>
+<td>TCNT0</td>
+<td>TCNT2</td>
+<td>Timer/Counter Register</td>
+</tr>
+<tr>
+<td>OCR0A</td>
+<td>OCR2A</td>
+<td>Output Compare Register A</td>
+</tr>
+<tr>
+<td>OCR0B</td>
+<td>OCR2B</td>
+<td>Output Compare Register B</td>
+</tr>
+<tr>
+<td>TIMSK0</td>
+<td>TIMSK2</td>
+<td>Timer/Counter Interrupt Mask Register</td>
+</tr>
+<tr>
+<td>TIFR0</td>
+<td>TIFR2</td>
+<td>Timer/Counter Interrupt Flag Register</td>
+</tr>
+</tbody></table>
+<p>We’ll focus on Counter0 and the most commonly used registers.</p>
+<p>Each counter has 2 thresholds. for <i>Counter0</i> these are stored in registers <i>OCR0A</i> and <i>OCR0B</i>. When these threshold are reached “something” happens. This “something” is defined in <i>TCCR0A</i>, <i>TCCR0B</i> and <i>TIMSK0</i>. <i>TCCR0B</i> also allows you to set the rate at which the timer is updated.</p>
+<p><i>TCCR0A</i> and <i>TCCR0A</i> are shown below.</p>
+<table>
+<tbody><tr>
+<td>bit</td>
+<th width="50px">7</th>
+<th width="50px">6</th>
+<th width="50px">5</th>
+<th width="50px">4</th>
+<th width="50px">3</th>
+<th width="50px">2</th>
+<th width="50px">1</th>
+<th width="50px">0</th>
+</tr>
+<tr>
+<td>TCCR0A</td>
+<td>COM0A1</td>
+<td>COM0A0</td>
+<td>COM0B1</td>
+<td>COM0B0</td>
+<td>–</td>
+<td>–</td>
+<td>WGM01</td>
+<td>WGM00</td>
+</tr>
+<tr>
+<td>Read/Write</td>
+<td>R/W</td>
+<td>R/W</td>
+<td>R/W</td>
+<td>R/W</td>
+<td>R</td>
+<td>R</td>
+<td>R/W</td>
+<td>R/W</td>
+</tr>
+<tr>
+<td>Initial Value</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<table>
+<tbody><tr>
+<td>bit</td>
+<th width="50px">7</th>
+<th width="50px">6</th>
+<th width="50px">5</th>
+<th width="50px">4</th>
+<th width="50px">3</th>
+<th width="50px">2</th>
+<th width="50px">1</th>
+<th width="50px">0</th>
+</tr>
+<tr>
+<td>TCCR0B</td>
+<td>FOC0A</td>
+<td>FOC0B</td>
+<td>–</td>
+<td>–</td>
+<td>WGM02</td>
+<td>CS02</td>
+<td>CS01</td>
+<td>CS00</td>
+</tr>
+<tr>
+<td>Read/Write</td>
+<td>W</td>
+<td>W</td>
+<td>R</td>
+<td>R</td>
+<td>R/W</td>
+<td>R/W</td>
+<td>R/W</td>
+<td>R/W</td>
+</tr>
+<tr>
+<td>Initial Value</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p><i>WGM02</i>, <i>WGM01</i> and <i>WGM00</i> control the counter’s mode as shown in the table below.</p>
+<table>
+<tbody><tr>
+<th>Mode</th>
+<th>WGM02</th>
+<th>WGM01</th>
+<th>WGM00</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>Normal</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>PWM, Phase Correct</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>Clear Timer on Compare (CTC)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>Fast PWM</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>Reserved</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>PWM, Phase Correct</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>Reserved</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>Fast PWM</td>
+</tr>
+</tbody></table>
+<p>We’ll focus on the normal and CTC modes. A detailed discussion of timer modes can be found in section 14.7 of the <a href="http://www.atmel.com/dyn/resources/prod_documents/doc8025.pdf">ATmega168 datasheet</a>.</p>
+<p><i>COM0A1</i>, <i>COM0A0</i>, <i>COM0B1</i> and <i>COM0B0</i> control the behavior of the <i>OC0A</i> (PD6) and <i>OC0B</i> (PD5) pins. These pins can be controlled from the Output Compare Registers (<i>OCR0A</i>/<i>OCR0B</i>). The settings depend on the modes being used and is outside the scope of this tutorial. Section 14.9.1 of the <a href="http://www.atmel.com/dyn/resources/prod_documents/doc8025.pdf">ATmega168 datasheet</a> describes these bits in detail.</p>
+<p>An ATmega168 with default fuses runs at 8MHz with the system clock prescaler enabled. This means that the timer can be updated, up to 8,000,000 times per second. By setting <i>CS02</i>, <i>CS01</i> and <i>CS00</i> we can slow down this rate, as shown here.</p>
+<table>
+<tbody><tr>
+<th>CS02</th>
+<th>CS01</th>
+<th>CS00</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>No clock source (Timer/Counter stopped)</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>Clock(No prescaling)</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>Clock/8 (From prescaler)</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>Clock/64 (From prescaler)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>Clock/256 (From prescaler)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>Clock/1024 (From prescaler)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>External clock source on T0 pin. Clock on falling edge.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>External clock source on T0 pin. Clock on rising edge.</td>
+</tr>
+</tbody></table>
+<p><i>TIMSK0</i> controls which interrupts are enabled. Each counter has 3 interrupts, one for each Output Compare Register (threshold) and one for overflow. The full list of available interrupts can be found in the <a href="http://www.nongnu.org/avr-libc/user-manual/group__avr__interrupts.html">AVR libc &lt;interrupt.h&gt; Interrupts Documentation</a> under the section labelled “Choosing the vector: Interrupt vector names”.</p>
+<table>
+<tbody><tr>
+<td>bit</td>
+<th width="50px">7</th>
+<th width="50px">6</th>
+<th width="50px">5</th>
+<th width="50px">4</th>
+<th width="50px">3</th>
+<th width="50px">2</th>
+<th width="50px">1</th>
+<th width="50px">0</th>
+</tr>
+<tr>
+<td>TIMSK0</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>OCIE0B</td>
+<td>OCIE0A</td>
+<td>TOIE0</td>
+</tr>
+<tr>
+<td>Read/Write</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R/W</td>
+<td>R/W</td>
+<td>R/W</td>
+</tr>
+<tr>
+<td>Initial Value</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h3>8 bit timer example</h3>
+<p>In this example we run run a sweep of the 8 red LEDs on the main routine. We will then blink the green LED on/off 4 times every second. The circuit diagram and source code is shown below.</p>
+<p><a href="./Atmega168 Timer interrupts - Protostack_files/atmega168_timer_interrupts_02.jpg" data-rel="magnific-popup"><img src="./Atmega168 Timer interrupts - Protostack_files/atmega168_timer_interrupts_02.jpg" alt="Example circuit for atmega168 interrupts" style="width: 100%;"></a></p>
+
+<div class="wp_syntax" style="position: relative; width: auto;"><table><tbody><tr><td class="line_numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+</pre></td><td class="code"><pre class="c" style="font-family:monospace;"><span style="color: #339933;">#include &lt;avr/io.h&gt;</span>
+<span style="color: #339933;">#include &lt;util/delay.h&gt;</span>
+<span style="color: #339933;">#include &lt;avr/interrupt.h&gt;  </span>
+&nbsp;
+<span style="color: #339933;">#define green_led_on()  PORTC |= _BV(0)</span>
+<span style="color: #339933;">#define green_led_off()  PORTC &amp;= ~_BV(0)</span>
+<span style="color: #339933;">#define green_led_is_on() bit_is_set(PORTC,0)</span>
+&nbsp;
+<span style="color: #993333;">int</span> main <span style="color: #009900;">(</span><span style="color: #993333;">void</span><span style="color: #009900;">)</span>
+<span style="color: #009900;">{</span>
+    DDRB  <span style="color: #339933;">=</span> <span style="color: #208080;">0b11111111</span><span style="color: #339933;">;</span>   <span style="color: #666666; font-style: italic;font-style:normal;">// All outputs</span>
+    DDRC  <span style="color: #339933;">=</span> <span style="color: #208080;">0b01111111</span><span style="color: #339933;">;</span>   <span style="color: #666666; font-style: italic;font-style:normal;">// All outputs (Although we will just use PC0 )</span>
+&nbsp;
+    TIMSK0 <span style="color: #339933;">=</span> _BV<span style="color: #009900;">(</span>OCIE0A<span style="color: #009900;">)</span><span style="color: #339933;">;</span>  <span style="color: #666666; font-style: italic;font-style:normal;">// Enable Interrupt TimerCounter0 Compare Match A (SIG_OUTPUT_COMPARE0A)</span>
+    TCCR0A <span style="color: #339933;">=</span> _BV<span style="color: #009900;">(</span>WGM01<span style="color: #009900;">)</span><span style="color: #339933;">;</span>  <span style="color: #666666; font-style: italic;font-style:normal;">// Mode = CTC</span>
+    TCCR0B <span style="color: #339933;">=</span> _BV<span style="color: #009900;">(</span>CS02<span style="color: #009900;">)</span> <span style="color: #339933;">|</span> _BV<span style="color: #009900;">(</span>CS00<span style="color: #009900;">)</span><span style="color: #339933;">;</span>   <span style="color: #666666; font-style: italic;font-style:normal;">// Clock/1024, 0.001024 seconds per tick</span>
+    OCR0A <span style="color: #339933;">=</span> <span style="color: #0000dd;">244</span><span style="color: #339933;">;</span>          <span style="color: #666666; font-style: italic;font-style:normal;">// 0.001024*244 ~= .25 SIG_OUTPUT_COMPARE0A will be triggered 4 times per second.</span>
+&nbsp;
+    sei<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> 
+&nbsp;
+    <span style="color: #b1b100;">while</span><span style="color: #009900;">(</span><span style="color: #0000dd;">1</span><span style="color: #009900;">)</span>
+    <span style="color: #009900;">{</span>
+        sweep<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+    <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span>
+&nbsp;
+<span style="color: #993333;">void</span> sweep<span style="color: #009900;">(</span><span style="color: #009900;">)</span>
+<span style="color: #009900;">{</span>
+    PORTB <span style="color: #339933;">=</span> <span style="color: #208080;">0b10000000</span><span style="color: #339933;">;</span>
+    <span style="color: #b1b100;">for</span> <span style="color: #009900;">(</span><span style="color: #993333;">int</span> i<span style="color: #339933;">=</span><span style="color: #0000dd;">0</span><span style="color: #339933;">;</span>i<span style="color: #339933;">&lt;</span><span style="color: #0000dd;">8</span><span style="color: #339933;">;</span>i<span style="color: #339933;">++</span><span style="color: #009900;">)</span>
+    <span style="color: #009900;">{</span>
+        _delay_ms<span style="color: #009900;">(</span><span style="color: #0000dd;">100</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+        PORTB <span style="color: #339933;">&gt;&gt;=</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">;</span>
+    <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span>
+&nbsp;
+ISR<span style="color: #009900;">(</span>SIG_OUTPUT_COMPARE0A<span style="color: #009900;">)</span> 
+<span style="color: #009900;">{</span>
+    <span style="color: #b1b100;">if</span> <span style="color: #009900;">(</span>green_led_is_on<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span>
+	green_led_off<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+    <span style="color: #b1b100;">else</span>
+	green_led_on<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table><p class="theCode" style="display:none;">#include &lt;avr/io.h&gt;
+#include &lt;util/delay.h&gt;
+#include &lt;avr/interrupt.h&gt;  
+
+#define green_led_on()  PORTC |= _BV(0)
+#define green_led_off()  PORTC &amp;= ~_BV(0)
+#define green_led_is_on() bit_is_set(PORTC,0)
+
+int main (void)
+{
+    DDRB  = 0b11111111;   // All outputs
+    DDRC  = 0b01111111;   // All outputs (Although we will just use PC0 )
+
+    TIMSK0 = _BV(OCIE0A);  // Enable Interrupt TimerCounter0 Compare Match A (SIG_OUTPUT_COMPARE0A)
+    TCCR0A = _BV(WGM01);  // Mode = CTC
+    TCCR0B = _BV(CS02) | _BV(CS00);   // Clock/1024, 0.001024 seconds per tick
+    OCR0A = 244;          // 0.001024*244 ~= .25 SIG_OUTPUT_COMPARE0A will be triggered 4 times per second.
+   
+    sei(); 
+
+    while(1)
+    {
+        sweep();
+    }
+}
+
+void sweep()
+{
+    PORTB = 0b10000000;
+    for (int i=0;i&lt;8;i++)
+    {
+        _delay_ms(100);
+        PORTB &gt;&gt;= 1;
+    }
+}
+
+ISR(SIG_OUTPUT_COMPARE0A) 
+{
+    if (green_led_is_on())
+	green_led_off();
+    else
+	green_led_on();
+}</p></div>
+
+<p>Line 15 sets the CTC mode. This ensures that the counter is reset when it reaches OCR0A. After we have setup the timer registers, we call sei() to enable the global registers.</p>
+<p>On line 37, you will see “ISR(SIG_OUTPUT_COMPARE0A)”. This is the interrupt service routine and will get called each time the interrupt is triggered.</p>
+<h3>8 bit timer example 2 – Dual interrupts</h3>
+<p>In this example we will use TimerCounter0 Compare Match A and Match B interrupts. We we turn the LED on at Match B and off at Match A. This will produce the following waveform.</p>
+<p><a href="./Atmega168 Timer interrupts - Protostack_files/atmega168_timer_interrupts_03.jpg" data-rel="magnific-popup"><img src="./Atmega168 Timer interrupts - Protostack_files/atmega168_timer_interrupts_03.jpg" alt="Timing diagram for timer interrupt examples" style="width: 100%;"></a></p>
+
+<div class="wp_syntax" style="position:relative;"><table><tbody><tr><td class="line_numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+</pre></td><td class="code"><pre class="c" style="font-family:monospace;"><span style="color: #339933;">#include &lt;avr/io.h&gt;</span>
+<span style="color: #339933;">#include &lt;util/delay.h&gt;</span>
+<span style="color: #339933;">#include &lt;avr/interrupt.h&gt;  </span>
+&nbsp;
+<span style="color: #339933;">#define green_led_on()  PORTC |= _BV(0)</span>
+<span style="color: #339933;">#define green_led_off()  PORTC &amp;= ~_BV(0)</span>
+&nbsp;
+<span style="color: #993333;">int</span> main <span style="color: #009900;">(</span><span style="color: #993333;">void</span><span style="color: #009900;">)</span>
+<span style="color: #009900;">{</span>
+    DDRB  <span style="color: #339933;">=</span> <span style="color: #208080;">0b11111111</span><span style="color: #339933;">;</span>   <span style="color: #666666; font-style: italic;font-style:normal;">// All outputs</span>
+    DDRC  <span style="color: #339933;">=</span> <span style="color: #208080;">0b01111111</span><span style="color: #339933;">;</span>   <span style="color: #666666; font-style: italic;font-style:normal;">// All outputs (Although we will just use PC0 )</span>
+&nbsp;
+    TIMSK0 <span style="color: #339933;">=</span> _BV<span style="color: #009900;">(</span>OCIE0A<span style="color: #009900;">)</span> <span style="color: #339933;">|</span> _BV<span style="color: #009900;">(</span>OCIE0B<span style="color: #009900;">)</span><span style="color: #339933;">;</span>  <span style="color: #666666; font-style: italic;font-style:normal;">// Enable Interrupt TimerCounter0 Compare Match A &amp; B (SIG_OUTPUT_COMPARE0A/SIG_OUTPUT_COMPARE0A)</span>
+    TCCR0A <span style="color: #339933;">=</span> _BV<span style="color: #009900;">(</span>WGM01<span style="color: #009900;">)</span><span style="color: #339933;">;</span>               <span style="color: #666666; font-style: italic;font-style:normal;">// Mode = CTC</span>
+    TCCR0B <span style="color: #339933;">=</span> _BV<span style="color: #009900;">(</span>CS02<span style="color: #009900;">)</span> <span style="color: #339933;">|</span> _BV<span style="color: #009900;">(</span>CS00<span style="color: #009900;">)</span><span style="color: #339933;">;</span>    <span style="color: #666666; font-style: italic;font-style:normal;">// Clock/1024, 0.001024 seconds per tick</span>
+    OCR0A <span style="color: #339933;">=</span> <span style="color: #0000dd;">244</span><span style="color: #339933;">;</span>                       <span style="color: #666666; font-style: italic;font-style:normal;">// 0.001024*244 ~= .25 SIG_OUTPUT_COMPARE0A will be triggered 4 times per second.</span>
+    OCR0B <span style="color: #339933;">=</span> <span style="color: #0000dd;">220</span><span style="color: #339933;">;</span>                       <span style="color: #666666; font-style: italic;font-style:normal;">// 0.001024*220 ~= .225 SIG_OUTPUT_COMPARE0B will be triggered 25ms before SIG_OUTPUT_COMPARE0A</span>
+&nbsp;
+    sei<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> 
+&nbsp;
+    <span style="color: #b1b100;">while</span><span style="color: #009900;">(</span><span style="color: #0000dd;">1</span><span style="color: #009900;">)</span>
+    <span style="color: #009900;">{</span>
+        sweep<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+    <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span>
+&nbsp;
+<span style="color: #993333;">void</span> sweep<span style="color: #009900;">(</span><span style="color: #009900;">)</span>
+<span style="color: #009900;">{</span>
+    PORTB <span style="color: #339933;">=</span> <span style="color: #208080;">0b10000000</span><span style="color: #339933;">;</span>
+    <span style="color: #b1b100;">for</span> <span style="color: #009900;">(</span><span style="color: #993333;">int</span> i<span style="color: #339933;">=</span><span style="color: #0000dd;">0</span><span style="color: #339933;">;</span>i<span style="color: #339933;">&lt;</span><span style="color: #0000dd;">8</span><span style="color: #339933;">;</span>i<span style="color: #339933;">++</span><span style="color: #009900;">)</span>
+    <span style="color: #009900;">{</span>
+        _delay_ms<span style="color: #009900;">(</span><span style="color: #0000dd;">100</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+        PORTB <span style="color: #339933;">&gt;&gt;=</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">;</span>
+    <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span>
+&nbsp;
+ISR<span style="color: #009900;">(</span>SIG_OUTPUT_COMPARE0A<span style="color: #009900;">)</span> 
+<span style="color: #009900;">{</span>
+    green_led_off<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span>
+&nbsp;
+ISR<span style="color: #009900;">(</span>SIG_OUTPUT_COMPARE0B<span style="color: #009900;">)</span> 
+<span style="color: #009900;">{</span>
+    green_led_on<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table><p class="theCode" style="display:none;">#include &lt;avr/io.h&gt;
+#include &lt;util/delay.h&gt;
+#include &lt;avr/interrupt.h&gt;  
+
+#define green_led_on()  PORTC |= _BV(0)
+#define green_led_off()  PORTC &amp;= ~_BV(0)
+
+int main (void)
+{
+    DDRB  = 0b11111111;   // All outputs
+    DDRC  = 0b01111111;   // All outputs (Although we will just use PC0 )
+
+    TIMSK0 = _BV(OCIE0A) | _BV(OCIE0B);  // Enable Interrupt TimerCounter0 Compare Match A &amp; B (SIG_OUTPUT_COMPARE0A/SIG_OUTPUT_COMPARE0A)
+    TCCR0A = _BV(WGM01);               // Mode = CTC
+    TCCR0B = _BV(CS02) | _BV(CS00);    // Clock/1024, 0.001024 seconds per tick
+    OCR0A = 244;                       // 0.001024*244 ~= .25 SIG_OUTPUT_COMPARE0A will be triggered 4 times per second.
+    OCR0B = 220;                       // 0.001024*220 ~= .225 SIG_OUTPUT_COMPARE0B will be triggered 25ms before SIG_OUTPUT_COMPARE0A
+   
+    sei(); 
+
+    while(1)
+    {
+        sweep();
+    }
+}
+
+void sweep()
+{
+    PORTB = 0b10000000;
+    for (int i=0;i&lt;8;i++)
+    {
+        _delay_ms(100);
+        PORTB &gt;&gt;= 1;
+    }
+}
+
+ISR(SIG_OUTPUT_COMPARE0A) 
+{
+    green_led_off();
+}
+
+ISR(SIG_OUTPUT_COMPARE0B) 
+{
+    green_led_on();
+}</p></div>
+
+<h3>16 bit timer</h3>
+<p>The ATmega168 has a single 16 bit timer, which is referred to as Counter1. It works like the 8 bit timer, except the counter has more bits in it. This intervals to be set with longer duration and greater precision. The registers used by this timer are:</p>
+<table>
+<tbody><tr>
+<th>Counter1</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>TCCR1A</td>
+<td>Timer/Counter 1 Control Register A</td>
+</tr>
+<tr>
+<td>TCCR1B</td>
+<td>Timer/Counter 1 Control Register B</td>
+</tr>
+<tr>
+<td>TCCR1C</td>
+<td>Timer/Counter 1 Control Register C</td>
+</tr>
+<tr>
+<td>TCNT1H</td>
+<td>Timer/Counter 1 High Register</td>
+</tr>
+<tr>
+<td>TCNT1L</td>
+<td>Timer/Counter 1 Low Register</td>
+</tr>
+<tr>
+<td>OCR1AH</td>
+<td>Output Compare Register 1 A High</td>
+</tr>
+<tr>
+<td>OCR1AL</td>
+<td>Output Compare Register 1 A Low</td>
+</tr>
+<tr>
+<td>OCR1BH</td>
+<td>Output Compare Register 1 B High</td>
+</tr>
+<tr>
+<td>OCR1BL</td>
+<td>Output Compare Register 1 B Low</td>
+</tr>
+<tr>
+<td>ICR1H</td>
+<td>Input Capture Register 1 High</td>
+</tr>
+<tr>
+<td>ICR1L</td>
+<td>Input Capture Register 1 Low</td>
+</tr>
+<tr>
+<td>TIMSK1</td>
+<td>Timer/Counter Interrupt Mask Register</td>
+</tr>
+<tr>
+<td>TIFR1</td>
+<td>Timer/Counter Interrupt Flag Register</td>
+</tr>
+</tbody></table>
+<p>In some ways this list looks like the registers used by the 8 bit timers. We will now examine the important differences.</p>
+<p><i>TCCR1A</i>, <i>TCCR1B</i> and <i>TCCR1C</i> play a similar role to <i>TCCR0A</i> and <i>TCCR0B</i>. These are shown below.</p>
+<table>
+<tbody><tr>
+<td>bit</td>
+<th width="50px">7</th>
+<th width="50px">6</th>
+<th width="50px">5</th>
+<th width="50px">4</th>
+<th width="50px">3</th>
+<th width="50px">2</th>
+<th width="50px">1</th>
+<th width="50px">0</th>
+</tr>
+<tr>
+<td>TCCR1A</td>
+<td>COM1A1</td>
+<td>COM1A0</td>
+<td>COM1B1</td>
+<td>COM1B0</td>
+<td>–</td>
+<td>–</td>
+<td>WGM11</td>
+<td>WGM10</td>
+</tr>
+<tr>
+<td>Read/Write</td>
+<td>R/W</td>
+<td>R/W</td>
+<td>R/W</td>
+<td>R/W</td>
+<td>R</td>
+<td>R</td>
+<td>R/W</td>
+<td>R/W</td>
+</tr>
+<tr>
+<td>Initial Value</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<table>
+<tbody><tr>
+<td>bit</td>
+<th width="50px">7</th>
+<th width="50px">6</th>
+<th width="50px">5</th>
+<th width="50px">4</th>
+<th width="50px">3</th>
+<th width="50px">2</th>
+<th width="50px">1</th>
+<th width="50px">0</th>
+</tr>
+<tr>
+<td>TCCR1B</td>
+<td>ICNC1</td>
+<td>ICES1</td>
+<td>–</td>
+<td>WGM13</td>
+<td>WGM12</td>
+<td>CS12</td>
+<td>CS11</td>
+<td>CS10</td>
+</tr>
+<tr>
+<td>Read/Write</td>
+<td>R/W</td>
+<td>R/W</td>
+<td>R</td>
+<td>R/W</td>
+<td>R/W</td>
+<td>R/W</td>
+<td>R/W</td>
+<td>R/W</td>
+</tr>
+<tr>
+<td>Initial Value</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<table>
+<tbody><tr>
+<td>bit</td>
+<th width="50px">7</th>
+<th width="50px">6</th>
+<th width="50px">5</th>
+<th width="50px">4</th>
+<th width="50px">3</th>
+<th width="50px">2</th>
+<th width="50px">1</th>
+<th width="50px">0</th>
+</tr>
+<tr>
+<td>TCCR1C</td>
+<td>FOC1A</td>
+<td>FOC1B</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Read/Write</td>
+<td>R/W</td>
+<td>R/W</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+</tr>
+<tr>
+<td>Initial Value</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>Some of the differences include</p>
+<ul>
+<li>4 mode bits instead of 3 (ie more modes)</li>
+<li>The Force Output Compare bits are in TCCR1C</li>
+<li>Input Capture Noise Canceler bit in TCCR1B (outside the scope of this tutorial)</li>
+<li>Input Capture Edge Select in TCCR1B (outside the scope of this tutorial)</li>
+</ul>
+<p><i>TCNT1H</i> and <i>TCNT1L</i> are similar to <i>TCNT0</i>, but being a 16 bit counter they are split across 2 registers. Similarly with <i>OCR1AH</i>, <i>OCR1AL</i>, <i>OCR1BH</i> and <i>OCR1BL</i>.</p>
+<p><i>ICR1H</i> and <i>ICR1L</i> don’t have any equivalent in the 8 bit timers and allow you to capture the timer value on certain events.</p>
+<h3>16 Bit example</h3>
+<p>This example is similar to the previous one. Because we are using the 16 bit timer, we can increase the cycle time.</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tbody><tr><td class="line_numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+</pre></td><td class="code"><pre class="c" style="font-family:monospace;"><span style="color: #339933;">#include &lt;avr/io.h&gt;</span>
+<span style="color: #339933;">#include &lt;util/delay.h&gt;</span>
+<span style="color: #339933;">#include &lt;avr/interrupt.h&gt;  </span>
+&nbsp;
+<span style="color: #339933;">#define green_led_on()  PORTC |= _BV(0)</span>
+<span style="color: #339933;">#define green_led_off()  PORTC &amp;= ~_BV(0)</span>
+&nbsp;
+<span style="color: #993333;">int</span> main <span style="color: #009900;">(</span><span style="color: #993333;">void</span><span style="color: #009900;">)</span>
+<span style="color: #009900;">{</span>
+    DDRB  <span style="color: #339933;">=</span> <span style="color: #208080;">0b11111111</span><span style="color: #339933;">;</span>   <span style="color: #666666; font-style: italic;font-style:normal;">// All outputs</span>
+    DDRC  <span style="color: #339933;">=</span> <span style="color: #208080;">0b01111111</span><span style="color: #339933;">;</span>   <span style="color: #666666; font-style: italic;font-style:normal;">// All outputs (Although we will just use PC0 )</span>
+&nbsp;
+    TIMSK1 <span style="color: #339933;">=</span> _BV<span style="color: #009900;">(</span>OCIE1A<span style="color: #009900;">)</span> <span style="color: #339933;">|</span> _BV<span style="color: #009900;">(</span>OCIE1B<span style="color: #009900;">)</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;font-style:normal;">// Enable Interrupt Timer/Counter1, Output Compare A &amp; B (SIG_OUTPUT_COMPARE1A/SIG_OUTPUT_COMPARE1B)</span>
+    TCCR1B <span style="color: #339933;">=</span> _BV<span style="color: #009900;">(</span>CS12<span style="color: #009900;">)</span> <span style="color: #339933;">|</span> _BV<span style="color: #009900;">(</span>CS10<span style="color: #009900;">)</span> <span style="color: #339933;">|</span> _BV<span style="color: #009900;">(</span>WGM12<span style="color: #009900;">)</span><span style="color: #339933;">;</span>    <span style="color: #666666; font-style: italic;font-style:normal;">// Clock/1024, 0.001024 seconds per tick, Mode=CTC</span>
+    OCR1A <span style="color: #339933;">=</span> <span style="color: #0000dd;">1954</span><span style="color: #339933;">;</span>                       <span style="color: #666666; font-style: italic;font-style:normal;">// 0.001024*1954 ~= 2 SIG_OUTPUT_COMPARE1A will be triggered every 2 seconds</span>
+    OCR1B <span style="color: #339933;">=</span> <span style="color: #0000dd;">1929</span><span style="color: #339933;">;</span>                       <span style="color: #666666; font-style: italic;font-style:normal;">// 0.001024*1929 ~= 1.975 SIG_OUTPUT_COMPARE1B will be triggered 25ms before SIG_OUTPUT_COMPARE1A</span>
+&nbsp;
+    sei<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> 
+&nbsp;
+    <span style="color: #b1b100;">while</span><span style="color: #009900;">(</span><span style="color: #0000dd;">1</span><span style="color: #009900;">)</span>
+    <span style="color: #009900;">{</span>
+        sweep<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+    <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span>
+&nbsp;
+<span style="color: #993333;">void</span> sweep<span style="color: #009900;">(</span><span style="color: #009900;">)</span>
+<span style="color: #009900;">{</span>
+    PORTB <span style="color: #339933;">=</span> <span style="color: #208080;">0b10000000</span><span style="color: #339933;">;</span>
+    <span style="color: #b1b100;">for</span> <span style="color: #009900;">(</span><span style="color: #993333;">int</span> i<span style="color: #339933;">=</span><span style="color: #0000dd;">0</span><span style="color: #339933;">;</span>i<span style="color: #339933;">&lt;</span><span style="color: #0000dd;">8</span><span style="color: #339933;">;</span>i<span style="color: #339933;">++</span><span style="color: #009900;">)</span>
+    <span style="color: #009900;">{</span>
+        _delay_ms<span style="color: #009900;">(</span><span style="color: #0000dd;">100</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+        PORTB <span style="color: #339933;">&gt;&gt;=</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">;</span>
+    <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span>
+&nbsp;
+ISR<span style="color: #009900;">(</span>SIG_OUTPUT_COMPARE1A<span style="color: #009900;">)</span> 
+<span style="color: #009900;">{</span>
+    green_led_off<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span>
+&nbsp;
+ISR<span style="color: #009900;">(</span>SIG_OUTPUT_COMPARE1B<span style="color: #009900;">)</span> 
+<span style="color: #009900;">{</span>
+    green_led_on<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table><p class="theCode" style="display:none;">#include &lt;avr/io.h&gt;
+#include &lt;util/delay.h&gt;
+#include &lt;avr/interrupt.h&gt;  
+
+#define green_led_on()  PORTC |= _BV(0)
+#define green_led_off()  PORTC &amp;= ~_BV(0)
+
+int main (void)
+{
+    DDRB  = 0b11111111;   // All outputs
+    DDRC  = 0b01111111;   // All outputs (Although we will just use PC0 )
+
+    TIMSK1 = _BV(OCIE1A) | _BV(OCIE1B); // Enable Interrupt Timer/Counter1, Output Compare A &amp; B (SIG_OUTPUT_COMPARE1A/SIG_OUTPUT_COMPARE1B)
+    TCCR1B = _BV(CS12) | _BV(CS10) | _BV(WGM12);    // Clock/1024, 0.001024 seconds per tick, Mode=CTC
+    OCR1A = 1954;                       // 0.001024*1954 ~= 2 SIG_OUTPUT_COMPARE1A will be triggered every 2 seconds
+    OCR1B = 1929;                       // 0.001024*1929 ~= 1.975 SIG_OUTPUT_COMPARE1B will be triggered 25ms before SIG_OUTPUT_COMPARE1A
+   
+    sei(); 
+
+    while(1)
+    {
+        sweep();
+    }
+}
+
+void sweep()
+{
+    PORTB = 0b10000000;
+    for (int i=0;i&lt;8;i++)
+    {
+        _delay_ms(100);
+        PORTB &gt;&gt;= 1;
+    }
+}
+
+ISR(SIG_OUTPUT_COMPARE1A) 
+{
+    green_led_off();
+}
+
+ISR(SIG_OUTPUT_COMPARE1B) 
+{
+    green_led_on();
+}</p></div>
+
+<p>On line 15 and 16, where we set the value for the Output Compare Registers, we don’t need to set value for the high and low registers. The <a href="http://www.nongnu.org/avr-libc/">AVR Libc<br>
+library</a> abstracts these as a single 16 bit value.</p>
+<h3>More Information</h3>
+<p>I hope you’ve enjoyed this tutorial. Timers are a complex subject and I have tried to keep them simple by just looking at a slice of what they can do. I encourage to read the documentation and experiment. I’ve listed 2 good resources below.</p>
+<p><a href="http://www.nongnu.org/avr-libc/user-manual/group__avr__interrupts.html">AVR libc &lt;avr/interrupt.h&gt; Interrupts Documentation</a><br>
+<a href="http://www.atmel.com/dyn/resources/prod_documents/doc8025.pdf">ATmega48/88/168/328 datasheet</a></p>
+														
+								</div>
+								<div class="entry-footer">
+									<div class="row">
+																				<div class="col-sm-12 text-center">
+												<div class="share-links">
+				<div class="share-icons">
+						<span class="facebook-share">
+				<a href="http://www.facebook.com/sharer.php?u=https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/" onclick="javascript:window.open(this.href,&#39;&#39;, &#39;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=220,width=600&#39;);return false;" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
+			</span>
+									<span class="twitter-share">
+				<a href="https://twitter.com/share?url=https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/" onclick="javascript:window.open(this.href,&#39;&#39;, &#39;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=260,width=600&#39;);return false;" title="Share on Twitter"><i class="fa fa-twitter"></i></a>
+			</span>
+									<span class="google-plus-share">
+				<a href="https://plus.google.com/share?url=https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/" onclick="javascript:window.open(this.href,&#39;&#39;, &#39;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600&#39;);return false;" title="Share on Google +"><i class="fa fa-google-plus"></i></a>
+			</span>
+									<span class="pinterest-share">
+				<a href="http://pinterest.com/pin/create/button/?url=https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/&amp;media=https://protostack.com.au/wp-content/uploads/atmega168_timer_interrupts_01.jpg&amp;description=Atmega168%20Timer%20interrupts" title="Share on Pinterest"><i class="fa fa-pinterest"></i></a>
+			</span>
+									<span class="linkedin-share">
+				<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/&amp;title=Atmega168%20Timer%20interrupts" onclick="javascript:window.open(this.href,&#39;&#39;, &#39;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600&#39;);return false;" title="Share on Linked In"><i class="fa fa-linkedin"></i></a>
+			</span>
+					</div>
+	</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<meta content="Daniel Garcia" itemprop="author">
+						</article>
+						 											<nav class="post-navigation" role="navigation">
+		<div class="row">
+						<div class="col-sm-6">
+							<div class="prev-post">
+					<span>
+					Previous article					</span>
+					<a href="https://protostack.com.au/2010/09/3-new-products-for-september/" rel="prev">3 new products for September</a>				</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="next-post">
+					<span>
+						Next article					</span>
+					<a href="https://protostack.com.au/2010/10/starting-october-with-5-new-products/" rel="next">Starting October with 5 new products</a>				</div>
+						</div>
+		</div>
+	</nav>
+											<div class="related-post">
+	<div class="related-post-title">
+		<h3><span>Related News</span></h3>
+	</div>
+	<div class="row related-post-items">
+					<div class="related-post-item col-md-4 col-sm-6">
+				<div class="entry-featured"><a href="https://protostack.com.au/2010/12/avr-memory-architecture/" title="AVR Memory Architecture"><img width="1400" height="630" src="./Atmega168 Timer interrupts - Protostack_files/AVR_memory_01.jpg" class="attachment-dh-thumbnail size-dh-thumbnail wp-post-image" alt="AVR Memory Architecture" itemprop="image" srcset="https://d3s11pzv7w3h1q.cloudfront.net/wp-content/uploads/AVR_memory_01.jpg 1400w, https://d3s11pzv7w3h1q.cloudfront.net/wp-content/uploads/AVR_memory_01-800x360.jpg 800w, https://d21d43znxvr466.cloudfront.net/wp-content/uploads/AVR_memory_01-500x225.jpg 500w, https://d3s11pzv7w3h1q.cloudfront.net/wp-content/uploads/AVR_memory_01-768x346.jpg 768w, https://dojft4652t1in.cloudfront.net/wp-content/uploads/AVR_memory_01-1200x540.jpg 1200w" sizes="(max-width: 1400px) 100vw, 1400px"></a></div>				<h4 class="post-title" data-itemprop="name"><a href="https://protostack.com.au/2010/12/avr-memory-architecture/">AVR Memory Architecture</a></h4>
+				<div class="entry-meta icon-meta">
+				<span class="meta-date"><i class="fa fa-clock-o"></i><time datetime="2010-12-23T13:55:09+10:00" data-itemprop="dateCreated">December 23, 2010</time></span>				</div>
+				<div class="excerpt">
+				<p>The AVR family of microcontrollers use a modified Harvard Architecture which uses 3 types of...</p>				</div>
+				<div class="readmore-link">
+					<a href="https://protostack.com.au/2010/12/avr-memory-architecture/">Read More</a>
+				</div>
+			</div>
+					<div class="related-post-item col-md-4 col-sm-6">
+				<div class="entry-featured"><a href="https://protostack.com.au/2009/09/driving-a-7-segment-display-with-a-4511-bcd-to-7-segment-driver/" title="7segment_1"><img width="1024" height="461" src="./Atmega168 Timer interrupts - Protostack_files/7segment_1.jpg" class="attachment-dh-thumbnail size-dh-thumbnail wp-post-image" alt="" itemprop="image" srcset="https://d21d43znxvr466.cloudfront.net/wp-content/uploads/7segment_1.jpg 1024w, https://dojft4652t1in.cloudfront.net/wp-content/uploads/7segment_1-800x360.jpg 800w, https://d21d43znxvr466.cloudfront.net/wp-content/uploads/7segment_1-500x225.jpg 500w, https://d3s11pzv7w3h1q.cloudfront.net/wp-content/uploads/7segment_1-768x346.jpg 768w" sizes="(max-width: 1024px) 100vw, 1024px"></a></div>				<h4 class="post-title" data-itemprop="name"><a href="https://protostack.com.au/2009/09/driving-a-7-segment-display-with-a-4511-bcd-to-7-segment-driver/">Driving a 7 segment display with a 4511 BCD to 7 Segment Driver</a></h4>
+				<div class="entry-meta icon-meta">
+				<span class="meta-date"><i class="fa fa-clock-o"></i><time datetime="2009-09-03T08:57:39+10:00" data-itemprop="dateCreated">September 3, 2009</time></span>				</div>
+				<div class="excerpt">
+				<p>In this tutorial I will describe how to drive a 7 segment module using a...</p>				</div>
+				<div class="readmore-link">
+					<a href="https://protostack.com.au/2009/09/driving-a-7-segment-display-with-a-4511-bcd-to-7-segment-driver/">Read More</a>
+				</div>
+			</div>
+					<div class="related-post-item col-md-4 col-sm-6">
+				<div class="entry-featured"><a href="https://protostack.com.au/2011/01/reading-and-writing-atmega168-eeprom/" title="EEPROM_01"><img width="1024" height="461" src="./Atmega168 Timer interrupts - Protostack_files/EEPROM_01.jpg" class="attachment-dh-thumbnail size-dh-thumbnail wp-post-image" alt="" itemprop="image" srcset="https://d3s11pzv7w3h1q.cloudfront.net/wp-content/uploads/EEPROM_01.jpg 1024w, https://d21d43znxvr466.cloudfront.net/wp-content/uploads/EEPROM_01-800x360.jpg 800w, https://d3s11pzv7w3h1q.cloudfront.net/wp-content/uploads/EEPROM_01-500x225.jpg 500w, https://d3s11pzv7w3h1q.cloudfront.net/wp-content/uploads/EEPROM_01-768x346.jpg 768w" sizes="(max-width: 1024px) 100vw, 1024px"></a></div>				<h4 class="post-title" data-itemprop="name"><a href="https://protostack.com.au/2011/01/reading-and-writing-atmega168-eeprom/">Reading and writing Atmega168 EEPROM</a></h4>
+				<div class="entry-meta icon-meta">
+				<span class="meta-date"><i class="fa fa-clock-o"></i><time datetime="2011-01-09T11:32:56+10:00" data-itemprop="dateCreated">January 9, 2011</time></span>				</div>
+				<div class="excerpt">
+				<p>EEPROM (Electrically Erasable Programmable Read Only Memory) Is non-volatile memory, meaning it persists after power...</p>				</div>
+				<div class="readmore-link">
+					<a href="https://protostack.com.au/2011/01/reading-and-writing-atmega168-eeprom/">Read More</a>
+				</div>
+			</div>
+			</div>
+</div>
+												 
+<div id="comments" class="comments-area">
+			<div class="title-sep-wrap commentst-title">
+			<h3 class="title-sep-text">
+				18 Comments			</h3>
+			<span class="title-sep"><span></span></span>
+		</div>
+		<ol class="comment-list">
+					<li id="li-comment-455" class="comment even thread-even depth-1">
+			<div class="comment-wrap">
+				<div class="comment-img">
+					<img alt="" src="./Atmega168 Timer interrupts - Protostack_files/ae49dcead04965f01423f0fc8cf1ce1e.jpeg" srcset="https://secure.gravatar.com/avatar/ae49dcead04965f01423f0fc8cf1ce1e?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">				</div>
+				<article id="comment-455" class="comment-block">
+					<header class="comment-header">
+						<div class="comment-info">
+							<span class="comment-author">
+								Art							</span>
+														<span class="comment-meta">
+								<time datetime="2010-09-24T10:21:56+10:00">
+									September 24, 2010 at 10:21 am								</time>
+								<span class="comment-edit">
+																	</span>
+							</span>
+						</div>
+											</header>
+					<section class="comment-content">
+						<p>This is a terrific article. It might be less confusing if you spell out words like “one”, “two” and “three” so that sentences like “The ATmega168 has 2, 8-bit and 1, 16-bit timers.” become “The ATmega168 has two 8-bit timers and one 16-bit timer.” and are more understandable. Other than that, I thought the article was very well done. Thanks for writing it.</p>
+					</section>
+					<div class="comment-reply-link-wrap">
+						<a rel="nofollow" class="comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comment-455" data-commentid="455" data-postid="235" data-belowelement="comment-455" data-respondelement="respond" aria-label="Reply to Art">Reply</a>					</div>
+				</article>
+			</div>
+		</li><!-- #comment-## -->
+		<li id="li-comment-456" class="comment byuser comment-author-protostackadmin bypostauthor odd alt thread-odd thread-alt depth-1">
+			<div class="comment-wrap">
+				<div class="comment-img">
+					<img alt="" src="./Atmega168 Timer interrupts - Protostack_files/0a4c4e45369d90d3ef6d7f5a49d8fea9.png" srcset="https://secure.gravatar.com/avatar/0a4c4e45369d90d3ef6d7f5a49d8fea9?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">				</div>
+				<article id="comment-456" class="comment-block">
+					<header class="comment-header">
+						<div class="comment-info">
+							<span class="comment-author">
+								protostackadmin							</span>
+														<span class="ispostauthor">
+								Author							</span>
+														<span class="comment-meta">
+								<time datetime="2010-09-24T10:29:06+10:00">
+									September 24, 2010 at 10:29 am								</time>
+								<span class="comment-edit">
+																	</span>
+							</span>
+						</div>
+											</header>
+					<section class="comment-content">
+						<p>Thanks, good idea. I’ve updated it now.</p>
+					</section>
+					<div class="comment-reply-link-wrap">
+						<a rel="nofollow" class="comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comment-456" data-commentid="456" data-postid="235" data-belowelement="comment-456" data-respondelement="respond" aria-label="Reply to protostackadmin">Reply</a>					</div>
+				</article>
+			</div>
+		</li><!-- #comment-## -->
+		<li id="li-comment-485" class="comment even thread-even depth-1">
+			<div class="comment-wrap">
+				<div class="comment-img">
+					<img alt="" src="./Atmega168 Timer interrupts - Protostack_files/60888d58de3bf08cbc0c73e67fd6fd86.png" srcset="https://secure.gravatar.com/avatar/60888d58de3bf08cbc0c73e67fd6fd86?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">				</div>
+				<article id="comment-485" class="comment-block">
+					<header class="comment-header">
+						<div class="comment-info">
+							<span class="comment-author">
+								Josh							</span>
+														<span class="comment-meta">
+								<time datetime="2010-09-25T18:14:19+10:00">
+									September 25, 2010 at 6:14 pm								</time>
+								<span class="comment-edit">
+																	</span>
+							</span>
+						</div>
+											</header>
+					<section class="comment-content">
+						<p>Thanks for the great article.</p>
+<p>should the line</p>
+<p>TCCR0B = _BV(CS02); // Clock/1024, 0.001024 seconds per tick</p>
+<p>instead be:</p>
+<p>TCCR0B = _BV(CS02) | _BV(CS00);</p>
+<p>cause CS02 alone would be Clock/256</p>
+					</section>
+					<div class="comment-reply-link-wrap">
+						<a rel="nofollow" class="comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comment-485" data-commentid="485" data-postid="235" data-belowelement="comment-485" data-respondelement="respond" aria-label="Reply to Josh">Reply</a>					</div>
+				</article>
+			</div>
+		</li><!-- #comment-## -->
+		<li id="li-comment-486" class="comment byuser comment-author-protostackadmin bypostauthor odd alt thread-odd thread-alt depth-1">
+			<div class="comment-wrap">
+				<div class="comment-img">
+					<img alt="" src="./Atmega168 Timer interrupts - Protostack_files/0a4c4e45369d90d3ef6d7f5a49d8fea9.png" srcset="https://secure.gravatar.com/avatar/0a4c4e45369d90d3ef6d7f5a49d8fea9?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">				</div>
+				<article id="comment-486" class="comment-block">
+					<header class="comment-header">
+						<div class="comment-info">
+							<span class="comment-author">
+								protostackadmin							</span>
+														<span class="ispostauthor">
+								Author							</span>
+														<span class="comment-meta">
+								<time datetime="2010-09-25T18:44:37+10:00">
+									September 25, 2010 at 6:44 pm								</time>
+								<span class="comment-edit">
+																	</span>
+							</span>
+						</div>
+											</header>
+					<section class="comment-content">
+						<p>Yes, I stand corrected. I’ll fix it now.</p>
+					</section>
+					<div class="comment-reply-link-wrap">
+						<a rel="nofollow" class="comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comment-486" data-commentid="486" data-postid="235" data-belowelement="comment-486" data-respondelement="respond" aria-label="Reply to protostackadmin">Reply</a>					</div>
+				</article>
+			</div>
+		</li><!-- #comment-## -->
+		<li id="li-comment-806" class="comment even thread-even depth-1">
+			<div class="comment-wrap">
+				<div class="comment-img">
+					<img alt="" src="./Atmega168 Timer interrupts - Protostack_files/d287f4922ed6b3b93c9b21f5baf653dd.png" srcset="https://secure.gravatar.com/avatar/d287f4922ed6b3b93c9b21f5baf653dd?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">				</div>
+				<article id="comment-806" class="comment-block">
+					<header class="comment-header">
+						<div class="comment-info">
+							<span class="comment-author">
+								tsanko							</span>
+														<span class="comment-meta">
+								<time datetime="2010-10-19T00:09:07+10:00">
+									October 19, 2010 at 12:09 am								</time>
+								<span class="comment-edit">
+																	</span>
+							</span>
+						</div>
+											</header>
+					<section class="comment-content">
+						<p>Wonderful ..thanks a lot for posting a good informitive blog</p>
+					</section>
+					<div class="comment-reply-link-wrap">
+						<a rel="nofollow" class="comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comment-806" data-commentid="806" data-postid="235" data-belowelement="comment-806" data-respondelement="respond" aria-label="Reply to tsanko">Reply</a>					</div>
+				</article>
+			</div>
+		</li><!-- #comment-## -->
+		<li id="li-comment-845" class="comment odd alt thread-odd thread-alt depth-1">
+			<div class="comment-wrap">
+				<div class="comment-img">
+					<img alt="" src="./Atmega168 Timer interrupts - Protostack_files/4a49644b1a7b8a65474f5d85d8d2c4e5.png" srcset="https://secure.gravatar.com/avatar/4a49644b1a7b8a65474f5d85d8d2c4e5?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">				</div>
+				<article id="comment-845" class="comment-block">
+					<header class="comment-header">
+						<div class="comment-info">
+							<span class="comment-author">
+								roclafamilia							</span>
+														<span class="comment-meta">
+								<time datetime="2010-10-21T21:40:52+10:00">
+									October 21, 2010 at 9:40 pm								</time>
+								<span class="comment-edit">
+																	</span>
+							</span>
+						</div>
+											</header>
+					<section class="comment-content">
+						<p>Helpful blog, bookmarked the website with hopes to read more!</p>
+					</section>
+					<div class="comment-reply-link-wrap">
+						<a rel="nofollow" class="comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comment-845" data-commentid="845" data-postid="235" data-belowelement="comment-845" data-respondelement="respond" aria-label="Reply to roclafamilia">Reply</a>					</div>
+				</article>
+			</div>
+		</li><!-- #comment-## -->
+		<li id="li-comment-1254" class="comment even thread-even depth-1">
+			<div class="comment-wrap">
+				<div class="comment-img">
+					<img alt="" src="./Atmega168 Timer interrupts - Protostack_files/3a65794b47763a86e04ec023803068c5.png" srcset="https://secure.gravatar.com/avatar/3a65794b47763a86e04ec023803068c5?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">				</div>
+				<article id="comment-1254" class="comment-block">
+					<header class="comment-header">
+						<div class="comment-info">
+							<span class="comment-author">
+								Victor Borah							</span>
+														<span class="comment-meta">
+								<time datetime="2010-11-14T15:25:35+10:00">
+									November 14, 2010 at 3:25 pm								</time>
+								<span class="comment-edit">
+																	</span>
+							</span>
+						</div>
+											</header>
+					<section class="comment-content">
+						<p>Was very explanatory, Thanks for the effort !</p>
+					</section>
+					<div class="comment-reply-link-wrap">
+						<a rel="nofollow" class="comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comment-1254" data-commentid="1254" data-postid="235" data-belowelement="comment-1254" data-respondelement="respond" aria-label="Reply to Victor Borah">Reply</a>					</div>
+				</article>
+			</div>
+		</li><!-- #comment-## -->
+		<li id="li-comment-1475" class="comment odd alt thread-odd thread-alt depth-1">
+			<div class="comment-wrap">
+				<div class="comment-img">
+					<img alt="" src="./Atmega168 Timer interrupts - Protostack_files/98cb737b9cf2ae774a51daa463f2825e.png" srcset="https://secure.gravatar.com/avatar/98cb737b9cf2ae774a51daa463f2825e?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">				</div>
+				<article id="comment-1475" class="comment-block">
+					<header class="comment-header">
+						<div class="comment-info">
+							<span class="comment-author">
+								Dennis Meade							</span>
+														<span class="comment-meta">
+								<time datetime="2010-11-28T11:19:52+10:00">
+									November 28, 2010 at 11:19 am								</time>
+								<span class="comment-edit">
+																	</span>
+							</span>
+						</div>
+											</header>
+					<section class="comment-content">
+						<p>This is so much better than trying to decipher the AVR reference docs. Actually, it’s the best tutorial I’ve come across.</p>
+					</section>
+					<div class="comment-reply-link-wrap">
+						<a rel="nofollow" class="comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comment-1475" data-commentid="1475" data-postid="235" data-belowelement="comment-1475" data-respondelement="respond" aria-label="Reply to Dennis Meade">Reply</a>					</div>
+				</article>
+			</div>
+		</li><!-- #comment-## -->
+		<li id="li-comment-2196" class="comment even thread-even depth-1">
+			<div class="comment-wrap">
+				<div class="comment-img">
+					<img alt="" src="./Atmega168 Timer interrupts - Protostack_files/4a5df58d22bda6dd3080e4d0be9d99b4.jpeg" srcset="https://secure.gravatar.com/avatar/4a5df58d22bda6dd3080e4d0be9d99b4?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">				</div>
+				<article id="comment-2196" class="comment-block">
+					<header class="comment-header">
+						<div class="comment-info">
+							<span class="comment-author">
+								littlecharva							</span>
+														<span class="comment-meta">
+								<time datetime="2010-12-30T01:44:15+10:00">
+									December 30, 2010 at 1:44 am								</time>
+								<span class="comment-edit">
+																	</span>
+							</span>
+						</div>
+											</header>
+					<section class="comment-content">
+						<p>I’ve read a few articles on ATMega interrupts on the web, but none of them have explained what the cryptic TIMSK1 = _BV(OCIE1A) statements actually do. Thank you for your excellent article; I now know enough to start tinkering.</p>
+					</section>
+					<div class="comment-reply-link-wrap">
+						<a rel="nofollow" class="comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comment-2196" data-commentid="2196" data-postid="235" data-belowelement="comment-2196" data-respondelement="respond" aria-label="Reply to littlecharva">Reply</a>					</div>
+				</article>
+			</div>
+		</li><!-- #comment-## -->
+		<li id="li-comment-2769" class="comment odd alt thread-odd thread-alt depth-1">
+			<div class="comment-wrap">
+				<div class="comment-img">
+					<img alt="" src="./Atmega168 Timer interrupts - Protostack_files/9dc8c99940250df342f91a8891babf6c.png" srcset="https://secure.gravatar.com/avatar/9dc8c99940250df342f91a8891babf6c?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">				</div>
+				<article id="comment-2769" class="comment-block">
+					<header class="comment-header">
+						<div class="comment-info">
+							<span class="comment-author">
+								Vaidas							</span>
+														<span class="comment-meta">
+								<time datetime="2011-01-31T00:08:58+10:00">
+									January 31, 2011 at 12:08 am								</time>
+								<span class="comment-edit">
+																	</span>
+							</span>
+						</div>
+											</header>
+					<section class="comment-content">
+						<p>Hi,<br>
+I’m begginer with AVR programing. I wanna ask some easy questions. What are these<br>
+.. |= _BV(0)<br>
+.. &amp;= ~_BV(0)<br>
+.. _BV(OCIE1A) | _BV(OCIE1B)<br>
+.. _BV(CS12) | _BV(CS10) | _BV(WGM12);<br>
+?<br>
+And what makes these characters<br>
+|=  &amp;=  _BV() ~_BV()<br>
+?<br>
+Thanks <img draggable="false" class="emoji" alt="🙂" src="./Atmega168 Timer interrupts - Protostack_files/1f642.svg"></p>
+					</section>
+					<div class="comment-reply-link-wrap">
+						<a rel="nofollow" class="comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comment-2769" data-commentid="2769" data-postid="235" data-belowelement="comment-2769" data-respondelement="respond" aria-label="Reply to Vaidas">Reply</a>					</div>
+				</article>
+			</div>
+		</li><!-- #comment-## -->
+		<li id="li-comment-2802" class="comment byuser comment-author-protostackadmin bypostauthor even thread-even depth-1">
+			<div class="comment-wrap">
+				<div class="comment-img">
+					<img alt="" src="./Atmega168 Timer interrupts - Protostack_files/0a4c4e45369d90d3ef6d7f5a49d8fea9.png" srcset="https://secure.gravatar.com/avatar/0a4c4e45369d90d3ef6d7f5a49d8fea9?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">				</div>
+				<article id="comment-2802" class="comment-block">
+					<header class="comment-header">
+						<div class="comment-info">
+							<span class="comment-author">
+								protostackadmin							</span>
+														<span class="ispostauthor">
+								Author							</span>
+														<span class="comment-meta">
+								<time datetime="2011-02-01T17:11:17+10:00">
+									February 1, 2011 at 5:11 pm								</time>
+								<span class="comment-edit">
+																	</span>
+							</span>
+						</div>
+											</header>
+					<section class="comment-content">
+						<p>“|” and “&amp;” are the C bitwise OR and AND operations.<br>
+When you combine them with an “=” you are applying the operator to the field on the left hang side of the expression.<br>
+e.g. PORTD |= 0x00011100 is the same as PORTD = PORTD | 0x00011100<br>
+Lastly _BV is a macro that returns a “1” in the specified position. so _BV(2) gives you 0x00000100</p>
+					</section>
+					<div class="comment-reply-link-wrap">
+						<a rel="nofollow" class="comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comment-2802" data-commentid="2802" data-postid="235" data-belowelement="comment-2802" data-respondelement="respond" aria-label="Reply to protostackadmin">Reply</a>					</div>
+				</article>
+			</div>
+		</li><!-- #comment-## -->
+		<li id="li-comment-3304" class="comment odd alt thread-odd thread-alt depth-1">
+			<div class="comment-wrap">
+				<div class="comment-img">
+					<img alt="" src="./Atmega168 Timer interrupts - Protostack_files/9ec6cdf7cf734a38c77883ec3fcd39e9.jpeg" srcset="https://secure.gravatar.com/avatar/9ec6cdf7cf734a38c77883ec3fcd39e9?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">				</div>
+				<article id="comment-3304" class="comment-block">
+					<header class="comment-header">
+						<div class="comment-info">
+							<span class="comment-author">
+								fell							</span>
+														<span class="comment-meta">
+								<time datetime="2011-03-09T06:37:44+10:00">
+									March 9, 2011 at 6:37 am								</time>
+								<span class="comment-edit">
+																	</span>
+							</span>
+						</div>
+											</header>
+					<section class="comment-content">
+						<p>Thank you for this post, it is very informative.</p>
+<p>One note though, in code example one, line thirteen:</p>
+<p> TIMSK0 = _BV(OCF0A);  // Enable Interrupt TimerCounter0 Compare Match A (SIG_OUTPUT_COMPARE0A)</p>
+<p>This was somewhat confusing since OCF0A is not listed as part of TIMSK0.  I figured out that both OCF0A and OCIE0A point to the same bit position so the code works, but changing it to:</p>
+<p>  TIMSK0 = _BV(OCIE0A);</p>
+<p>Would be clearer to other AVR newbies like me.</p>
+					</section>
+					<div class="comment-reply-link-wrap">
+						<a rel="nofollow" class="comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comment-3304" data-commentid="3304" data-postid="235" data-belowelement="comment-3304" data-respondelement="respond" aria-label="Reply to fell">Reply</a>					</div>
+				</article>
+			</div>
+		</li><!-- #comment-## -->
+		<li id="li-comment-3306" class="comment byuser comment-author-protostackadmin bypostauthor even thread-even depth-1">
+			<div class="comment-wrap">
+				<div class="comment-img">
+					<img alt="" src="./Atmega168 Timer interrupts - Protostack_files/0a4c4e45369d90d3ef6d7f5a49d8fea9.png" srcset="https://secure.gravatar.com/avatar/0a4c4e45369d90d3ef6d7f5a49d8fea9?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">				</div>
+				<article id="comment-3306" class="comment-block">
+					<header class="comment-header">
+						<div class="comment-info">
+							<span class="comment-author">
+								protostackadmin							</span>
+														<span class="ispostauthor">
+								Author							</span>
+														<span class="comment-meta">
+								<time datetime="2011-03-09T07:28:39+10:00">
+									March 9, 2011 at 7:28 am								</time>
+								<span class="comment-edit">
+																	</span>
+							</span>
+						</div>
+											</header>
+					<section class="comment-content">
+						<p>I really need to proof read this more. Thanks for the heads up.</p>
+					</section>
+					<div class="comment-reply-link-wrap">
+						<a rel="nofollow" class="comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comment-3306" data-commentid="3306" data-postid="235" data-belowelement="comment-3306" data-respondelement="respond" aria-label="Reply to protostackadmin">Reply</a>					</div>
+				</article>
+			</div>
+		</li><!-- #comment-## -->
+		<li id="li-comment-3766" class="comment odd alt thread-odd thread-alt depth-1">
+			<div class="comment-wrap">
+				<div class="comment-img">
+					<img alt="" src="./Atmega168 Timer interrupts - Protostack_files/a84006925b157d27d393f4784d84aaba.png" srcset="https://secure.gravatar.com/avatar/a84006925b157d27d393f4784d84aaba?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">				</div>
+				<article id="comment-3766" class="comment-block">
+					<header class="comment-header">
+						<div class="comment-info">
+							<span class="comment-author">
+								Tooba Fawad							</span>
+														<span class="comment-meta">
+								<time datetime="2011-04-15T17:09:49+10:00">
+									April 15, 2011 at 5:09 pm								</time>
+								<span class="comment-edit">
+																	</span>
+							</span>
+						</div>
+											</header>
+					<section class="comment-content">
+						<p>Hello,<br>
+I am looking forward to run HS-322 HD servo from Atmega168, I have used Atmega128 but never used it for timers and PWM, can you please help me out in this. Thanks</p>
+					</section>
+					<div class="comment-reply-link-wrap">
+						<a rel="nofollow" class="comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comment-3766" data-commentid="3766" data-postid="235" data-belowelement="comment-3766" data-respondelement="respond" aria-label="Reply to Tooba Fawad">Reply</a>					</div>
+				</article>
+			</div>
+		</li><!-- #comment-## -->
+		<li id="li-comment-3772" class="comment even thread-even depth-1">
+			<div class="comment-wrap">
+				<div class="comment-img">
+					<img alt="" src="./Atmega168 Timer interrupts - Protostack_files/595ee6291543233edc8f217de95e7cc3.png" srcset="https://secure.gravatar.com/avatar/595ee6291543233edc8f217de95e7cc3?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">				</div>
+				<article id="comment-3772" class="comment-block">
+					<header class="comment-header">
+						<div class="comment-info">
+							<span class="comment-author">
+								<a href="http://funkylife.ch/" rel="external nofollow" class="url">Dmitri Karpovich</a>							</span>
+														<span class="comment-meta">
+								<time datetime="2011-04-16T00:45:54+10:00">
+									April 16, 2011 at 12:45 am								</time>
+								<span class="comment-edit">
+																	</span>
+							</span>
+						</div>
+											</header>
+					<section class="comment-content">
+						<p>Thanks! Great tutorial. I believe there is a small mistake there:<br>
+instead of “TCCR0A and TCCR0A are shown below.” should be “TCCR0A and TCCR0B are shown below.”</p>
+					</section>
+					<div class="comment-reply-link-wrap">
+						<a rel="nofollow" class="comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comment-3772" data-commentid="3772" data-postid="235" data-belowelement="comment-3772" data-respondelement="respond" aria-label="Reply to Dmitri Karpovich">Reply</a>					</div>
+				</article>
+			</div>
+		</li><!-- #comment-## -->
+		<li id="li-comment-8144" class="comment odd alt thread-odd thread-alt depth-1">
+			<div class="comment-wrap">
+				<div class="comment-img">
+					<img alt="" src="./Atmega168 Timer interrupts - Protostack_files/96786f788053d2e4f5452f07741a390b.png" srcset="https://secure.gravatar.com/avatar/96786f788053d2e4f5452f07741a390b?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">				</div>
+				<article id="comment-8144" class="comment-block">
+					<header class="comment-header">
+						<div class="comment-info">
+							<span class="comment-author">
+								Farha							</span>
+														<span class="comment-meta">
+								<time datetime="2011-07-23T00:46:23+10:00">
+									July 23, 2011 at 12:46 am								</time>
+								<span class="comment-edit">
+																	</span>
+							</span>
+						</div>
+											</header>
+					<section class="comment-content">
+						<p>Sorry to bother you but Iam really confuded about how come 8000000/1024 is equal to 0.001024 seconds.</p>
+<p>I am coming uo with a different value which is 0.128ms.<br>
+Thanks for any help.</p>
+<p>TCCR0B = _BV(CS02) | _BV(CS00);   // Clock/1024, 0.001024 seconds per tick</p>
+					</section>
+					<div class="comment-reply-link-wrap">
+						<a rel="nofollow" class="comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comment-8144" data-commentid="8144" data-postid="235" data-belowelement="comment-8144" data-respondelement="respond" aria-label="Reply to Farha">Reply</a>					</div>
+				</article>
+			</div>
+		<ol class="children">
+		<li id="li-comment-19472" class="comment even depth-2">
+			<div class="comment-wrap">
+				<div class="comment-img">
+					<img alt="" src="./Atmega168 Timer interrupts - Protostack_files/c0b94da679b043525ff95fef897588e7.png" srcset="https://secure.gravatar.com/avatar/c0b94da679b043525ff95fef897588e7?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">				</div>
+				<article id="comment-19472" class="comment-block">
+					<header class="comment-header">
+						<div class="comment-info">
+							<span class="comment-author">
+								Fahad							</span>
+														<span class="comment-meta">
+								<time datetime="2012-01-23T05:02:47+10:00">
+									January 23, 2012 at 5:02 am								</time>
+								<span class="comment-edit">
+																	</span>
+							</span>
+						</div>
+											</header>
+					<section class="comment-content">
+						<p>I know its a little late but to answer the question of Farha</p>
+<p>The atmega168 comes with fuse setting that divide the clock frequency by 8. It means that by default the if atmega168 running at 8MHz clock/oscillator it is actually running at 1MHz. which divided by 1024 gives .001024.</p>
+					</section>
+					<div class="comment-reply-link-wrap">
+						<a rel="nofollow" class="comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comment-19472" data-commentid="19472" data-postid="235" data-belowelement="comment-19472" data-respondelement="respond" aria-label="Reply to Fahad">Reply</a>					</div>
+				</article>
+			</div>
+		<ol class="children">
+		<li id="li-comment-521938" class="comment odd alt depth-3">
+			<div class="comment-wrap">
+				<div class="comment-img">
+					<img alt="" src="./Atmega168 Timer interrupts - Protostack_files/af59cb397c9e6413b58a73fce581e224.png" srcset="https://secure.gravatar.com/avatar/af59cb397c9e6413b58a73fce581e224?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">				</div>
+				<article id="comment-521938" class="comment-block">
+					<header class="comment-header">
+						<div class="comment-info">
+							<span class="comment-author">
+								Erkko							</span>
+														<span class="comment-meta">
+								<time datetime="2014-10-07T07:20:00+10:00">
+									October 7, 2014 at 7:20 am								</time>
+								<span class="comment-edit">
+																	</span>
+							</span>
+						</div>
+											</header>
+					<section class="comment-content">
+						<p>You both have your units confused. 1 MHz divided by 1024 equals 976.5625 Hz and the inverse of that is 1.024 ms per cycle. (Hz = 1/s)</p>
+					</section>
+					<div class="comment-reply-link-wrap">
+						<a rel="nofollow" class="comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#comment-521938" data-commentid="521938" data-postid="235" data-belowelement="comment-521938" data-respondelement="respond" aria-label="Reply to Erkko">Reply</a>					</div>
+				</article>
+			</div>
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		</ol>
+		
+					<div id="respond-wrap">
+			<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title"><span>Leave a reply</span> <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#respond" style="display:none;">Click here to cancel the reply</a></small></h3>			<form action="https://protostack.com.au/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><div class="row"><p class="comment-form-author col-sm-4"><label for="author">Name <span class="required">*</span></label> <input placeholder="Name *" id="author" name="author" type="text" class="form-control" value="" size="30" aria-required="true"></p>
+<p class="comment-form-email col-sm-4"><label for="email">Email <span class="required">*</span></label> <input id="email" placeholder="Email *" name="email" type="text" class="form-control" value="" size="30" aria-required="true"></p>
+<p class="comment-form-url col-sm-4"><label for="url">Website</label> <input id="url" placeholder="Website" name="url" type="text" class="form-control" value="" size="30"></p></div>
+<p class="comment-form-comment"><label for="comment">Comment</label> <textarea placeholder="Comment" class="form-control" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p><p class="form-submit"><button name="submit" type="submit" id="submit" class="submit" value="1">Submit</button> <input type="hidden" name="comment_post_ID" value="235" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="aa309cf424"></p><p style="display: none;"></p>			<input type="hidden" id="ak_js" name="ak_js" value="1564722017343"></form>
+			</div><!-- #respond -->
+		</div>
+
+	</div>										</div>
+				</div>
+											</div>
+		</div>
+	</div>
+	<footer id="footer" class="footer" role="contentinfo">
+				
+		
+		
+					<div class="footer-widget footer-4-widget">
+				<div class="container">
+					<div class="footer-widget-wrap">
+						<div class="row">
+																																	<div class="footer-widget-col col-md-3 col-sm-6">
+										<div id="text-3" class="widget widget_text"><h3 class="widget-title"><span>Contact Us</span></h3>			<div class="textwidget"><ul class="address">
+<li><a href="tel:+61438670947"><i class="fa fa-mobile"></i></a>
+<h4>Phone:</h4>
+<p><a href="tel:+61438670947">0438 670 947</a></p></li>
+<li> <a href="mailto:shop@protostack.com"><i class="fa fa-envelope"></i></a>
+<h4>Email:</h4><p><a href="mailto:shop@protostack.com">shop@protostack.com</a></p></li>
+</ul></div>
+		</div>									</div>
+																																			<div class="footer-widget-col col-md-3 col-sm-6">
+										<div id="dh_social_widget-2" class="widget social-widget"><h3 class="widget-title"><span>Stay Connected</span></h3><div class="social-widget-wrap social-widget-round"><a href="https://www.facebook.com/Protostack" title="Facebook" target="_blank"><i class="fa fa-facebook  facebook-bg "></i></a><a href="https://twitter.com/protostack" title="Twitter" target="_blank"><i class="fa fa-twitter  twitter-bg "></i></a><a href="https://www.instagram.com/protostack/" title="Instagram" target="_blank"><i class="fa fa-instagram  instagram-bg "></i></a></div></div>									</div>
+																																			<div class="footer-widget-col col-md-3 col-sm-6">
+										<div id="nav_menu-2" class="widget widget_nav_menu"><h3 class="widget-title"><span>Information</span></h3><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-7241" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7241"><a href="https://protostack.com.au/shipping-and-returns/">Shipping and Returns</a></li>
+<li id="menu-item-5464" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5464"><a href="https://protostack.com.au/terms-and-conditions/">Terms and Conditions</a></li>
+<li id="menu-item-5473" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5473"><a href="https://protostack.com.au/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-5465" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5465"><a href="https://protostack.com.au/online-reviews/">Online Reviews</a></li>
+<li id="menu-item-5466" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5466"><a href="https://protostack.com.au/about-us/">About Us</a></li>
+</ul></div></div>									</div>
+																																			<div class="footer-widget-col col-md-3 col-sm-6">
+										<div id="nav_menu-3" class="widget widget_nav_menu"><h3 class="widget-title"><span>Customer Care</span></h3><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-6564" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6564"><a href="https://protostack.com.au/my-account/">My Account</a></li>
+<li id="menu-item-6565" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6565"><a href="https://protostack.com.au/wishlist/">Wishlist</a></li>
+</ul></div></div><div id="text-4" class="widget widget_text"><h3 class="widget-title"><span>Payment Options</span></h3>			<div class="textwidget"><ul class="payment">
+<li><i class="fa fa-cc-visa" aria-hidden="true"></i></li>
+<li><i class="fa fa-cc-mastercard" aria-hidden="true"></i></li>
+<li><i class="fa fa-cc-amex" aria-hidden="true"></i></li>
+<li><i class="fa fa-cc-stripe" aria-hidden="true"></i></li>
+<li><i class="fa fa-cc-paypal" aria-hidden="true"></i></li>
+</ul></div>
+		</div>									</div>
+																														</div>
+					</div>
+				</div>
+			</div>
+		
+					<div class="footer-copyright text-center"><div class="container"><div class="row"><div class="col-md-6">© Protostack Pty Ltd 2016 All Rights Reserved</div><div class="col-md-6"><a href="http://zeropointlabs.com/our-work/ecommerce-websites">eCommerce Website developed by Zero Point Labs</a></div></div></div></div>
+    		</footer>
+	
+</div>
+<div class="gdpr gdpr-overlay"></div>
+<div class="gdpr gdpr-privacy-bar" style="display: none;">
+	<div class="gdpr-wrapper">
+		<div class="gdpr-content">
+			<p></p>
+		</div>
+		<div class="gdpr-right">
+						<div class="gdpr-buttons">
+				<button class="gdpr-preferences" type="button">Privacy Preferences</button>
+				<button class="gdpr-agreement" type="button">I Agree</button>
+			</div>
+			<span class="gdpr-close"></span>
+		</div>
+	</div>
+</div>
+
+<div class="gdpr gdpr-privacy-preferences">
+	<div class="gdpr-wrapper">
+		<form method="post" class="gdpr-privacy-preferences-frm">
+			<input type="hidden" name="action" value="gdpr_update_privacy_preferences">
+			<input type="hidden" id="update-privacy-preferences-nonce" name="update-privacy-preferences-nonce" value="51020db754"><input type="hidden" name="_wp_http_referer" value="/2010/09/timer-interrupts-on-an-atmega168/">			<header>
+				<div class="gdpr-box-title">
+					<h3>Privacy Preference Center</h3>
+					<span class="gdpr-close"></span>
+				</div>
+			</header>
+			<div class="gdpr-mobile-menu">
+				<button type="button">Options</button>
+			</div>
+			<div class="gdpr-content">
+				<div class="gdpr-tabs">
+					<ul class="">
+						<li><button type="button" class="gdpr-tab-button gdpr-active" data-target="gdpr-consent-management">Consent Management</button></li>
+																	</ul>
+					<ul class="gdpr-policies">
+																																</ul>
+				</div>
+				<div class="gdpr-tab-content">
+					<div class="gdpr-consent-management gdpr-active">
+						<header>
+							<h4>Consent Management</h4>
+						</header>
+						<div class="gdpr-info">
+							<p></p>
+																								<div class="gdpr-cookies-used">
+										<div class="gdpr-cookie-title">
+											<p>Privacy Policy</p>
+																							<label class="gdpr-switch">
+													<input type="checkbox" name="user_consents[]" value="privacy-policy" checked="">
+													<span class="gdpr-slider round"></span>
+													<span class="gdpr-switch-indicator-on">ON</span>
+													<span class="gdpr-switch-indicator-off">OFF</span>
+												</label>
+																					</div>
+										<div class="gdpr-cookies">
+											<span>You read and agreed to our <a href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/" target="_blank">Privacy Policy</a>.</span>
+										</div>
+									</div>
+																					</div>
+					</div>
+														</div>
+				<input type="hidden" name="all_cookies" value="[]">
+			</div>
+			<footer>
+				<input type="submit" value="Save Preferences">
+			</footer>
+		</form>
+	</div>
+</div>
+
+<div class="gdpr gdpr-general-confirmation">
+	<div class="gdpr-wrapper">
+		<header>
+			<div class="gdpr-box-title">
+				<h3></h3>
+				<span class="gdpr-close"></span>
+			</div>
+		</header>
+		<div class="gdpr-content">
+			<p></p>
+		</div>
+		<footer>
+			<button class="gdpr-ok">OK</button>
+		</footer>
+	</div>
+</div>
+			<div class="modal user-login-modal" id="userloginModal" tabindex="-1" role="dialog" aria-labelledby="userloginModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-center__">
+					<div class="modal-content">
+						<form action="https://protostack.com.au/wp-login.php" method="post" id="userloginModalForm">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+								<h4 class="modal-title" id="userloginModalLabel">Login</h4>
+							</div>
+							<div class="modal-body">
+								<input type="hidden" id="login-security" name="login-security" value="35f722c381"><input type="hidden" name="_wp_http_referer" value="/2010/09/timer-interrupts-on-an-atmega168/">																								<div class="form-group">
+									<label for="log">Username</label>
+								    <input type="text" id="username" name="log" required="" class="form-control" value="" placeholder="Username">
+								 </div>
+								 <div class="form-group">
+								    <label for="password">Password</label>
+								    <input type="password" id="password" required="" value="" name="pwd" class="form-control" placeholder="Password">
+								  </div>
+								  <div class="checkbox clearfix">
+								    <label class="form-flat-checkbox pull-left">
+								      <input type="checkbox" name="rememberme" id="rememberme" value="forever"><i></i>&nbsp;Remember Me								    </label>
+								    <span class="lostpassword-modal-link pull-right">
+								    	<a href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#lostpasswordModal" data-rel="lostpasswordModal">Lost your password?</a>
+								    </span>
+								  </div>
+								  								  <div class="user-modal-result"></div>
+							</div>
+							<div class="modal-footer">
+													        	<button type="submit" class="btn btn-default btn-outline">Sign in</button>
+					        </div>
+				        </form>
+					</div>
+				</div>
+			</div>
+						<div class="modal user-lostpassword-modal" id="userlostpasswordModal" tabindex="-1" role="dialog" aria-labelledby="userlostpasswordModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-center__">
+					<div class="modal-content">
+						<form action="https://protostack.com.au/my-account/lost-password/" method="post" id="userlostpasswordModalForm">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+								<h4 class="modal-title" id="userlostpasswordModalLabel">Forgot Password</h4>
+							</div>
+							<div class="modal-body">
+								<input type="hidden" id="lostpassword-security" name="lostpassword-security" value="e2569859f8"><input type="hidden" name="_wp_http_referer" value="/2010/09/timer-interrupts-on-an-atmega168/">																<div class="form-group">
+									<label for="user_login">Username or E-mail:</label>
+								    <input type="text" id="user_login" name="user_login" required="" class="form-control" value="" placeholder="Username or E-mail">
+								 </div>
+								  								  <div class="user-modal-result"></div>
+							</div>
+							<div class="modal-footer">
+								<span class="user-login-modal-link pull-left"><a data-rel="loginModal" href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#loginModal">Already have an account?</a></span>
+					        	<button type="submit" class="btn btn-default btn-outline">Reset Password</button>
+					        </div>
+				        </form>
+					</div>
+				</div>
+			</div>
+			<a href="https://protostack.com.au/2010/09/timer-interrupts-on-an-atmega168/#" class="go-to-top on"><i class="fa fa-angle-up"></i></a><div class="minicart-side"><div class="minicart-side-title"><h4>Shopping Cart</h4></div><div class="minicart-side-content"><div class="minicart" style="display: none;"><div class="minicart-header no-items show">Your shopping bag is empty.</div><div class="minicart-footer"><div class="minicart-actions clearfix"><a class="button no-item-button" href="https://protostack.com.au/shop/"><span class="text">Go to the shop</span></a></div></div></div></div></div>	<script type="text/javascript">
+		var c = document.body.className;
+		c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+		document.body.className = c;
+	</script>
+	
+<script type="text/javascript">
+/* <![CDATA[ */
+var yith_wcwl_l10n = {"ajax_url":"\/wp-admin\/admin-ajax.php","redirect_to_cart":"no","multi_wishlist":"","hide_add_button":"1","is_user_logged_in":"","ajax_loader_url":"https:\/\/protostack.com.au\/wp-content\/plugins\/yith-woocommerce-wishlist\/assets\/images\/ajax-loader.gif","remove_from_wishlist_after_add_to_cart":"yes","labels":{"cookie_disabled":"We are sorry, but this feature is available only if cookies are enabled on your browser.","added_to_cart_message":"<div class=\"woocommerce-message\">Product correctly added to cart<\/div>"},"actions":{"add_to_wishlist_action":"add_to_wishlist","remove_from_wishlist_action":"remove_from_wishlist","move_to_another_wishlist_action":"move_to_another_wishlsit","reload_wishlist_and_adding_elem_action":"reload_wishlist_and_adding_elem"}};
+/* ]]> */
+</script>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/protostack.com.au\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"https:\/\/protostack.com.au\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+/* ]]> */
+</script>
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_e5c65345f2736c49b2e4fa1d47f64ece","fragment_name":"wc_fragments_e5c65345f2736c49b2e4fa1d47f64ece","request_timeout":"5000"};
+/* ]]> */
+</script>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var dhL10n = {"ajax_url":"\/wp-admin\/admin-ajax.php","protocol":"https","breakpoint":"900","nav_breakpoint":"900","cookie_path":"\/","screen_sm":"768","screen_md":"992","screen_lg":"1200","touch_animate":"1","logo_retina":"","ajax_finishedMsg":"All posts displayed","ajax_msgText":"Loading the next set of posts...","woocommerce":"1","imageLazyLoading":"1","add_to_wishlist_text":"Add to Wishlist","user_logged_in":"0","loadingmessage":"Sending info, please wait..."};
+/* ]]> */
+</script>
+
+
+
+
+
+
+
+
+
+<!-- WooCommerce JavaScript -->
+<script type="text/javascript">
+jQuery(function($) { 
+
+					$( '.add_to_cart_button:not(.product_type_variable, .product_type_grouped)' ).click( function() {
+						ga( 'ec:addProduct', {'id': ($(this).data('product_sku')) ? ($(this).data('product_sku')) : ('#' + $(this).data('product_id')),'quantity': $(this).data('quantity')} );
+						ga( 'ec:setAction', 'add' );
+						ga( 'send', 'event', 'UX', 'click', 'add to cart' );
+					});
+				
+
+ga( 'send', 'pageview' ); 
+ });
+</script>
+<script type="text/javascript" defer="" src="./Atmega168 Timer interrupts - Protostack_files/autoptimize_408f637f62845b65ce6f311a7c3999be.js.download"></script>
+
+<!-- Dynamic page generated in 0.559 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-08-02 15:00:18 -->
+
+<!-- Compression = gzip --></body></html>
