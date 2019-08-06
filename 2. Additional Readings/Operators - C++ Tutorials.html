@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)http://www.cplusplus.com/doc/tutorial/operators/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Operators - C++ Tutorials</title>
+<link rel="canonical" href="http://www.cplusplus.com/doc/tutorial/operators/">
+<link rel="shortcut icon" type="image/x-icon" href="http://www.cplusplus.com/favicon.ico">
+<link rel="stylesheet" type="text/css" href="./Operators - C++ Tutorials_files/main.css">
+<script type="text/javascript" async="" src="./Operators - C++ Tutorials_files/ga.js.download"></script><script src="./Operators - C++ Tutorials_files/main.js.download" type="text/javascript"></script>
+<script>
+  (function() {
+    var useSSL = 'https:' == document.location.protocol;
+    var src = (useSSL ? 'https:' : 'http:') +
+        '//www.googletagservices.com/tag/js/gpt.js';
+    document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+  })();
+</script><script src="./Operators - C++ Tutorials_files/gpt.js.download"></script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/32882001/L', [728, 90], 'div-gpt-ad-1473193443042-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().enableSyncRendering();
+    googletag.enableServices();
+  });
+</script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="http://www.cplusplus.com/" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="http://www.cplusplus.com/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="http://www.cplusplus.com/doc/">Tutorials</a></li>
+<li><a href="http://www.cplusplus.com/doc/tutorial/">C++ Language</a></li>
+<li class="here">Operators</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span><div id="I_corner" style="display: block;"><div id="I_cornerinner"><div id="I_userid">Not logged in</div></div></div><div id="I_userbuttons"><a href="http://www.cplusplus.com/user/access.cgi?w=signup">register</a><a id="I_btnlogin" href="javascript:LBI_user.modal(1)">log in</a></div><div id="I_fold" style="display: none;"><div class="deco"></div><form name="I_loginform" id="I_loginform" action="http://www.cplusplus.com/user/access.cgi" onsubmit="LBI_user.login(); return false;" method="post" style="display: none;"><div class="fields"><input type="hidden" name="w" value="login"><input type="hidden" name="y" value="1"><input type="hidden" name="to" value="http://www.cplusplus.com/doc/tutorial/operators/">user name: <input class="txt" name="l" size="8" type="text" title="Type user name"><br>password: <input class="txt" name="p" size="8" type="password" title="Type password"><br><input class="chk" name="rememberme" id="rememberme" value="1" type="checkbox"><label for="rememberme">remember me</label>&nbsp;<input class="btn" value="sign in" type="submit"><br><div class="forgot"><a href="http://www.cplusplus.com/user/access.cgi?w=lostpass">forgot your password?</a></div></div><div class="openid">or sign in using:<br><a class="google" href="http://www.cplusplus.com/user/access.cgi?w=login&amp;y=1&amp;pr=google&amp;to=%2Fdoc%2Ftutorial%2Foperators%2F" title="Sign in using your google account"><span></span></a><a class="yahoo" href="http://www.cplusplus.com/user/access.cgi?w=login&amp;y=1&amp;pr=yahoo&amp;to=%2Fdoc%2Ftutorial%2Foperators%2F" title="Sign in using your Yahoo! account"><span></span></a> </div></form><div id="I_loginwait" style="display: none;"></div><div id="I_loginfail" style="display: none;"><div id="I_loginfailtext"></div><a class="C_bRepeat" href="javascript:LBI_user.modal(1)">try again</a><a class="C_bCancel" href="javascript:LBI_user.modal(0)">cancel</a><div class="forgot"><a href="http://www.cplusplus.com/user/access.cgi?w=lostpass">forgot your password?</a></div></div><div class="close"><a href="javascript:LBI_user.modal(0)" title="cancel log in"><span></span></a></div></div></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight" style="height: 493px;"></div>
+<div id="I_main">
+<div class="C_support">
+<div id="div-gpt-ad-1473193443042-0" style="height:90px; width:728px;">
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1473193443042-0'); });
+</script>
+</div>
+</div>
+<div id="I_content">
+<div class="C_doc">
+<h1>Operators</h1>
+<section id="operators">
+Once introduced to variables and constants, we can begin to operate with them by using <i>operators</i>. What follows is a complete list of operators. At this point, it is likely not necessary to know all of them, but they are all listed here to also serve as reference.<br>
+</section>
+<br>
+<section id="assignment">
+<h3>Assignment operator (=)</h3>
+The assignment operator assigns a value to a variable.<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>x = 5;</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+ <br>
+This statement assigns the integer value <code>5</code> to the variable <code>x</code>. The assignment operation always takes place from right to left, and never the other way around:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>x = y;</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+This statement assigns to variable <code>x</code> the value contained in variable <code>y</code>. The value of <code>x</code> at the moment this statement is executed is lost and replaced by the value of <code>y</code>.<br>
+<br>
+Consider also that we are only assigning the value of <code>y</code> to <code>x</code> at the moment of the assignment operation. Therefore, if <code>y</code> changes at a later moment, it will not affect the new value taken by <code>x</code>.<br>
+<br>
+For example, let's have a look at the following code - I have included the evolution of the content stored in the variables as comments:<br>
+<br>
+<div class="auto"><table class="split"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br></code></pre></td>
+<td class="source"><pre><code><cite>// assignment operator</cite>
+<dfn>#include &lt;iostream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<var>int</var> main ()
+{
+  <var>int</var> a, b;         <cite>// a:?,  b:?</cite>
+  a = 10;           <cite>// a:10, b:?</cite>
+  b = 4;            <cite>// a:10, b:4</cite>
+  a = b;            <cite>// a:4,  b:4</cite>
+  b = 7;            <cite>// a:4,  b:7</cite>
+
+  cout &lt;&lt; <kbd>"a:"</kbd>;
+  cout &lt;&lt; a;
+  cout &lt;&lt; <kbd>" b:"</kbd>;
+  cout &lt;&lt; b;
+}</code></pre></td>
+<td class="output"><pre><samp>a:4 b:7</samp></pre></td><td class="C_btnholder"><div class="C_shell"><div class="inner"><div class="btn trans_half"><a href="http://www.cplusplus.com/doc/tutorial/operators/#" title="Open C++ Shell (in a new window)" target="_top"><span class="C_ico settings"></span> Edit &amp; Run</a></div></div></div></td></tr></tbody></table></div>
+<br>
+<br>
+This program prints on screen the final values of <code>a</code> and <code>b</code> (4 and 7, respectively). Notice how <code>a</code> was not affected by the final modification of <code>b</code>, even though we declared <code>a = b</code> earlier.<br>
+<br>
+Assignment operations are expressions that can be evaluated. That means that the assignment itself has a value, and -for fundamental types- this value is the one assigned in the operation. For example:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>y = 2 + (x = 5);</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+In this expression, <code>y</code> is assigned the result of adding 2 and the value of another assignment expression (which has itself a value of 5). It is roughly equivalent to:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code>x = 5;
+y = 2 + x;</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+With the final result of assigning 7 to <code>y</code>.<br>
+<br>
+The following expression is also valid in C++: <br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>x = y = z = 5;</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+It assigns 5 to the all three variables: <code>x</code>, <code>y</code> and <code>z</code>; always from right-to-left.<br>
+</section>
+<br>
+<section id="arithmetic">
+<h3>Arithmetic operators ( +, -, *, /, % )</h3>
+The five arithmetical operations supported by C++ are: <br>
+<br>
+<table class="boxed">
+<tbody><tr><th>operator</th><th>description</th></tr>
+<tr><td><code>+</code></td><td>addition</td></tr>
+<tr><td><code>-</code></td><td>subtraction</td></tr>
+<tr><td><code>*</code></td><td>multiplication</td></tr>
+<tr><td><code>/</code></td><td>division</td></tr>
+<tr><td><code>%</code></td><td>modulo</td></tr>
+</tbody></table>
+<br>
+Operations of addition, subtraction, multiplication and division correspond literally to their respective mathematical operators. The last one, <i>modulo operator</i>, represented by a percentage sign (<code>%</code>), gives the remainder of a division of two values. For example:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>x = 11 % 3;</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+results in variable <code>x</code> containing the value 2, since dividing 11 by 3 results in 3, with a remainder of 2.<br>
+</section>
+<br>
+<section id="compound">
+<h3>Compound assignment (+=, -=, *=, /=, %=, &gt;&gt;=, &lt;&lt;=, &amp;=, ^=, |=)</h3>
+Compound assignment operators modify the current value of a variable by performing an operation on it. They are equivalent to assigning the result of an operation to the first operand:<br>
+<br>
+<table class="boxed">
+<tbody><tr><th>expression</th><th>equivalent to...</th></tr>
+<tr><td><code>y += x;</code></td><td><code>y = y + x;</code></td></tr>
+<tr><td><code>x -= 5;</code></td><td><code>x = x - 5;</code></td></tr>
+<tr><td><code>x /= y;</code></td><td><code>x = x / y;</code></td></tr>
+<tr><td><code>price *= units + 1;</code></td><td><code>price = price * (units+1);</code></td></tr>
+</tbody></table>
+<br>
+and the same for all other compound assignment operators. For example:<br>
+<br>
+<div class="auto"><table class="split"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br></code></pre></td>
+<td class="source"><pre><code><cite>// compound assignment operators</cite>
+<dfn>#include &lt;iostream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<var>int</var> main ()
+{
+  <var>int</var> a, b=3;
+  a = b;
+  a+=2;             <cite>// equivalent to a=a+2</cite>
+  cout &lt;&lt; a;
+}</code></pre></td>
+<td class="output"><pre><samp>5</samp></pre></td><td class="C_btnholder"><div class="C_shell"><div class="inner"><div class="btn trans_half"><a href="http://www.cplusplus.com/doc/tutorial/operators/#" title="Open C++ Shell (in a new window)" target="_top"><span class="C_ico settings"></span> Edit &amp; Run</a></div></div></div></td></tr></tbody></table></div>
+<br>
+</section>
+<br>
+<section id="increment">
+<h3>Increment and decrement (++, --)</h3>
+Some expression can be shortened even more: the increase operator (<code>++</code>) and the decrease operator (<code>--</code>) increase or reduce by one the value stored in a variable. They are equivalent to <code>+=1</code> and to <code>-=1</code>, respectively. Thus:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code>++x;
+x+=1;
+x=x+1;</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+are all equivalent in its functionality; the three of them increase by one the value of <code>x</code>.<br>
+<br>
+In the early C compilers, the three previous expressions may have produced different executable code depending on which one was used. Nowadays, this type of code optimization is generally performed automatically by the compiler, thus the three expressions should produce exactly the same executable code.<br>
+<br>
+A peculiarity of this operator is that it can be used both as a prefix and as a suffix. That means that it can be written either before the variable name (<code>++x</code>) or after it (<code>x++</code>). Although in simple expressions like <code>x++</code> or <code>++x</code>, both have exactly the same meaning; in other expressions in which the result of the increment or decrement operation is evaluated, they may have an important difference in their meaning: In the case that the increase operator is used as a prefix (<code>++x</code>) of the value, the expression evaluates to the final value of <code>x</code>, once it is already increased. On the other hand, in case that it is used as a suffix (<code>x++</code>), the value is also increased, but the expression evaluates to the value that x had before being increased. Notice the difference:<br>
+<br>
+<table class="boxed">
+<tbody><tr><th>Example 1</th><th>Example 2</th></tr>
+<tr><td><code>
+x = 3;<br>
+y = ++x;<br>
+// x contains 4, y contains 4<br>
+</code></td>
+<td><code>
+x = 3;<br>
+y = x++;<br>
+// x contains 4, y contains 3<br>
+</code></td></tr>
+</tbody></table>
+<br>
+In <i>Example 1</i>, the value assigned to <code>y</code> is the value of <code>x</code> after being increased. While in <i>Example 2</i>, it is the value <code>x</code> had before being increased.<br>
+</section>
+<br>
+<section id="relational">
+<h3>Relational and comparison operators ( ==, !=, &gt;, &lt;, &gt;=, &lt;= )</h3>
+Two expressions can be compared using relational and equality operators. For example, to know if two values are equal or if one is greater than the other.<br>
+<br>
+The result of such an operation is either true or false (i.e., a Boolean value).<br>
+<br>
+The relational operators in C++ are:<br>
+<br>
+<table class="boxed">
+<tbody><tr><th>operator</th><th>description</th></tr>
+<tr><td><code>==</code></td><td>Equal to</td></tr>
+<tr><td><code>!=</code></td><td>Not equal to</td></tr>
+<tr><td><code>&lt;</code></td><td>Less than</td></tr>
+<tr><td><code>&gt;</code></td><td>Greater than</td></tr>
+<tr><td><code>&lt;=</code></td><td>Less than or equal to</td></tr>
+<tr><td><code>&gt;=</code></td><td>Greater than or equal to</td></tr>
+</tbody></table>
+<br>
+Here there are some examples:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br></code></pre></td>
+<td class="source"><pre><code>(7 == 5)     <cite>// evaluates to false</cite>
+(5 &gt; 4)      <cite>// evaluates to true</cite>
+(3 != 2)     <cite>// evaluates to true</cite>
+(6 &gt;= 6)     <cite>// evaluates to true</cite>
+(5 &lt; 5)      <cite>// evaluates to false </cite></code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+Of course, it's not just numeric constants that can be compared, but just any value, including, of course, variables. Suppose that <code>a=2</code>, <code>b=3</code> and <code>c=6</code>, then:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code>(a == 5)     <cite>// evaluates to false, since a is not equal to 5</cite>
+(a*b &gt;= c)   <cite>// evaluates to true, since (2*3 &gt;= 6) is true</cite>
+(b+4 &gt; a*c)  <cite>// evaluates to false, since (3+4 &gt; 2*6) is false</cite>
+((b=2) == a) <cite>// evaluates to true </cite></code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+Be careful! The assignment operator (operator <code>=</code>, with one equal sign) is not the same as the equality comparison operator (operator <code>==</code>, with two equal signs); the first one (<code>=</code>) assigns the value on the right-hand to the variable on its left, while the other (<code>==</code>) compares whether the values on both sides of the operator are equal. Therefore, in the last expression (<code>(b=2) == a</code>), we first assigned the value <code>2</code> to <code>b</code> and then we compared it to <code>a</code> (that also stores the value 2), yielding <code>true</code>.<br>
+</section>
+<br>
+<section id="logical">
+<h3>Logical operators ( !, &amp;&amp;, || )</h3>
+The operator <code>!</code> is the C++ operator for the Boolean operation NOT. It has only one operand, to its right, and inverts it, producing <code>false</code> if its operand is <code>true</code>, and <code>true</code> if its operand is <code>false</code>. Basically, it returns the opposite Boolean value of evaluating its operand. For example:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code>!(5 == 5)   <cite>// evaluates to false because the expression at its right (5 == 5) is true</cite>
+!(6 &lt;= 4)   <cite>// evaluates to true because (6 &lt;= 4) would be false</cite>
+!<var>true</var>       <cite>// evaluates to false</cite>
+!<var>false</var>      <cite>// evaluates to true </cite></code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+The logical operators <code>&amp;&amp;</code> and <code>||</code> are used when evaluating two expressions to obtain a single relational result. The operator <code>&amp;&amp;</code> corresponds to the Boolean logical operation AND, which yields <code>true</code> if both its operands are <code>true</code>, and <code>false</code> otherwise. The following panel shows the result of operator <code>&amp;&amp;</code> evaluating the expression <code>a&amp;&amp;b</code>:<br>
+<br>
+<table class="boxed">
+<tbody><tr><th colspan="3">&amp;&amp; OPERATOR (and)</th></tr>
+<tr><th><code>a</code></th><th><code>b</code></th><th><code>a &amp;&amp; b</code></th></tr>
+<tr><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
+<tr><td><code>true</code></td><td><code>false</code></td><td><code>false</code></td></tr>
+<tr><td><code>false</code></td><td><code>true</code></td><td><code>false</code></td></tr>
+<tr><td><code>false</code></td><td><code>false</code></td><td><code>false</code></td></tr>
+</tbody></table>
+<br>
+The operator <code>||</code> corresponds to the Boolean logical operation OR, which yields <code>true</code> if either of its operands is <code>true</code>, thus being false only when both operands are false. Here are the possible results of <code>a||b</code>:<br>
+<br>
+<table class="boxed">
+<tbody><tr><th colspan="3">|| OPERATOR (or)</th></tr>
+<tr><th><code>a</code></th><th><code>b</code></th><th><code>a || b</code></th></tr>
+<tr><td><code>true</code></td><td><code>true</code></td><td><code>true</code></td></tr>
+<tr><td><code>true</code></td><td><code>false</code></td><td><code>true</code></td></tr>
+<tr><td><code>false</code></td><td><code>true</code></td><td><code>true</code></td></tr>
+<tr><td><code>false</code></td><td><code>false</code></td><td><code>false</code></td></tr>
+</tbody></table>
+<br>
+For example:<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code>( (5 == 5) &amp;&amp; (3 &gt; 6) )  <cite>// evaluates to false ( true &amp;&amp; false )</cite>
+( (5 == 5) || (3 &gt; 6) )  <cite>// evaluates to true ( true || false ) </cite></code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+When using the logical operators, C++ only evaluates what is necessary from left to right to come up with the combined relational result, ignoring the rest. Therefore, in the last example (<code>(5==5)||(3&gt;6)</code>), C++ evaluates first whether <code>5==5</code> is <code>true</code>, and if so, it never checks whether <code>3&gt;6</code> is <code>true</code> or not. This is known as <i>short-circuit evaluation</i>, and works like this for these operators:<br>
+<br>
+<table class="boxed">
+<tbody><tr><th>operator</th><th>short-circuit</th></tr>
+<tr><td><code>&amp;&amp;</code></td><td>if the left-hand side expression is <code>false</code>, the combined result is <code>false</code> (the right-hand side expression is never evaluated).</td></tr>
+<tr><td><code>||</code></td><td>if the left-hand side expression is <code>true</code>, the combined result is <code>true</code> (the right-hand side expression is never evaluated).</td></tr>
+</tbody></table>
+<br>
+This is mostly important when the right-hand expression has side effects, such as altering values:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code><var>if</var> ( (i&lt;10) &amp;&amp; (++i&lt;n) ) { <cite>/*...*/</cite> }   <cite>// note that the condition increments i </cite></code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+Here, the combined conditional expression would increase <code>i</code> by one, but only if the condition on the left of <code>&amp;&amp;</code> is <code>true</code>, because otherwise, the condition on the right-hand side (<code>++i&lt;n</code>) is never evaluated.<br>
+</section>
+<br>
+<section id="conditional">
+<h3>Conditional ternary operator ( ? )</h3>
+The conditional operator evaluates an expression, returning one value if that expression evaluates to <code>true</code>, and a different one if the expression evaluates as <code>false</code>. Its syntax is:<br>
+<br>
+<code>condition ? result1 : result2</code> <br>
+<br>
+If <code>condition</code> is <code>true</code>, the entire expression evaluates to <code>result1</code>, and otherwise to <code>result2</code>.<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code>7==5 ? 4 : 3     <cite>// evaluates to 3, since 7 is not equal to 5.</cite>
+7==5+2 ? 4 : 3   <cite>// evaluates to 4, since 7 is equal to 5+2.</cite>
+5&gt;3 ? a : b      <cite>// evaluates to the value of a, since 5 is greater than 3.</cite>
+a&gt;b ? a : b      <cite>// evaluates to whichever is greater, a or b.  </cite></code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+For example:<br>
+<br>
+<div class="auto"><table class="split"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br></code></pre></td>
+<td class="source"><pre><code><cite>// conditional operator</cite>
+<dfn>#include &lt;iostream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<var>int</var> main ()
+{
+  <var>int</var> a,b,c;
+
+  a=2;
+  b=7;
+  c = (a&gt;b) ? a : b;
+
+  cout &lt;&lt; c &lt;&lt; <kbd>'\n'</kbd>;
+}</code></pre></td>
+<td class="output"><pre><samp>7</samp></pre></td><td class="C_btnholder"><div class="C_shell"><div class="inner"><div class="btn trans_half"><a href="http://www.cplusplus.com/doc/tutorial/operators/#" title="Open C++ Shell (in a new window)" target="_top"><span class="C_ico settings"></span> Edit &amp; Run</a></div></div></div></td></tr></tbody></table></div>
+<br>
+<br>
+In this example, <code>a</code> was 2, and <code>b</code> was 7, so the expression being evaluated (<code>a&gt;b</code>) was not <code>true</code>, thus the first value specified after the question mark was discarded in favor of the second value (the one after the colon) which was <code>b</code> (with a value of 7).<br>
+</section>
+<br>
+<section id="comma">
+<h3>Comma operator ( , )</h3>
+The comma operator (<code>,</code>) is used to separate two or more expressions that are included where only one expression is expected. When the set of expressions has to be evaluated for a value, only the right-most expression is considered.<br>
+<br>
+For example, the following code:<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>a = (b=3, b+2);</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+would first assign the value 3 to <code>b</code>, and then assign <code>b+2</code> to variable <code>a</code>. So, at the end, variable <code>a</code> would contain the value 5 while variable <code>b</code> would contain value 3.<br>
+</section>
+<br>
+<section id="bitwise">
+<h3>Bitwise operators ( &amp;, |, ^, ~, &lt;&lt;, &gt;&gt; )</h3>
+Bitwise operators modify variables considering the bit patterns that represent the values they store.<br>
+<br>
+<table class="boxed">
+<tbody><tr><th>operator</th><th>asm equivalent</th><th>description</th></tr>
+<tr><td><code>&amp;</code></td><td><code>AND</code></td><td>Bitwise AND</td></tr>
+<tr><td><code>|</code></td><td><code>OR</code></td><td>Bitwise inclusive OR</td></tr>
+<tr><td><code>^</code></td><td><code>XOR</code></td><td>Bitwise exclusive OR</td></tr>
+<tr><td><code>~</code></td><td><code>NOT</code></td><td>Unary complement (bit inversion)</td></tr>
+<tr><td><code>&lt;&lt;</code></td><td><code>SHL</code></td><td>Shift bits left</td></tr>
+<tr><td><code>&gt;&gt;</code></td><td><code>SHR</code></td><td>Shift bits right</td></tr>
+</tbody></table>
+</section>
+<br>
+<section id="typecast">
+<h3>Explicit type casting operator</h3>
+Type casting operators allow to convert a value of a given type to another type. There are several ways to do this in C++. The simplest one, which has been inherited from the C language, is to precede the expression to be converted by the new type enclosed between parentheses (()):<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br></code></pre></td>
+<td class="source"><pre><code><var>int</var> i;
+<var>float</var> f = 3.14;
+i = (<var>int</var>) f;</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+The previous code converts the floating-point number <code>3.14</code> to an integer value (<code>3</code>); the remainder is lost. Here, the typecasting operator was <code>(int)</code>. Another way to do the same thing in C++ is to use the functional notation preceding the expression to be converted by the type and enclosing the expression between parentheses:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>i = <var>int</var> (f);</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+Both ways of casting types are valid in C++.<br>
+</section>
+<br>
+<section id="sizeof">
+<h3>sizeof</h3>
+This operator accepts one parameter, which can be either a type or a variable, and returns the size in bytes of that type or object:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>x = <var>sizeof</var> (<var>char</var>);</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+Here, <code>x</code> is assigned the value <code>1</code>, because <code>char</code> is a type with a size of one byte.<br>
+<br>
+The value returned by <code>sizeof</code> is a compile-time constant, so it is always determined before program execution.<br>
+</section>
+<br>
+<section id="other">
+<h3>Other operators</h3>
+Later in these tutorials, we will see a few more operators, like the ones referring to pointers or the specifics for object-oriented programming.<br>
+</section>
+<br>
+<section id="precedence">
+<h3>Precedence of operators</h3>
+A single expression may have multiple operators. For example:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>x = 5 + 7 % 2;</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+In C++, the above expression always assigns 6 to variable <code>x</code>, because the <code>%</code> operator has a higher precedence than the <code>+</code> operator, and is always evaluated before. Parts of the expressions can be enclosed in parenthesis to override this precedence order, or to make explicitly clear the intended effect. Notice the difference:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>1<br>2<br></code></pre></td>
+<td class="source"><pre><code>x = 5 + (7 % 2);    <cite>// x = 6 (same as without parenthesis)</cite>
+x = (5 + 7) % 2;    <cite>// x = 0 </cite></code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+From greatest to smallest priority, C++ operators are evaluated in the following order:<br>
+<table class="boxed"><tbody><tr><th>Level</th><th>Precedence group</th><th>Operator</th><th>Description</th><th>Grouping</th></tr>
+<tr><td>1</td><td>Scope</td><td><code>::</code></td><td>scope qualifier</td><td>Left-to-right</td></tr>
+<tr><td rowspan="4">2</td><td rowspan="4">Postfix (unary)</td><td><code>++ --</code></td><td>postfix increment / decrement</td><td rowspan="4">Left-to-right</td></tr>
+<tr><td><code>()</code></td><td>functional forms</td></tr>
+<tr><td><code>[]</code></td><td>subscript</td></tr>
+<tr><td><code>. -&gt;</code></td><td>member access</td></tr>
+<tr><td rowspan="7">3</td><td rowspan="7">Prefix (unary)</td><td><code>++ --</code></td><td>prefix increment / decrement</td><td rowspan="7">Right-to-left</td></tr>
+<tr><td><code>~ !</code></td><td>bitwise NOT / logical NOT</td></tr>
+<tr><td><code>+ -</code></td><td>unary prefix</td></tr>
+<tr><td><code>&amp; *</code></td><td>reference / dereference</td></tr>
+<tr><td><code>new delete</code></td><td>allocation / deallocation</td></tr>
+<tr><td><code>sizeof</code></td><td>parameter pack</td></tr>
+<tr><td><code>(<i>type</i>)</code></td><td>C-style type-casting</td></tr>
+<tr><td>4</td><td>Pointer-to-member</td><td><code>.* -&gt;*</code></td><td>access pointer</td><td>Left-to-right</td></tr>
+<tr><td>5</td><td>Arithmetic: scaling</td><td><code>* / %</code></td><td>multiply, divide, modulo</td><td>Left-to-right</td></tr>
+<tr><td>6</td><td>Arithmetic: addition</td><td><code>+ -</code></td><td>addition, subtraction</td><td>Left-to-right</td></tr>
+<tr><td>7</td><td>Bitwise shift</td><td><code>&lt;&lt; &gt;&gt;</code></td><td>shift left, shift right</td><td>Left-to-right</td></tr>
+<tr><td>8</td><td>Relational</td><td><code>&lt; &gt; &lt;= &gt;=</code></td><td>comparison operators</td><td>Left-to-right</td></tr>
+<tr><td>9</td><td>Equality</td><td><code>== !=</code></td><td>equality / inequality</td><td>Left-to-right</td></tr>
+<tr><td>10</td><td>And</td><td><code>&amp;</code></td><td>bitwise AND</td><td>Left-to-right</td></tr>
+<tr><td>11</td><td>Exclusive or</td><td><code>^</code></td><td>bitwise XOR</td><td>Left-to-right</td></tr>
+<tr><td>12</td><td>Inclusive or</td><td><code>|</code></td><td>bitwise OR</td><td>Left-to-right</td></tr>
+<tr><td>13</td><td>Conjunction</td><td><code>&amp;&amp;</code></td><td>logical AND</td><td>Left-to-right</td></tr>
+<tr><td>14</td><td>Disjunction</td><td><code>||</code></td><td>logical OR</td><td>Left-to-right</td></tr>
+<tr><td rowspan="2">15</td><td rowspan="2">Assignment-level expressions</td><td><code>= *= /= %= += -=<br>
+&gt;&gt;= &lt;&lt;= &amp;= ^= |=</code></td><td>assignment / compound assignment</td><td rowspan="2">Right-to-left</td></tr>
+<tr><td><code>?:</code></td><td>conditional operator</td></tr>
+<tr><td>16</td><td>Sequencing</td><td><code>,</code></td><td>comma separator</td><td>Left-to-right</td></tr>
+</tbody></table>
+<br>
+When an expression has two operators with the same precedence level, <i>grouping</i> determines which one is evaluated first: either left-to-right or right-to-left.<br>
+<br>
+Enclosing all sub-statements in parentheses (even those unnecessary because of their precedence) improves code readability.<br>
+</section><table class="C_docPrevNext"><tbody><tr><td class="prev"><a href="http://www.cplusplus.com/doc/tutorial/constants/" rel="prev"><img src="./Operators - C++ Tutorials_files/32arrowleft.png" width="32" height="32" alt="Previous">Previous:<br><b>Constants</b></a></td><td class="index"><a href="http://www.cplusplus.com/doc/tutorial/" rel="index"><img src="./Operators - C++ Tutorials_files/32doc.png" width="32" height="32" alt="Index"><br>Index</a></td><td class="next"><a href="http://www.cplusplus.com/doc/tutorial/basic_io/" rel="next"><img src="./Operators - C++ Tutorials_files/32arrowright.png" width="32" height="32" alt="Next">Next:<br><b>Basic Input/Output</b></a></td></tr></tbody></table></div><div id="CH_bb"></div></div>
+<script async="" src="./Operators - C++ Tutorials_files/f.txt"></script>
+<!-- leaderboard -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1444228343479937" data-ad-slot="9701143201"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="http://www.cplusplus.com/">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="http://www.cplusplus.com/info/">Information</a></li>
+<li class="folder selected doc"><a href="http://www.cplusplus.com/doc/">Tutorials</a></li>
+<li class="folder reference"><a href="http://www.cplusplus.com/reference/">Reference</a></li>
+<li class="folder articles"><a href="http://www.cplusplus.com/articles/">Articles</a></li>
+<li class="folder forum"><a href="http://www.cplusplus.com/forum/">Forum</a></li>
+</ul>
+</div>
+<div class="C_BoxLabels C_BoxSort sect" id="doc_box">
+<h3><div class="toggle_on" title="Sort alphabetically"></div><b><a href="http://www.cplusplus.com/doc/">Tutorials</a></b></h3>
+<ul style="display: block;">
+<li class="cpp98 cpp11 selected folder"><div class="label"><div></div></div><a href="http://www.cplusplus.com/doc/tutorial/"><span>C++ Language</span></a></li>
+<li><div class="label"><div></div></div><a href="http://www.cplusplus.com/doc/ascii/"><span>Ascii Codes</span></a></li>
+<li><div class="label"><div></div></div><a href="http://www.cplusplus.com/doc/boolean/"><span>Boolean Operations</span></a></li>
+<li><div class="label"><div></div></div><a href="http://www.cplusplus.com/doc/hex/"><span>Numerical Bases</span></a></li>
+</ul>
+<ul style="display: none;"><li class=""><div class="label"><div></div></div><a href="http://www.cplusplus.com/doc/ascii/"><span>Ascii Codes</span></a></li><li class=""><div class="label"><div></div></div><a href="http://www.cplusplus.com/doc/boolean/"><span>Boolean Operations</span></a></li><li class="cpp98 cpp11 selected folder"><div class="label"><div></div></div><a href="http://www.cplusplus.com/doc/tutorial/"><span>C++ Language</span></a></li><li class=""><div class="label"><div></div></div><a href="http://www.cplusplus.com/doc/hex/"><span>Numerical Bases</span></a></li></ul></div>
+<div class="C_BoxLabels C_BoxSort sect cpp98 cpp11" id="tutorial_box">
+<h3><div class="toggle_on" title="Sort alphabetically"></div><b><a href="http://www.cplusplus.com/doc/tutorial/">C++ Language</a></b></h3>
+<ul style="display: block;">
+<li class="C_Collapsable"><div class="mn"></div><h4>Introduction:</h4><div class="effect_height" style="height: 16px;"><ul>
+<li class="folder"><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/introduction/"><span>Compilers</span></a></li>
+</ul></div></li>
+<li class="C_Collapsable"><div class="mn"></div><h4>Basics of C++:</h4><div class="effect_height" style="height: 80px;"><ul>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/program_structure/"><span>Structure of a program</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/variables/"><span>Variables and types</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/constants/"><span>Constants</span></a></li>
+<li class="selected"><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/operators/"><span>Operators</span></a></li>
+<li><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/basic_io/"><span>Basic Input/Output</span></a></li>
+</ul></div></li>
+<li class="C_Collapsable"><div class="mn"></div><h4>Program structure:</h4><div class="effect_height" style="height: 64px;"><ul>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/control/"><span>Statements and flow control</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/functions/"><span>Functions</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/functions2/"><span>Overloads and templates</span></a></li>
+<li><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/namespaces/"><span>Name visibility</span></a></li>
+</ul></div></li>
+<li class="C_Collapsable"><div class="mn"></div><h4>Compound data types:</h4><div class="effect_height" style="height: 96px;"><ul>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/arrays/"><span>Arrays</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/ntcs/"><span>Character sequences</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/pointers/"><span>Pointers</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/dynamic/"><span>Dynamic memory</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/structures/"><span>Data structures</span></a></li>
+<li><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/other_data_types/"><span>Other data types</span></a></li>
+</ul></div></li>
+<li class="C_Collapsable"><div class="mn"></div><h4>Classes:</h4><div class="effect_height" style="height: 80px;"><ul>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/classes/"><span>Classes (I)</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/templates/"><span>Classes (II)</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/classes2/"><span>Special members</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/inheritance/"><span>Friendship and inheritance</span></a></li>
+<li><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/polymorphism/"><span>Polymorphism</span></a></li>
+</ul></div></li>
+<li class="C_Collapsable"><div class="mn"></div><h4>Other language features:</h4><div class="effect_height" style="height: 48px;"><ul>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/typecasting/"><span>Type conversions</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/exceptions/"><span>Exceptions</span></a></li>
+<li><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/preprocessor/"><span>Preprocessor directives</span></a></li>
+</ul></div></li>
+<li class="C_Collapsable"><div class="mn"></div><h4>Standard library:</h4><div class="effect_height" style="height: 16px;"><ul>
+<li><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/files/"><span>Input/output with files</span></a></li>
+</ul></div></li>
+</ul>
+<ul style="display: none;"><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/arrays/"><span>Arrays</span></a></li><li class=""><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/basic_io/"><span>Basic Input/Output</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/ntcs/"><span>Character sequences</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/classes/"><span>Classes (I)</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/templates/"><span>Classes (II)</span></a></li><li class="folder"><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/introduction/"><span>Compilers</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/constants/"><span>Constants</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/structures/"><span>Data structures</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/dynamic/"><span>Dynamic memory</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/exceptions/"><span>Exceptions</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/inheritance/"><span>Friendship and inheritance</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/functions/"><span>Functions</span></a></li><li class=""><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/files/"><span>Input/output with files</span></a></li><li class=""><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/namespaces/"><span>Name visibility</span></a></li><li class="selected"><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/operators/"><span>Operators</span></a></li><li class=""><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/other_data_types/"><span>Other data types</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/functions2/"><span>Overloads and templates</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/pointers/"><span>Pointers</span></a></li><li class=""><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/polymorphism/"><span>Polymorphism</span></a></li><li class=""><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/preprocessor/"><span>Preprocessor directives</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/classes2/"><span>Special members</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/control/"><span>Statements and flow control</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/program_structure/"><span>Structure of a program</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/typecasting/"><span>Type conversions</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/variables/"><span>Variables and types</span></a></li></ul></div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script async="" src="./Operators - C++ Tutorials_files/f.txt"></script>
+<!-- leftbutton -->
+<ins class="adsbygoogle" style="display:inline-block;width:234px;height:60px" data-ad-client="ca-pub-1444228343479937" data-ad-slot="3817422056"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>			
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="http://www.cplusplus.com/">Home page</a> | <a href="http://www.cplusplus.com/privacy.do">Privacy policy</a><br>© cplusplus.com, 2000-2019 - All rights reserved - <i>v3.1</i><br><a href="http://www.cplusplus.com/contact.do?referrer=www.cplusplus.com%2Fdoc%2Ftutorial%2Foperators%2F">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+ onSession ( function(us) {
+		el=document.getElementById('CH_bb'); el.innerHTML='';
+		if (us.auth(4096)) {
+			
+			el.appendChild(btn('Edit Page','Edit Page','edit','/doc/edit.cgi?a=tutorial+operators'));
+			el.appendChild(btn('Delete Page','Delete Page','delete','javascript:docdel()'));
+		}
+	});
+	function docdel() { if (confirm('WARNING: You are about to delete this page. Confirm?')) window.location='/doc/delete.cgi?a=tutorial+operators'; }
+	ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+<script>
+(function(){
+  // mini cookie-consent code (c) Juan Soulie, 2016
+  var s ='consent=cookie';
+  var e = document.createElement('div');
+  e.innerHTML = '<div style="background:#eed;padding:10px;margin:0;text-align:center;border-bottom:1px solid #446"><span style="color:#210;font-weight:bold">This website uses cookies. By continuing, you give permission to deploy cookies, as detailed in our <a href="/privacy.do">privacy policy</a>.</span> <span style="margin-left:10px;border-radius:5px;padding:1px 10px;background:#bcd;border:1px solid #789;cursor:pointer">ok</span></div>';
+  if (document.cookie.indexOf(s)!==-1) return;
+  var b = document.getElementsByTagName('body')[0];
+  b.insertBefore(e,b.firstChild);
+  var x = function() { document.cookie = s+'; path=/'; e.parentNode.removeChild(e); };
+  e.addEventListener('click',x);
+  document.addEventListener('scroll',x);
+})();
+</script>
+
+
+</body></html>
