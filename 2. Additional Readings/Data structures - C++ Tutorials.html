@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://www.cplusplus.com/doc/tutorial/structures/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Data structures - C++ Tutorials</title>
+<link rel="canonical" href="http://www.cplusplus.com/doc/tutorial/structures/">
+<link rel="shortcut icon" type="image/x-icon" href="http://www.cplusplus.com/favicon.ico">
+<link rel="stylesheet" type="text/css" href="./Data structures - C++ Tutorials_files/main.css">
+<script type="text/javascript" async="" src="./Data structures - C++ Tutorials_files/ga.js.download"></script><script src="./Data structures - C++ Tutorials_files/main.js.download" type="text/javascript"></script>
+<script>
+  (function() {
+    var useSSL = 'https:' == document.location.protocol;
+    var src = (useSSL ? 'https:' : 'http:') +
+        '//www.googletagservices.com/tag/js/gpt.js';
+    document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+  })();
+</script><script src="./Data structures - C++ Tutorials_files/gpt.js.download"></script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/32882001/L', [728, 90], 'div-gpt-ad-1473193443042-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().enableSyncRendering();
+    googletag.enableServices();
+  });
+</script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="http://www.cplusplus.com/" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="http://www.cplusplus.com/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="http://www.cplusplus.com/doc/">Tutorials</a></li>
+<li><a href="http://www.cplusplus.com/doc/tutorial/">C++ Language</a></li>
+<li class="here">Data structures</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span><div id="I_corner" style="display: block;"><div id="I_cornerinner"><div id="I_userid">Not logged in</div></div></div><div id="I_userbuttons"><a href="http://www.cplusplus.com/user/access.cgi?w=signup">register</a><a id="I_btnlogin" href="javascript:LBI_user.modal(1)">log in</a></div><div id="I_fold" style="display: none;"><div class="deco"></div><form name="I_loginform" id="I_loginform" action="http://www.cplusplus.com/user/access.cgi" onsubmit="LBI_user.login(); return false;" method="post" style="display: none;"><div class="fields"><input type="hidden" name="w" value="login"><input type="hidden" name="y" value="1"><input type="hidden" name="to" value="http://www.cplusplus.com/doc/tutorial/structures/">user name: <input class="txt" name="l" size="8" type="text" title="Type user name"><br>password: <input class="txt" name="p" size="8" type="password" title="Type password"><br><input class="chk" name="rememberme" id="rememberme" value="1" type="checkbox"><label for="rememberme">remember me</label>&nbsp;<input class="btn" value="sign in" type="submit"><br><div class="forgot"><a href="http://www.cplusplus.com/user/access.cgi?w=lostpass">forgot your password?</a></div></div><div class="openid">or sign in using:<br><a class="google" href="http://www.cplusplus.com/user/access.cgi?w=login&amp;y=1&amp;pr=google&amp;to=%2Fdoc%2Ftutorial%2Fstructures%2F" title="Sign in using your google account"><span></span></a><a class="yahoo" href="http://www.cplusplus.com/user/access.cgi?w=login&amp;y=1&amp;pr=yahoo&amp;to=%2Fdoc%2Ftutorial%2Fstructures%2F" title="Sign in using your Yahoo! account"><span></span></a> </div></form><div id="I_loginwait" style="display: none;"></div><div id="I_loginfail" style="display: none;"><div id="I_loginfailtext"></div><a class="C_bRepeat" href="javascript:LBI_user.modal(1)">try again</a><a class="C_bCancel" href="javascript:LBI_user.modal(0)">cancel</a><div class="forgot"><a href="http://www.cplusplus.com/user/access.cgi?w=lostpass">forgot your password?</a></div></div><div class="close"><a href="javascript:LBI_user.modal(0)" title="cancel log in"><span></span></a></div></div></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight" style="height: 492px;"></div>
+<div id="I_main">
+<div class="C_support">
+<div id="div-gpt-ad-1473193443042-0" style="height:90px; width:728px;">
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1473193443042-0'); });
+</script>
+</div>
+</div>
+<div id="I_content">
+<div class="C_doc">
+<h1>Data structures</h1>
+<section id="data_structures">
+<h3>Data structures</h3>
+A <dfn>data structure</dfn> is a group of data elements grouped together under one name. These data elements, known as <i>members</i>, can have different types and different lengths. Data structures can be declared in C++ using the following syntax:<br>
+<br>
+<code>
+struct type_name {<br>
+member_type1 member_name1;<br>
+member_type2 member_name2;<br>
+member_type3 member_name3;<br>
+.<br>
+.<br>
+} object_names;<br>
+</code>
+<br>
+Where <code>type_name</code> is a name for the structure type, <code>object_name</code> can be a set of valid identifiers for objects that have the type of this structure. Within braces <code>{}</code>, there is a list with the data members, each one is specified with a type and a valid identifier as its name.<br>
+<br>
+For example:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br></code></pre></td>
+<td class="source"><pre><code><var>struct</var> product {
+  <var>int</var> weight;
+  <var>double</var> price;
+} ;
+
+product apple;
+product banana, melon;</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+This declares a structure type, called <code>product</code>, and defines it having two members: <code>weight</code> and <code>price</code>, each of a different fundamental type. This declaration creates a new type (<code>product</code>), which is then used to declare three objects (variables) of this type: <code>apple</code>, <code>banana</code>, and <code>melon</code>. Note how once <code>product</code> is declared, it is used just like any other type.<br>
+<br>
+Right at the end of the <code>struct</code> definition, and before the ending semicolon (<code>;</code>), the optional field <code>object_names</code> can be used to directly declare objects of the structure type. For example, the structure objects <code>apple</code>, <code>banana</code>, and <code>melon</code> can be declared at the moment the data structure type is defined: <br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code><var>struct</var> product {
+  <var>int</var> weight;
+  <var>double</var> price;
+} apple, banana, melon;</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+In this case, where <code>object_names</code> are specified, the type name (<code>product</code>) becomes optional: <code>struct</code> requires either a <code>type_name</code> or at least one name in <code>object_names</code>, but not necessarily both.<br>
+<br>
+It is important to clearly differentiate between what is the structure type name (<code>product</code>), and what is an object of this type (<code>apple</code>, <code>banana</code>, and <code>melon</code>). Many objects (such as <code>apple</code>, <code>banana</code>, and <code>melon</code>) can be declared from a single structure type (<code>product</code>).<br>
+<br>
+Once the three objects of a determined structure type are declared (<code>apple</code>, <code>banana</code>, and <code>melon</code>) its members can be accessed directly. The syntax for that is simply to insert a dot (<code>.</code>) between the object name and the member name. For example, we could operate with any of these elements as if they were standard variables of their respective types: <br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br></code></pre></td>
+<td class="source"><pre><code>apple.weight
+apple.price
+banana.weight
+banana.price
+melon.weight
+melon.price</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+Each one of these has the data type corresponding to the member they refer to: <code>apple.weight</code>, <code>banana.weight</code>, and <code>melon.weight</code> are of type <code>int</code>, while <code>apple.price</code>, <code>banana.price</code>, and <code>melon.price</code> are of type <code>double</code>.<br>
+<br>
+Here is a real example with structure types in action:<br>
+<br>
+<div class="auto"><table class="split"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br></code></pre></td>
+<td class="source"><pre><code><cite>// example about structures</cite>
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;string&gt;</dfn>
+<dfn>#include &lt;sstream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<var>struct</var> movies_t {
+  string title;
+  <var>int</var> year;
+} mine, yours;
+
+<var>void</var> printmovie (movies_t movie);
+
+<var>int</var> main ()
+{
+  string mystr;
+
+  mine.title = <kbd>"2001 A Space Odyssey"</kbd>;
+  mine.year = 1968;
+
+  cout &lt;&lt; <kbd>"Enter title: "</kbd>;
+  getline (cin,yours.title);
+  cout &lt;&lt; <kbd>"Enter year: "</kbd>;
+  getline (cin,mystr);
+  stringstream(mystr) &gt;&gt; yours.year;
+
+  cout &lt;&lt; <kbd>"My favorite movie is:\n "</kbd>;
+  printmovie (mine);
+  cout &lt;&lt; <kbd>"And yours is:\n "</kbd>;
+  printmovie (yours);
+  <var>return</var> 0;
+}
+
+<var>void</var> printmovie (movies_t movie)
+{
+  cout &lt;&lt; movie.title;
+  cout &lt;&lt; <kbd>" ("</kbd> &lt;&lt; movie.year &lt;&lt; <kbd>")\n"</kbd>;
+}</code></pre></td>
+<td class="output"><pre><samp>Enter title: Alien
+Enter year: 1979
+
+My favorite movie is:
+ 2001 A Space Odyssey (1968)
+And yours is:
+ Alien (1979)</samp></pre></td><td class="C_btnholder"><div class="C_shell"><div class="inner"><div class="btn trans_half"><a href="http://www.cplusplus.com/doc/tutorial/structures/#" title="Open C++ Shell (in a new window)" target="_top"><span class="C_ico settings"></span> Edit &amp; Run</a></div></div></div></td></tr></tbody></table></div>
+<br>
+<br>
+The example shows how the members of an object act just as regular variables. For example, the member <code>yours.year</code> is a valid variable of type <code>int</code>, and <code>mine.title</code> is a valid variable of type <code>string</code>.<br>
+<br>
+But the objects <code>mine</code> and <code>yours</code> are also variables with a type (of type <code>movies_t</code>). For example, both have been passed to function <code>printmovie</code> just as if they were simple variables. Therefore, one of the features of data structures is the ability to refer to both their members individually or to the entire structure as a whole. In both cases using the same identifier: the name of the structure.<br>
+<br>
+Because structures are types, they can also be used as the type of arrays to construct tables or databases of them:<br>
+<br>
+<div class="auto"><table class="split"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br></code></pre></td>
+<td class="source"><pre><code><cite>// array of structures</cite>
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;string&gt;</dfn>
+<dfn>#include &lt;sstream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<var>struct</var> movies_t {
+  string title;
+  <var>int</var> year;
+} films [3];
+
+<var>void</var> printmovie (movies_t movie);
+
+<var>int</var> main ()
+{
+  string mystr;
+  <var>int</var> n;
+
+  <var>for</var> (n=0; n&lt;3; n++)
+  {
+    cout &lt;&lt; <kbd>"Enter title: "</kbd>;
+    getline (cin,films[n].title);
+    cout &lt;&lt; <kbd>"Enter year: "</kbd>;
+    getline (cin,mystr);
+    stringstream(mystr) &gt;&gt; films[n].year;
+  }
+
+  cout &lt;&lt; <kbd>"\nYou have entered these movies:\n"</kbd>;
+  <var>for</var> (n=0; n&lt;3; n++)
+    printmovie (films[n]);
+  <var>return</var> 0;
+}
+
+<var>void</var> printmovie (movies_t movie)
+{
+  cout &lt;&lt; movie.title;
+  cout &lt;&lt; <kbd>" ("</kbd> &lt;&lt; movie.year &lt;&lt; <kbd>")\n"</kbd>;
+}</code></pre></td>
+<td class="output"><pre><samp>Enter title: Blade Runner
+Enter year: 1982
+Enter title: The Matrix
+Enter year: 1999
+Enter title: Taxi Driver
+Enter year: 1976
+ 
+You have entered these movies:
+Blade Runner (1982)
+The Matrix (1999)
+Taxi Driver (1976)</samp></pre></td><td class="C_btnholder"><div class="C_shell"><div class="inner"><div class="btn trans_half"><a href="http://www.cplusplus.com/doc/tutorial/structures/#" title="Open C++ Shell (in a new window)" target="_top"><span class="C_ico settings"></span> Edit &amp; Run</a></div></div></div></td></tr></tbody></table></div>
+<br>
+</section>
+<br>
+<section id="pointers_to_structures">
+<h3>Pointers to structures</h3>
+Like any other type, structures can be pointed to by its own type of pointers:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br></code></pre></td>
+<td class="source"><pre><code><var>struct</var> movies_t {
+  string title;
+  <var>int</var> year;
+};
+
+movies_t amovie;
+movies_t * pmovie;</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+Here <code>amovie</code> is an object of structure type <code>movies_t</code>, and <code>pmovie</code> is a pointer to point to objects of structure type <code>movies_t</code>. Therefore, the following code would also be valid:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>pmovie = &amp;amovie;</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+The value of the pointer <code>pmovie</code> would be assigned the address of object <code>amovie</code>.<br>
+<br>
+Now, let's see another example that mixes pointers and structures, and will serve to introduce a new operator: the arrow operator (<code>-&gt;</code>):<br>
+<br>
+<div class="auto"><table class="split"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br></code></pre></td>
+<td class="source"><pre><code><cite>// pointers to structures</cite>
+<dfn>#include &lt;iostream&gt;</dfn>
+<dfn>#include &lt;string&gt;</dfn>
+<dfn>#include &lt;sstream&gt;</dfn>
+<var>using</var> <var>namespace</var> std;
+
+<var>struct</var> movies_t {
+  string title;
+  <var>int</var> year;
+};
+
+<var>int</var> main ()
+{
+  string mystr;
+
+  movies_t amovie;
+  movies_t * pmovie;
+  pmovie = &amp;amovie;
+
+  cout &lt;&lt; <kbd>"Enter title: "</kbd>;
+  getline (cin, pmovie-&gt;title);
+  cout &lt;&lt; <kbd>"Enter year: "</kbd>;
+  getline (cin, mystr);
+  (stringstream) mystr &gt;&gt; pmovie-&gt;year;
+
+  cout &lt;&lt; <kbd>"\nYou have entered:\n"</kbd>;
+  cout &lt;&lt; pmovie-&gt;title;
+  cout &lt;&lt; <kbd>" ("</kbd> &lt;&lt; pmovie-&gt;year &lt;&lt; <kbd>")\n"</kbd>;
+
+  <var>return</var> 0;
+}</code></pre></td>
+<td class="output"><pre><samp>Enter title: Invasion of the body snatchers
+Enter year: 1978
+ 
+You have entered:
+Invasion of the body snatchers (1978)</samp></pre></td><td class="C_btnholder"><div class="C_shell"><div class="inner"><div class="btn trans_half"><a href="http://www.cplusplus.com/doc/tutorial/structures/#" title="Open C++ Shell (in a new window)" target="_top"><span class="C_ico settings"></span> Edit &amp; Run</a></div></div></div></td></tr></tbody></table></div>
+<br>
+<br>
+The arrow operator (<code>-&gt;</code>) is a dereference operator that is used exclusively with pointers to objects that have members. This operator serves to access the member of an object directly from its address. For example, in the example above:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>pmovie-&gt;title</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+is, for all purposes, equivalent to: <br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>(*pmovie).title</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+Both expressions, <code>pmovie-&gt;title</code> and <code>(*pmovie).title</code> are valid, and both access the member <code>title</code> of the data structure pointed by a pointer called <code>pmovie</code>. It is definitely something different than:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>*pmovie.title</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+which is rather equivalent to:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
+<td class="source"><pre><code>*(pmovie.title)</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+This would access the value pointed by a hypothetical pointer member called <code>title</code> of the structure object <code>pmovie</code> (which is not the case, since <code>title</code> is not a pointer type). The following panel summarizes possible combinations of the operators for pointers and for structure members:<br>
+<br>
+<table class="boxed">
+<tbody><tr><th>Expression</th><th>What is evaluated</th><th>Equivalent</th></tr>
+<tr><td><code>a.b</code></td><td>Member <code>b</code> of object <code>a</code></td><td></td></tr>
+<tr><td><code>a-&gt;b</code></td><td>Member <code>b</code> of object pointed to by <code>a</code></td><td><code>(*a).b</code></td></tr>
+<tr><td><code>*a.b</code></td><td>Value pointed to by member <code>b</code> of object <code>a</code></td><td><code>*(a.b)</code></td></tr>
+</tbody></table>
+</section>
+<br>
+<section id="nesting_structures">
+<h3>Nesting structures</h3>
+Structures can also be nested in such a way that an element of a structure is itself another structure:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br></code></pre></td>
+<td class="source"><pre><code><var>struct</var> movies_t {
+  string title;
+  <var>int</var> year;
+};
+
+<var>struct</var> friends_t {
+  string name;
+  string email;
+  movies_t favorite_movie;
+} charlie, maria;
+
+friends_t * pfriends = &amp;charlie;</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+After the previous declarations, all of the following expressions would be valid:<br>
+<br>
+<div class="auto"><table class="snippet"><tbody><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br></code></pre></td>
+<td class="source"><pre><code>charlie.name
+maria.favorite_movie.title
+charlie.favorite_movie.year
+pfriends-&gt;favorite_movie.year</code></pre></td><td class="C_btnholder"></td></tr></tbody></table></div>
+<br>
+<br>
+(where, by the way, the last two expressions refer to the same member). <br>
+</section><table class="C_docPrevNext"><tbody><tr><td class="prev"><a href="http://www.cplusplus.com/doc/tutorial/dynamic/" rel="prev"><img src="./Data structures - C++ Tutorials_files/32arrowleft.png" width="32" height="32" alt="Previous">Previous:<br><b>Dynamic memory</b></a></td><td class="index"><a href="http://www.cplusplus.com/doc/tutorial/" rel="index"><img src="./Data structures - C++ Tutorials_files/32doc.png" width="32" height="32" alt="Index"><br>Index</a></td><td class="next"><a href="http://www.cplusplus.com/doc/tutorial/other_data_types/" rel="next"><img src="./Data structures - C++ Tutorials_files/32arrowright.png" width="32" height="32" alt="Next">Next:<br><b>Other data types</b></a></td></tr></tbody></table></div><div id="CH_bb"></div></div>
+<script async="" src="./Data structures - C++ Tutorials_files/f.txt"></script>
+<!-- leaderboard -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1444228343479937" data-ad-slot="9701143201"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="http://www.cplusplus.com/">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="http://www.cplusplus.com/info/">Information</a></li>
+<li class="folder selected doc"><a href="http://www.cplusplus.com/doc/">Tutorials</a></li>
+<li class="folder reference"><a href="http://www.cplusplus.com/reference/">Reference</a></li>
+<li class="folder articles"><a href="http://www.cplusplus.com/articles/">Articles</a></li>
+<li class="folder forum"><a href="http://www.cplusplus.com/forum/">Forum</a></li>
+</ul>
+</div>
+<div class="C_BoxLabels C_BoxSort sect" id="doc_box">
+<h3><div class="toggle_on" title="Sort alphabetically"></div><b><a href="http://www.cplusplus.com/doc/">Tutorials</a></b></h3>
+<ul style="display: block;">
+<li class="cpp98 cpp11 selected folder"><div class="label"><div></div></div><a href="http://www.cplusplus.com/doc/tutorial/"><span>C++ Language</span></a></li>
+<li><div class="label"><div></div></div><a href="http://www.cplusplus.com/doc/ascii/"><span>Ascii Codes</span></a></li>
+<li><div class="label"><div></div></div><a href="http://www.cplusplus.com/doc/boolean/"><span>Boolean Operations</span></a></li>
+<li><div class="label"><div></div></div><a href="http://www.cplusplus.com/doc/hex/"><span>Numerical Bases</span></a></li>
+</ul>
+<ul style="display: none;"><li class=""><div class="label"><div></div></div><a href="http://www.cplusplus.com/doc/ascii/"><span>Ascii Codes</span></a></li><li class=""><div class="label"><div></div></div><a href="http://www.cplusplus.com/doc/boolean/"><span>Boolean Operations</span></a></li><li class="cpp98 cpp11 selected folder"><div class="label"><div></div></div><a href="http://www.cplusplus.com/doc/tutorial/"><span>C++ Language</span></a></li><li class=""><div class="label"><div></div></div><a href="http://www.cplusplus.com/doc/hex/"><span>Numerical Bases</span></a></li></ul></div>
+<div class="C_BoxLabels C_BoxSort sect cpp98 cpp11" id="tutorial_box">
+<h3><div class="toggle_on" title="Sort alphabetically"></div><b><a href="http://www.cplusplus.com/doc/tutorial/">C++ Language</a></b></h3>
+<ul style="display: block;">
+<li class="C_Collapsable"><div class="mn"></div><h4>Introduction:</h4><div class="effect_height" style="height: 16px;"><ul>
+<li class="folder"><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/introduction/"><span>Compilers</span></a></li>
+</ul></div></li>
+<li class="C_Collapsable"><div class="mn"></div><h4>Basics of C++:</h4><div class="effect_height" style="height: 80px;"><ul>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/program_structure/"><span>Structure of a program</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/variables/"><span>Variables and types</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/constants/"><span>Constants</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/operators/"><span>Operators</span></a></li>
+<li><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/basic_io/"><span>Basic Input/Output</span></a></li>
+</ul></div></li>
+<li class="C_Collapsable"><div class="mn"></div><h4>Program structure:</h4><div class="effect_height" style="height: 64px;"><ul>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/control/"><span>Statements and flow control</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/functions/"><span>Functions</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/functions2/"><span>Overloads and templates</span></a></li>
+<li><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/namespaces/"><span>Name visibility</span></a></li>
+</ul></div></li>
+<li class="C_Collapsable"><div class="mn"></div><h4>Compound data types:</h4><div class="effect_height" style="height: 96px;"><ul>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/arrays/"><span>Arrays</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/ntcs/"><span>Character sequences</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/pointers/"><span>Pointers</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/dynamic/"><span>Dynamic memory</span></a></li>
+<li class="selected"><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/structures/"><span>Data structures</span></a></li>
+<li><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/other_data_types/"><span>Other data types</span></a></li>
+</ul></div></li>
+<li class="C_Collapsable"><div class="mn"></div><h4>Classes:</h4><div class="effect_height" style="height: 80px;"><ul>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/classes/"><span>Classes (I)</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/templates/"><span>Classes (II)</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/classes2/"><span>Special members</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/inheritance/"><span>Friendship and inheritance</span></a></li>
+<li><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/polymorphism/"><span>Polymorphism</span></a></li>
+</ul></div></li>
+<li class="C_Collapsable"><div class="mn"></div><h4>Other language features:</h4><div class="effect_height" style="height: 48px;"><ul>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/typecasting/"><span>Type conversions</span></a></li>
+<li><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/exceptions/"><span>Exceptions</span></a></li>
+<li><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/preprocessor/"><span>Preprocessor directives</span></a></li>
+</ul></div></li>
+<li class="C_Collapsable"><div class="mn"></div><h4>Standard library:</h4><div class="effect_height" style="height: 16px;"><ul>
+<li><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/files/"><span>Input/output with files</span></a></li>
+</ul></div></li>
+</ul>
+<ul style="display: none;"><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/arrays/"><span>Arrays</span></a></li><li class=""><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/basic_io/"><span>Basic Input/Output</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/ntcs/"><span>Character sequences</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/classes/"><span>Classes (I)</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/templates/"><span>Classes (II)</span></a></li><li class="folder"><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/introduction/"><span>Compilers</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/constants/"><span>Constants</span></a></li><li class="selected"><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/structures/"><span>Data structures</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/dynamic/"><span>Dynamic memory</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/exceptions/"><span>Exceptions</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/inheritance/"><span>Friendship and inheritance</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/functions/"><span>Functions</span></a></li><li class=""><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/files/"><span>Input/output with files</span></a></li><li class=""><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/namespaces/"><span>Name visibility</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/operators/"><span>Operators</span></a></li><li class=""><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/other_data_types/"><span>Other data types</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/functions2/"><span>Overloads and templates</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/pointers/"><span>Pointers</span></a></li><li class=""><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/polymorphism/"><span>Polymorphism</span></a></li><li class=""><div class="label"><div></div></div><div class="last"></div><a href="http://www.cplusplus.com/doc/tutorial/preprocessor/"><span>Preprocessor directives</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/classes2/"><span>Special members</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/control/"><span>Statements and flow control</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/program_structure/"><span>Structure of a program</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/typecasting/"><span>Type conversions</span></a></li><li class=""><div class="label"><div></div></div><div class="mid"></div><a href="http://www.cplusplus.com/doc/tutorial/variables/"><span>Variables and types</span></a></li></ul></div>
+<div id="I_subnav"></div>
+<div class="C_ad234">
+<script async="" src="./Data structures - C++ Tutorials_files/f.txt"></script>
+<!-- leftbutton -->
+<ins class="adsbygoogle" style="display:inline-block;width:234px;height:60px" data-ad-client="ca-pub-1444228343479937" data-ad-slot="3817422056"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>			
+</div></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="http://www.cplusplus.com/">Home page</a> | <a href="http://www.cplusplus.com/privacy.do">Privacy policy</a><br>© cplusplus.com, 2000-2019 - All rights reserved - <i>v3.1</i><br><a href="http://www.cplusplus.com/contact.do?referrer=www.cplusplus.com%2Fdoc%2Ftutorial%2Fstructures%2F">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+ onSession ( function(us) {
+		el=document.getElementById('CH_bb'); el.innerHTML='';
+		if (us.auth(4096)) {
+			
+			el.appendChild(btn('Edit Page','Edit Page','edit','/doc/edit.cgi?a=tutorial+structures'));
+			el.appendChild(btn('Delete Page','Delete Page','delete','javascript:docdel()'));
+		}
+	});
+	function docdel() { if (confirm('WARNING: You are about to delete this page. Confirm?')) window.location='/doc/delete.cgi?a=tutorial+structures'; }
+	ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+<script>
+(function(){
+  // mini cookie-consent code (c) Juan Soulie, 2016
+  var s ='consent=cookie';
+  var e = document.createElement('div');
+  e.innerHTML = '<div style="background:#eed;padding:10px;margin:0;text-align:center;border-bottom:1px solid #446"><span style="color:#210;font-weight:bold">This website uses cookies. By continuing, you give permission to deploy cookies, as detailed in our <a href="/privacy.do">privacy policy</a>.</span> <span style="margin-left:10px;border-radius:5px;padding:1px 10px;background:#bcd;border:1px solid #789;cursor:pointer">ok</span></div>';
+  if (document.cookie.indexOf(s)!==-1) return;
+  var b = document.getElementsByTagName('body')[0];
+  b.insertBefore(e,b.firstChild);
+  var x = function() { document.cookie = s+'; path=/'; e.parentNode.removeChild(e); };
+  e.addEventListener('click',x);
+  document.addEventListener('scroll',x);
+})();
+</script>
+
+
+</body></html>
