@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://forum.arduino.cc/index.php?topic=399751.0 -->
+<html class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/privacy-modal.css"><link rel="stylesheet" href="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/newsletter-modal.css"><link rel="stylesheet" href="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/footer.css"><link rel="stylesheet" href="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/header.css">
+	
+	<link rel="stylesheet" type="text/css" href="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/index.css">
+	<link rel="stylesheet" type="text/css" href="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/responsive.css">
+	<link rel="stylesheet" type="text/css" href="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/jquery.sceditor.css">
+	<style>
+img.avatar { max-width: 65px; max-height: 65px; }</style>
+	<script><!-- // --><![CDATA[
+		var smf_theme_url = "https://forum.arduino.cc/Themes/default";
+		var smf_default_theme_url = "https://forum.arduino.cc/Themes/default";
+		var smf_images_url = "https://forum.arduino.cc/Themes/default/images";
+		var smf_smileys_url = "https://forum.arduino.cc/Smileys";
+		var smf_scripturl = "https://forum.arduino.cc/index.php";
+		var smf_iso_case_folding = false;
+		var smf_charset = "UTF-8";
+		var smf_session_id = "0e9d9f701796ed214a8b047dabd38eb6";
+		var smf_session_var = "b8d19f4dcde";
+		var smf_member_id;
+		var ajax_notification_text = 'Loading...';
+		var help_popup_heading_text = 'A little lost? Let me explain:';
+	// ]]></script>
+	<script src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/jquery.min.js.download"></script>
+	<script src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/smf_jquery_plugins.js.download"></script>
+	<script src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/script.js.download"></script>
+	<script src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/theme.js.download"></script>
+	<script src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/editor.js.download"></script>
+	<script src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/jquery.sceditor.js.download"></script>
+	<script src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/jquery.sceditor.bbcode.js.download"></script>
+	<script src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/jquery.sceditor.smf.js.download"></script>
+	<script src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/topic.js.download"></script>
+	<script><!-- // --><![CDATA[
+		var smf_smileys_url = 'https://forum.arduino.cc/Smileys/arduino';
+		var bbc_quote_from = 'Quote from';
+		var bbc_quote = 'Quote';
+		var bbc_search_on = 'on';
+	// ]]></script>
+	<meta name="description" content="[SOLVED] Increase serial buffer size on Arduino Mega 2560">
+	<title>[SOLVED] Increase serial buffer size on Arduino Mega 2560</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#557EA0">
+	<link rel="canonical" href="https://forum.arduino.cc/index.php?topic=399751.0">
+	<link rel="help" href="https://forum.arduino.cc/index.php?action=help">
+	<link rel="contents" href="https://forum.arduino.cc/index.php">
+	<link rel="search" href="https://forum.arduino.cc/index.php?action=search">
+	<link rel="alternate" type="application/rss+xml" title="Arduino Forum - RSS" href="https://forum.arduino.cc/index.php?type=rss2;action=.xml">
+	<link rel="alternate" type="application/rss+xml" title="Arduino Forum - Atom" href="https://forum.arduino.cc/index.php?type=atom;action=.xml">
+	<link rel="index" href="https://forum.arduino.cc/index.php?board=2.0">
+<script type="text/javascript" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/notice" async="" referrerpolicy="origin" crossorigin="true"></script><script src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/header.js.download"></script><script src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/footer.js.download"></script><script src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/newsletter-modal.js.download"></script></head>
+<body id="chrome" class="action_messageindex board_2" style=""><div class="icons" style="display: none;"><svg xmlns="http://www.w3.org/2000/svg">
+  <symbol viewBox="0 0 18 18" id="icon-Global-Menu_Home-BBCube">
+    <title>Toggle Navigation</title>
+    <g>
+      <path d="M4 3.158C4 3.623 3.623 4 3.158 4H.842C.377 4 0 3.623 0 3.158V.842C0 .377.377 0 .842 0h2.316C3.623 0 4 .377 4 .842v2.316zM18 3.158c0 .465-.377.842-.842.842h-2.316C14.377 4 14 3.623 14 3.158V.842c0-.465.377-.842.842-.842h2.316c.465 0 .842.377.842.842v2.316zM11 3.158c0 .465-.377.842-.842.842H7.842C7.377 4 7 3.623 7 3.158V.842C7 .377 7.377 0 7.842 0h2.316c.465 0 .842.377.842.842v2.316zM4 17.158c0 .465-.377.842-.842.842H.842C.377 18 0 17.623 0 17.158v-2.316C0 14.377.377 14 .842 14h2.316c.465 0 .842.377.842.842v2.316zM18 17.158c0 .465-.377.842-.842.842h-2.316c-.465 0-.842-.377-.842-.842v-2.316c0-.465.377-.842.842-.842h2.316c.465 0 .842.377.842.842v2.316zM11 17.158c0 .465-.377.842-.842.842H7.842C7.377 18 7 17.623 7 17.158v-2.316c0-.465.377-.842.842-.842h2.316c.465 0 .842.377.842.842v2.316zM4 10.158c0 .465-.377.842-.842.842H.842C.377 11 0 10.623 0 10.158V7.842C0 7.377.377 7 .842 7h2.316c.465 0 .842.377.842.842v2.316zM18 10.158c0 .465-.377.842-.842.842h-2.316c-.465 0-.842-.377-.842-.842V7.842c0-.465.377-.842.842-.842h2.316c.465 0 .842.377.842.842v2.316zM11 10.158c0 .465-.377.842-.842.842H7.842C7.377 11 7 10.623 7 10.158V7.842C7 7.377 7.377 7 7.842 7h2.316c.465 0 .842.377.842.842v2.316z"></path>
+    </g>
+  </symbol>
+  <symbol viewBox="0 0 130.208 28.333" id="icon-Global-WebApp_Compressed">
+    <title>Create Logo</title>
+    <g>
+      <path d="M51.066 14.02c0-6.424-5.416-11.655-12.082-11.655-.612 0-1.24.045-1.854.13-5.18.738-8.646 4.463-10.588 7.32-1.942-2.856-5.41-6.58-10.583-7.32-.62-.085-1.243-.13-1.86-.13-6.663 0-12.084 5.23-12.084 11.654 0 6.425 5.422 11.654 12.082 11.654.615 0 1.242-.047 1.862-.13 5.175-.744 8.64-4.467 10.583-7.33 1.942 2.863 5.407 6.586 10.588 7.33.615.083 1.243.13 1.863.13 6.656 0 12.073-5.228 12.073-11.655zm-35.69 7.432c-.43.062-.856.097-1.28.097-4.384 0-7.95-3.38-7.95-7.53S9.71 6.49 14.1 6.49c.42 0 .848.034 1.275.093 4.88.698 7.865 5.508 8.877 7.433-1.016 1.932-4 6.74-8.877 7.434zm13.463-7.433c1.007-1.93 3.995-6.736 8.87-7.434.426-.06.857-.093 1.273-.093 4.387 0 7.95 3.38 7.95 7.527 0 4.15-3.563 7.53-7.943 7.53-.42 0-.855-.035-1.282-.097-4.874-.695-7.86-5.505-8.87-7.434z"></path>
+      <rect x="10.77" y="12.884" width="7.257" height="2.335"></rect>
+      <polygon points="39.79,15.219 42.246,15.219 42.246,12.884 39.79,12.884 39.79,10.422 37.45,10.422 37.45,12.884 34.989,12.884 34.989,15.219 37.45,15.219 37.45,17.68 39.79,17.68"></polygon>
+      <path d="M51.934 2.826c-.09-.21-.215-.393-.365-.542-.15-.15-.33-.27-.53-.36-.207-.09-.426-.134-.66-.134-.237 0-.46.043-.663.133-.204.09-.382.21-.53.36-.15.15-.274.334-.364.543-.088.208-.135.432-.135.68 0 .233.047.46.135.67.09.218.214.397.363.55.15.154.327.274.53.362.205.09.428.137.663.137.235 0 .453-.045.66-.137.202-.088.38-.208.53-.36.148-.154.274-.334.364-.55.088-.21.133-.44.133-.672 0-.248-.045-.472-.133-.68zm-.375 1.2c-.066.162-.16.3-.28.42-.123.122-.257.217-.41.29-.15.07-.312.107-.49.107-.18 0-.35-.038-.502-.107-.16-.073-.292-.168-.41-.29-.114-.12-.206-.258-.273-.42-.065-.16-.1-.332-.1-.52s.035-.364.1-.527c.067-.17.16-.308.273-.43.118-.12.25-.214.41-.28.153-.067.322-.102.5-.102.18 0 .343.035.493.1.153.068.288.162.41.283.12.123.214.26.28.43.068.162.104.338.104.525 0 .188-.035.36-.105.522zM50.745 3.67c.096-.044.168-.115.22-.2.053-.083.08-.178.08-.28 0-.162-.06-.302-.172-.42-.116-.12-.31-.176-.582-.176-.104 0-.195 0-.276.008-.082.004-.16.01-.236.018v1.69h.427v-.556h.172l.297.557h.48l-.41-.64zm-.424-.227c-.057 0-.098-.004-.126-.013v-.455c.028-.008.075-.017.138-.017.182 0 .273.085.273.245 0 .162-.093.24-.284.24z"></path>
+    </g>
+    <g>
+      <path d="M79.724 11.917c0-1.647-.737-2.264-2.487-2.264h-2.162v4.426h2.248c1.338-.002 2.4-.5 2.4-2.163z"></path>
+      <polygon points="96.968,15.502 100.691,15.502 98.821,9.91"></polygon>
+      <path d="M58.66 2.498v23.074h69.573V2.498H58.66zm9.002 17.276c-3.07 0-5.147-1.664-5.147-5.678 0-3.74 2.145-5.8 5.3-5.8 1.133 0 2.3.276 2.934.67l-.464 1.287c-.635-.515-1.63-.755-2.505-.755-2.538 0-3.79 1.647-3.79 4.563 0 3.02 1.252 4.53 3.774 4.53 1.115 0 2.264-.326 2.796-.67l.344 1.168c-.875.463-2.04.686-3.242.686zm12.44-.172l-2.402-4.34h-2.625v4.34h-1.39V8.453h3.604c2.812 0 3.893 1.183 3.893 3.413 0 1.56-.79 2.642-2.076 3.122l2.642 4.615H80.1zm11.94-9.95h-6.175v3.637h5.593v1.183h-5.593v3.91h6.176v1.22h-7.565V8.45h7.565v1.202zm10.02 9.95l-.995-2.95H96.59l-.96 2.95h-1.39l3.894-11.15h1.475l3.91 11.15h-1.457zm11.12-9.95h-3.842v9.95h-1.39v-9.95h-3.86v-1.2h9.092v1.2zm10.054 0h-6.176v3.637h5.593v1.183h-5.593v3.91h6.176v1.22h-7.565V8.45h7.566v1.202z"></path>
+    </g>
+  </symbol>
+  <symbol viewBox="0 0 24.202 24.276" id="icon-Global-user-profile">
+    <title>User Profile</title>
+    <path d="M20.912 19.718h-1c0-3.827-.883-6.2-5.28-6.2h-5.44c-4.397 0-5.28 2.23-5.28 5.825h-1v-.115c.017-3.337.81-6.71 6.28-6.71h5.44c5.534 0 6.28 3.64 6.28 7.2zM11.95 13.156c-2.464 0-4.468-2.1-4.468-4.68s2.004-4.68 4.467-4.68c2.462 0 4.466 2.1 4.466 4.68s-2.004 4.68-4.467 4.68zm0-8.36c-1.913 0-3.468 1.65-3.468 3.68 0 2.03 1.555 3.68 3.467 3.68 1.91 0 3.466-1.65 3.466-3.68 0-2.03-1.555-3.68-3.467-3.68zM12.034 23.98C5.436 23.98.07 18.61.07 12.013S5.435.05 12.033.05 24 5.415 24 12.013 18.63 23.98 12.033 23.98zm0-22.43C6.264 1.55 1.57 6.242 1.57 12.013S6.262 22.48 12.033 22.48 22.5 17.783 22.5 12.013 17.803 1.55 12.033 1.55z"></path>
+  </symbol>
+  <symbol viewBox="0 0 20.597 18.807" id="icon-Home-Grid-Open_in_new">
+    <title>Open Link in New Tab</title>
+    <rect x="14.542" y="-.105" transform="matrix(-.707 -.707 .707 -.707 23.247 19.503)" width="2.241" height="10.084"></rect>
+    <path d="M20.597 1.123c0-.62-.5-1.12-1.12-1.12h-7.843V2h6.93v6.966h2.033V1.123zM19.24 18.807H1.356c-.747 0-1.355-.64-1.355-1.424V1.426C0 .64.608.003 1.355.003H8.24l.03 1.982H1.99l-.03 14.807h16.604v-3.988h2.032v4.58c0 .784-.608 1.423-1.355 1.423z"></path>
+  </symbol>
+</svg></div><link rel="stylesheet" href="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/foundation2.css" type="text/css"><link rel="stylesheet" href="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/common-hacked.css" type="text/css"><link rel="stylesheet" href="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/new_style.css" type="text/css"><link rel="stylesheet" href="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/fonts.css" type="text/css"><link rel="stylesheet" href="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/arduino-icons.css" type="text/css"><div id="header" class="temporary"><header id="ino-header">
+
+  <nav class="arduino-nav collapsed">
+
+    <!-- logo -->
+    <div class="logo">
+      <a href="https://forum.arduino.cc/" class="logo-link" role="button" aria-label="Homepage"></a>
+      <a href="https://forum.arduino.cc/" class="logo-link-resellers" role="button" aria-label="Resellers Homepage"></a>
+    </div>
+
+    <!-- main nav -->
+    <div class="main-nav" style="">
+
+      <ul class="ul-burger">
+        <li class="burger-menu">
+          <a class="burger" role="button" aria-label="Toggle Menu">
+            <img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/burger_menu.svg" alt="Open Navigation">
+          </a>
+        </li>
+      </ul>
+
+      <ul class="nav-left">
+
+        <!-- search form mobile -->
+        <li class="level-1 show-mobile search-container">
+          <a id="search-bar-mobile">
+            <form role="search" id="searchform-mobile" method="GET" action="https://www.google.com/search">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="oe" value="UTF-8">
+              <input type="text" placeholder="Search" value="" name="q" title="" class="search-typing" aria-label="search">
+              <i class="clear-icon">×</i>
+              <input type="hidden" name="domains" value="https://forum.arduino.cc" class="fill-it">
+              <input type="hidden" name="sitesearch" value="https://forum.arduino.cc" class="fill-it">
+            </form>
+          </a>
+        </li>
+        <!-- search form end -->
+
+        <!-- user menu mobile -->
+        <li class="user-mobile level-1 signin-mobile">
+          <div class="login-button" style="display: block;">
+            <a href="https://auth.arduino.cc/login?client_id=forum&amp;redirect_uri=https%3A%2F%2Fforum.arduino.cc%2F&amp;state=1926324083&amp;scope=profile%3Acore+profile%3Apublic+profile%3Acontact+offline&amp;response_type=code">Sign In</a>
+          </div>
+        </li>
+        <li class="user-mobile profile-mobile level-1">
+          <div class="auth-required" style="display: none;">
+            <a href="https://id.arduino.cc/">Profile</a>
+          </div>
+        </li>
+        <li class="user-mobile profile-mobile level-1">
+          <div class="auth-required" style="display: none;">
+            <a href="https://store.arduino.cc/digital/subscriptions">My Plans</a>
+          </div>
+        </li>
+        <li class="logout user-mobile signout-mobile level-1">
+          <div class="auth-required" style="display: none;">
+            <a>Sign Out</a>
+          </div>
+        </li>
+        <!-- user menu mobile end -->
+
+        <li class="level-1" id="home">
+          <a href="https://www.arduino.cc/">Home</a>
+        </li>
+
+        <li class="has-submenu level-1">
+          <a href="https://store.arduino.cc/">Store</a>
+        </li>
+
+        <li class="has-submenu level-1" id="software">
+          <a role="button">Software</a>
+          <ul class="nav-submenu">
+            <li><a href="https://create.arduino.cc/" target="_blank" rel="noopener">Online Tools</a></li>
+            <li><a href="https://www.arduino.cc/en/Main/Software">Downloads</a></li>
+          </ul>
+        </li>
+
+        <li class="level-1" id="education">
+          <a href="https://www.arduino.cc/en/Main/Education">
+            <span class="full">Education</span>
+            <span class="shorten">Edu</span>
+          </a>
+        </li>
+
+        <li class="has-submenu level-1" id="resources">
+          <a role="button">Resources</a>
+          <ul class="nav-submenu">
+            <li><a href="https://www.arduino.cc/en/Main/Products">Products</a></li>
+            <li><a href="https://www.arduino.cc/en/Guide/HomePage">Getting Started</a></li>
+            <li><a href="https://www.arduino.cc/en/Tutorial/HomePage">Tutorials</a></li>
+            <li><a href="https://www.arduino.cc/reference/en">Reference</a></li>
+            <li><a href="https://www.arduino.cc/en/IoT/HomePage">IoT Cloud</a></li>
+          </ul>
+        </li>
+
+
+        <li class="has-submenu level-1" id="community">
+          <a role="button">Community</a>
+          <ul class="nav-submenu">
+            <li><a href="https://forum.arduino.cc/">Forum</a></li>
+            <li><a href="https://blog.arduino.cc/">Blog</a></li>
+            <li><a href="https://create.arduino.cc/projecthub" target="_blank" rel="noopener">Project Hub</a></li>
+            <li><a href="http://playground.arduino.cc/">Playground</a></li>
+            <li><a href="https://www.arduino.cc/en/ArduinoAtHeart/Products">AtHeart</a></li>
+          </ul>
+        </li>
+
+
+        <li class="has-submenu level-1" id="help">
+          <a role="button">Help</a>
+          <ul class="nav-submenu">
+            <li><a href="https://www.arduino.cc/en/Main/FAQ">FAQ</a></li>
+            <li><a href="https://www.arduino.cc/en/ContactUs">Contact Us</a></li>
+            <li><a href="https://store.arduino.cc/store-support">Store Support</a></li>
+          </ul>
+        </li>
+
+        <!-- fake mobile button -->
+        <li class="level-1">
+          <div class="show-mobile fake-button">
+          </div>
+        </li>
+        <!-- fake mobile button end -->
+
+      </ul>
+      <!-- main nav end -->
+
+      <!-- nav right -->
+      <ul class="nav-right">
+
+        <!-- search form -->
+        <li class="level-1 header-hide-mobile">
+          <a id="search-bar">
+            <form role="search" id="searchform" method="GET" action="https://www.google.com/search">
+              <input type="hidden" name="ie" value="UTF-8">
+              <input type="hidden" name="oe" value="UTF-8">
+              <input type="text" placeholder="Search" value="" name="q" title="" class="search-typing">
+              <i class="clear-icon">×</i>
+              <input type="hidden" name="domains" value="https://forum.arduino.cc" class="fill-it">
+              <input type="hidden" name="sitesearch" value="https://forum.arduino.cc" class="fill-it">
+            </form>
+          </a>
+        </li>
+        <!-- search form end -->
+
+        <!-- language-selector -->
+        <!--<li class="language-selector has-submenu level-1">
+
+          <a><div class="selected-language eng"></div></a>
+
+          <div class="nav-submenu">
+            <div class="caret"></div>
+            <div class="dropdown-box">
+            <div class="left-col">
+              <h5>Language</h5>
+              <ul>
+              <li><button class="language-btn"><img src="https://cdn.arduino.cc/header-footer/cy8d1ikufm/images/language_eng.svg"></button>English</li>
+              <li><button class="language-btn"><img src="https://cdn.arduino.cc/header-footer/cy8d1ikufm/images/language_ita.svg"></button>Italian</li>
+              <li><button class="language-btn"><img src="https://cdn.arduino.cc/header-footer/cy8d1ikufm/images/language_china.svg"></button>Chinese</li>
+              </ul>
+            </div>
+            <div class="right-col">
+              <h5>Currency</h5>
+              <ul>
+              <li><button class="currency-btn">EUR</button>Euro</li>
+              <li><button class="currency-btn">USD</button>Dollar</li>
+              <li><button class="currency-btn">GBP</button>Pound</li>
+              <li><button class="currency-btn">CHF</button>Franc</li>
+              <li><button class="currency-btn">HUF</button>Forint</li>
+              </ul>
+            </div>
+            </div>
+          </div>
+
+        </li>-->
+        <!-- language-selector end -->
+
+        <!-- quotes start -->
+        <li class="level-1 quotes-dropdown-trigger has-submenu">
+          <a id="quotes-link">
+            <div id="quotes"><span class="badge">0</span><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/icon_quotes.svg" alt="Show Quotes"></div>
+          </a>
+
+          <div class="quotes-submenu">
+            <div class="caret"></div>
+            <div class="dropdown-box">
+              <div class="cart-close-button"></div>
+              <p class="loading-content">Loading ...</p>
+
+            </div>
+          </div>
+        </li>
+        <!-- quotes end -->
+
+        <!-- cart start -->
+        <li class="level-1 cart-dropdown-trigger has-submenu">
+          <a id="cart-link">
+            <div id="cart"><span class="badge" style="display: none;">0</span><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/cart.svg" alt="Show Cart">
+            </div>
+          </a>
+
+          <div class="cart-submenu">
+            <div class="caret"></div>
+            <div class="dropdown-box">    <div class="cart-close-button"></div>
+    <div class="block block-cart">
+                <div class="block-content">
+                                        <p class="empty">You have no items in your <a href="https://store.arduino.cc/checkout/cart/">shopping cart</a>.</p>
+                                </div>
+    </div>
+</div>
+          </div>
+        </li>
+        <!-- cart end -->
+
+        <!-- geolocation button start -->
+        <li class="level-1 store-location-button has-submenu" title="Select your location">
+          <a aria-label="Change Store location">
+            <div class="store-location">
+              <img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/icon_geolocation.svg" alt="Store Location">
+            </div>
+          </a>
+
+          <div class="nav-submenu">
+            <div class="caret"></div>
+            <div class="dropdown-box">
+              <div class="cart-close-button"></div>
+              <p class="empty eu-africa">
+                Not shopping from Africa or Europe?
+                <a class="change-location">Change location here.</a>
+              </p>
+              <p class="empty america-asia">
+                Not shopping from America, Asia or Oceania?
+                <a class="change-location">Change location here.</a>
+              </p>
+            </div>
+          </div>
+        </li>
+        <!-- geolocation end -->
+
+        <li class="level-1">
+          <div class="login-button" style="display: block;">
+            <a href="https://auth.arduino.cc/login?client_id=forum&amp;redirect_uri=https%3A%2F%2Fforum.arduino.cc%2F&amp;state=1926324083&amp;scope=profile%3Acore+profile%3Apublic+profile%3Acontact+offline&amp;response_type=code">
+              <span>Sign In</span>
+            </a>
+          </div>
+        </li>
+
+        <li class="profile-dropdown auth-required has-submenu level-1" style="display: none;">
+          <a data-hj-suppress="" class="submenu-toggle profile" aria-label="user profile">
+            <img class="user" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/global_user_profile.svg" alt="User Profile">
+            <svg class="default">
+              <use xlink:href="#icon-Global-user-profile"></use>
+            </svg>
+            <span class="badge">0</span>
+          </a>
+
+          <div class="nav-submenu">
+            <div class="caret"></div>
+            <div class="dropdown-box">
+              <ul>
+                <li>
+                  <a href="https://id.arduino.cc/">Profile</a>
+                </li>
+                <li class="forum-messages">
+                  <a href="https://forum.arduino.cc/index.php?action=pm">Messages</a>
+                </li>
+                <li>
+                  <a href="https://store.arduino.cc/digital/subscriptions">My Plans</a>
+                </li>
+                <li class="logout">
+                  <a>Sign Out</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </li>
+
+      </ul>
+      <!-- nav right -->
+    </div>
+  </nav>
+  <div id="consent-modal-container"><div id="privacy-and-terms-modal" class="arduino-modal info-modal" action="https://api2.arduino.cc/consent/v1/approval/byUser/me" style="display: none;">
+  <div id="privacy-and-terms-modal-backdrop" class="modal-backdrop"></div>
+  <div class="modal-body approve-privacy-policy">
+
+    <h1>OUR PRIVACY POLICY HAS BEEN UPDATED</h1>
+
+    <form id="terms-privacy-form" novalidate="">
+      <p>
+        We updated recently our <a href="https://www.arduino.cc/PrivacyPolicy/en/" target="_blank" rel="noopener">Privacy policy</a>, please accept the new <a href="https://www.arduino.cc/en/Main/TermsOfService" target="_blank" rel="noopener">Terms of service</a>.
+      </p>
+      <ul class="privacy-settings">
+        <li>
+          <div id="privacy-and-terms-consent-error" class="upper-error-notif">Please accept our privacy policy and terms to continue using our services</div>
+          <label class="checkbox">
+                <input type="checkbox" id="privacy-and-terms-consent" name="privacy-consent" value="privacy_approval">
+
+                <span class="custom-checkbox"></span>
+                <span>I confirm to have read the <a href="https://www.arduino.cc/PrivacyPolicy/en/" target="_blank" rel="noopener">Privacy Policy</a> and to accept the <a href="https://www.arduino.cc/en/Main/TermsOfService" target="_blank" rel="noopener">Terms of Service</a></span>
+              </label>
+        </li>
+      </ul>
+      <section class="buttons-wrapper">
+        <button name="Ok" type="submit" class="primary button" id="privacy-and-terms-ok-button">
+                <span>AGREE AND CONTINUE</span>
+              </button>
+        <p id="privacy-modal-decline-link">or <a href="https://forum.arduino.cc/index.php?topic=399751.0#">log out</a> and continue the navigation.</p>
+      </section>
+    </form>
+  </div>
+</div>
+</div>
+</header></div>
+
+				<div class="navigate_section" id="headerbread">
+          <div class="row" style="max-width: 960px!important;">
+          <div class="small-12">
+					<ul>
+          
+						<li>
+					<a href="https://forum.arduino.cc/index.php"><span>Arduino Forum</span></a>
+						</li>
+						<li>
+							<span class="dividers"> &gt; </span>
+					<a href="https://forum.arduino.cc/index.php#c2"><span>Using Arduino</span></a>
+						</li>
+						<li>
+							<span class="dividers"> &gt; </span>
+					<a href="https://forum.arduino.cc/index.php?board=2.0"><span>Installation &amp; Troubleshooting</span></a>
+						</li>
+						<li class="last">
+							<span class="dividers"> &gt; </span>
+					<a href="https://forum.arduino.cc/index.php?topic=399751.0"><span>[SOLVED] Increase serial buffer size on Arduino Mega 2560</span></a>
+						</li>
+					</ul>
+        </div>
+				</div>
+				</div>
+  <div class="row collapse">
+  <div class="small-12 columns">
+	<div id="wrapper">
+    <div id="upper_section">
+			<div id="inner_section">
+				<div id="main_menu">
+					<ul class="dropmenu sf-js-enabled sf-arrows" id="menu_nav" style="touch-action: pan-y;">
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="content_section">
+			<div id="main_content_section">
+
+			<a id="msg2749484"></a>
+			<div class="pagesection top">
+				
+		<div class="buttonlist floatright">
+			
+				<a class="button-forum  button_strip_print" href="https://forum.arduino.cc/index.php?action=printpage;topic=399751.0" rel="nofollow">Print</a>
+		</div>
+				 <a href="https://forum.arduino.cc/index.php?topic=399751.0#bot" class="topbottom floatleft">Go Down</a>
+				<div class="pagelinks floatleft">
+					<span class="pages">Pages: </span><span class="current_page">[1]</span> 
+				</div>
+			</div>
+			<div id="forumposts">
+				<div class="cat_bar">
+					<h3 class="catbg">
+						<span id="top_subject" class="topic-icon topic-icon-">Topic: [SOLVED] Increase serial buffer size on Arduino Mega 2560&nbsp;<span>(Read 14671 times)</span></span>
+						<span class="nextlinks floatright"><a href="https://forum.arduino.cc/index.php?topic=399751.0;prev_next=prev#new">previous topic</a> - <a href="https://forum.arduino.cc/index.php?topic=399751.0;prev_next=next#new">next topic</a></span>
+					</h3>
+				</div>
+				<form action="https://forum.arduino.cc/index.php?action=quickmod2;topic=399751.0" method="post" accept-charset="UTF-8" name="quickModForm" id="quickModForm" style="margin: 0;" onsubmit="return oQuickModify.bInEditMode ? oQuickModify.modifySave(&#39;0e9d9f701796ed214a8b047dabd38eb6&#39;, &#39;b8d19f4dcde&#39;) : false">
+				<div class="windowbg">
+					<div class="post_wrapper">
+						<div class="poster">
+							<h4>
+								<span class="off" title="Offline"></span>
+								<a href="https://forum.arduino.cc/index.php?action=profile;u=189112" title="View the profile of Bavilo" class="pm_icon">Bavilo</a>
+							</h4>
+							<ul class="user_info">
+								<li class="avatar">
+									<a href="https://forum.arduino.cc/index.php?action=profile;u=189112"><img class="avatar" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/default.png" alt="avatar_Bavilo" onerror="this.src=&#39;//dcw9y8se13llu.cloudfront.net/avatars/default.png&#39;;"></a>
+								</li>
+								<li class="icons"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"></li>
+								<li class="postgroup">Jr. Member</li>
+								<li class="postcount">Posts: 63</li>
+								<li class="custom karma">Karma: 15&nbsp;&nbsp;<a href="https://forum.arduino.cc/index.php?action=karma;sa=applaud;uid=189112;b8d19f4dcde=0e9d9f701796ed214a8b047dabd38eb6">[add]</a></li>
+							</ul>
+						</div>
+						<div class="postarea">
+							<div class="keyinfo">
+								<div class="messageicon" style="position: absolute; z-index: -1;">
+									<img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/xx.png" alt="">
+								</div>
+								<div id="subject_2749484" class="subject_title"><a href="https://forum.arduino.cc/index.php?topic=399751.msg2749484#msg2749484" rel="nofollow">[SOLVED] Increase serial buffer size on Arduino Mega 2560</a></div>
+								<div class="page_number floatright">
+									 
+								</div>
+								<h5>
+									<a href="https://forum.arduino.cc/index.php?topic=399751.msg2749484#msg2749484" rel="nofollow" title=" - [SOLVED] Increase serial buffer size on Arduino Mega 2560" class="smalltext">May 10, 2016, 08:38 pm</a>
+									<span class="smalltext modified" id="modified_2749484"><span class="lastedit">Last Edit</span>: May 10, 2016, 09:45 pm by Bavilo</span>
+								</h5>
+								<div id="msg_2749484_quick_mod"></div>
+							</div>
+							<div class="post">
+								<div class="inner" id="msg_2749484">Hello everyone,<br><br>I have been trying to increase the buffer size of my Arduino Mega 2560 (Clone with CH340G chip).<br><br>I have tried the following:<br>in, \Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial.h<br><br><div class="codeheader">Code: <a href="javascript:void(0);" onclick="return smfSelectText(this);" class="codeoperation">[Select]</a></div><code class="bbc_code" style="max-height: none; height: 200px;">#define SERIAL_TX_BUFFER_SIZE 16<br>#else<br>#define SERIAL_TX_BUFFER_SIZE 64<br>#endif<br>#endif<br>#if !defined(SERIAL_RX_BUFFER_SIZE)<br>#if ((RAMEND - RAMSTART) &lt; 1023)<br>#define SERIAL_RX_BUFFER_SIZE 16<br>#else<br>#define SERIAL_RX_BUFFER_SIZE 64</code><br><br>to<br><br><div class="codeheader">Code: <a href="javascript:void(0);" onclick="return smfSelectText(this);" class="codeoperation">[Select]</a></div><code class="bbc_code" style="max-height: none; height: 200px;">#define SERIAL_TX_BUFFER_SIZE 16<br>#else<br>#define SERIAL_TX_BUFFER_SIZE 256<br>#endif<br>#endif<br>#if !defined(SERIAL_RX_BUFFER_SIZE)<br>#if ((RAMEND - RAMSTART) &lt; 1023)<br>#define SERIAL_RX_BUFFER_SIZE 16<br>#else<br>#define SERIAL_RX_BUFFER_SIZE 256</code><br><br><br>In my sketch I am receiving strings from Serial1 using <br><div class="codeheader">Code: <a href="javascript:void(0);" onclick="return smfSelectText(this);" class="codeoperation">[Select]</a></div><code class="bbc_code" style="max-height: none; height: auto;">raw_bluetooth_data = Serial1.readStringUntil('!');</code><br><br>From Android I am sending a String larger than 64 bytes. Sometimes if the sketch takes too long I can see the string being truncated at 64 bytes. I don`t see why this could happen since I have increase the buffer size to 256.<br><br>I have re-uploaded the code after making changes in the headerfile. Also restarting Arduino doesn`t help.<br><br>EDIT: Also changing the receiving method to this <a href="http://forum.arduino.cc/index.php?topic=396450" class="bbc_link" target="_blank">http://forum.arduino.cc/index.php?topic=396450</a> causes the String to truncate if the sketch takes too long.<br><br>The Sketch sometimes takes too long because I am polling one wire temperature sensors which cause blocking.<br><br>Any advice?<br><br>Thanks!</div>
+							</div>
+							<div class="under_message">
+							</div>
+						</div>
+						<div class="moderatorbar">
+						</div>
+					</div>
+				</div><div id="ad_container_zone" class="adv-banner"><script src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/ajs.php"></script></div>
+				<hr class="post_separator">
+				<div class="windowbg2">
+					<a id="msg2749511"></a>
+					<div class="post_wrapper">
+						<div class="poster">
+							<h4>
+								<span class="off" title="Offline"></span>
+								<a href="https://forum.arduino.cc/index.php?action=profile;u=430291" title="View the profile of sterretje" class="pm_icon">sterretje</a>
+							</h4>
+							<ul class="user_info">
+								<li class="avatar">
+									<a href="https://forum.arduino.cc/index.php?action=profile;u=430291"><img class="avatar" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/default.png" alt="avatar_sterretje" onerror="this.src=&#39;//dcw9y8se13llu.cloudfront.net/avatars/default.png&#39;;"></a>
+								</li>
+								<li class="icons"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/stargold.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/stargold.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/stargold.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/stargold.gif" alt="*"></li>
+								<li class="postgroup">Shannon Member</li>
+								<li class="postcount">Posts: 10,318</li>
+								<li class="custom karma">Karma: 1263&nbsp;&nbsp;<a href="https://forum.arduino.cc/index.php?action=karma;sa=applaud;uid=430291;b8d19f4dcde=0e9d9f701796ed214a8b047dabd38eb6">[add]</a></li>
+								<li class="blurb">Electronics engineer by trade, software engineer by profession.
+
+Trying to get back into electronics after 15 years absence.</li>
+							</ul>
+						</div>
+						<div class="postarea">
+							<div class="keyinfo">
+								<div class="messageicon" style="position: absolute; z-index: -1;">
+									<img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/xx.png" alt="">
+								</div>
+								<div id="subject_2749511" class="subject_title"><a href="https://forum.arduino.cc/index.php?topic=399751.msg2749511#msg2749511" rel="nofollow">Re: Increase serial buffer size on Arduino Mega 2560</a></div>
+								<div class="page_number floatright">
+									 #1 
+								</div>
+								<h5>
+									<a href="https://forum.arduino.cc/index.php?topic=399751.msg2749511#msg2749511" rel="nofollow" title="Reply #1 - Re: Increase serial buffer size on Arduino Mega 2560" class="smalltext">May 10, 2016, 08:54 pm</a>
+									<span class="smalltext modified" id="modified_2749511"></span>
+								</h5>
+								<div id="msg_2749511_quick_mod"></div>
+							</div>
+							<div class="post">
+								<div class="inner" id="msg_2749511">Your Mega has 4 serial ports; guess you changed the wrong one.<br><br>If you redesign your software, there is probably no need to increase the buffer size. Have a look at <a href="http://forum.arduino.cc/index.php?topic=396450" class="bbc_link" target="_blank">serial input basics - updated</a>. The trick is to regularly read the serial data.<br><br><br><br><br></div>
+							</div>
+							<div class="under_message">
+							</div>
+						</div>
+						<div class="moderatorbar">
+							<div class="signature" id="msg_2749511_signature">If you understand an example, use it.<br>If you don't understand an example, don't use it.<br><br>Electronics engineer by trade, software engineer by profession. Trying to get back into electronics after 15 years absence.</div>
+						</div>
+					</div>
+				</div>
+				<hr class="post_separator">
+				<div class="windowbg">
+					<a id="msg2749529"></a>
+					<div class="post_wrapper">
+						<div class="poster">
+							<h4>
+								<span class="off" title="Offline"></span>
+								<a href="https://forum.arduino.cc/index.php?action=profile;u=189112" title="View the profile of Bavilo" class="pm_icon">Bavilo</a>
+							</h4>
+							<ul class="user_info">
+								<li class="avatar">
+									<a href="https://forum.arduino.cc/index.php?action=profile;u=189112"><img class="avatar" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/default.png" alt="avatar_Bavilo" onerror="this.src=&#39;//dcw9y8se13llu.cloudfront.net/avatars/default.png&#39;;"></a>
+								</li>
+								<li class="icons"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"></li>
+								<li class="postgroup">Jr. Member</li>
+								<li class="postcount">Posts: 63</li>
+								<li class="custom karma">Karma: 15&nbsp;&nbsp;<a href="https://forum.arduino.cc/index.php?action=karma;sa=applaud;uid=189112;b8d19f4dcde=0e9d9f701796ed214a8b047dabd38eb6">[add]</a></li>
+							</ul>
+						</div>
+						<div class="postarea">
+							<div class="keyinfo">
+								<div class="messageicon" style="position: absolute; z-index: -1;">
+									<img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/xx.png" alt="">
+								</div>
+								<div id="subject_2749529" class="subject_title"><a href="https://forum.arduino.cc/index.php?topic=399751.msg2749529#msg2749529" rel="nofollow">Re: Increase serial buffer size on Arduino Mega 2560</a></div>
+								<div class="page_number floatright">
+									 #2 
+								</div>
+								<h5>
+									<a href="https://forum.arduino.cc/index.php?topic=399751.msg2749529#msg2749529" rel="nofollow" title="Reply #2 - Re: Increase serial buffer size on Arduino Mega 2560" class="smalltext">May 10, 2016, 09:03 pm</a>
+									<span class="smalltext modified" id="modified_2749529"></span>
+								</h5>
+								<div id="msg_2749529_quick_mod"></div>
+							</div>
+							<div class="post">
+								<div class="inner" id="msg_2749529"><div class="quoteheader"><a href="https://forum.arduino.cc/index.php?msg=2749511">Quote from: sterretje on May 10, 2016, 08:54 pm</a></div><blockquote class="bbc_standard_quote">Your Mega has 4 serial ports; guess you changed the wrong one.<br><br>If you redesign your software, there is probably no need to increase the buffer size. Have a look at <a href="http://forum.arduino.cc/index.php?topic=396450" class="bbc_link" target="_blank">serial input basics - updated</a>. The trick is to regularly read the serial data.<br><br><br><br><br><br></blockquote><div class="quotefooter"></div>Could you perhaps tell me where I can change the buffer size for Serial1? In HardwareSerial.h it doesn't mention any specific buffer sizes for the seperate ports...</div>
+							</div>
+							<div class="under_message">
+							</div>
+						</div>
+						<div class="moderatorbar">
+						</div>
+					</div>
+				</div>
+				<hr class="post_separator">
+				<div class="windowbg2">
+					<a id="msg2749556"></a>
+					<div class="post_wrapper">
+						<div class="poster">
+							<h4>
+								<span class="off" title="Offline"></span>
+								<a href="https://forum.arduino.cc/index.php?action=profile;u=430291" title="View the profile of sterretje" class="pm_icon">sterretje</a>
+							</h4>
+							<ul class="user_info">
+								<li class="avatar">
+									<a href="https://forum.arduino.cc/index.php?action=profile;u=430291"><img class="avatar" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/default.png" alt="avatar_sterretje" onerror="this.src=&#39;//dcw9y8se13llu.cloudfront.net/avatars/default.png&#39;;"></a>
+								</li>
+								<li class="icons"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/stargold.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/stargold.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/stargold.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/stargold.gif" alt="*"></li>
+								<li class="postgroup">Shannon Member</li>
+								<li class="postcount">Posts: 10,318</li>
+								<li class="custom karma">Karma: 1263&nbsp;&nbsp;<a href="https://forum.arduino.cc/index.php?action=karma;sa=applaud;uid=430291;b8d19f4dcde=0e9d9f701796ed214a8b047dabd38eb6">[add]</a></li>
+								<li class="blurb">Electronics engineer by trade, software engineer by profession.
+
+Trying to get back into electronics after 15 years absence.</li>
+							</ul>
+						</div>
+						<div class="postarea">
+							<div class="keyinfo">
+								<div class="messageicon" style="position: absolute; z-index: -1;">
+									<img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/xx.png" alt="">
+								</div>
+								<div id="subject_2749556" class="subject_title"><a href="https://forum.arduino.cc/index.php?topic=399751.msg2749556#msg2749556" rel="nofollow">Re: Increase serial buffer size on Arduino Mega 2560</a></div>
+								<div class="page_number floatright">
+									 #3 
+								</div>
+								<h5>
+									<a href="https://forum.arduino.cc/index.php?topic=399751.msg2749556#msg2749556" rel="nofollow" title="Reply #3 - Re: Increase serial buffer size on Arduino Mega 2560" class="smalltext">May 10, 2016, 09:15 pm</a>
+									<span class="smalltext modified" id="modified_2749556"></span>
+								</h5>
+								<div id="msg_2749556_quick_mod"></div>
+							</div>
+							<div class="post">
+								<div class="inner" id="msg_2749556">HardwareSerial1.cpp or .h? No system at hand to check.</div>
+							</div>
+							<div class="under_message">
+							</div>
+						</div>
+						<div class="moderatorbar">
+							<div class="signature" id="msg_2749556_signature">If you understand an example, use it.<br>If you don't understand an example, don't use it.<br><br>Electronics engineer by trade, software engineer by profession. Trying to get back into electronics after 15 years absence.</div>
+						</div>
+					</div>
+				</div>
+				<hr class="post_separator">
+				<div class="windowbg">
+					<a id="msg2749561"></a>
+					<div class="post_wrapper">
+						<div class="poster">
+							<h4>
+								<span class="off" title="Offline"></span>
+								<a href="https://forum.arduino.cc/index.php?action=profile;u=189112" title="View the profile of Bavilo" class="pm_icon">Bavilo</a>
+							</h4>
+							<ul class="user_info">
+								<li class="avatar">
+									<a href="https://forum.arduino.cc/index.php?action=profile;u=189112"><img class="avatar" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/default.png" alt="avatar_Bavilo" onerror="this.src=&#39;//dcw9y8se13llu.cloudfront.net/avatars/default.png&#39;;"></a>
+								</li>
+								<li class="icons"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"></li>
+								<li class="postgroup">Jr. Member</li>
+								<li class="postcount">Posts: 63</li>
+								<li class="custom karma">Karma: 15&nbsp;&nbsp;<a href="https://forum.arduino.cc/index.php?action=karma;sa=applaud;uid=189112;b8d19f4dcde=0e9d9f701796ed214a8b047dabd38eb6">[add]</a></li>
+							</ul>
+						</div>
+						<div class="postarea">
+							<div class="keyinfo">
+								<div class="messageicon" style="position: absolute; z-index: -1;">
+									<img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/xx.png" alt="">
+								</div>
+								<div id="subject_2749561" class="subject_title"><a href="https://forum.arduino.cc/index.php?topic=399751.msg2749561#msg2749561" rel="nofollow">Re: Increase serial buffer size on Arduino Mega 2560</a></div>
+								<div class="page_number floatright">
+									 #4 
+								</div>
+								<h5>
+									<a href="https://forum.arduino.cc/index.php?topic=399751.msg2749561#msg2749561" rel="nofollow" title="Reply #4 - Re: Increase serial buffer size on Arduino Mega 2560" class="smalltext">May 10, 2016, 09:17 pm</a>
+									<span class="smalltext modified" id="modified_2749561"><span class="lastedit">Last Edit</span>: May 10, 2016, 09:22 pm by Bavilo</span>
+								</h5>
+								<div id="msg_2749561_quick_mod"></div>
+							</div>
+							<div class="post">
+								<div class="inner" id="msg_2749561"><div class="quoteheader"><a href="https://forum.arduino.cc/index.php?msg=2749556">Quote from: sterretje on May 10, 2016, 09:15 pm</a></div><blockquote class="bbc_standard_quote">HardwareSerial1.cpp or .h? No system at hand to check.<br></blockquote><div class="quotefooter"></div>I changed HardwareSerial.h<br><br><div class="codeheader">Code: <a href="javascript:void(0);" onclick="return smfSelectText(this);" class="codeoperation">[Select]</a></div><code class="bbc_code" style="max-height: none; height: 200px;">/*<br>&nbsp;&nbsp;HardwareSerial.h - Hardware serial library for Wiring<br>&nbsp;&nbsp;Copyright (c) 2006 Nicholas Zambetti. &nbsp;All right reserved.<br><br>&nbsp;&nbsp;This library is free software; you can redistribute it and/or<br>&nbsp;&nbsp;modify it under the terms of the GNU Lesser General Public<br>&nbsp;&nbsp;License as published by the Free Software Foundation; either<br>&nbsp;&nbsp;version 2.1 of the License, or (at your option) any later version.<br><br>&nbsp;&nbsp;This library is distributed in the hope that it will be useful,<br>&nbsp;&nbsp;but WITHOUT ANY WARRANTY; without even the implied warranty of<br>&nbsp;&nbsp;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. &nbsp;See the GNU<br>&nbsp;&nbsp;Lesser General Public License for more details.<br><br>&nbsp;&nbsp;You should have received a copy of the GNU Lesser General Public<br>&nbsp;&nbsp;License along with this library; if not, write to the Free Software<br>&nbsp;&nbsp;Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA &nbsp;02110-1301 &nbsp;USA<br><br>&nbsp;&nbsp;Modified 28 September 2010 by Mark Sproul<br>&nbsp;&nbsp;Modified 14 August 2012 by Alarus<br>&nbsp;&nbsp;Modified 3 December 2013 by Matthijs Kooijman<br>*/<br><br>#ifndef HardwareSerial_h<br>#define HardwareSerial_h<br><br>#include &lt;inttypes.h&gt;<br><br>#include "Stream.h"<br><br>// Define constants and variables for buffering incoming serial data. &nbsp;We're<br>// using a ring buffer (I think), in which head is the index of the location<br>// to which to write the next incoming character and tail is the index of the<br>// location from which to read.<br>// NOTE: a "power of 2" buffer size is reccomended to dramatically<br>// &nbsp; &nbsp; &nbsp; optimize all the modulo operations for ring buffers.<br>// WARNING: When buffer sizes are increased to &gt; 256, the buffer index<br>// variables are automatically increased in size, but the extra<br>// atomicity guards needed for that are not implemented. This will<br>// often work, but occasionally a race condition can occur that makes<br>// Serial behave erratically. See https://github.com/arduino/Arduino/issues/2405<br>#if !defined(SERIAL_TX_BUFFER_SIZE)<br>#if ((RAMEND - RAMSTART) &lt; 1023)<br>#define SERIAL_TX_BUFFER_SIZE 16<br>#else<br>#define SERIAL_TX_BUFFER_SIZE 256<br>#endif<br>#endif<br>#if !defined(SERIAL_RX_BUFFER_SIZE)<br>#if ((RAMEND - RAMSTART) &lt; 1023)<br>#define SERIAL_RX_BUFFER_SIZE 16<br>#else<br>#define SERIAL_RX_BUFFER_SIZE 256<br>#endif<br>#endif<br>#if (SERIAL_TX_BUFFER_SIZE&gt;256)<br>typedef uint16_t tx_buffer_index_t;<br>#else<br>typedef uint8_t tx_buffer_index_t;<br>#endif<br>#if &nbsp;(SERIAL_RX_BUFFER_SIZE&gt;256)<br>typedef uint16_t rx_buffer_index_t;<br>#else<br>typedef uint8_t rx_buffer_index_t;<br>#endif<br><br>// Define config for Serial.begin(baud, config);<br>#define SERIAL_5N1 0x00<br>#define SERIAL_6N1 0x02<br>#define SERIAL_7N1 0x04<br>#define SERIAL_8N1 0x06<br>#define SERIAL_5N2 0x08<br>#define SERIAL_6N2 0x0A<br>#define SERIAL_7N2 0x0C<br>#define SERIAL_8N2 0x0E<br>#define SERIAL_5E1 0x20<br>#define SERIAL_6E1 0x22<br>#define SERIAL_7E1 0x24<br>#define SERIAL_8E1 0x26<br>#define SERIAL_5E2 0x28<br>#define SERIAL_6E2 0x2A<br>#define SERIAL_7E2 0x2C<br>#define SERIAL_8E2 0x2E<br>#define SERIAL_5O1 0x30<br>#define SERIAL_6O1 0x32<br>#define SERIAL_7O1 0x34<br>#define SERIAL_8O1 0x36<br>#define SERIAL_5O2 0x38<br>#define SERIAL_6O2 0x3A<br>#define SERIAL_7O2 0x3C<br>#define SERIAL_8O2 0x3E<br><br>class HardwareSerial : public Stream<br>{<br>&nbsp;&nbsp;protected:<br>&nbsp;&nbsp; &nbsp;volatile uint8_t * const _ubrrh;<br>&nbsp;&nbsp; &nbsp;volatile uint8_t * const _ubrrl;<br>&nbsp;&nbsp; &nbsp;volatile uint8_t * const _ucsra;<br>&nbsp;&nbsp; &nbsp;volatile uint8_t * const _ucsrb;<br>&nbsp;&nbsp; &nbsp;volatile uint8_t * const _ucsrc;<br>&nbsp;&nbsp; &nbsp;volatile uint8_t * const _udr;<br>&nbsp;&nbsp; &nbsp;// Has any byte been written to the UART since begin()<br>&nbsp;&nbsp; &nbsp;bool _written;<br><br>&nbsp;&nbsp; &nbsp;volatile rx_buffer_index_t _rx_buffer_head;<br>&nbsp;&nbsp; &nbsp;volatile rx_buffer_index_t _rx_buffer_tail;<br>&nbsp;&nbsp; &nbsp;volatile tx_buffer_index_t _tx_buffer_head;<br>&nbsp;&nbsp; &nbsp;volatile tx_buffer_index_t _tx_buffer_tail;<br><br>&nbsp;&nbsp; &nbsp;// Don't put any members after these buffers, since only the first<br>&nbsp;&nbsp; &nbsp;// 32 bytes of this struct can be accessed quickly using the ldd<br>&nbsp;&nbsp; &nbsp;// instruction.<br>&nbsp;&nbsp; &nbsp;unsigned char _rx_buffer[SERIAL_RX_BUFFER_SIZE];<br>&nbsp;&nbsp; &nbsp;unsigned char _tx_buffer[SERIAL_TX_BUFFER_SIZE];<br><br>&nbsp;&nbsp;public:<br>&nbsp;&nbsp; &nbsp;inline HardwareSerial(<br>&nbsp;&nbsp; &nbsp; &nbsp;volatile uint8_t *ubrrh, volatile uint8_t *ubrrl,<br>&nbsp;&nbsp; &nbsp; &nbsp;volatile uint8_t *ucsra, volatile uint8_t *ucsrb,<br>&nbsp;&nbsp; &nbsp; &nbsp;volatile uint8_t *ucsrc, volatile uint8_t *udr);<br>&nbsp;&nbsp; &nbsp;void begin(unsigned long baud) { begin(baud, SERIAL_8N1); }<br>&nbsp;&nbsp; &nbsp;void begin(unsigned long, uint8_t);<br>&nbsp;&nbsp; &nbsp;void end();<br>&nbsp;&nbsp; &nbsp;virtual int available(void);<br>&nbsp;&nbsp; &nbsp;virtual int peek(void);<br>&nbsp;&nbsp; &nbsp;virtual int read(void);<br>&nbsp;&nbsp; &nbsp;int availableForWrite(void);<br>&nbsp;&nbsp; &nbsp;virtual void flush(void);<br>&nbsp;&nbsp; &nbsp;virtual size_t write(uint8_t);<br>&nbsp;&nbsp; &nbsp;inline size_t write(unsigned long n) { return write((uint8_t)n); }<br>&nbsp;&nbsp; &nbsp;inline size_t write(long n) { return write((uint8_t)n); }<br>&nbsp;&nbsp; &nbsp;inline size_t write(unsigned int n) { return write((uint8_t)n); }<br>&nbsp;&nbsp; &nbsp;inline size_t write(int n) { return write((uint8_t)n); }<br>&nbsp;&nbsp; &nbsp;using Print::write; // pull in write(str) and write(buf, size) from Print<br>&nbsp;&nbsp; &nbsp;operator bool() { return true; }<br><br>&nbsp;&nbsp; &nbsp;// Interrupt handlers - Not intended to be called externally<br>&nbsp;&nbsp; &nbsp;inline void _rx_complete_irq(void);<br>&nbsp;&nbsp; &nbsp;void _tx_udr_empty_irq(void);<br>};<br><br>#if defined(UBRRH) || defined(UBRR0H)<br>&nbsp;&nbsp;extern HardwareSerial Serial;<br>&nbsp;&nbsp;#define HAVE_HWSERIAL0<br>#endif<br>#if defined(UBRR1H)<br>&nbsp;&nbsp;extern HardwareSerial Serial1;<br>&nbsp;&nbsp;#define HAVE_HWSERIAL1<br>#endif<br>#if defined(UBRR2H)<br>&nbsp;&nbsp;extern HardwareSerial Serial2;<br>&nbsp;&nbsp;#define HAVE_HWSERIAL2<br>#endif<br>#if defined(UBRR3H)<br>&nbsp;&nbsp;extern HardwareSerial Serial3;<br>&nbsp;&nbsp;#define HAVE_HWSERIAL3<br>#endif<br><br>extern void serialEventRun(void) __attribute__((weak));<br><br>#endif<br></code><br><br><br>HardwareSerial1.cpp just contains this:<br><div class="codeheader">Code: <a href="javascript:void(0);" onclick="return smfSelectText(this);" class="codeoperation">[Select]</a></div><code class="bbc_code" style="max-height: none; height: 200px;">/*<br>&nbsp;&nbsp;HardwareSerial1.cpp - Hardware serial library for Wiring<br>&nbsp;&nbsp;Copyright (c) 2006 Nicholas Zambetti. &nbsp;All right reserved.<br><br>&nbsp;&nbsp;This library is free software; you can redistribute it and/or<br>&nbsp;&nbsp;modify it under the terms of the GNU Lesser General Public<br>&nbsp;&nbsp;License as published by the Free Software Foundation; either<br>&nbsp;&nbsp;version 2.1 of the License, or (at your option) any later version.<br><br>&nbsp;&nbsp;This library is distributed in the hope that it will be useful,<br>&nbsp;&nbsp;but WITHOUT ANY WARRANTY; without even the implied warranty of<br>&nbsp;&nbsp;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. &nbsp;See the GNU<br>&nbsp;&nbsp;Lesser General Public License for more details.<br><br>&nbsp;&nbsp;You should have received a copy of the GNU Lesser General Public<br>&nbsp;&nbsp;License along with this library; if not, write to the Free Software<br>&nbsp;&nbsp;Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA &nbsp;02110-1301 &nbsp;USA<br><br>&nbsp;&nbsp;Modified 23 November 2006 by David A. Mellis<br>&nbsp;&nbsp;Modified 28 September 2010 by Mark Sproul<br>&nbsp;&nbsp;Modified 14 August 2012 by Alarus<br>&nbsp;&nbsp;Modified 3 December 2013 by Matthijs Kooijman<br>*/<br><br>#include "Arduino.h"<br>#include "HardwareSerial.h"<br>#include "HardwareSerial_private.h"<br><br>// Each HardwareSerial is defined in its own file, sine the linker pulls<br>// in the entire file when any element inside is used. --gc-sections can<br>// additionally cause unused symbols to be dropped, but ISRs have the<br>// "used" attribute so are never dropped and they keep the<br>// HardwareSerial instance in as well. Putting each instance in its own<br>// file prevents the linker from pulling in any unused instances in the<br>// first place.<br><br>#if defined(HAVE_HWSERIAL1)<br><br>#if defined(UART1_RX_vect)<br>ISR(UART1_RX_vect)<br>#elif defined(USART1_RX_vect)<br>ISR(USART1_RX_vect)<br>#else<br>#error "Don't know what the Data Register Empty vector is called for Serial1"<br>#endif<br>{<br>&nbsp;&nbsp;Serial1._rx_complete_irq();<br>}<br><br>#if defined(UART1_UDRE_vect)<br>ISR(UART1_UDRE_vect)<br>#elif defined(USART1_UDRE_vect)<br>ISR(USART1_UDRE_vect)<br>#else<br>#error "Don't know what the Data Register Empty vector is called for Serial1"<br>#endif<br>{<br>&nbsp;&nbsp;Serial1._tx_udr_empty_irq();<br>}<br><br>HardwareSerial Serial1(&amp;UBRR1H, &amp;UBRR1L, &amp;UCSR1A, &amp;UCSR1B, &amp;UCSR1C, &amp;UDR1);<br><br>// Function that can be weakly referenced by serialEventRun to prevent<br>// pulling in this file if it's not otherwise used.<br>bool Serial1_available() {<br>&nbsp;&nbsp;return Serial1.available();<br>}<br><br>#endif // HAVE_HWSERIAL1<br></code><br><br>I assume HardwareSerial.h changes the buffer size for all ports. But yet...it still doesn't</div>
+							</div>
+							<div class="under_message">
+							</div>
+						</div>
+						<div class="moderatorbar">
+						</div>
+					</div>
+				</div>
+				<hr class="post_separator">
+				<div class="windowbg2">
+					<a id="msg2749597"></a>
+					<div class="post_wrapper">
+						<div class="poster">
+							<h4>
+								<span class="off" title="Offline"></span>
+								<a href="https://forum.arduino.cc/index.php?action=profile;u=189112" title="View the profile of Bavilo" class="pm_icon">Bavilo</a>
+							</h4>
+							<ul class="user_info">
+								<li class="avatar">
+									<a href="https://forum.arduino.cc/index.php?action=profile;u=189112"><img class="avatar" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/default.png" alt="avatar_Bavilo" onerror="this.src=&#39;//dcw9y8se13llu.cloudfront.net/avatars/default.png&#39;;"></a>
+								</li>
+								<li class="icons"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"></li>
+								<li class="postgroup">Jr. Member</li>
+								<li class="postcount">Posts: 63</li>
+								<li class="custom karma">Karma: 15&nbsp;&nbsp;<a href="https://forum.arduino.cc/index.php?action=karma;sa=applaud;uid=189112;b8d19f4dcde=0e9d9f701796ed214a8b047dabd38eb6">[add]</a></li>
+							</ul>
+						</div>
+						<div class="postarea">
+							<div class="keyinfo">
+								<div class="messageicon" style="position: absolute; z-index: -1;">
+									<img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/xx.png" alt="">
+								</div>
+								<div id="subject_2749597" class="subject_title"><a href="https://forum.arduino.cc/index.php?topic=399751.msg2749597#msg2749597" rel="nofollow">Re: Increase serial buffer size on Arduino Mega 2560</a></div>
+								<div class="page_number floatright">
+									 #5 
+								</div>
+								<h5>
+									<a href="https://forum.arduino.cc/index.php?topic=399751.msg2749597#msg2749597" rel="nofollow" title="Reply #5 - Re: Increase serial buffer size on Arduino Mega 2560" class="smalltext">May 10, 2016, 09:36 pm</a>
+									<span class="smalltext modified" id="modified_2749597"></span>
+								</h5>
+								<div id="msg_2749597_quick_mod"></div>
+							</div>
+							<div class="post">
+								<div class="inner" id="msg_2749597">Ok I have solved it...<br><br>the buffer size had to be set in a different directory (which I didn't even know of!)<br><br>AppData\Local\Arduino15\packages\arduino\hardware\avr\1.6.11\cores\arduino\HardwareSerial.h<br><br><br>no more truncating now.</div>
+							</div>
+							<div class="under_message">
+							</div>
+						</div>
+						<div class="moderatorbar">
+						</div>
+					</div>
+				</div>
+				<hr class="post_separator">
+				<div class="windowbg">
+					<a id="msg3375092"></a>
+					<div class="post_wrapper">
+						<div class="poster">
+							<h4>
+								<span class="off" title="Offline"></span>
+								<a href="https://forum.arduino.cc/index.php?action=profile;u=662033" title="View the profile of heinburgh" class="pm_icon">heinburgh</a>
+							</h4>
+							<ul class="user_info">
+								<li class="avatar">
+									<a href="https://forum.arduino.cc/index.php?action=profile;u=662033"><img class="avatar" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/default.png" alt="avatar_heinburgh" onerror="this.src=&#39;//dcw9y8se13llu.cloudfront.net/avatars/default.png&#39;;"></a>
+								</li>
+								<li class="icons"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"></li>
+								<li class="postgroup">Sr. Member</li>
+								<li class="postcount">Posts: 307</li>
+								<li class="custom karma">Karma: 2&nbsp;&nbsp;<a href="https://forum.arduino.cc/index.php?action=karma;sa=applaud;uid=662033;b8d19f4dcde=0e9d9f701796ed214a8b047dabd38eb6">[add]</a></li>
+							</ul>
+						</div>
+						<div class="postarea">
+							<div class="keyinfo">
+								<div class="messageicon" style="position: absolute; z-index: -1;">
+									<img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/xx.png" alt="">
+								</div>
+								<div id="subject_3375092" class="subject_title"><a href="https://forum.arduino.cc/index.php?topic=399751.msg3375092#msg3375092" rel="nofollow">Re: [SOLVED] Increase serial buffer size on Arduino Mega 2560</a></div>
+								<div class="page_number floatright">
+									 #6 
+								</div>
+								<h5>
+									<a href="https://forum.arduino.cc/index.php?topic=399751.msg3375092#msg3375092" rel="nofollow" title="Reply #6 - Re: [SOLVED] Increase serial buffer size on Arduino Mega 2560" class="smalltext">Aug 13, 2017, 02:42 pm</a>
+									<span class="smalltext modified" id="modified_3375092"></span>
+								</h5>
+								<div id="msg_3375092_quick_mod"></div>
+							</div>
+							<div class="post">
+								<div class="inner" id="msg_3375092">Can anyone tell me if the file containing the setting for hardware serial buffer size has changed in the newer versions of IDE? I use 1.8.1 for mac os and cannot locate HardwareSerial.h anywhere on my harddrive.</div>
+							</div>
+							<div class="under_message">
+							</div>
+						</div>
+						<div class="moderatorbar">
+						</div>
+					</div>
+				</div>
+				<hr class="post_separator">
+				<div class="windowbg2">
+					<a id="msg3375105"></a>
+					<div class="post_wrapper">
+						<div class="poster">
+							<h4>
+								<span class="off" title="Offline"></span>
+								<a href="https://forum.arduino.cc/index.php?action=profile;u=430291" title="View the profile of sterretje" class="pm_icon">sterretje</a>
+							</h4>
+							<ul class="user_info">
+								<li class="avatar">
+									<a href="https://forum.arduino.cc/index.php?action=profile;u=430291"><img class="avatar" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/default.png" alt="avatar_sterretje" onerror="this.src=&#39;//dcw9y8se13llu.cloudfront.net/avatars/default.png&#39;;"></a>
+								</li>
+								<li class="icons"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/stargold.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/stargold.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/stargold.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/stargold.gif" alt="*"></li>
+								<li class="postgroup">Shannon Member</li>
+								<li class="postcount">Posts: 10,318</li>
+								<li class="custom karma">Karma: 1263&nbsp;&nbsp;<a href="https://forum.arduino.cc/index.php?action=karma;sa=applaud;uid=430291;b8d19f4dcde=0e9d9f701796ed214a8b047dabd38eb6">[add]</a></li>
+								<li class="blurb">Electronics engineer by trade, software engineer by profession.
+
+Trying to get back into electronics after 15 years absence.</li>
+							</ul>
+						</div>
+						<div class="postarea">
+							<div class="keyinfo">
+								<div class="messageicon" style="position: absolute; z-index: -1;">
+									<img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/xx.png" alt="">
+								</div>
+								<div id="subject_3375105" class="subject_title"><a href="https://forum.arduino.cc/index.php?topic=399751.msg3375105#msg3375105" rel="nofollow">Re: [SOLVED] Increase serial buffer size on Arduino Mega 2560</a></div>
+								<div class="page_number floatright">
+									 #7 
+								</div>
+								<h5>
+									<a href="https://forum.arduino.cc/index.php?topic=399751.msg3375105#msg3375105" rel="nofollow" title="Reply #7 - Re: [SOLVED] Increase serial buffer size on Arduino Mega 2560" class="smalltext">Aug 13, 2017, 02:57 pm</a>
+									<span class="smalltext modified" id="modified_3375105"></span>
+								</h5>
+								<div id="msg_3375105_quick_mod"></div>
+							</div>
+							<div class="post">
+								<div class="inner" id="msg_3375105">MACs have their own way of doing stuff as far as I know. If memory serves me right, use the command line and the 'find' command to locate the file.</div>
+							</div>
+							<div class="under_message">
+							</div>
+						</div>
+						<div class="moderatorbar">
+							<div class="signature" id="msg_3375105_signature">If you understand an example, use it.<br>If you don't understand an example, don't use it.<br><br>Electronics engineer by trade, software engineer by profession. Trying to get back into electronics after 15 years absence.</div>
+						</div>
+					</div>
+				</div>
+				<hr class="post_separator">
+				<div class="windowbg">
+					<a id="msg3375230"></a>
+					<div class="post_wrapper">
+						<div class="poster">
+							<h4>
+								<span class="off" title="Offline"></span>
+								<a href="https://forum.arduino.cc/index.php?action=profile;u=662033" title="View the profile of heinburgh" class="pm_icon">heinburgh</a>
+							</h4>
+							<ul class="user_info">
+								<li class="avatar">
+									<a href="https://forum.arduino.cc/index.php?action=profile;u=662033"><img class="avatar" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/default.png" alt="avatar_heinburgh" onerror="this.src=&#39;//dcw9y8se13llu.cloudfront.net/avatars/default.png&#39;;"></a>
+								</li>
+								<li class="icons"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"></li>
+								<li class="postgroup">Sr. Member</li>
+								<li class="postcount">Posts: 307</li>
+								<li class="custom karma">Karma: 2&nbsp;&nbsp;<a href="https://forum.arduino.cc/index.php?action=karma;sa=applaud;uid=662033;b8d19f4dcde=0e9d9f701796ed214a8b047dabd38eb6">[add]</a></li>
+							</ul>
+						</div>
+						<div class="postarea">
+							<div class="keyinfo">
+								<div class="messageicon" style="position: absolute; z-index: -1;">
+									<img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/xx.png" alt="">
+								</div>
+								<div id="subject_3375230" class="subject_title"><a href="https://forum.arduino.cc/index.php?topic=399751.msg3375230#msg3375230" rel="nofollow">Re: [SOLVED] Increase serial buffer size on Arduino Mega 2560</a></div>
+								<div class="page_number floatright">
+									 #8 
+								</div>
+								<h5>
+									<a href="https://forum.arduino.cc/index.php?topic=399751.msg3375230#msg3375230" rel="nofollow" title="Reply #8 - Re: [SOLVED] Increase serial buffer size on Arduino Mega 2560" class="smalltext">Aug 13, 2017, 05:06 pm</a>
+									<span class="smalltext modified" id="modified_3375230"></span>
+								</h5>
+								<div id="msg_3375230_quick_mod"></div>
+							</div>
+							<div class="post">
+								<div class="inner" id="msg_3375230">I found it. <br><br><div class="codeheader">Code: <a href="javascript:void(0);" onclick="return smfSelectText(this);" class="codeoperation">[Select]</a></div><code class="bbc_code" style="max-height: none; height: auto;">https://arduino.stackexchange.com/questions/33727/where-is-arduino-h-on-a-mac-can-i-download-a-copy-if-missing</code><br><br>Yes I'm relatively new to mac os and I would never have thought it is kept inside the app package.<br><br>NOW - after I changed the buffer size, how does one go about testing and confirming your buffer size? Is there a simple sketch that will disply your buffer sizes?</div>
+							</div>
+							<div class="under_message">
+							</div>
+						</div>
+						<div class="moderatorbar">
+						</div>
+					</div>
+				</div>
+				<hr class="post_separator">
+				<div class="windowbg2">
+					<a id="msg3375527"></a>
+					<div class="post_wrapper">
+						<div class="poster">
+							<h4>
+								<span class="off" title="Offline"></span>
+								<a href="https://forum.arduino.cc/index.php?action=profile;u=430291" title="View the profile of sterretje" class="pm_icon">sterretje</a>
+							</h4>
+							<ul class="user_info">
+								<li class="avatar">
+									<a href="https://forum.arduino.cc/index.php?action=profile;u=430291"><img class="avatar" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/default.png" alt="avatar_sterretje" onerror="this.src=&#39;//dcw9y8se13llu.cloudfront.net/avatars/default.png&#39;;"></a>
+								</li>
+								<li class="icons"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/stargold.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/stargold.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/stargold.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/stargold.gif" alt="*"></li>
+								<li class="postgroup">Shannon Member</li>
+								<li class="postcount">Posts: 10,318</li>
+								<li class="custom karma">Karma: 1263&nbsp;&nbsp;<a href="https://forum.arduino.cc/index.php?action=karma;sa=applaud;uid=430291;b8d19f4dcde=0e9d9f701796ed214a8b047dabd38eb6">[add]</a></li>
+								<li class="blurb">Electronics engineer by trade, software engineer by profession.
+
+Trying to get back into electronics after 15 years absence.</li>
+							</ul>
+						</div>
+						<div class="postarea">
+							<div class="keyinfo">
+								<div class="messageicon" style="position: absolute; z-index: -1;">
+									<img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/xx.png" alt="">
+								</div>
+								<div id="subject_3375527" class="subject_title"><a href="https://forum.arduino.cc/index.php?topic=399751.msg3375527#msg3375527" rel="nofollow">Re: [SOLVED] Increase serial buffer size on Arduino Mega 2560</a></div>
+								<div class="page_number floatright">
+									 #9 
+								</div>
+								<h5>
+									<a href="https://forum.arduino.cc/index.php?topic=399751.msg3375527#msg3375527" rel="nofollow" title="Reply #9 - Re: [SOLVED] Increase serial buffer size on Arduino Mega 2560" class="smalltext">Aug 13, 2017, 10:00 pm</a>
+									<span class="smalltext modified" id="modified_3375527"></span>
+								</h5>
+								<div id="msg_3375527_quick_mod"></div>
+							</div>
+							<div class="post">
+								<div class="inner" id="msg_3375527">Just add a long delay in setup; during this delay continuously send data to your Arduino. And next display what Serial.available returns. At 9600 baud, a byte takes about a millisecond to be transmitted so you can calculate how long you have to wait (roughly).<br><br>And the question is why you think you need to increase buffer size?</div>
+							</div>
+							<div class="under_message">
+							</div>
+						</div>
+						<div class="moderatorbar">
+							<div class="signature" id="msg_3375527_signature">If you understand an example, use it.<br>If you don't understand an example, don't use it.<br><br>Electronics engineer by trade, software engineer by profession. Trying to get back into electronics after 15 years absence.</div>
+						</div>
+					</div>
+				</div>
+				<hr class="post_separator">
+				<div class="windowbg">
+					<a id="msg3375835"></a>
+					<div class="post_wrapper">
+						<div class="poster">
+							<h4>
+								<span class="off" title="Offline"></span>
+								<a href="https://forum.arduino.cc/index.php?action=profile;u=662033" title="View the profile of heinburgh" class="pm_icon">heinburgh</a>
+							</h4>
+							<ul class="user_info">
+								<li class="avatar">
+									<a href="https://forum.arduino.cc/index.php?action=profile;u=662033"><img class="avatar" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/default.png" alt="avatar_heinburgh" onerror="this.src=&#39;//dcw9y8se13llu.cloudfront.net/avatars/default.png&#39;;"></a>
+								</li>
+								<li class="icons"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"></li>
+								<li class="postgroup">Sr. Member</li>
+								<li class="postcount">Posts: 307</li>
+								<li class="custom karma">Karma: 2&nbsp;&nbsp;<a href="https://forum.arduino.cc/index.php?action=karma;sa=applaud;uid=662033;b8d19f4dcde=0e9d9f701796ed214a8b047dabd38eb6">[add]</a></li>
+							</ul>
+						</div>
+						<div class="postarea">
+							<div class="keyinfo">
+								<div class="messageicon" style="position: absolute; z-index: -1;">
+									<img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/xx.png" alt="">
+								</div>
+								<div id="subject_3375835" class="subject_title"><a href="https://forum.arduino.cc/index.php?topic=399751.msg3375835#msg3375835" rel="nofollow">Re: [SOLVED] Increase serial buffer size on Arduino Mega 2560</a></div>
+								<div class="page_number floatright">
+									 #10 
+								</div>
+								<h5>
+									<a href="https://forum.arduino.cc/index.php?topic=399751.msg3375835#msg3375835" rel="nofollow" title="Reply #10 - Re: [SOLVED] Increase serial buffer size on Arduino Mega 2560" class="smalltext">Aug 14, 2017, 08:19 am</a>
+									<span class="smalltext modified" id="modified_3375835"></span>
+								</h5>
+								<div id="msg_3375835_quick_mod"></div>
+							</div>
+							<div class="post">
+								<div class="inner" id="msg_3375835">It's an EID counter. Each 16 byte EID number comes from an external reader. When you have two rfid's hanging around the antenna without moving past (sheep in my case), the reader has a habit of reading and sending the id's alternately as fast as it can (currently at 9600 baud.) When my mega receives each EID it has to check each EID number against a list of around 1,000 others. Using binary search I cut down the search time to between 7ms and 78ms per id, depending on where in the list it appears. When the EID is found there are five fields taken from a reference file and attached to that EID and written to a log file. All this for each and every EID, and this while the reader (sometimes) pumps out the numbers at pace.<br><br><br>With the buffer at 64 bytes it only takes four EID numbers to fill the buffer and make my mega go nuts. After I adjusted the buffer up to 256 bytes yesterday she eats up the numbers like a hungry lion. No matter how fast I throw the EID tags at it, it digests the data and patiently wait for more.</div>
+							</div>
+							<div class="under_message">
+							</div>
+						</div>
+						<div class="moderatorbar">
+						</div>
+					</div>
+				</div>
+				<hr class="post_separator">
+				<div class="windowbg2">
+					<a id="msg3441097"></a>
+					<div class="post_wrapper">
+						<div class="poster">
+							<h4>
+								<span class="off" title="Offline"></span>
+								<a href="https://forum.arduino.cc/index.php?action=profile;u=827585" title="View the profile of Carlillosgld" class="pm_icon">Carlillosgld</a>
+							</h4>
+							<ul class="user_info">
+								<li class="avatar">
+									<a href="https://forum.arduino.cc/index.php?action=profile;u=827585"><img class="avatar" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/default.png" alt="avatar_Carlillosgld" onerror="this.src=&#39;//dcw9y8se13llu.cloudfront.net/avatars/default.png&#39;;"></a>
+								</li>
+								<li class="icons"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"></li>
+								<li class="postgroup">Newbie</li>
+								<li class="postcount">Posts: 1</li>
+								<li class="custom karma">Karma: 0&nbsp;&nbsp;<a href="https://forum.arduino.cc/index.php?action=karma;sa=applaud;uid=827585;b8d19f4dcde=0e9d9f701796ed214a8b047dabd38eb6">[add]</a></li>
+							</ul>
+						</div>
+						<div class="postarea">
+							<div class="keyinfo">
+								<div class="messageicon" style="position: absolute; z-index: -1;">
+									<img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/xx.png" alt="">
+								</div>
+								<div id="subject_3441097" class="subject_title"><a href="https://forum.arduino.cc/index.php?topic=399751.msg3441097#msg3441097" rel="nofollow">Re: [SOLVED] Increase serial buffer size on Arduino Mega 2560</a></div>
+								<div class="page_number floatright">
+									 #11 
+								</div>
+								<h5>
+									<a href="https://forum.arduino.cc/index.php?topic=399751.msg3441097#msg3441097" rel="nofollow" title="Reply #11 - Re: [SOLVED] Increase serial buffer size on Arduino Mega 2560" class="smalltext">Oct 09, 2017, 01:00 am</a>
+									<span class="smalltext modified" id="modified_3441097"></span>
+								</h5>
+								<div id="msg_3441097_quick_mod"></div>
+							</div>
+							<div class="post">
+								<div class="inner" id="msg_3441097"><div class="quoteheader"><a href="https://forum.arduino.cc/index.php?msg=2749597">Quote from: Bavilo on May 10, 2016, 09:36 pm</a></div><blockquote class="bbc_standard_quote">Ok I have solved it...<br><br>the buffer size had to be set in a different directory (which I didn't even know of!)<br><br>AppData\Local\Arduino15\packages\arduino\hardware\avr\1.6.11\cores\arduino\HardwareSerial.h<br><br><br>no more truncating now.<br></blockquote><div class="quotefooter"></div>Excelente mil gracias...!!!<br>En mi caso use #define SERIAL_TX_BUFFER_SIZE 192 //bytes que necesitaba para no complicarme la existencia <br><br>ruta de archivo modificado en mi caso:<br><br>C:\Users\Acer\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.6.20\cores\arduino\HardwareSerial.h<br>&nbsp;<br>En Mega2560<br>Actual SRAM Free Memory: Bytes = 4828.00 of 8096 bytes<br>59.63 %</div>
+							</div>
+							<div class="under_message">
+							</div>
+						</div>
+						<div class="moderatorbar">
+						</div>
+					</div>
+				</div>
+				<hr class="post_separator">
+				<div class="windowbg">
+					<a id="msg3918621"></a>
+					<div class="post_wrapper">
+						<div class="poster">
+							<h4>
+								<span class="off" title="Offline"></span>
+								<a href="https://forum.arduino.cc/index.php?action=profile;u=1061631" title="View the profile of late_id" class="pm_icon">late_id</a>
+							</h4>
+							<ul class="user_info">
+								<li class="avatar">
+									<a href="https://forum.arduino.cc/index.php?action=profile;u=1061631"><img class="avatar" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/late_id.jpeg" alt="avatar_late_id" onerror="this.src=&#39;//dcw9y8se13llu.cloudfront.net/avatars/default.png&#39;;"></a>
+								</li>
+								<li class="icons"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"></li>
+								<li class="postgroup">Newbie</li>
+								<li class="postcount">Posts: 22</li>
+								<li class="custom karma">Karma: 1&nbsp;&nbsp;<a href="https://forum.arduino.cc/index.php?action=karma;sa=applaud;uid=1061631;b8d19f4dcde=0e9d9f701796ed214a8b047dabd38eb6">[add]</a></li>
+							</ul>
+						</div>
+						<div class="postarea">
+							<div class="keyinfo">
+								<div class="messageicon" style="position: absolute; z-index: -1;">
+									<img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/xx.png" alt="">
+								</div>
+								<div id="subject_3918621" class="subject_title"><a href="https://forum.arduino.cc/index.php?topic=399751.msg3918621#msg3918621" rel="nofollow">Re: [SOLVED] Increase serial buffer size on Arduino Mega 2560</a></div>
+								<div class="page_number floatright">
+									 #12 
+								</div>
+								<h5>
+									<a href="https://forum.arduino.cc/index.php?topic=399751.msg3918621#msg3918621" rel="nofollow" title="Reply #12 - Re: [SOLVED] Increase serial buffer size on Arduino Mega 2560" class="smalltext">Oct 24, 2018, 05:25 pm</a>
+									<span class="smalltext modified" id="modified_3918621"></span>
+								</h5>
+								<div id="msg_3918621_quick_mod"></div>
+							</div>
+							<div class="post">
+								<div class="inner" id="msg_3918621">where I can found HardwareSerial.cpp if I'm using Arduino IDE?<img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/huh.gif" alt="???" title="Huh?" class="smiley"></div>
+							</div>
+							<div class="under_message">
+							</div>
+						</div>
+						<div class="moderatorbar">
+						</div>
+					</div>
+				</div>
+				<hr class="post_separator">
+				<div class="windowbg2">
+					<a id="msg4139497"></a>
+					<div class="post_wrapper">
+						<div class="poster">
+							<h4>
+								<span class="off" title="Offline"></span>
+								<a href="https://forum.arduino.cc/index.php?action=profile;u=662033" title="View the profile of heinburgh" class="pm_icon">heinburgh</a>
+							</h4>
+							<ul class="user_info">
+								<li class="avatar">
+									<a href="https://forum.arduino.cc/index.php?action=profile;u=662033"><img class="avatar" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/default.png" alt="avatar_heinburgh" onerror="this.src=&#39;//dcw9y8se13llu.cloudfront.net/avatars/default.png&#39;;"></a>
+								</li>
+								<li class="icons"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"><img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/star.gif" alt="*"></li>
+								<li class="postgroup">Sr. Member</li>
+								<li class="postcount">Posts: 307</li>
+								<li class="custom karma">Karma: 2&nbsp;&nbsp;<a href="https://forum.arduino.cc/index.php?action=karma;sa=applaud;uid=662033;b8d19f4dcde=0e9d9f701796ed214a8b047dabd38eb6">[add]</a></li>
+							</ul>
+						</div>
+						<div class="postarea">
+							<div class="keyinfo">
+								<div class="messageicon" style="position: absolute; z-index: -1;">
+									<img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/xx.png" alt="">
+								</div>
+								<div id="subject_4139497" class="subject_title"><a href="https://forum.arduino.cc/index.php?topic=399751.msg4139497#msg4139497" rel="nofollow">Re: [SOLVED] Increase serial buffer size on Arduino Mega 2560</a></div>
+								<div class="page_number floatright">
+									 #13 
+								</div>
+								<h5>
+									<a href="https://forum.arduino.cc/index.php?topic=399751.msg4139497#msg4139497" rel="nofollow" title="Reply #13 - Re: [SOLVED] Increase serial buffer size on Arduino Mega 2560" class="smalltext">Apr 16, 2019, 06:28 pm</a>
+									<span class="smalltext modified" id="modified_4139497"></span>
+								</h5>
+								<div id="msg_4139497_quick_mod"></div>
+							</div>
+							<div class="post">
+								<div class="inner" id="msg_4139497">I hate to open this topic again, but I recently upgraded my IDE to 1.8.9, macOS version.<br><br>The moment I upgraded, none of my sketches that uploads data to ubidots via sim800 works any more - the string that contains the data that is sent to through the modem is truncated to 64 characters. So realising that the hardwareserial.h file must have been overwritten I edited the new file, to increase the buffer size to 256 again.<br><br>But I cannot seem to force the update when I compile the sketch. I can't get it to say "New Build..." while uploading the sketch.<br><br>How do I force this?</div>
+							</div>
+							<div class="under_message">
+							</div>
+						</div>
+						<div class="moderatorbar">
+						</div>
+					</div>
+				</div>
+				<hr class="post_separator">
+				</form>
+			</div>
+			<div class="pagesection">
+				
+		<div class="buttonlist floatright">
+			
+				<a class="button-forum  button_strip_print" href="https://forum.arduino.cc/index.php?action=printpage;topic=399751.0" rel="nofollow">Print</a>
+		</div>
+				 <a href="https://forum.arduino.cc/index.php?topic=399751.0#main_content_section" class="topbottom floatleft" id="bot">Go Up</a>
+				<div class="pagelinks floatleft">
+					<span class="pages">Pages: </span><span class="current_page">[1]</span> 
+				</div>
+			</div>
+			<div id="moderationbuttons">
+				
+			</div>
+			<div id="display_jump_to"><label class="smalltext" for="display_jump_to_select">Jump to:</label> <select name="display_jump_to_select" id="display_jump_to_select" onfocus="grabJumpToContent(this);"><option value="?board=2.0">=&gt; Installation &amp; Troubleshooting</option></select>&nbsp;<input type="button" class="button_submit" value="Go" onclick="window.location.href = &#39;https://forum.arduino.cc/index.php?board=2.0&#39;;"></div>
+			<br class="clear">
+				<script><!-- // --><![CDATA[
+					var oQuickReply = new QuickReply({
+						bDefaultCollapsed: false,
+						iTopicId: 399751,
+						iStart: 0,
+						sScriptUrl: smf_scripturl,
+						sImagesUrl: smf_images_url,
+						sContainerId: "quickReplyOptions",
+						sImageId: "quickReplyExpand",
+						sClassCollapsed: "toggle_up",
+						sClassExpanded: "toggle_down",
+						bIsFull: true
+					});
+					if ('XMLHttpRequest' in window)
+					{
+						var oQuickModify = new QuickModify({
+							sScriptUrl: smf_scripturl,
+							sClassName: 'quick_edit',
+							bShowModify: true,
+							iTopicId: 399751,
+							sTemplateBodyEdit: '\n\t\t\t\t\t\t\t\t<div id="quick_edit_body_container">\n\t\t\t\t\t\t\t\t\t<div id="error_box" class="error"><' + '/div>\n\t\t\t\t\t\t\t\t\t<textarea class="editor" name="message" rows="12" style="width: 100%; margin-bottom: 10px;" tabindex="1">%body%<' + '/textarea><br>\n\t\t\t\t\t\t\t\t\t<input type="hidden" name="b8d19f4dcde" value="0e9d9f701796ed214a8b047dabd38eb6">\n\t\t\t\t\t\t\t\t\t<input type="hidden" name="topic" value="399751">\n\t\t\t\t\t\t\t\t\t<input type="hidden" name="msg" value="%msg_id%">\n\t\t\t\t\t\t\t\t\t<div class="righttext">\n\t\t\t\t\t\t\t\t\t\t<input type="submit" name="post" value="Save" tabindex="2" onclick="return oQuickModify.modifySave(\'0e9d9f701796ed214a8b047dabd38eb6\', \'b8d19f4dcde\');" accesskey="s" class="button_submit">&nbsp;&nbsp;<input type="submit" name="cancel" value="Cancel" tabindex="3" onclick="return oQuickModify.modifyCancel();" class="button_submit">\n\t\t\t\t\t\t\t\t\t<' + '/div>\n\t\t\t\t\t\t\t\t<' + '/div>',
+							sTemplateSubjectEdit: '<input type="text" name="subject" value="%subject%" size="80" maxlength="80" tabindex="4" class="input_text">',
+							sTemplateBodyNormal: '%body%',
+							sTemplateSubjectNormal: '<a hr'+'ef="' + smf_scripturl + '?topic=399751.msg%msg_id%#msg%msg_id%" rel="nofollow">%subject%<' + '/a>',
+							sTemplateTopSubject: 'Topic: %subject% &nbsp;(Read 14671 times)',
+							sTemplateReasonEdit: '<input type="text" name="modify_reason" value="%modify_reason%" size="80" maxlength="80" tabindex="5" class="input_text">)',
+							sTemplateReasonNormal: '%modify_text',
+							sErrorBorderStyle: '1px solid red'
+						});
+
+						aJumpTo[aJumpTo.length] = new JumpTo({
+							sContainerId: "display_jump_to",
+							sJumpToTemplate: "<label class=\"smalltext\" for=\"%select_id%\">Jump to:<" + "/label> %dropdown_list%",
+							iCurBoardId: 2,
+							iCurBoardChildLevel: 0,
+							sCurBoardName: "Installation &amp; Troubleshooting",
+							sBoardChildLevelIndicator: "==",
+							sBoardPrefix: "=> ",
+							sCatSeparator: "-----------------------------",
+							sCatPrefix: "",
+							sGoButtonLabel: "Go"
+						});
+
+						aIconLists[aIconLists.length] = new IconList({
+							sBackReference: "aIconLists[" + aIconLists.length + "]",
+							sIconIdPrefix: "msg_icon_",
+							sScriptUrl: smf_scripturl,
+							bShowModify: true,
+							iBoardId: 2,
+							iTopicId: 399751,
+							sSessionId: smf_session_id,
+							sSessionVar: smf_session_var,
+							sLabelIconList: "Message icon",
+							sBoxBackground: "transparent",
+							sBoxBackgroundHover: "#ffffff",
+							iBoxBorderWidthHover: 1,
+							sBoxBorderColorHover: "#adadad" ,
+							sContainerBackground: "#ffffff",
+							sContainerBorder: "1px solid #adadad",
+							sItemBorder: "1px solid #ffffff",
+							sItemBorderHover: "1px dotted gray",
+							sItemBackground: "transparent",
+							sItemBackgroundHover: "#e0e0f0"
+						});
+					}
+				// ]]></script>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+           <br><style>.pagefooter a { color: white !important; }</style>		<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async="" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/js"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-22581631-3');
+	</script>
+    <div>
+      <div id="newsletter-modal"><div id="newsletter-popup-privacy" class="arduino-modal info-modal" action="https://api2.arduino.cc/consent/v1/subscription" style="display: none;">
+  <!-- Step 1.5, approve the privacy policy -->
+  <div id="privacy-modal-backdrop" class="modal-backdrop"></div>
+  <div class="modal-body approve-privacy-policy">
+
+    <h1>Privacy consent</h1>
+
+    <div>
+      <p>
+        Arduino cares about the privacy and personal data of its users. The <a href="https://www.arduino.cc/en/Main/PrivacyPolicy" target="_blank" rel="noopener">privacy policy</a> is meant to inform you on how we process your personal data when you use our services.
+      </p>
+
+      <ul class="privacy-settings">
+        <li>
+          <div id="privacy-consent-error" class="upper-error-notif">Please confirm that you have read the privacy policy</div>
+          <label class="checkbox">
+            <input type="checkbox" id="privacy-consent" name="privacy-consent" value="privacy_approval">
+
+            <span class="custom-checkbox"></span>
+            <span>I confirm to have read the privacy policy<span class="required-asterisk">*</span></span>
+          </label>
+        </li>
+        <li>
+          <div id="newsletter-error" class="upper-error-notif">Please confirm your consent to receive the newsletter</div>
+          <label class="checkbox">
+            <input type="checkbox" id="newsletter-consent" name="newsletter-consent" value="newsletter_approval" checked="">
+
+            <span class="custom-checkbox"></span>
+            <span>I confirm my consent to receive your newsletter<span class="required-asterisk">*</span></span>
+          </label>
+        </li>
+        <li>
+          <label class="checkbox">
+            <input type="checkbox" id="marketing-consent" value="marketing_approval">
+            <span class="custom-checkbox"></span>
+            <span>I confirm my consent to the processing of my personal data for marketing purposes, consisting in commercial offers sent via email</span>
+          </label>
+        </li>
+        <li>
+          <label class="checkbox">
+            <input type="checkbox" id="tracking-consent" value="tracking_approval">
+            <span class="custom-checkbox"></span>
+            <span>I confirm my consent to automated processing of my personal data, by means of profiling, in order to receive commercial offers customized on the basis of my browsing and purchasing behavior</span>
+          </label>
+        </li>
+      </ul>
+      <div class="my-error-notification">
+        <div id="newsletterSubscribeStatus"></div>
+      </div>
+      <section class="buttons-wrapper">
+        <button name="Cancel" class="button secondary" id="newsletter-privacy-policy-cancel-button">Cancel</button>
+        <button name="Ok" class="primary button" id="newsletter-privacy-policy-ok-button">Ok</button>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- step 2, confirm popup -->
+<div id="newsletter-popup-confirm" class="arduino-modal info-modal" style="display: none;">
+     <div class="modal-backdrop"></div>
+  <div id="confirm-newsletter-modal-backdrop" class="modal-body confirm-email">
+    <h1>Confirm your email address</h1>
+    <div id="newsletterModalBody">
+      <p>
+        We need to confirm your email address.<br> To complete the subscription, please click the link in the email we just sent you.
+      </p>
+      <p>
+        Thank you for subscribing!
+      </p>
+      <section class="buttons-wrapper">
+        <button name="Ok" class="button" id="confirm-email-ok-button">Ok</button>
+      </section>
+    </div>
+  </div>
+</div>
+</div>
+      <div id="footer"><div id="footer-block" style="">
+  <div class="newsletter-form">
+    <h4 id="newsletter-input-label">Newsletter</h4>
+    <div class="subscribe-wrapper">
+      <div id="newsletter-email-error" class="upper-error-notif">Please insert a valid email</div>
+      <div class="input-wrapper">
+        <input id="newsletter-email" aria-labelledby="newsletter-input-label" type="email" name="email" class="email" placeholder="Enter your email to sign up">
+        <button id="subscribe-btn" aria-label="Subscribe" class="button">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <section class="footer-links-wrapper">
+    <ul id="footer-list">
+      <li>
+        <a href="https://www.arduino.cc/en/Main/TermsOfService">
+          <span class="text">Terms Of Service</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.arduino.cc/en/Main/PrivacyPolicy">
+          <span class="text">Privacy Policy</span>
+        </a>
+      </li>
+      <li>
+        <div id="teconsent">
+        </div>
+      </li>
+      <li>
+        <a href="https://www.arduino.cc/en/Main/ContactUs">
+          <span class="text">Contact Us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.arduino.cc/en/Main/AboutUs">
+          <span class="text">About Us</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://store.arduino.cc/distributors">
+          <span class="text">Distributors</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://careers.arduino.cc/">
+          <span class="text">Careers</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.arduino.cc/en/Main/Security">
+          <span class="text">Security</span>
+        </a>
+      </li>
+    </ul><!-- footer-list -->
+    <div class="footer-note">
+      <p>
+        <a href="https://www.arduino.cc/en/Main/CopyrightNotice">
+          <span class="text">
+            © <span id="current-year">2019</span> Arduino
+          </span>
+        </a>
+      </p>
+    </div>
+  </section>
+  <ul class="social-btn-list">
+    <li>
+      <a href="https://www.facebook.com/official.arduino" target="_blank" id="facebook" class="facebook" rel="noopener">
+        <img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/icon-facebook.svg" alt="facebook">
+        <p class="follow-us">follow us on Facebook</p>
+      </a>
+    </li>
+    <li>
+      <a href="https://twitter.com/arduino" target="_blank" id="twitter" class="twitter" rel="noopener">
+        <img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/icon-twitter.svg" alt="twitter">
+        <p class="follow-us">follow us on Twitter</p>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.instagram.com/arduino.cc/" target="_blank" id="instagram" class="instagram" rel="noopener">
+        <img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/icon-instagram.svg" alt="instagram">
+        <p class="follow-us">follow us on Instagram</p>
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/arduino/" target="_blank" id="github" class="github" rel="noopener">
+        <img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/icon-github.svg" alt="github">
+        <p class="follow-us">Arduino on GitHub</p>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.flickr.com/photos/arduino_cc" target="_blank" id="flickr" class="flickr" rel="noopener">
+        <img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/icon-flickr.svg" alt="flickr">
+        <p class="follow-us">follow us on Flickr</p>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/user/arduinoteam" target="_blank" id="youtube" class="youtube" rel="noopener">
+        <img src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/icon-youtube.svg" alt="youtube">
+        <p class="follow-us">follow us on YouTube</p>
+      </a>
+    </li>
+  </ul>
+
+  <button id="go-top" class="go-top-footer-btn" aria-label="Scroll Top">
+    <span class="arrow-1"></span>
+    <span class="arrow-2"></span>
+    <span class="arrow-3"></span>
+  </button>
+</div><!-- footer-block -->
+</div>
+    </div>
+    <script src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/loader.js.download" type="text/javascript"></script>
+    <script>
+      var auth = {
+        token: function() {
+          return false ? Promise.resolve({
+            token: null          }) : Promise.reject('loggedout')
+        },
+        redirectURI: function() {
+          return 'https://auth.arduino.cc/login?client_id=forum&redirect_uri=https%3A%2F%2Fforum.arduino.cc%2F&state=1926324083&scope=profile%3Acore+profile%3Apublic+profile%3Acontact+offline&response_type=code';
+        }
+      };
+      ArduinoHeaderAndFooter({
+        auth: "custom",
+        authOptions: auth
+      });
+    </script>
+  <div id="ajax_in_progress" style="display: none;">Loading...</div>
+<script><!-- // --><![CDATA[
+	function triggerCron() {
+		var tempImage = new Image();
+		tempImage.src = 'https://forum.arduino.cc' + "/cron.php?ts=1565689710";
+	}
+	window.setTimeout(triggerCron, 1);
+// ]]></script>
+    <script src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/modernizr.js.download"></script>
+    <!--[if gte IE 9]><!-->
+    <script src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/foundation.min.js.download"></script>
+    <script>
+      $(document).foundation();
+    </script>
+    <!--<![endif]-->
+    <!--[if IE 8]>
+    <script src="//content.arduino.cc/legacy/js/foundation_ie8.min.js"></script>
+    <script src="//content.arduino.cc/legacy/js/ie8/jquery.foundation.alerts.js"></script>
+    <script src="//content.arduino.cc/legacy/js/app.js"></script>
+		<![endif]-->
+		<script>
+		// Adv banner configuration
+		var arduinoAdvOptions = {
+			breakpointDesktop: 480,
+			breakpointMobile: 480,
+			zoneIdDesktop: 561,
+			zoneIdTablet: 560,
+			zoneIdMobile: 560
+		};
+
+		jQuery('.boardindex_table .main_container:nth-child(1)').append('<div id="ad_container_zone" class="adv-banner"></div>');
+		jQuery('#forumposts form .windowbg:nth-of-type(1)').after('<div id="ad_container_zone" class="adv-banner"></div>');
+
+		</script>
+		<!-- Script used by adv banner -->
+		<script type="text/javascript" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/postscribe.min.js.download"></script>
+		<script type="text/javascript" src="./[SOLVED] Increase serial buffer size on Arduino Mega 2560_files/banner.js.download"></script>
+
+</body></html>
