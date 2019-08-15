@@ -1,0 +1,3701 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0048)https://ubuntuforums.org/showthread.php?t=108235 -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en" id="vbulletin_html"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	
+<meta id="e_vb_meta_bburl" name="vb_meta_bburl" content="https://ubuntuforums.org">
+<!--<base href="https://ubuntuforums.org/">--><base href="."><!--[if IE]></base><![endif]-->
+<meta name="generator" content="vBulletin 4.2.2">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+	<link rel="Shortcut Icon" href="https://ubuntuforums.org/favicon.ico" type="image/x-icon">
+
+
+
+
+
+
+
+
+
+<script async="" src="./C++ function overloading! Why__files/gtm.js.download"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MXBXNKW');</script>
+<!-- End Google Tag Manager -->
+
+<script type="text/javascript">
+<!--
+	if (typeof YAHOO === 'undefined') // Load ALL YUI Local
+	{
+		document.write('<script type="text/javascript" src="clientscript/yui/yuiloader-dom-event/yuiloader-dom-event.js?v=422"><\/script>');
+		document.write('<script type="text/javascript" src="clientscript/yui/connection/connection-min.js?v=422"><\/script>');
+		var yuipath = 'clientscript/yui';
+		var yuicombopath = '';
+		var remoteyui = false;
+	}
+	else	// Load Rest of YUI remotely (where possible)
+	{
+		var yuipath = 'clientscript/yui';
+		var yuicombopath = '';
+		var remoteyui = true;
+		if (!yuicombopath)
+		{
+			document.write('<script type="text/javascript" src="clientscript/yui/connection/connection-min.js?v=422"><\/script>');
+		}
+	}
+	var SESSIONURL = "s=8824619ab18218b4100726fe4346b134&";
+	var SECURITYTOKEN = "guest";
+	var IMGDIR_MISC = "images/ubuntu-VB4/misc";
+	var IMGDIR_BUTTON = "images/ubuntu-VB4/buttons";
+	var vb_disable_ajax = parseInt("0", 10);
+	var SIMPLEVERSION = "422";
+	var BBURL = "https://ubuntuforums.org";
+	var LOGGEDIN = 0 > 0 ? true : false;
+	var THIS_SCRIPT = "showthread";
+	var RELPATH = "showthread.php?t=108235";
+	var PATHS = {
+		forum : "",
+		cms   : "",
+		blog  : ""
+	};
+	var AJAXBASEURL = "https://ubuntuforums.org/";
+// -->
+</script><script type="text/javascript" src="./C++ function overloading! Why__files/yuiloader-dom-event.js.download"></script><script type="text/javascript" src="./C++ function overloading! Why__files/connection-min.js.download"></script>
+<script type="text/javascript" src="./C++ function overloading! Why__files/vbulletin-core.js.download"></script>
+
+
+
+	<link rel="alternate" type="application/rss+xml" title="Ubuntu Forums RSS Feed" href="https://ubuntuforums.org/external.php?type=RSS2">
+	
+		<link rel="alternate" type="application/rss+xml" title="Ubuntu Forums - Programming Talk - RSS Feed" href="https://ubuntuforums.org/external.php?type=RSS2&amp;forumids=39">
+	
+
+
+
+	<link rel="stylesheet" type="text/css" href="./C++ function overloading! Why__files/css.php">
+
+	<!--[if lt IE 8]>
+	<link rel="stylesheet" type="text/css" href="css.php?styleid=117&amp;langid=3&amp;d=1541054923&amp;td=ltr&amp;sheet=popupmenu-ie.css,vbulletin-ie.css,vbulletin-chrome-ie.css,vbulletin-formcontrols-ie.css,editor-ie.css" />
+	<![endif]-->
+
+<link href="./C++ function overloading! Why__files/css" rel="stylesheet" type="text/css">
+	<meta name="keywords" content="function, overloading, break, temp, void, include, dtemp, ftemp, itemp, c++, int, cout, cin, noobi, learning, case, ftocdouble, ftocfloat, ftocdtemp, default, ftocint, ftocftemp, double, std, float, level, main, ftocitemp, posting, reason, linux, understand, [c++, code, overloading], provided, purpose, book, namespace">
+	<meta name="description" content="Hi 
+ 
+I&#39;m a Linux noobi and a C++ noobi too!!! 
+ 
+I&#39;m currently learning about &quot;function overloading&quot;.  The reason why I&#39;m posting here is because I don&#39;t understand the purpose of &quot;function overloading&quot;.  The book I am learning from has provided the following example of &quot;function overloading&quot; 
+ 
+ 
+#include &lt;iomanip&gt; 
+#include &lt;iostream&gt; 
+using namespace std;">
+
+	<title> C++ function overloading!  Why?</title>
+	<link rel="canonical" href="https://ubuntuforums.org/showthread.php?t=108235&amp;s=8824619ab18218b4100726fe4346b134">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+		<link rel="stylesheet" type="text/css" href="./C++ function overloading! Why__files/css(1).php">
+	
+	<!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="css.php?styleid=117&amp;langid=3&amp;d=1541054923&amp;td=ltr&amp;sheet=toolsmenu-ie.css,postlist-ie.css,showthread-ie.css,postbit-ie.css,poll-ie.css" /><![endif]-->
+<link rel="stylesheet" type="text/css" href="./C++ function overloading! Why__files/css(2).php">
+
+</head>
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MXBXNKW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="above_body"> <!-- closing tag is in template navbar -->
+<div id="header" class="floatcontainer doc_header">
+	<div><a name="top" href="https://ubuntuforums.org/index.php?s=8824619ab18218b4100726fe4346b134" class="logo-image"><img src="./C++ function overloading! Why__files/ubuntulogo-o-small.png" alt="Ubuntu Forums" title="Ubuntu Forums"></a></div>
+	<div id="toplinks" class="toplinks">
+		
+			<ul class="nouser">
+			
+				<li><a rel="faq" href="https://ubuntuforums.org/faq.php?s=8824619ab18218b4100726fe4346b134">FAQ</a></li>
+                <li>
+                    <!-- OpenID Login Button -->
+<form class="logindetails" action="https://ubuntuforums.org/login.php" method="post">
+<input type="hidden" name="do" value="login">
+<input type="hidden" name="openid" value="https://login.ubuntu.com">
+<input type="submit" class="loginbutton" value="Login with SSO"><br>
+</form>
+<!-- / OpenID Login Button -->
+                </li>
+
+				
+			</ul>
+		
+	</div>
+	<div class="ad_global_header">
+		
+		
+	</div>
+	<hr>
+</div>
+<div id="navbar" class="navbar">
+	<ul id="navtabs" class="navtabs floatcontainer">
+		
+		
+	
+		<li class="selected" id="vbtab_forum">
+			<a class="navtab" href="https://ubuntuforums.org/forum.php?s=8824619ab18218b4100726fe4346b134">Forum</a>
+		</li>
+		
+		
+			<ul class="floatcontainer">
+				
+					
+						<li class="popupmenu" id="vbmenu_qlinks">
+							<a href="javascript://" class="popupctrl" id="yui-gen1">Quick Links</a>
+							<ul class="popupbody" id="yui-gen0">
+								
+									<li id="link_mje2_914"><a href="https://ubuntuforums.org/search.php?do=process&amp;type[]=1&amp;replyless=1&amp;replylimit=0">Unanswered Posts</a></li>
+								
+									<li id="link_mjm0_271"><a href="https://ubuntuforums.org/search.php?s=8824619ab18218b4100726fe4346b134&amp;do=getnew&amp;contenttype=vBForum_Post">New Posts</a></li>
+								
+									<li id="link_odiw_103"><a href="http://ubuntuforums.org/showgroups.php">View Forum Leaders</a></li>
+								
+									<li id="link_mdy0_388"><a href="http://ubuntuforums.org/faq.php">FAQ</a></li>
+								
+									<li id="link_nzqx_135"><a href="http://ubuntuforums.org/faq.php?faq=vb3_reading_posting#faq_vb3_contact_admin">Contact an Admin</a></li>
+								
+							</ul>
+						</li>
+					
+				
+					
+						<li class="popupmenu" id="menu_mja2_174">
+							<a href="javascript://" class="popupctrl" id="yui-gen3">Forum Community</a>
+							<ul class="popupbody" id="yui-gen2">
+								
+									<li id="link_mja2_178"><a target="_blank" href="https://wiki.ubuntu.com/ForumCouncil">Forum Council</a></li>
+								
+									<li id="link_mja2_759"><a target="_blank" href="https://wiki.ubuntu.com/ForumCouncilAgenda"><span> FC Agenda</span></a></li>
+								
+									<li id="link_mja2_602"><a target="_blank" href="https://wiki.ubuntu.com/ForumsGovernance">Forum Governance</a></li>
+								
+									<li id="link_ntk3_139"><a href="http://ubuntuforums.org/showgroups.php/">Forum Staff</a></li>
+								
+									<li id="link_mja2_802"><a href="http://ubuntuforums.org/misc.php?do=showrules">Ubuntu Forums Code of Conduct</a></li>
+								
+									<li id="link_mja2_447"><a target="_blank" href="http://webchat.freenode.net/?channels=ubuntuforums">Forum IRC Channel</a></li>
+								
+							</ul>
+						</li>
+					
+				
+					
+						<li class="popupmenu" id="menu_mja2_686">
+							<a href="javascript://" class="popupctrl" id="yui-gen5">Ubuntu Community</a>
+							<ul class="popupbody" id="yui-gen4">
+								
+									<li id="link_mja2_167"><a target="_blank" href="http://community.ubuntu.com/">Ubuntu</a></li>
+								
+									<li id="link_mja2_232"><a target="_blank" href="http://www.ubuntu.com/download/desktop">Get <b style="color: #dd4814">Ubuntu</b></a></li>
+								
+									<li id="link_mja2_426"><a target="_blank" href="http://www.kubuntu.org/getkubuntu">Get <b style="color:#10147e">Kubuntu</b></a></li>
+								
+									<li id="link_mja2_138"><a target="_blank" href="http://xubuntu.org/getxubuntu/">Get <b style="color: #04a">Xubuntu</b></a></li>
+								
+									<li id="link_mja2_351"><a target="_blank" href="https://help.ubuntu.com/community/Lubuntu/GetLubuntu">Get <b style="color: #033C71">Lubuntu</b></a></li>
+								
+									<li id="link_nzmw_867"><a target="_blank" href="http://ubuntustudio.org/download/">Get <b style="color:#116286">Ubuntu Studio</b></a></li>
+								
+									<li id="link_nzmw_456"><a target="_blank" href="http://www.mythbuntu.org/download-type">Get <b style="color: #dd4814">Mythbuntu</b></a></li>
+								
+									<li id="link_nzmw_464"><a target="_blank" href="http://www.edubuntu.org/download">Get <b style="color: #a30b00">Edubuntu</b></a></li>
+								
+									<li id="link_nzmw_559"><a target="_blank" href="http://ubuntugnome.org/download/">Get <b style="color: #dd4814">Ubuntu GNOME</b></a></li>
+								
+									<li id="link_nzmw_633"><a target="_blank" href="http://www.ubuntukylin.com/downloads/show.php?lang=en&amp;id=122">Get <b style="color: #dd4814">Ubuntu Kylin</b></a></li>
+								
+									<li id="link_nzy1_643"><a target="_blank" href="https://ubuntubudgie.org/downloads">Get <b style="color: #8B008B">Ubuntu Budgie</b></a></li>
+								
+									<li id="link_nzy1_968"><a target="_blank" href="https://ubuntu-mate.org/download/">Get <b style="color: #87A556">Ubuntu Mate</b></a></li>
+								
+									<li id="link_mja2_877"><a target="_blank" href="http://www.ubuntu.com/project/about-ubuntu/conduct">Ubuntu Code of Conduct</a></li>
+								
+									<li id="link_mja2_199"><a target="_blank" href="https://wiki.ubuntu.com/">Ubuntu Wiki</a></li>
+								
+									<li id="link_mja2_891"><a target="_blank" href="https://help.ubuntu.com/community/">Community Wiki</a></li>
+								
+							</ul>
+						</li>
+					
+				
+					
+						<li class="popupmenu" id="menu_mja2_593">
+							<a href="javascript://" class="popupctrl" id="yui-gen7">Other Support</a>
+							<ul class="popupbody" id="yui-gen6">
+								
+									<li id="link_mja2_994"><a target="_blank" href="https://answers.launchpad.net/">Launchpad Answers</a></li>
+								
+									<li id="link_mja2_430"><a target="_blank" href="http://webchat.freenode.net/?channels=ubuntu">Ubuntu IRC Support</a></li>
+								
+									<li id="link_mja2_646"><a target="_blank" href="http://askubuntu.com/">AskUbuntu</a></li>
+								
+									<li id="link_mja2_817"><a target="_blank" href="https://help.ubuntu.com/">Official Documentation</a></li>
+								
+									<li id="link_mja2_745"><a target="_blank" href="https://help.ubuntu.com/community">User Documentation</a></li>
+								
+							</ul>
+						</li>
+					
+				
+					
+						<li class="popupmenu" id="menu_mtaz_185">
+							<a href="javascript://" class="popupctrl" id="yui-gen9">Social Media</a>
+							<ul class="popupbody" id="yui-gen8">
+								
+									<li id="link_mtaz_522"><a target="_blank" href="https://www.facebook.com/UbuntuForums">Facebook</a></li>
+								
+									<li id="link_mtaz_149"><a target="_blank" href="https://twitter.com/ubuntuforums">Twitter</a></li>
+								
+							</ul>
+						</li>
+					
+				
+					
+						<li class="popupmenu" id="menu_ode5_930">
+							<a href="javascript://" class="popupctrl" id="yui-gen11">Useful Links</a>
+							<ul class="popupbody" id="yui-gen10">
+								
+									<li id="link_ode5_240"><a target="_blank" href="http://distrowatch.com/table.php?distribution=ubuntu">Distrowatch</a></li>
+								
+									<li id="link_ode5_738"><a target="_blank" href="https://bugs.launchpad.net/ubuntu/">Bugs: Ubuntu</a></li>
+								
+									<li id="link_ode5_821"><a target="_blank" href="https://launchpad.net/ubuntu/+ppas">PPAs: Ubuntu</a></li>
+								
+									<li id="link_ode5_923"><a target="_blank" href="http://www.webupd8.org/">Web Upd8: Ubuntu</a></li>
+								
+									<li id="link_ode5_916"><a target="_blank" href="http://www.omgubuntu.co.uk/">OMG! Ubuntu</a></li>
+								
+									<li id="link_ode5_248"><a target="_blank" href="https://insights.ubuntu.com/">Ubuntu Insights</a></li>
+								
+									<li id="link_ode5_244"><a target="_blank" href="http://planet.ubuntu.com/">Planet Ubuntu</a></li>
+								
+							</ul>
+						</li>
+					
+				
+					
+						
+					
+				
+			</ul>
+		
+
+	
+		<li id="vbtab_whatsnew">
+			<a class="navtab" href="https://ubuntuforums.org/activity.php?s=8824619ab18218b4100726fe4346b134">Activity Page</a>
+		</li>
+		
+		
+
+	
+		<li id="tab_nti4_938">
+			<a target="_blank" class="navtab" href="http://ubuntuforums.org/showthread.php?t=2230004">Please read before SSO login</a>
+		</li>
+		
+		
+
+		
+	</ul>
+	
+		<div id="globalsearch" class="globalsearch">
+			<form action="https://ubuntuforums.org/search.php?s=8824619ab18218b4100726fe4346b134&amp;do=process" method="post" id="navbar_search" class="navbar_search">
+				
+				<input type="hidden" name="securitytoken" value="guest">
+				<input type="hidden" name="do" value="process">
+				<span class="textboxcontainer"><span><input type="text" value="" name="query" class="textbox" tabindex="99"></span></span>
+				<span class="buttoncontainer"><span><input type="image" class="searchbutton" src="./C++ function overloading! Why__files/search.png" name="submit" onclick="document.getElementById(&#39;navbar_search&#39;).submit;" tabindex="100"></span></span>
+			</form>
+			<ul class="navbar_advanced_search">
+				<li><a href="https://ubuntuforums.org/search.php?s=8824619ab18218b4100726fe4346b134?search_type=1" accesskey="4">Advanced Search</a></li>
+				
+			</ul>
+		</div>
+	
+</div>
+</div><!-- closing div for above_body -->
+
+<div class="body_wrapper">
+<div id="breadcrumb" class="breadcrumb">
+	<ul class="floatcontainer">
+		<li class="navbithome"><a href="https://ubuntuforums.org/index.php?s=8824619ab18218b4100726fe4346b134" accesskey="1"><img src="./C++ function overloading! Why__files/navbit-home.png" alt="Home" title="Home"></a></li>
+		
+	<li class="navbit"><a href="https://ubuntuforums.org/index.php?s=8824619ab18218b4100726fe4346b134">Forum</a></li>
+
+	<li class="navbit"><a href="https://ubuntuforums.org/forumdisplay.php?f=130&amp;s=8824619ab18218b4100726fe4346b134">The Ubuntu Forum Community</a></li>
+
+	<li class="navbit"><a href="https://ubuntuforums.org/forumdisplay.php?f=125&amp;s=8824619ab18218b4100726fe4346b134">Ubuntu Specialised Support</a></li>
+
+	<li class="navbit"><a href="https://ubuntuforums.org/forumdisplay.php?f=310&amp;s=8824619ab18218b4100726fe4346b134">Development &amp; Programming</a></li>
+
+	<li class="navbit"><a href="https://ubuntuforums.org/forumdisplay.php?f=39&amp;s=8824619ab18218b4100726fe4346b134">Programming Talk</a></li>
+
+		
+	<li class="navbit lastnavbit"><span> C++ function overloading!  Why?</span></li>
+
+	</ul>
+	<hr>
+</div>
+
+
+
+
+
+
+
+
+
+	<div id="above_postlist" class="above_postlist">
+		
+		<div id="pagination_top" class="pagination_top">
+		
+			<div id="postpagestats_above" class="postpagestats">
+				Results 1 to 10 of 10
+			</div>
+		</div>
+	</div>
+	<div id="pagetitle" class="pagetitle">
+		<h1>
+			Thread: <span class="threadtitle"><a href="https://ubuntuforums.org/showthread.php?t=108235&amp;s=8824619ab18218b4100726fe4346b134" title="Reload this Page">C++ function overloading!  Why?</a></span>
+		</h1>
+		
+			
+<span id="fb-root"></span>
+<script type="text/javascript" src="./C++ function overloading! Why__files/all.js.download"></script>
+
+<fb:like href="https://ubuntuforums.org/showthread.php?t=108235" font="tahoma" layout="standard" show_faces="false" width="260" action="like" colorscheme="light"></fb:like>
+		
+	</div>
+	<div id="thread_controls" class="thread_controls toolsmenu">
+		<div>
+		<ul id="postlist_popups" class="postlist_popups popupgroup">
+			
+			
+			<li class="popupmenu" id="threadtools">
+				<h6><a class="popupctrl" href="javascript://" id="yui-gen13">Thread Tools</a></h6>
+				<ul class="popupbody" id="yui-gen12">
+					<li><a href="https://ubuntuforums.org/printthread.php?s=8824619ab18218b4100726fe4346b134&amp;t=108235&amp;pp=10&amp;page=1" accesskey="3" rel="nofollow">Show Printable Version</a></li>
+					
+					<li>
+						
+							<a href="https://ubuntuforums.org/subscription.php?s=8824619ab18218b4100726fe4346b134&amp;do=addsubscription&amp;t=108235" rel="nofollow">Subscribe to this Thread…</a>
+						
+					</li>
+					
+
+						
+					
+				</ul>
+			</li>
+
+			
+
+			
+
+			
+
+			
+				<li class="popupmenu" id="displaymodes">
+					<h6><a class="popupctrl" href="javascript://" id="yui-gen15">Display</a></h6>
+					<ul class="popupbody" id="yui-gen14">
+						<li><label>Linear Mode</label></li>
+						<li><a href="https://ubuntuforums.org/showthread.php?t=108235&amp;s=8824619ab18218b4100726fe4346b134&amp;mode=hybrid"> Switch to Hybrid Mode</a></li>
+						<li><a href="https://ubuntuforums.org/showthread.php?t=108235&amp;s=8824619ab18218b4100726fe4346b134&amp;p=603264&amp;mode=threaded#post603264"> Switch to Threaded Mode</a></li>
+					</ul>
+				</li>
+			
+
+			
+			</ul>
+		</div>
+	</div>
+
+<div id="postlist" class="postlist restrain">
+	
+
+	
+		<ol id="posts" class="posts" start="1">
+			
+<li class="postbit postbitim postcontainer old" id="post_603264">
+	<div class="postdetails_noavatar">
+		<div class="posthead">
+                        
+                                <span class="postdate old">
+                                        
+                                                <span class="date">December 25th, 2005</span>
+                                        
+                                </span>
+                                <span class="nodecontrols">
+                                        
+                                                <a name="post603264" href="https://ubuntuforums.org/showthread.php?t=108235&amp;s=8824619ab18218b4100726fe4346b134&amp;p=603264#post603264" class="postcounter">#1</a><a id="postcount603264" name="1"></a>
+                                        
+                                        
+                                        
+                                </span>
+                        
+		</div>
+
+		<div class="userinfo">
+			<div class="contact">
+				
+					<a class="postuseravatarlink" href="https://ubuntuforums.org/member.php?u=60254&amp;s=8824619ab18218b4100726fe4346b134" title="nami is offline">
+						
+							<img src="./C++ function overloading! Why__files/avatar60254_3.gif" alt="nami&#39;s Avatar" title="nami&#39;s Avatar">
+						
+					</a>
+				
+				<div class="username_container">
+					
+						<div class="popupmenu memberaction" id="yui-gen16">
+	<a class="username offline popupctrl" href="https://ubuntuforums.org/member.php?u=60254&amp;s=8824619ab18218b4100726fe4346b134" title="nami is offline" id="yui-gen18"><strong><span style="color: #000000;">nami</span></strong></a>
+	<ul class="popupbody memberaction_body" id="yui-gen17">
+		<li class="left">
+			<a href="https://ubuntuforums.org/member.php?u=60254&amp;s=8824619ab18218b4100726fe4346b134" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="https://ubuntuforums.org/search.php?s=8824619ab18218b4100726fe4346b134&amp;do=finduser&amp;userid=60254&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		<li class="left">
+			<a href="https://ubuntuforums.org/private.php?s=8824619ab18218b4100726fe4346b134&amp;do=newpm&amp;u=60254" class="siteicon_message" rel="nofollow">
+				Private Message
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./C++ function overloading! Why__files/user-offline.png" alt="nami is offline" border="0" title="nami is offline">
+
+					
+					<span class="usertitle">
+						Skinny Soy Caramel Ubuntu
+					</span>
+					
+						<span class="rank"><img src="./C++ function overloading! Why__files/rank_21.png" alt="" border=""></span>
+					
+
+                                        
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Join Date</dt> <dd>Dec 2005</dd>
+						
+						
+						<!-- <dt>Beans</dt> <dd>622</dd>	 -->
+<dt>Beans</dt><dd>Hidden!</dd><dd>
+
+
+                                                 
+						
+					</dd></dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+
+	<div class="postbody">
+		
+		<div class="postrow">
+		
+		<h2 class="posttitle icon">
+			C++ function overloading!  Why?
+		</h2>
+		
+				
+					
+					
+				
+				
+		<div class="content">
+			<div id="post_message_603264">
+				<blockquote class="postcontent restore">
+					Hi<br>
+<br>
+I'm a Linux noobi and a C++ noobi too!!!<br>
+<br>
+I'm currently learning about "function overloading".  The reason why I'm posting here is because I don't understand the purpose of "function overloading".  The book I am learning from has provided the following example of "function overloading"<br>
+<br>
+[C++ Code using function overloading]<br>
+<div class="bbcode_container">
+	<div class="bbcode_description">PHP Code:</div>
+	<div class="bbcode_code" style="height:372px;"><code><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #FF8000">#include&nbsp;&lt;iomanip&gt;
+<br>#include&nbsp;&lt;iostream&gt;
+<br></span><span style="color: #0000BB">using&nbsp;</span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">std</span><span style="color: #007700">;
+<br>
+<br></span><span style="color: #0000BB">void&nbsp;FtoC</span><span style="color: #007700">(</span><span style="color: #0000BB">int&nbsp;temp</span><span style="color: #007700">);
+<br></span><span style="color: #0000BB">void&nbsp;FtoC</span><span style="color: #007700">(</span><span style="color: #0000BB">float&nbsp;temp</span><span style="color: #007700">);
+<br></span><span style="color: #0000BB">void&nbsp;FtoC</span><span style="color: #007700">(</span><span style="color: #0000BB">double&nbsp;temp</span><span style="color: #007700">);
+<br>
+<br></span><span style="color: #0000BB">int&nbsp;main</span><span style="color: #007700">()
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">int&nbsp;itemp</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">level</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">float&nbsp;ftemp</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">double&nbsp;dtemp</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"CONVERTING&nbsp;FAHRENHEIT&nbsp;TO&nbsp;CELSIUS\n"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"Select&nbsp;required&nbsp;level&nbsp;of&nbsp;precision\n"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"Integer&nbsp;(1)&nbsp;-&nbsp;Float&nbsp;(2)&nbsp;-&nbsp;Double&nbsp;(3)\n"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cin&nbsp;</span><span style="color: #007700">&gt;&gt;&nbsp;</span><span style="color: #0000BB">level</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"Enter&nbsp;Fahrenheit&nbsp;temperature:&nbsp;"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;switch&nbsp;(</span><span style="color: #0000BB">level</span><span style="color: #007700">)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">cin&nbsp;</span><span style="color: #007700">&gt;&gt;&nbsp;</span><span style="color: #0000BB">itemp</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">FtoC</span><span style="color: #007700">(</span><span style="color: #0000BB">itemp</span><span style="color: #007700">);&nbsp;break;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">2&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">cin&nbsp;</span><span style="color: #007700">&gt;&gt;&nbsp;</span><span style="color: #0000BB">ftemp</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">FtoC</span><span style="color: #007700">(</span><span style="color: #0000BB">ftemp</span><span style="color: #007700">);&nbsp;break;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">3&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">cin&nbsp;</span><span style="color: #007700">&gt;&gt;&nbsp;</span><span style="color: #0000BB">dtemp</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">FtoC</span><span style="color: #007700">(</span><span style="color: #0000BB">dtemp</span><span style="color: #007700">);&nbsp;break;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;:&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"Invalid&nbsp;selection\n"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;
+<br>}
+<br>
+<br></span><span style="color: #0000BB">void&nbsp;FtoC</span><span style="color: #007700">(</span><span style="color: #0000BB">int&nbsp;itemp</span><span style="color: #007700">)
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">int&nbsp;temp&nbsp;</span><span style="color: #007700">=&nbsp;(</span><span style="color: #0000BB">itemp&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">32</span><span style="color: #007700">)&nbsp;*&nbsp;</span><span style="color: #0000BB">5&nbsp;</span><span style="color: #007700">/&nbsp;</span><span style="color: #0000BB">9</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"Integer&nbsp;precision:&nbsp;"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #0000BB">itemp&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"F&nbsp;is&nbsp;"&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #0000BB">temp&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"C\n"</span><span style="color: #007700">;
+<br>}
+<br>
+<br></span><span style="color: #0000BB">void&nbsp;FtoC</span><span style="color: #007700">(</span><span style="color: #0000BB">float&nbsp;ftemp</span><span style="color: #007700">)
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">float&nbsp;temp&nbsp;</span><span style="color: #007700">=&nbsp;(</span><span style="color: #0000BB">ftemp&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">32</span><span style="color: #007700">)&nbsp;*&nbsp;</span><span style="color: #0000BB">5.&nbsp;</span><span style="color: #007700">/&nbsp;</span><span style="color: #0000BB">9.</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #0000BB">setprecision</span><span style="color: #007700">(</span><span style="color: #0000BB">8</span><span style="color: #007700">)&nbsp;&lt;&lt;&nbsp;</span><span style="color: #DD0000">"Float&nbsp;precision:&nbsp;"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #0000BB">ftemp&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"F&nbsp;is&nbsp;"&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #0000BB">temp&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"C\n"</span><span style="color: #007700">;
+<br>}
+<br>
+<br></span><span style="color: #0000BB">void&nbsp;FtoC</span><span style="color: #007700">(</span><span style="color: #0000BB">double&nbsp;dtemp</span><span style="color: #007700">)
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">double&nbsp;temp&nbsp;</span><span style="color: #007700">=&nbsp;(</span><span style="color: #0000BB">dtemp&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">32</span><span style="color: #007700">)&nbsp;*&nbsp;</span><span style="color: #0000BB">5.&nbsp;</span><span style="color: #007700">/&nbsp;</span><span style="color: #0000BB">9.</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #0000BB">setprecision</span><span style="color: #007700">(</span><span style="color: #0000BB">12</span><span style="color: #007700">)&nbsp;&lt;&lt;&nbsp;</span><span style="color: #DD0000">"Double&nbsp;precision:&nbsp;"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #0000BB">dtemp&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"F&nbsp;is&nbsp;"&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #0000BB">temp&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"C\n"</span><span style="color: #007700">;
+<br>}&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code></code></div>
+</div>[/C++ Code]<br>
+<br>
+The code below does exactly the same thing as the code above, but is not using "function overloading"<br>
+<br>
+[C++ Code without function overloading]<br>
+<div class="bbcode_container">
+	<div class="bbcode_description">PHP Code:</div>
+	<div class="bbcode_code" style="height:372px;"><code><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #FF8000">#include&nbsp;&lt;iomanip&gt;
+<br>#include&nbsp;&lt;iostream&gt;
+<br></span><span style="color: #0000BB">using&nbsp;</span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">std</span><span style="color: #007700">;
+<br>
+<br></span><span style="color: #0000BB">void&nbsp;FtoCint</span><span style="color: #007700">(</span><span style="color: #0000BB">int&nbsp;temp</span><span style="color: #007700">);
+<br></span><span style="color: #0000BB">void&nbsp;FtoCfloat</span><span style="color: #007700">(</span><span style="color: #0000BB">float&nbsp;temp</span><span style="color: #007700">);
+<br></span><span style="color: #0000BB">void&nbsp;FtoCdouble</span><span style="color: #007700">(</span><span style="color: #0000BB">double&nbsp;temp</span><span style="color: #007700">);
+<br>
+<br></span><span style="color: #0000BB">int&nbsp;main</span><span style="color: #007700">()
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">int&nbsp;itemp</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">level</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">float&nbsp;ftemp</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">double&nbsp;dtemp</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"CONVERTING&nbsp;FAHRENHEIT&nbsp;TO&nbsp;CELSIUS\n"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"Select&nbsp;required&nbsp;level&nbsp;of&nbsp;precision\n"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"Integer&nbsp;(1)&nbsp;-&nbsp;Float&nbsp;(2)&nbsp;-&nbsp;Double&nbsp;(3)\n"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cin&nbsp;</span><span style="color: #007700">&gt;&gt;&nbsp;</span><span style="color: #0000BB">level</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"Enter&nbsp;Fahrenheit&nbsp;temperature:&nbsp;"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;switch&nbsp;(</span><span style="color: #0000BB">level</span><span style="color: #007700">)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">cin&nbsp;</span><span style="color: #007700">&gt;&gt;&nbsp;</span><span style="color: #0000BB">itemp</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">FtoCint</span><span style="color: #007700">(</span><span style="color: #0000BB">itemp</span><span style="color: #007700">);&nbsp;break;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">2&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">cin&nbsp;</span><span style="color: #007700">&gt;&gt;&nbsp;</span><span style="color: #0000BB">ftemp</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">FtoCfloat</span><span style="color: #007700">(</span><span style="color: #0000BB">ftemp</span><span style="color: #007700">);&nbsp;break;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">3&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">cin&nbsp;</span><span style="color: #007700">&gt;&gt;&nbsp;</span><span style="color: #0000BB">dtemp</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">FtoCdouble</span><span style="color: #007700">(</span><span style="color: #0000BB">dtemp</span><span style="color: #007700">);&nbsp;break;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;:&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"Invalid&nbsp;selection\n"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;
+<br>}
+<br>
+<br></span><span style="color: #0000BB">void&nbsp;FtoCint</span><span style="color: #007700">(</span><span style="color: #0000BB">int&nbsp;itemp</span><span style="color: #007700">)
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">int&nbsp;temp&nbsp;</span><span style="color: #007700">=&nbsp;(</span><span style="color: #0000BB">itemp&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">32</span><span style="color: #007700">)&nbsp;*&nbsp;</span><span style="color: #0000BB">5&nbsp;</span><span style="color: #007700">/&nbsp;</span><span style="color: #0000BB">9</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"Integer&nbsp;precision:&nbsp;"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #0000BB">itemp&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"F&nbsp;is&nbsp;"&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #0000BB">temp&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"C\n"</span><span style="color: #007700">;
+<br>}
+<br>
+<br></span><span style="color: #0000BB">void&nbsp;FtoCfloat</span><span style="color: #007700">(</span><span style="color: #0000BB">float&nbsp;ftemp</span><span style="color: #007700">)
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">float&nbsp;temp&nbsp;</span><span style="color: #007700">=&nbsp;(</span><span style="color: #0000BB">ftemp&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">32</span><span style="color: #007700">)&nbsp;*&nbsp;</span><span style="color: #0000BB">5.&nbsp;</span><span style="color: #007700">/&nbsp;</span><span style="color: #0000BB">9.</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #0000BB">setprecision</span><span style="color: #007700">(</span><span style="color: #0000BB">8</span><span style="color: #007700">)&nbsp;&lt;&lt;&nbsp;</span><span style="color: #DD0000">"Float&nbsp;precision:&nbsp;"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #0000BB">ftemp&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"F&nbsp;is&nbsp;"&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #0000BB">temp&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"C\n"</span><span style="color: #007700">;
+<br>}
+<br>
+<br></span><span style="color: #0000BB">void&nbsp;FtoCdouble</span><span style="color: #007700">(</span><span style="color: #0000BB">double&nbsp;dtemp</span><span style="color: #007700">)
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">double&nbsp;temp&nbsp;</span><span style="color: #007700">=&nbsp;(</span><span style="color: #0000BB">dtemp&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">32</span><span style="color: #007700">)&nbsp;*&nbsp;</span><span style="color: #0000BB">5.&nbsp;</span><span style="color: #007700">/&nbsp;</span><span style="color: #0000BB">9.</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #0000BB">setprecision</span><span style="color: #007700">(</span><span style="color: #0000BB">12</span><span style="color: #007700">)&nbsp;&lt;&lt;&nbsp;</span><span style="color: #DD0000">"Double&nbsp;precision:&nbsp;"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cout&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #0000BB">dtemp&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"F&nbsp;is&nbsp;"&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #0000BB">temp&nbsp;</span><span style="color: #007700">&lt;&lt;&nbsp;</span><span style="color: #DD0000">"C\n"</span><span style="color: #007700">;
+<br>}&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code></code></div>
+</div>[/C++ Code]<br>
+<br>
+So, what's the purpose of "function overloading"?<br>
+<br>
+Appreciate any answers.<br>
+<br>
+nami.
+				</blockquote>
+			</div>
+
+			
+
+
+		</div>
+			
+				
+			
+				
+			
+			
+			
+		</div>
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols floatcontainer">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_603264" src="./C++ function overloading! Why__files/progress.gif" alt="">
+				
+				
+<!-- added advance reply -->
+                    
+                        <a class="quickreply" href="https://ubuntuforums.org/newreply.php?s=8824619ab18218b4100726fe4346b134&amp;p=603264&amp;noquote=1" rel="nofollow"><img id="replyimg_603264" src="./C++ function overloading! Why__files/clear.gif" alt="Advanced reply" title="Advanced reply"> Adv Reply</a>
+                        <span class="seperator">&nbsp;</span>
+                    
+<!-- end added advance reply -->
+<!-- the next id was qrwq_603264 -->
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+
+					
+
+					
+					 
+
+					
+					
+					
+					
+					
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_603286">
+	<div class="postdetails_noavatar">
+		<div class="posthead">
+                        
+                                <span class="postdate old">
+                                        
+                                                <span class="date">December 25th, 2005</span>
+                                        
+                                </span>
+                                <span class="nodecontrols">
+                                        
+                                                <a name="post603286" href="https://ubuntuforums.org/showthread.php?t=108235&amp;s=8824619ab18218b4100726fe4346b134&amp;p=603286#post603286" class="postcounter">#2</a><a id="postcount603286" name="2"></a>
+                                        
+                                        
+                                        
+                                </span>
+                        
+		</div>
+
+		<div class="userinfo">
+			<div class="contact">
+				
+					<a class="postuseravatarlink" href="https://ubuntuforums.org/member.php?u=17171&amp;s=8824619ab18218b4100726fe4346b134" title="Mike Buksas is offline">
+						
+							<img src="./C++ function overloading! Why__files/avatar17171_2.gif" alt="Mike Buksas&#39;s Avatar" title="Mike Buksas&#39;s Avatar">
+						
+					</a>
+				
+				<div class="username_container">
+					
+						<div class="popupmenu memberaction" id="yui-gen19">
+	<a class="username offline popupctrl" href="https://ubuntuforums.org/member.php?u=17171&amp;s=8824619ab18218b4100726fe4346b134" title="Mike Buksas is offline" id="yui-gen21"><strong><span style="color: #000000;">Mike Buksas</span></strong></a>
+	<ul class="popupbody memberaction_body" id="yui-gen20">
+		<li class="left">
+			<a href="https://ubuntuforums.org/member.php?u=17171&amp;s=8824619ab18218b4100726fe4346b134" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="https://ubuntuforums.org/search.php?s=8824619ab18218b4100726fe4346b134&amp;do=finduser&amp;userid=17171&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		<li class="left">
+			<a href="https://ubuntuforums.org/private.php?s=8824619ab18218b4100726fe4346b134&amp;do=newpm&amp;u=17171" class="siteicon_message" rel="nofollow">
+				Private Message
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		<li class="left">
+			<a href="http://localextrema.blogspot.com/" class="siteicon_homepage">
+				Visit Homepage
+			</a>
+		</li>
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./C++ function overloading! Why__files/user-offline.png" alt="Mike Buksas is offline" border="0" title="Mike Buksas is offline">
+
+					
+					<span class="usertitle">
+						Just Give Me the Beans!
+					</span>
+					
+						<span class="rank"><img src="./C++ function overloading! Why__files/rank_3.png" alt="" border=""></span>
+					
+
+                                        
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Join Date</dt> <dd>Apr 2005</dd>
+						<dt>Location</dt> <dd>Los Alamos, New Mexico</dd>
+						
+						<!-- <dt>Beans</dt> <dd>49</dd>	 -->
+<dt>Beans</dt> <dd>49</dd>
+
+                                                 <dt>Distro</dt><dd>Lubuntu</dd>
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+
+	<div class="postbody">
+		
+		<div class="postrow">
+		
+		<h2 class="posttitle icon">
+			Re: C++ function overloading!  Why?
+		</h2>
+		
+				
+				
+		<div class="content">
+			<div id="post_message_603286">
+				<blockquote class="postcontent restore">
+					Hi nami,<br>
+<br>
+Function overloading is basically syntactic sugar. It tastes kinda good, as long as you don't over do it! As you've discovered, you can't do anything with it that you cannot do with non-overloaded functions, as in your example. <br>
+<br>
+One of it's goals it to reduce the memory load on programmers. The three functions in your example all do the same thing. By using an overloaded function, the programmer does not need to remember three versions of the function. Instead, you remember one and let the compiler figure out the tedius detail of which one to call, as determined by the type of the argument.  This also lets the programmer work at a higher level of abstraction. You can worry more about the big picture, and less about the details.<br>
+<br>
+That said, function overloading can be bad for you if not used properly. For example, your FtoC functions <i>should</i> all do the same thing. What if one of them doesn't. It would be bizarre indeed if you got very different behavior from two functions with the same name, but function overloading lets you do exactly that. Also too much function overloading can make understanding code harder. The rules that the C++ compiler must follow to figure out exactly which overloaded version of a function to call are quite complicated in some situations. It can be hard for a person reading the code to figure out which function get's called.<br>
+<br>
+In short, it's a way to make your code cleaner, and easier to understand, but can cause more problems than it solves if overused or misused.<br>
+<br>
+Hope this helps,<br>
+Mike
+				</blockquote>
+			</div>
+
+			
+
+
+		</div>
+			
+				
+			
+			
+				<blockquote class="signature restore"><div class="signaturecontainer">Other every in word signature this, the except one last, been has exchanged.</div></blockquote>
+			
+			
+		</div>
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols floatcontainer">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_603286" src="./C++ function overloading! Why__files/progress.gif" alt="">
+				
+				
+<!-- added advance reply -->
+                    
+                        <a class="quickreply" href="https://ubuntuforums.org/newreply.php?s=8824619ab18218b4100726fe4346b134&amp;p=603286&amp;noquote=1" rel="nofollow"><img id="replyimg_603286" src="./C++ function overloading! Why__files/clear.gif" alt="Advanced reply" title="Advanced reply"> Adv Reply</a>
+                        <span class="seperator">&nbsp;</span>
+                    
+<!-- end added advance reply -->
+<!-- the next id was qrwq_603286 -->
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+
+					
+
+					
+					 
+
+					
+					
+					
+					
+					
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_603320">
+	<div class="postdetails_noavatar">
+		<div class="posthead">
+                        
+                                <span class="postdate old">
+                                        
+                                                <span class="date">December 25th, 2005</span>
+                                        
+                                </span>
+                                <span class="nodecontrols">
+                                        
+                                                <a name="post603320" href="https://ubuntuforums.org/showthread.php?t=108235&amp;s=8824619ab18218b4100726fe4346b134&amp;p=603320#post603320" class="postcounter">#3</a><a id="postcount603320" name="3"></a>
+                                        
+                                        
+                                        
+                                </span>
+                        
+		</div>
+
+		<div class="userinfo">
+			<div class="contact">
+				
+					<a class="postuseravatarlink" href="https://ubuntuforums.org/member.php?u=60254&amp;s=8824619ab18218b4100726fe4346b134" title="nami is offline">
+						
+							<img src="./C++ function overloading! Why__files/avatar60254_3.gif" alt="nami&#39;s Avatar" title="nami&#39;s Avatar">
+						
+					</a>
+				
+				<div class="username_container">
+					
+						<div class="popupmenu memberaction" id="yui-gen22">
+	<a class="username offline popupctrl" href="https://ubuntuforums.org/member.php?u=60254&amp;s=8824619ab18218b4100726fe4346b134" title="nami is offline" id="yui-gen24"><strong><span style="color: #000000;">nami</span></strong></a>
+	<ul class="popupbody memberaction_body" id="yui-gen23">
+		<li class="left">
+			<a href="https://ubuntuforums.org/member.php?u=60254&amp;s=8824619ab18218b4100726fe4346b134" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="https://ubuntuforums.org/search.php?s=8824619ab18218b4100726fe4346b134&amp;do=finduser&amp;userid=60254&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		<li class="left">
+			<a href="https://ubuntuforums.org/private.php?s=8824619ab18218b4100726fe4346b134&amp;do=newpm&amp;u=60254" class="siteicon_message" rel="nofollow">
+				Private Message
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./C++ function overloading! Why__files/user-offline.png" alt="nami is offline" border="0" title="nami is offline">
+
+					
+					<span class="usertitle">
+						Skinny Soy Caramel Ubuntu
+					</span>
+					
+						<span class="rank"><img src="./C++ function overloading! Why__files/rank_21.png" alt="" border=""></span>
+					
+
+                                        
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Join Date</dt> <dd>Dec 2005</dd>
+						
+						
+						<!-- <dt>Beans</dt> <dd>622</dd>	 -->
+<dt>Beans</dt><dd>Hidden!</dd><dd>
+
+
+                                                 
+						
+					</dd></dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+
+	<div class="postbody">
+		
+		<div class="postrow">
+		
+		<h2 class="posttitle icon">
+			Re: C++ function overloading!  Why?
+		</h2>
+		
+				
+				
+		<div class="content">
+			<div id="post_message_603320">
+				<blockquote class="postcontent restore">
+					Thanks Mike Buksas,<br>
+<br>
+That cleared things up nicely!<br>
+<br>
+Just 1 question.  You said that the compiler decides which function to use.  Does this mean that function overloading will use more processing power and memory than the an identical program with no function overloading?<br>
+<br>
+But thanks for the detailed explaination.  I had to post the question because I hate moving on when I don't understand something! <img src="./C++ function overloading! Why__files/icon_smile.gif" border="0" alt="" title="Smile" class="inlineimg"><br>
+<br>
+nami
+				</blockquote>
+			</div>
+
+			
+
+
+		</div>
+			
+				
+			
+			
+			
+		</div>
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols floatcontainer">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_603320" src="./C++ function overloading! Why__files/progress.gif" alt="">
+				
+				
+<!-- added advance reply -->
+                    
+                        <a class="quickreply" href="https://ubuntuforums.org/newreply.php?s=8824619ab18218b4100726fe4346b134&amp;p=603320&amp;noquote=1" rel="nofollow"><img id="replyimg_603320" src="./C++ function overloading! Why__files/clear.gif" alt="Advanced reply" title="Advanced reply"> Adv Reply</a>
+                        <span class="seperator">&nbsp;</span>
+                    
+<!-- end added advance reply -->
+<!-- the next id was qrwq_603320 -->
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+
+					
+
+					
+					 
+
+					
+					
+					
+					
+					
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_603470">
+	<div class="postdetails_noavatar">
+		<div class="posthead">
+                        
+                                <span class="postdate old">
+                                        
+                                                <span class="date">December 25th, 2005</span>
+                                        
+                                </span>
+                                <span class="nodecontrols">
+                                        
+                                                <a name="post603470" href="https://ubuntuforums.org/showthread.php?t=108235&amp;s=8824619ab18218b4100726fe4346b134&amp;p=603470#post603470" class="postcounter">#4</a><a id="postcount603470" name="4"></a>
+                                        
+                                        
+                                        
+                                </span>
+                        
+		</div>
+
+		<div class="userinfo">
+			<div class="contact">
+				
+					<a class="postuseravatarlink" href="https://ubuntuforums.org/member.php?u=17171&amp;s=8824619ab18218b4100726fe4346b134" title="Mike Buksas is offline">
+						
+							<img src="./C++ function overloading! Why__files/avatar17171_2.gif" alt="Mike Buksas&#39;s Avatar" title="Mike Buksas&#39;s Avatar">
+						
+					</a>
+				
+				<div class="username_container">
+					
+						<div class="popupmenu memberaction" id="yui-gen25">
+	<a class="username offline popupctrl" href="https://ubuntuforums.org/member.php?u=17171&amp;s=8824619ab18218b4100726fe4346b134" title="Mike Buksas is offline" id="yui-gen27"><strong><span style="color: #000000;">Mike Buksas</span></strong></a>
+	<ul class="popupbody memberaction_body" id="yui-gen26">
+		<li class="left">
+			<a href="https://ubuntuforums.org/member.php?u=17171&amp;s=8824619ab18218b4100726fe4346b134" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="https://ubuntuforums.org/search.php?s=8824619ab18218b4100726fe4346b134&amp;do=finduser&amp;userid=17171&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		<li class="left">
+			<a href="https://ubuntuforums.org/private.php?s=8824619ab18218b4100726fe4346b134&amp;do=newpm&amp;u=17171" class="siteicon_message" rel="nofollow">
+				Private Message
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		<li class="left">
+			<a href="http://localextrema.blogspot.com/" class="siteicon_homepage">
+				Visit Homepage
+			</a>
+		</li>
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./C++ function overloading! Why__files/user-offline.png" alt="Mike Buksas is offline" border="0" title="Mike Buksas is offline">
+
+					
+					<span class="usertitle">
+						Just Give Me the Beans!
+					</span>
+					
+						<span class="rank"><img src="./C++ function overloading! Why__files/rank_3.png" alt="" border=""></span>
+					
+
+                                        
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Join Date</dt> <dd>Apr 2005</dd>
+						<dt>Location</dt> <dd>Los Alamos, New Mexico</dd>
+						
+						<!-- <dt>Beans</dt> <dd>49</dd>	 -->
+<dt>Beans</dt> <dd>49</dd>
+
+                                                 <dt>Distro</dt><dd>Lubuntu</dd>
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+
+	<div class="postbody">
+		
+		<div class="postrow">
+		
+		<h2 class="posttitle icon">
+			Re: C++ function overloading!  Why?
+		</h2>
+		
+				
+				
+		<div class="content">
+			<div id="post_message_603470">
+				<blockquote class="postcontent restore">
+					The compiler has to do a little more work when compiling the code, but the resulting code will be just as efficient as code without function overloading.<br>
+<br>
+It might help to have a little background into what the compiler does with overloaded functions. Internally, it combines the name of the function with the types of the arguments (e.g. double, float and int in your example) to create a unique name for each function. Once the compiler determines which version of a function is being called, it binds the function call to one of the unique internal versions of the function when it creates your program. Hence, it doesn't need to figure out which function to call when the program is being run.<br>
+<br>
+The process of making unique names for functions is called "name mangling" because the resulting names are not designed to be read by people. Check the man page for command 'nm' if you want to get a look at what the internal names are like.<br>
+<br>
+Glad I could help,<br>
+Mike
+				</blockquote>
+			</div>
+
+			
+
+
+		</div>
+			
+				
+			
+			
+				<blockquote class="signature restore"><div class="signaturecontainer">Other every in word signature this, the except one last, been has exchanged.</div></blockquote>
+			
+			
+		</div>
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols floatcontainer">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_603470" src="./C++ function overloading! Why__files/progress.gif" alt="">
+				
+				
+<!-- added advance reply -->
+                    
+                        <a class="quickreply" href="https://ubuntuforums.org/newreply.php?s=8824619ab18218b4100726fe4346b134&amp;p=603470&amp;noquote=1" rel="nofollow"><img id="replyimg_603470" src="./C++ function overloading! Why__files/clear.gif" alt="Advanced reply" title="Advanced reply"> Adv Reply</a>
+                        <span class="seperator">&nbsp;</span>
+                    
+<!-- end added advance reply -->
+<!-- the next id was qrwq_603470 -->
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+
+					
+
+					
+					 
+
+					
+					
+					
+					
+					
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_603624">
+	<div class="postdetails_noavatar">
+		<div class="posthead">
+                        
+                                <span class="postdate old">
+                                        
+                                                <span class="date">December 26th, 2005</span>
+                                        
+                                </span>
+                                <span class="nodecontrols">
+                                        
+                                                <a name="post603624" href="https://ubuntuforums.org/showthread.php?t=108235&amp;s=8824619ab18218b4100726fe4346b134&amp;p=603624#post603624" class="postcounter">#5</a><a id="postcount603624" name="5"></a>
+                                        
+                                        
+                                        
+                                </span>
+                        
+		</div>
+
+		<div class="userinfo_noavatar">
+			<div class="contact">
+				
+				<div class="username_container">
+					
+						<div class="popupmenu memberaction" id="yui-gen28">
+	<a class="username offline popupctrl" href="https://ubuntuforums.org/member.php?u=2059&amp;s=8824619ab18218b4100726fe4346b134" title="LordHunter317 is offline" id="yui-gen30"><strong><span style="color: #000000;">LordHunter317</span></strong></a>
+	<ul class="popupbody memberaction_body" id="yui-gen29">
+		<li class="left">
+			<a href="https://ubuntuforums.org/member.php?u=2059&amp;s=8824619ab18218b4100726fe4346b134" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="https://ubuntuforums.org/search.php?s=8824619ab18218b4100726fe4346b134&amp;do=finduser&amp;userid=2059&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		<li class="left">
+			<a href="https://ubuntuforums.org/private.php?s=8824619ab18218b4100726fe4346b134&amp;do=newpm&amp;u=2059" class="siteicon_message" rel="nofollow">
+				Private Message
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./C++ function overloading! Why__files/user-offline.png" alt="LordHunter317 is offline" border="0" title="LordHunter317 is offline">
+
+					
+					<span class="usertitle">
+						I Ubuntu, Therefore, I Am
+					</span>
+					
+						<span class="rank"><img src="./C++ function overloading! Why__files/rank_24.png" alt="" border=""></span>
+					
+
+                                        
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Join Date</dt> <dd>Nov 2004</dd>
+						
+						
+						<!-- <dt>Beans</dt> <dd>2,614</dd>	 -->
+<dt>Beans</dt> <dd>2,614</dd>
+
+                                                 
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+
+	<div class="postbody">
+		
+		<div class="postrow">
+		
+		<h2 class="posttitle icon">
+			Re: C++ function overloading!  Why?
+		</h2>
+		
+				
+				
+		<div class="content">
+			<div id="post_message_603624">
+				<blockquote class="postcontent restore">
+					<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			<div class="bbcode_quote_container"></div>
+			
+				<div class="bbcode_postedby">
+					<img src="./C++ function overloading! Why__files/quote_icon.png" alt="Quote" title="Quote"> Originally Posted by <strong>Mike Buksas</strong>
+					
+				</div>
+				<div class="message">As you've discovered, you can't do anything with it that you cannot do with non-overloaded functions, as in your example.</div>
+			
+		</div>
+	</div>
+</div>That's not quite true, in general terms.  Templates are a fancier form of function overloading (among other things) and they allow you to do something non-overloaded functions do not: use the same source regardless of type.<br>
+<br>
+<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			<div class="bbcode_quote_container"></div>
+			
+				Also too much function overloading can make understanding code harder.
+			
+		</div>
+	</div>
+</div>I don't see how that is.<br>
+<br>
+<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			<div class="bbcode_quote_container"></div>
+			
+				 The rules that the C++ compiler must follow to figure out exactly which overloaded version of a function to call are quite complicated in some situations.
+			
+		</div>
+	</div>
+</div>Not especially so.  At any rate, you have to be aware of the rules all the time <i>anyway</i> so this isn't a valid reason to avoid them.
+				</blockquote>
+			</div>
+
+			
+
+
+		</div>
+			
+				
+			
+			
+			
+		</div>
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols floatcontainer">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_603624" src="./C++ function overloading! Why__files/progress.gif" alt="">
+				
+				
+<!-- added advance reply -->
+                    
+                        <a class="quickreply" href="https://ubuntuforums.org/newreply.php?s=8824619ab18218b4100726fe4346b134&amp;p=603624&amp;noquote=1" rel="nofollow"><img id="replyimg_603624" src="./C++ function overloading! Why__files/clear.gif" alt="Advanced reply" title="Advanced reply"> Adv Reply</a>
+                        <span class="seperator">&nbsp;</span>
+                    
+<!-- end added advance reply -->
+<!-- the next id was qrwq_603624 -->
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+
+					
+
+					
+					 
+
+					
+					
+					
+					
+					
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_603735">
+	<div class="postdetails_noavatar">
+		<div class="posthead">
+                        
+                                <span class="postdate old">
+                                        
+                                                <span class="date">December 26th, 2005</span>
+                                        
+                                </span>
+                                <span class="nodecontrols">
+                                        
+                                                <a name="post603735" href="https://ubuntuforums.org/showthread.php?t=108235&amp;s=8824619ab18218b4100726fe4346b134&amp;p=603735#post603735" class="postcounter">#6</a><a id="postcount603735" name="6"></a>
+                                        
+                                        
+                                        
+                                </span>
+                        
+		</div>
+
+		<div class="userinfo">
+			<div class="contact">
+				
+					<a class="postuseravatarlink" href="https://ubuntuforums.org/member.php?u=17171&amp;s=8824619ab18218b4100726fe4346b134" title="Mike Buksas is offline">
+						
+							<img src="./C++ function overloading! Why__files/avatar17171_2.gif" alt="Mike Buksas&#39;s Avatar" title="Mike Buksas&#39;s Avatar">
+						
+					</a>
+				
+				<div class="username_container">
+					
+						<div class="popupmenu memberaction" id="yui-gen31">
+	<a class="username offline popupctrl" href="https://ubuntuforums.org/member.php?u=17171&amp;s=8824619ab18218b4100726fe4346b134" title="Mike Buksas is offline" id="yui-gen33"><strong><span style="color: #000000;">Mike Buksas</span></strong></a>
+	<ul class="popupbody memberaction_body" id="yui-gen32">
+		<li class="left">
+			<a href="https://ubuntuforums.org/member.php?u=17171&amp;s=8824619ab18218b4100726fe4346b134" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="https://ubuntuforums.org/search.php?s=8824619ab18218b4100726fe4346b134&amp;do=finduser&amp;userid=17171&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		<li class="left">
+			<a href="https://ubuntuforums.org/private.php?s=8824619ab18218b4100726fe4346b134&amp;do=newpm&amp;u=17171" class="siteicon_message" rel="nofollow">
+				Private Message
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		<li class="left">
+			<a href="http://localextrema.blogspot.com/" class="siteicon_homepage">
+				Visit Homepage
+			</a>
+		</li>
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./C++ function overloading! Why__files/user-offline.png" alt="Mike Buksas is offline" border="0" title="Mike Buksas is offline">
+
+					
+					<span class="usertitle">
+						Just Give Me the Beans!
+					</span>
+					
+						<span class="rank"><img src="./C++ function overloading! Why__files/rank_3.png" alt="" border=""></span>
+					
+
+                                        
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Join Date</dt> <dd>Apr 2005</dd>
+						<dt>Location</dt> <dd>Los Alamos, New Mexico</dd>
+						
+						<!-- <dt>Beans</dt> <dd>49</dd>	 -->
+<dt>Beans</dt> <dd>49</dd>
+
+                                                 <dt>Distro</dt><dd>Lubuntu</dd>
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+
+	<div class="postbody">
+		
+		<div class="postrow">
+		
+		<h2 class="posttitle icon">
+			Re: C++ function overloading!  Why?
+		</h2>
+		
+				
+				
+		<div class="content">
+			<div id="post_message_603735">
+				<blockquote class="postcontent restore">
+					<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			<div class="bbcode_quote_container"></div>
+			
+				<div class="bbcode_postedby">
+					<img src="./C++ function overloading! Why__files/quote_icon.png" alt="Quote" title="Quote"> Originally Posted by <strong>LordHunter317</strong>
+					
+				</div>
+				<div class="message">That's not quite true, in general terms.  Templates are a fancier form of function overloading (among other things) and they allow you to do something non-overloaded functions do not: use the same source regardless of type.</div>
+			
+		</div>
+	</div>
+</div>I think that's confusing the issue. Function templates and overloading are two different, but complimentary, things. The original question did not involve templates, so I didn't go there.<br>
+<br>
+<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			<div class="bbcode_quote_container"></div>
+			
+				<div class="bbcode_postedby">
+					<img src="./C++ function overloading! Why__files/quote_icon.png" alt="Quote" title="Quote"> Originally Posted by <strong>LordHunter317</strong>
+					
+				</div>
+				<div class="message">I don't see how that is.</div>
+			
+		</div>
+	</div>
+</div>I must have seen more poorly written C++ code than you have. Using an overloaded function instead of unique names removes information that could help somebody understand the code. It can also obscure significant differences in the behavior of functions that operate on different types. If somebody reads the code, they're going to think that since the functions have the same name, they're going to do the same thing, even if they don't.<br>
+<br>
+That said, judicious use of overloading can reduce the verbosity of function names and aid in understanding the code. It's all in how you use them.<br>
+<br>
+<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			<div class="bbcode_quote_container"></div>
+			
+				<div class="bbcode_postedby">
+					<img src="./C++ function overloading! Why__files/quote_icon.png" alt="Quote" title="Quote"> Originally Posted by <strong>LordHunter317</strong>
+					
+				</div>
+				<div class="message">Not especially so.  At any rate, you have to be aware of the rules all the time <i>anyway</i> so this isn't a valid reason to avoid them.</div>
+			
+		</div>
+	</div>
+</div>In a few situations, I think avoiding overloading is warranted, but not generally.  For example, the "overload resolution happens before protection resolution" rule is a killer. This is where one version of an overloaded function is a private class member and another is public. Someone attempting to use the public version can get a compiler error if the private version is a better match according to the rules of overload resoltion. Since a user may not even have access to the private parts of the class (e.g. the source code) this can be a real show stopper. In this case there is nothing to be gained by the overloading, and a lot of potential confusion to be created.<br>
+<br>
+So yea, it can be useful, but overdoing it is a recipie for heartache.<br>
+<br>
+Mike
+				</blockquote>
+			</div>
+
+			
+
+
+		</div>
+			
+				
+			
+			
+				<blockquote class="signature restore"><div class="signaturecontainer">Other every in word signature this, the except one last, been has exchanged.</div></blockquote>
+			
+			
+		</div>
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols floatcontainer">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_603735" src="./C++ function overloading! Why__files/progress.gif" alt="">
+				
+				
+<!-- added advance reply -->
+                    
+                        <a class="quickreply" href="https://ubuntuforums.org/newreply.php?s=8824619ab18218b4100726fe4346b134&amp;p=603735&amp;noquote=1" rel="nofollow"><img id="replyimg_603735" src="./C++ function overloading! Why__files/clear.gif" alt="Advanced reply" title="Advanced reply"> Adv Reply</a>
+                        <span class="seperator">&nbsp;</span>
+                    
+<!-- end added advance reply -->
+<!-- the next id was qrwq_603735 -->
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+
+					
+
+					
+					 
+
+					
+					
+					
+					
+					
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_603997">
+	<div class="postdetails_noavatar">
+		<div class="posthead">
+                        
+                                <span class="postdate old">
+                                        
+                                                <span class="date">December 26th, 2005</span>
+                                        
+                                </span>
+                                <span class="nodecontrols">
+                                        
+                                                <a name="post603997" href="https://ubuntuforums.org/showthread.php?t=108235&amp;s=8824619ab18218b4100726fe4346b134&amp;p=603997#post603997" class="postcounter">#7</a><a id="postcount603997" name="7"></a>
+                                        
+                                        
+                                        
+                                </span>
+                        
+		</div>
+
+		<div class="userinfo_noavatar">
+			<div class="contact">
+				
+				<div class="username_container">
+					
+						<div class="popupmenu memberaction" id="yui-gen34">
+	<a class="username offline popupctrl" href="https://ubuntuforums.org/member.php?u=2059&amp;s=8824619ab18218b4100726fe4346b134" title="LordHunter317 is offline" id="yui-gen36"><strong><span style="color: #000000;">LordHunter317</span></strong></a>
+	<ul class="popupbody memberaction_body" id="yui-gen35">
+		<li class="left">
+			<a href="https://ubuntuforums.org/member.php?u=2059&amp;s=8824619ab18218b4100726fe4346b134" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="https://ubuntuforums.org/search.php?s=8824619ab18218b4100726fe4346b134&amp;do=finduser&amp;userid=2059&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		<li class="left">
+			<a href="https://ubuntuforums.org/private.php?s=8824619ab18218b4100726fe4346b134&amp;do=newpm&amp;u=2059" class="siteicon_message" rel="nofollow">
+				Private Message
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./C++ function overloading! Why__files/user-offline.png" alt="LordHunter317 is offline" border="0" title="LordHunter317 is offline">
+
+					
+					<span class="usertitle">
+						I Ubuntu, Therefore, I Am
+					</span>
+					
+						<span class="rank"><img src="./C++ function overloading! Why__files/rank_24.png" alt="" border=""></span>
+					
+
+                                        
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Join Date</dt> <dd>Nov 2004</dd>
+						
+						
+						<!-- <dt>Beans</dt> <dd>2,614</dd>	 -->
+<dt>Beans</dt> <dd>2,614</dd>
+
+                                                 
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+
+	<div class="postbody">
+		
+		<div class="postrow">
+		
+		<h2 class="posttitle icon">
+			Re: C++ function overloading!  Why?
+		</h2>
+		
+				
+				
+		<div class="content">
+			<div id="post_message_603997">
+				<blockquote class="postcontent restore">
+					<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			<div class="bbcode_quote_container"></div>
+			
+				<div class="bbcode_postedby">
+					<img src="./C++ function overloading! Why__files/quote_icon.png" alt="Quote" title="Quote"> Originally Posted by <strong>Mike Buksas</strong>
+					
+				</div>
+				<div class="message">I think that's confusing the issue. Function templates and overloading are two different, but complimentary, things. The original question did not involve templates, so I didn't go there.</div>
+			
+		</div>
+	</div>
+</div>Which is why I noted it in general terms.<br>
+<br>
+<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			<div class="bbcode_quote_container"></div>
+			
+				I must have seen more poorly written C++ code than you have. Using an overloaded function instead of unique names removes information that could help somebody understand the code.
+			
+		</div>
+	</div>
+</div>If the only difference in user semantics is type, then it does not.  If you provide an overloaded functions with different semantics, that's a design error.  That's not a reason to lambast a language feature, seeing as it doesn't especially encourage it in anyway.<br>
+<br>
+<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			<div class="bbcode_quote_container"></div>
+			
+				 It can also obscure significant differences in the behavior of functions that operate on different types.
+			
+		</div>
+	</div>
+</div>So can implict-type conversion, and templates.  Should I just go back to writing C now?  You can't use that justification without starting on a slippery slope: the whole point of abstractions is to obscure things.  <br>
+<br>
+It's worth saying obviously, that one shouldn't overload a function unless it will meet the same user-visible semantics.  That ought to go without saying anyway, and applies to many other places in C++: templates, inheritance, etc.  <br>
+<br>
+It's not logical to reason that because people can provide different semantics, that overloading shouldn't be used.  And that's what you're suggesting.  All you can conclude from that it's the programmer's onus to enforce the semantics, not the compiler's.<br>
+<br>
+<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			<div class="bbcode_quote_container"></div>
+			
+				In a few situations, I think avoiding overloading is warranted, but not generally.
+			
+		</div>
+	</div>
+</div>They're plently warrented in all sorts of situations.  C++ classes wouldn't be nearly as expressive without operator overloading.  You couldn't emulated C# style properties without function overloads either, which  is far superior to me than setFoo(), getFoo().<br>
+<br>
+<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			<div class="bbcode_quote_container"></div>
+			
+				For example, the "overload resolution happens before protection resolution" rule is a killer. This is where one version of an overloaded function is a private class member and another is public. Someone attempting to use the public version can get a compiler error if the private version is a better match according to the rules of overload resoltion.
+			
+		</div>
+	</div>
+</div>This is done on purpose, to protect.  Someone who designs a class where the end-user can befall this has made a design error, plain and simple.  This is still not an argument against even judicious use of overloads in external interfaces.<br>
+It is an argument against overloads in implementations, since the class implementer has to be wary of this.<br>
+<br>
+<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			<div class="bbcode_quote_container"></div>
+			
+				In this case there is nothing to be gained by the overloading, and a lot of potential confusion to be created.
+			
+		</div>
+	</div>
+</div>Yes, but you've created a false dilemma.  The issue here isn't overloads created a problem, it's the class is simply designed wrong.
+				</blockquote>
+			</div>
+
+			
+
+
+		</div>
+			
+				
+			
+			
+			
+		</div>
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols floatcontainer">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_603997" src="./C++ function overloading! Why__files/progress.gif" alt="">
+				
+				
+<!-- added advance reply -->
+                    
+                        <a class="quickreply" href="https://ubuntuforums.org/newreply.php?s=8824619ab18218b4100726fe4346b134&amp;p=603997&amp;noquote=1" rel="nofollow"><img id="replyimg_603997" src="./C++ function overloading! Why__files/clear.gif" alt="Advanced reply" title="Advanced reply"> Adv Reply</a>
+                        <span class="seperator">&nbsp;</span>
+                    
+<!-- end added advance reply -->
+<!-- the next id was qrwq_603997 -->
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+
+					
+
+					
+					 
+
+					
+					
+					
+					
+					
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_604805">
+	<div class="postdetails_noavatar">
+		<div class="posthead">
+                        
+                                <span class="postdate old">
+                                        
+                                                <span class="date">December 26th, 2005</span>
+                                        
+                                </span>
+                                <span class="nodecontrols">
+                                        
+                                                <a name="post604805" href="https://ubuntuforums.org/showthread.php?t=108235&amp;s=8824619ab18218b4100726fe4346b134&amp;p=604805#post604805" class="postcounter">#8</a><a id="postcount604805" name="8"></a>
+                                        
+                                        
+                                        
+                                </span>
+                        
+		</div>
+
+		<div class="userinfo">
+			<div class="contact">
+				
+					<a class="postuseravatarlink" href="https://ubuntuforums.org/member.php?u=17171&amp;s=8824619ab18218b4100726fe4346b134" title="Mike Buksas is offline">
+						
+							<img src="./C++ function overloading! Why__files/avatar17171_2.gif" alt="Mike Buksas&#39;s Avatar" title="Mike Buksas&#39;s Avatar">
+						
+					</a>
+				
+				<div class="username_container">
+					
+						<div class="popupmenu memberaction" id="yui-gen37">
+	<a class="username offline popupctrl" href="https://ubuntuforums.org/member.php?u=17171&amp;s=8824619ab18218b4100726fe4346b134" title="Mike Buksas is offline" id="yui-gen39"><strong><span style="color: #000000;">Mike Buksas</span></strong></a>
+	<ul class="popupbody memberaction_body" id="yui-gen38">
+		<li class="left">
+			<a href="https://ubuntuforums.org/member.php?u=17171&amp;s=8824619ab18218b4100726fe4346b134" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="https://ubuntuforums.org/search.php?s=8824619ab18218b4100726fe4346b134&amp;do=finduser&amp;userid=17171&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		<li class="left">
+			<a href="https://ubuntuforums.org/private.php?s=8824619ab18218b4100726fe4346b134&amp;do=newpm&amp;u=17171" class="siteicon_message" rel="nofollow">
+				Private Message
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		<li class="left">
+			<a href="http://localextrema.blogspot.com/" class="siteicon_homepage">
+				Visit Homepage
+			</a>
+		</li>
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./C++ function overloading! Why__files/user-offline.png" alt="Mike Buksas is offline" border="0" title="Mike Buksas is offline">
+
+					
+					<span class="usertitle">
+						Just Give Me the Beans!
+					</span>
+					
+						<span class="rank"><img src="./C++ function overloading! Why__files/rank_3.png" alt="" border=""></span>
+					
+
+                                        
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Join Date</dt> <dd>Apr 2005</dd>
+						<dt>Location</dt> <dd>Los Alamos, New Mexico</dd>
+						
+						<!-- <dt>Beans</dt> <dd>49</dd>	 -->
+<dt>Beans</dt> <dd>49</dd>
+
+                                                 <dt>Distro</dt><dd>Lubuntu</dd>
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+
+	<div class="postbody">
+		
+		<div class="postrow">
+		
+		<h2 class="posttitle icon">
+			Re: C++ function overloading!  Why?
+		</h2>
+		
+				
+				
+		<div class="content">
+			<div id="post_message_604805">
+				<blockquote class="postcontent restore">
+					This discussion is getting pretty far away from the original purpose of the thread, which was a low level discussion on the uses and pitfalls of overloading to a new C++ developer.<br>
+<br>
+Also, I think you may have misread one of my comments. I agree that overloading is acceptable in the majority of cases. I was pointing some particular cases in which it leads to confusion. The cases in question are indeed design flaws, (differing semantics and the protection resolution, specifically) but they are design flaws enabled by operator overloading. Hence, I maintain my position that overloading occasionally does more harm than good.<br>
+<br>
+Since this is largely a question of style, I don't think we're going to make any progress debating it. Perhaps we could agree, for the benefit of the original poster, the overloading is a useful feature, but should be used with some caution?<br>
+<br>
+Mike
+				</blockquote>
+			</div>
+
+			
+
+
+		</div>
+			
+				
+			
+			
+				<blockquote class="signature restore"><div class="signaturecontainer">Other every in word signature this, the except one last, been has exchanged.</div></blockquote>
+			
+			
+		</div>
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols floatcontainer">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_604805" src="./C++ function overloading! Why__files/progress.gif" alt="">
+				
+				
+<!-- added advance reply -->
+                    
+                        <a class="quickreply" href="https://ubuntuforums.org/newreply.php?s=8824619ab18218b4100726fe4346b134&amp;p=604805&amp;noquote=1" rel="nofollow"><img id="replyimg_604805" src="./C++ function overloading! Why__files/clear.gif" alt="Advanced reply" title="Advanced reply"> Adv Reply</a>
+                        <span class="seperator">&nbsp;</span>
+                    
+<!-- end added advance reply -->
+<!-- the next id was qrwq_604805 -->
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+
+					
+
+					
+					 
+
+					
+					
+					
+					
+					
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_604841">
+	<div class="postdetails_noavatar">
+		<div class="posthead">
+                        
+                                <span class="postdate old">
+                                        
+                                                <span class="date">December 26th, 2005</span>
+                                        
+                                </span>
+                                <span class="nodecontrols">
+                                        
+                                                <a name="post604841" href="https://ubuntuforums.org/showthread.php?t=108235&amp;s=8824619ab18218b4100726fe4346b134&amp;p=604841#post604841" class="postcounter">#9</a><a id="postcount604841" name="9"></a>
+                                        
+                                        
+                                        
+                                </span>
+                        
+		</div>
+
+		<div class="userinfo_noavatar">
+			<div class="contact">
+				
+				<div class="username_container">
+					
+						<div class="popupmenu memberaction" id="yui-gen40">
+	<a class="username offline popupctrl" href="https://ubuntuforums.org/member.php?u=2059&amp;s=8824619ab18218b4100726fe4346b134" title="LordHunter317 is offline" id="yui-gen42"><strong><span style="color: #000000;">LordHunter317</span></strong></a>
+	<ul class="popupbody memberaction_body" id="yui-gen41">
+		<li class="left">
+			<a href="https://ubuntuforums.org/member.php?u=2059&amp;s=8824619ab18218b4100726fe4346b134" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="https://ubuntuforums.org/search.php?s=8824619ab18218b4100726fe4346b134&amp;do=finduser&amp;userid=2059&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		<li class="left">
+			<a href="https://ubuntuforums.org/private.php?s=8824619ab18218b4100726fe4346b134&amp;do=newpm&amp;u=2059" class="siteicon_message" rel="nofollow">
+				Private Message
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./C++ function overloading! Why__files/user-offline.png" alt="LordHunter317 is offline" border="0" title="LordHunter317 is offline">
+
+					
+					<span class="usertitle">
+						I Ubuntu, Therefore, I Am
+					</span>
+					
+						<span class="rank"><img src="./C++ function overloading! Why__files/rank_24.png" alt="" border=""></span>
+					
+
+                                        
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Join Date</dt> <dd>Nov 2004</dd>
+						
+						
+						<!-- <dt>Beans</dt> <dd>2,614</dd>	 -->
+<dt>Beans</dt> <dd>2,614</dd>
+
+                                                 
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+
+	<div class="postbody">
+		
+		<div class="postrow">
+		
+		<h2 class="posttitle icon">
+			Re: C++ function overloading!  Why?
+		</h2>
+		
+				
+				
+		<div class="content">
+			<div id="post_message_604841">
+				<blockquote class="postcontent restore">
+					<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			<div class="bbcode_quote_container"></div>
+			
+				<div class="bbcode_postedby">
+					<img src="./C++ function overloading! Why__files/quote_icon.png" alt="Quote" title="Quote"> Originally Posted by <strong>Mike Buksas</strong>
+					
+				</div>
+				<div class="message">I was pointing some particular cases in which it leads to confusion.</div>
+			
+		</div>
+	</div>
+</div>But it's not user confusion.  You only have to be aware of it when designing classes, and it's far eaiser in those cases to say, "Don't overload in different access scopes" then say, "Overloading causes confusion and should be potentially avoided."  <br>
+<br>
+<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			<div class="bbcode_quote_container"></div>
+			
+				The cases in question are indeed design flaws, (differing semantics and the protection resolution, specifically) but they are design flaws enabled by operator overloading. Hence, I maintain my position that overloading occasionally does more harm than good.
+			
+		</div>
+	</div>
+</div>It's invalid to draw anything from that.  From that reasoning, nearly every language feature occasionally "does more harm than good."    That doesn't mean they necessarily should be avoided, or even used judiciously.  That's only true iff you always have to deal with the problems.  You don't with function overloading.<br>
+<br>
+<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			<div class="bbcode_quote_container"></div>
+			
+				the overloading is a useful feature, but should be used with some caution?
+			
+		</div>
+	</div>
+</div>Seeing the caution only has to be applied in one small case, no.
+				</blockquote>
+			</div>
+
+			
+
+
+		</div>
+			
+				
+			
+			
+			
+		</div>
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols floatcontainer">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_604841" src="./C++ function overloading! Why__files/progress.gif" alt="">
+				
+				
+<!-- added advance reply -->
+                    
+                        <a class="quickreply" href="https://ubuntuforums.org/newreply.php?s=8824619ab18218b4100726fe4346b134&amp;p=604841&amp;noquote=1" rel="nofollow"><img id="replyimg_604841" src="./C++ function overloading! Why__files/clear.gif" alt="Advanced reply" title="Advanced reply"> Adv Reply</a>
+                        <span class="seperator">&nbsp;</span>
+                    
+<!-- end added advance reply -->
+<!-- the next id was qrwq_604841 -->
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+
+					
+
+					
+					 
+
+					
+					
+					
+					
+					
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+<li class="postbit postbitim postcontainer old" id="post_607237">
+	<div class="postdetails_noavatar">
+		<div class="posthead">
+                        
+                                <span class="postdate old">
+                                        
+                                                <span class="date">December 27th, 2005</span>
+                                        
+                                </span>
+                                <span class="nodecontrols">
+                                        
+                                                <a name="post607237" href="https://ubuntuforums.org/showthread.php?t=108235&amp;s=8824619ab18218b4100726fe4346b134&amp;p=607237#post607237" class="postcounter">#10</a><a id="postcount607237" name="10"></a>
+                                        
+                                        
+                                        
+                                </span>
+                        
+		</div>
+
+		<div class="userinfo_noavatar">
+			<div class="contact">
+				
+				<div class="username_container">
+					
+						<div class="popupmenu memberaction" id="yui-gen43">
+	<a class="username offline popupctrl" href="https://ubuntuforums.org/member.php?u=37723&amp;s=8824619ab18218b4100726fe4346b134" title="tbrownaw is offline" id="yui-gen45"><strong><span style="color: #000000;">tbrownaw</span></strong></a>
+	<ul class="popupbody memberaction_body" id="yui-gen44">
+		<li class="left">
+			<a href="https://ubuntuforums.org/member.php?u=37723&amp;s=8824619ab18218b4100726fe4346b134" class="siteicon_profile">
+				View Profile
+			</a>
+		</li>
+		
+		<li class="right">
+			<a href="https://ubuntuforums.org/search.php?s=8824619ab18218b4100726fe4346b134&amp;do=finduser&amp;userid=37723&amp;contenttype=vBForum_Post&amp;showposts=1" class="siteicon_forum" rel="nofollow">
+				View Forum Posts
+			</a>
+		</li>
+		
+		
+		<li class="left">
+			<a href="https://ubuntuforums.org/private.php?s=8824619ab18218b4100726fe4346b134&amp;do=newpm&amp;u=37723" class="siteicon_message" rel="nofollow">
+				Private Message
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+						<img class="inlineimg onlinestatus" src="./C++ function overloading! Why__files/user-offline.png" alt="tbrownaw is offline" border="0" title="tbrownaw is offline">
+
+					
+					<span class="usertitle">
+						5 Cups of Ubuntu
+					</span>
+					
+						<span class="rank"><img src="./C++ function overloading! Why__files/rank_2.png" alt="" border=""></span>
+					
+
+                                        
+					
+					
+						<div class="imlinks">
+							    
+						</div>
+					
+				</div>
+			</div>
+			
+				<div class="userinfo_extra">
+					<dl class="userstats">
+						<dt>Join Date</dt> <dd>Aug 2005</dd>
+						
+						
+						<!-- <dt>Beans</dt> <dd>25</dd>	 -->
+<dt>Beans</dt> <dd>25</dd>
+
+                                                 
+						
+					</dl>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+
+	<div class="postbody">
+		
+		<div class="postrow">
+		
+		<h2 class="posttitle icon">
+			Re: C++ function overloading!  Why?
+		</h2>
+		
+				
+				
+					
+				
+		<div class="content">
+			<div id="post_message_607237">
+				<blockquote class="postcontent restore">
+					<div class="bbcode_container">
+	<div class="bbcode_quote">
+		<div class="quote_container">
+			<div class="bbcode_quote_container"></div>
+			
+				<div class="bbcode_postedby">
+					<img src="./C++ function overloading! Why__files/quote_icon.png" alt="Quote" title="Quote"> Originally Posted by <strong>nami</strong>
+					
+				</div>
+				<div class="message">I'm currently learning about "function overloading".  The reason why I'm posting here is because I don't understand the purpose of "function overloading".  The book I am learning from has provided the following example of "function overloading"<br>
+<br>
+[snip]<br>
+<br>
+So, what's the purpose of "function overloading"?</div>
+			
+		</div>
+	</div>
+</div>The purpose is that functions can be named after what they do, without worrying about what types of arguments they take. This makes them easier to remember, and also can make it easier to change the types of your variables.<br>
+<br>
+A data type has a set of functions that you can call on it, possibly including member functions (if it's a class). If you have a different data type with the same functions available, with the same names for those functions, then you can switch which data type you're using for your variables very easily.<br>
+<br>
+Say you have this code (not quite the same as your example):<br>
+<br>
+<div class="bbcode_container">
+	<div class="bbcode_description">Code:</div>
+	<pre class="bbcode_code" style="height:264px;">#include &lt;iomanip&gt;
+#include &lt;iostream&gt;
+using namespace std;
+
+void FtoC(int temp);
+void FtoC(float temp);
+void FtoC(double temp);
+
+int main()
+{
+    int temp;
+    
+    cout &lt;&lt; "CONVERTING FAHRENHEIT TO CELSIUS\n";
+    cout &lt;&lt; "Enter Fahrenheit temperature: ";
+    
+    cin &gt;&gt; temp;
+    FtoC(temp);
+
+    return 0;
+}</pre>
+</div>Now say someone decides that an int isn't precise enough... because FtoC and the &gt;&gt; operator are both overloaded, changing to a more precise data type is as simple as changing the "int temp;" line to "float temp;". (This is one problem with hungarian notation -- changing data types becomes much more annoying if you want to keep the names in sync with the actual types.)<br>
+<br>
+Tim
+				</blockquote>
+			</div>
+
+			
+
+
+		</div>
+			
+				
+			
+			
+				<blockquote class="signature restore"><div class="signaturecontainer"><img src="./C++ function overloading! Why__files/icon_biggrin.gif" border="0" alt="" title="Very Happy" class="inlineimg"> <img src="./C++ function overloading! Why__files/icon_biggrin.gif" border="0" alt="" title="Very Happy" class="inlineimg"> <img src="./C++ function overloading! Why__files/icon_biggrin.gif" border="0" alt="" title="Very Happy" class="inlineimg"></div></blockquote>
+			
+			
+		</div>
+	</div>
+	<div class="postfoot">
+		<div class="textcontrols floatcontainer">
+			<span class="postcontrols">
+				<img style="display:none" id="progress_607237" src="./C++ function overloading! Why__files/progress.gif" alt="">
+				
+				
+<!-- added advance reply -->
+                    
+                        <a class="quickreply" href="https://ubuntuforums.org/newreply.php?s=8824619ab18218b4100726fe4346b134&amp;p=607237&amp;noquote=1" rel="nofollow"><img id="replyimg_607237" src="./C++ function overloading! Why__files/clear.gif" alt="Advanced reply" title="Advanced reply"> Adv Reply</a>
+                        <span class="seperator">&nbsp;</span>
+                    
+<!-- end added advance reply -->
+<!-- the next id was qrwq_607237 -->
+				
+				
+			</span>
+			<span class="postlinking">
+				
+					
+				
+				
+
+				 
+				
+
+					
+
+					
+					 
+
+					
+					
+					
+					
+					
+			</span>
+		</div>
+	</div>
+	<hr>
+</li>
+
+		</ol>
+		<div class="separator"></div>
+		<div class="postlistfoot">
+			
+		</div>
+
+	
+
+</div>
+
+<div id="below_postlist" class="noinlinemod below_postlist">
+	
+	<div id="pagination_bottom" class="pagination_bottom">
+	
+		<div class="clear"></div>
+<div class="navpopupmenu popupmenu nohovermenu" id="showthread_navpopup">
+	
+		<span class="shade">Quick Navigation</span>
+		<a href="https://ubuntuforums.org/showthread.php?t=108235&amp;s=8824619ab18218b4100726fe4346b134" class="popupctrl" id="yui-gen47"><span class="ctrlcontainer">Programming Talk</span></a>
+		<a href="https://ubuntuforums.org/showthread.php?t=108235#top" class="textcontrol" onclick="document.location.hash=&#39;top&#39;;return false;">Top</a>
+	
+	<ul class="navpopupbody popupbody" id="yui-gen46">
+		
+		<li class="optionlabel">Site Areas</li>
+		<li><a href="https://ubuntuforums.org/usercp.php?s=8824619ab18218b4100726fe4346b134">Settings</a></li>
+		<li><a href="https://ubuntuforums.org/private.php?s=8824619ab18218b4100726fe4346b134">Private Messages</a></li>
+		<li><a href="https://ubuntuforums.org/subscription.php?s=8824619ab18218b4100726fe4346b134">Subscriptions</a></li>
+		<li><a href="https://ubuntuforums.org/online.php?s=8824619ab18218b4100726fe4346b134">Who's Online</a></li>
+		<li><a href="https://ubuntuforums.org/search.php?s=8824619ab18218b4100726fe4346b134">Search Forums</a></li>
+		<li><a href="https://ubuntuforums.org/index.php?s=8824619ab18218b4100726fe4346b134">Forums Home</a></li>
+		
+			<li class="optionlabel">Forums</li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=130&amp;s=8824619ab18218b4100726fe4346b134">The Ubuntu Forum Community</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=327&amp;s=8824619ab18218b4100726fe4346b134">Ubuntu Official Flavours Support</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=326&amp;s=8824619ab18218b4100726fe4346b134">New to Ubuntu</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=331&amp;s=8824619ab18218b4100726fe4346b134">General Help</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=333&amp;s=8824619ab18218b4100726fe4346b134">Installation &amp; Upgrades</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=332&amp;s=8824619ab18218b4100726fe4346b134">Hardware</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=329&amp;s=8824619ab18218b4100726fe4346b134">Desktop Environments</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=336&amp;s=8824619ab18218b4100726fe4346b134">Networking &amp; Wireless</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=334&amp;s=8824619ab18218b4100726fe4346b134">Multimedia Software</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=125&amp;s=8824619ab18218b4100726fe4346b134">Ubuntu Specialised Support</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=427&amp;s=8824619ab18218b4100726fe4346b134">Ubuntu Development Version</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=338&amp;s=8824619ab18218b4100726fe4346b134">Security</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=308&amp;s=8824619ab18218b4100726fe4346b134">Virtualisation</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=441&amp;s=8824619ab18218b4100726fe4346b134">Ubuntu Servers, Cloud and Juju</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=339&amp;s=8824619ab18218b4100726fe4346b134">Server Platforms</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=392&amp;s=8824619ab18218b4100726fe4346b134">Ubuntu Cloud and Juju</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=93&amp;s=8824619ab18218b4100726fe4346b134">Gaming &amp; Leisure</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=413&amp;s=8824619ab18218b4100726fe4346b134">Emulators</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=313&amp;s=8824619ab18218b4100726fe4346b134">Wine</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=310&amp;s=8824619ab18218b4100726fe4346b134">Development &amp; Programming</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=44&amp;s=8824619ab18218b4100726fe4346b134">Packaging and Compiling Programs</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=201&amp;s=8824619ab18218b4100726fe4346b134">Development CD/DVD Image Testing</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=417&amp;s=8824619ab18218b4100726fe4346b134">Ubuntu Application Development</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=307&amp;s=8824619ab18218b4100726fe4346b134">Ubuntu Dev Link Forum</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=39&amp;s=8824619ab18218b4100726fe4346b134">Programming Talk</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=41&amp;s=8824619ab18218b4100726fe4346b134">Repositories &amp; Backports</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=47&amp;s=8824619ab18218b4100726fe4346b134">Ubuntu Backports</a>
+					<ol class="d5">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=82&amp;s=8824619ab18218b4100726fe4346b134">Bug Reports / Support</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=341&amp;s=8824619ab18218b4100726fe4346b134">System76 Support</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=328&amp;s=8824619ab18218b4100726fe4346b134">Apple Hardware Users</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=175&amp;s=8824619ab18218b4100726fe4346b134">Ubuntu Community Discussions</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=434&amp;s=8824619ab18218b4100726fe4346b134">Ubuntu, Linux and OS Chat</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=302&amp;s=8824619ab18218b4100726fe4346b134">Recurring Discussions</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=270&amp;s=8824619ab18218b4100726fe4346b134">Full Circle Magazine</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=11&amp;s=8824619ab18218b4100726fe4346b134">The Cafe</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=298&amp;s=8824619ab18218b4100726fe4346b134">Cafe Games</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=38&amp;s=8824619ab18218b4100726fe4346b134">Market</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=426&amp;s=8824619ab18218b4100726fe4346b134">Mobile Technology Discussions</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=13&amp;s=8824619ab18218b4100726fe4346b134">Announcements &amp; News</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=243&amp;s=8824619ab18218b4100726fe4346b134">Weekly Newsletter</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=404&amp;s=8824619ab18218b4100726fe4346b134">Membership Applications</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=122&amp;s=8824619ab18218b4100726fe4346b134">The Fridge Discussions</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=357&amp;s=8824619ab18218b4100726fe4346b134">Forum Council Agenda</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=48&amp;s=8824619ab18218b4100726fe4346b134">Forum Feedback &amp; Help</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=181&amp;s=8824619ab18218b4100726fe4346b134">Request a LoCo forum</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=123&amp;s=8824619ab18218b4100726fe4346b134">Resolution Centre</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=423&amp;s=8824619ab18218b4100726fe4346b134">Other Discussion and Support</a>
+					<ol class="d2">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=446&amp;s=8824619ab18218b4100726fe4346b134">Other OS Support and Projects</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=447&amp;s=8824619ab18218b4100726fe4346b134">Other Operating Systems</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=452&amp;s=8824619ab18218b4100726fe4346b134">Ubuntu/Debian BASED</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=161&amp;s=8824619ab18218b4100726fe4346b134">Debian</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=453&amp;s=8824619ab18218b4100726fe4346b134">MINT</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=321&amp;s=8824619ab18218b4100726fe4346b134">Arch and derivatives</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=162&amp;s=8824619ab18218b4100726fe4346b134">Fedora/RedHat and derivatives</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=344&amp;s=8824619ab18218b4100726fe4346b134">Mandriva/Mageia</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=163&amp;s=8824619ab18218b4100726fe4346b134">Slackware and derivatives</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=164&amp;s=8824619ab18218b4100726fe4346b134">openSUSE and SUSE Linux Enterprise</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=165&amp;s=8824619ab18218b4100726fe4346b134">Mac OSX</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=457&amp;s=8824619ab18218b4100726fe4346b134">PCLinuxOS</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=166&amp;s=8824619ab18218b4100726fe4346b134">Gentoo and derivatives</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=170&amp;s=8824619ab18218b4100726fe4346b134">Windows</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=171&amp;s=8824619ab18218b4100726fe4346b134">BSD</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=401&amp;s=8824619ab18218b4100726fe4346b134">Any Other OS</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=145&amp;s=8824619ab18218b4100726fe4346b134">Assistive Technology &amp; Accessibility</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=16&amp;s=8824619ab18218b4100726fe4346b134">Art &amp; Design</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=169&amp;s=8824619ab18218b4100726fe4346b134">Education &amp; Science</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=428&amp;s=8824619ab18218b4100726fe4346b134">Documentation and Community Wiki Discussions</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=100&amp;s=8824619ab18218b4100726fe4346b134">Tutorials</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=255&amp;s=8824619ab18218b4100726fe4346b134">Outdated Tutorials &amp; Tips</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=76&amp;s=8824619ab18218b4100726fe4346b134">Ubuntu Women</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=183&amp;s=8824619ab18218b4100726fe4346b134">Ubuntu LoCo Team Forums</a>
+					<ol class="d3">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=245&amp;s=8824619ab18218b4100726fe4346b134">Americas LoCo Teams</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=189&amp;s=8824619ab18218b4100726fe4346b134">Argentina Team</a>
+					<ol class="d5">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=349&amp;s=8824619ab18218b4100726fe4346b134">Software</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=350&amp;s=8824619ab18218b4100726fe4346b134">Hardware</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=351&amp;s=8824619ab18218b4100726fe4346b134">Comunidad</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=209&amp;s=8824619ab18218b4100726fe4346b134">Arizona Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=208&amp;s=8824619ab18218b4100726fe4346b134">Arkansas Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=445&amp;s=8824619ab18218b4100726fe4346b134">Brazil Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=188&amp;s=8824619ab18218b4100726fe4346b134">California Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=395&amp;s=8824619ab18218b4100726fe4346b134">Canada Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=397&amp;s=8824619ab18218b4100726fe4346b134">Centroamerica Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=362&amp;s=8824619ab18218b4100726fe4346b134">Chile Team</a>
+					<ol class="d5">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=363&amp;s=8824619ab18218b4100726fe4346b134">Comunidad</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=364&amp;s=8824619ab18218b4100726fe4346b134">Hardware</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=365&amp;s=8824619ab18218b4100726fe4346b134">Software</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=366&amp;s=8824619ab18218b4100726fe4346b134">Instalación y Actualización</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=197&amp;s=8824619ab18218b4100726fe4346b134">Colombia Team - Colombia</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=210&amp;s=8824619ab18218b4100726fe4346b134">Georgia Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=247&amp;s=8824619ab18218b4100726fe4346b134">Illinois Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=213&amp;s=8824619ab18218b4100726fe4346b134">Indiana - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=203&amp;s=8824619ab18218b4100726fe4346b134">Kentucky Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=292&amp;s=8824619ab18218b4100726fe4346b134">Maine Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=282&amp;s=8824619ab18218b4100726fe4346b134">Minnesota Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=276&amp;s=8824619ab18218b4100726fe4346b134">Mississippi Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=371&amp;s=8824619ab18218b4100726fe4346b134">Nebraska Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=187&amp;s=8824619ab18218b4100726fe4346b134">New Mexico Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=212&amp;s=8824619ab18218b4100726fe4346b134">New York - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=278&amp;s=8824619ab18218b4100726fe4346b134">North Carolina Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=191&amp;s=8824619ab18218b4100726fe4346b134">Ohio Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=286&amp;s=8824619ab18218b4100726fe4346b134">Oklahoma Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=345&amp;s=8824619ab18218b4100726fe4346b134">Oregon Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=228&amp;s=8824619ab18218b4100726fe4346b134">Pennsylvania Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=393&amp;s=8824619ab18218b4100726fe4346b134">Peru Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=379&amp;s=8824619ab18218b4100726fe4346b134">Texas Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=414&amp;s=8824619ab18218b4100726fe4346b134">Uruguay Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=184&amp;s=8824619ab18218b4100726fe4346b134">Utah Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=236&amp;s=8824619ab18218b4100726fe4346b134">Virginia Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=312&amp;s=8824619ab18218b4100726fe4346b134">West Virginia Team - US</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=389&amp;s=8824619ab18218b4100726fe4346b134">Asia and Oceania LoCo Teams</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=399&amp;s=8824619ab18218b4100726fe4346b134">Australia Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=409&amp;s=8824619ab18218b4100726fe4346b134">Bangladesh Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=382&amp;s=8824619ab18218b4100726fe4346b134">Hong Kong Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=431&amp;s=8824619ab18218b4100726fe4346b134">Myanmar Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=303&amp;s=8824619ab18218b4100726fe4346b134">Philippine Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=433&amp;s=8824619ab18218b4100726fe4346b134">Singapore Team</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=388&amp;s=8824619ab18218b4100726fe4346b134">Europe, Middle East, and African (EMEA) LoCo Teams</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=372&amp;s=8824619ab18218b4100726fe4346b134">Albania Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=206&amp;s=8824619ab18218b4100726fe4346b134">Catalan Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=462&amp;s=8824619ab18218b4100726fe4346b134">Portugal Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=258&amp;s=8824619ab18218b4100726fe4346b134">Egypt Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=304&amp;s=8824619ab18218b4100726fe4346b134">Georgia Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=195&amp;s=8824619ab18218b4100726fe4346b134">Ireland Team - Ireland</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=193&amp;s=8824619ab18218b4100726fe4346b134">Kenyan Team - Kenya</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=196&amp;s=8824619ab18218b4100726fe4346b134">Kurdish Team - Kurdistan</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=272&amp;s=8824619ab18218b4100726fe4346b134">Lebanon Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=390&amp;s=8824619ab18218b4100726fe4346b134">Morocco Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=264&amp;s=8824619ab18218b4100726fe4346b134">Saudi Arabia Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=261&amp;s=8824619ab18218b4100726fe4346b134">Sudan Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=227&amp;s=8824619ab18218b4100726fe4346b134">Tunisia Team</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=204&amp;s=8824619ab18218b4100726fe4346b134">Other Forums &amp; Teams</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=458&amp;s=8824619ab18218b4100726fe4346b134">LoCo Archive</a>
+					<ol class="d4">
+						
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=396&amp;s=8824619ab18218b4100726fe4346b134">Afghanistan Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=232&amp;s=8824619ab18218b4100726fe4346b134">Alabama Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=280&amp;s=8824619ab18218b4100726fe4346b134">Alaska Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=383&amp;s=8824619ab18218b4100726fe4346b134">Algerian Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=202&amp;s=8824619ab18218b4100726fe4346b134">Andhra Pradesh Team - India</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=400&amp;s=8824619ab18218b4100726fe4346b134">Austria Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=309&amp;s=8824619ab18218b4100726fe4346b134">Bangalore Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=373&amp;s=8824619ab18218b4100726fe4346b134">Bolivia Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=291&amp;s=8824619ab18218b4100726fe4346b134">Cameroon Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=207&amp;s=8824619ab18218b4100726fe4346b134">Colorado Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=248&amp;s=8824619ab18218b4100726fe4346b134">Connecticut Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=262&amp;s=8824619ab18218b4100726fe4346b134">Costa Rica Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=347&amp;s=8824619ab18218b4100726fe4346b134">Delhi Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=290&amp;s=8824619ab18218b4100726fe4346b134">Ecuador Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=374&amp;s=8824619ab18218b4100726fe4346b134">El Salvador Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=225&amp;s=8824619ab18218b4100726fe4346b134">Florida Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=356&amp;s=8824619ab18218b4100726fe4346b134">Galician LoCo Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=461&amp;s=8824619ab18218b4100726fe4346b134">Greek team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=314&amp;s=8824619ab18218b4100726fe4346b134">Hawaii Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=369&amp;s=8824619ab18218b4100726fe4346b134">Honduras Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=398&amp;s=8824619ab18218b4100726fe4346b134">Idaho Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=381&amp;s=8824619ab18218b4100726fe4346b134">Iowa Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=320&amp;s=8824619ab18218b4100726fe4346b134">Jordan Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=275&amp;s=8824619ab18218b4100726fe4346b134">Kansas Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=378&amp;s=8824619ab18218b4100726fe4346b134">Libya Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=288&amp;s=8824619ab18218b4100726fe4346b134">Louisiana Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=224&amp;s=8824619ab18218b4100726fe4346b134">Maryland Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=260&amp;s=8824619ab18218b4100726fe4346b134">Massachusetts Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=271&amp;s=8824619ab18218b4100726fe4346b134">Michigan Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=277&amp;s=8824619ab18218b4100726fe4346b134">Missouri Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=229&amp;s=8824619ab18218b4100726fe4346b134">Montana Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=410&amp;s=8824619ab18218b4100726fe4346b134">Namibia Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=283&amp;s=8824619ab18218b4100726fe4346b134">Nevada Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=289&amp;s=8824619ab18218b4100726fe4346b134">New Hampshire Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=185&amp;s=8824619ab18218b4100726fe4346b134">New Jersey Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=190&amp;s=8824619ab18218b4100726fe4346b134">Northeastern Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=281&amp;s=8824619ab18218b4100726fe4346b134">Panama Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=273&amp;s=8824619ab18218b4100726fe4346b134">Paraguay Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=429&amp;s=8824619ab18218b4100726fe4346b134">Qatar Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=375&amp;s=8824619ab18218b4100726fe4346b134">Quebec Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=287&amp;s=8824619ab18218b4100726fe4346b134">Rhode Island Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=250&amp;s=8824619ab18218b4100726fe4346b134">Senegal Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=311&amp;s=8824619ab18218b4100726fe4346b134">South Carolina Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=285&amp;s=8824619ab18218b4100726fe4346b134">South Dakota Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=319&amp;s=8824619ab18218b4100726fe4346b134">Switzerland Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=186&amp;s=8824619ab18218b4100726fe4346b134">Tamil Team - India</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=259&amp;s=8824619ab18218b4100726fe4346b134">Tennessee Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=386&amp;s=8824619ab18218b4100726fe4346b134">Trinidad &amp; Tobago Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=384&amp;s=8824619ab18218b4100726fe4346b134">Uganda Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=274&amp;s=8824619ab18218b4100726fe4346b134">United Kingdom Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=284&amp;s=8824619ab18218b4100726fe4346b134">US LoCo Teams</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=300&amp;s=8824619ab18218b4100726fe4346b134">Venezuela Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=360&amp;s=8824619ab18218b4100726fe4346b134">Wales Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=252&amp;s=8824619ab18218b4100726fe4346b134">Washington DC Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=380&amp;s=8824619ab18218b4100726fe4346b134">Washington State Team - US</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=263&amp;s=8824619ab18218b4100726fe4346b134">Wisconsin Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=387&amp;s=8824619ab18218b4100726fe4346b134">Yemen Team</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=194&amp;s=8824619ab18218b4100726fe4346b134">Za Team - South Africa</a></li>
+			
+		
+			
+				<li><a href="https://ubuntuforums.org/forumdisplay.php?f=299&amp;s=8824619ab18218b4100726fe4346b134">Zimbabwe Team</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+		
+	</ul>
+</div>
+<div class="clear"></div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+	<!-- next / previous links -->
+	<div class="navlinks">
+		
+			<strong>«</strong>
+			<a href="https://ubuntuforums.org/showthread.php?t=108235&amp;s=8824619ab18218b4100726fe4346b134&amp;goto=nextoldest" rel="nofollow">Previous Thread</a>
+			|
+			<a href="https://ubuntuforums.org/showthread.php?t=108235&amp;s=8824619ab18218b4100726fe4346b134&amp;goto=nextnewest" rel="nofollow">Next Thread</a>
+			<strong>»</strong>
+		
+	</div>
+	<!-- / next / previous links -->
+
+<div id="thread_info" class="thread_info block">
+	
+	
+	
+	
+	
+	
+	<div class="options_block_container">
+		
+		<div class="options_block2">
+			<h4 class="blockhead options_correct">Bookmarks</h4>
+			<div id="social_bookmarks_list" class="thread_info_block blockbody formcontrols floatcontainer options_correct">
+				<h5 class="blocksubhead">Bookmarks</h5>
+				<ul class="icon_list"><li class="smallfont">
+	
+		<a href="http://digg.com/submit?phrase=2&amp;url=https%3A%2F%2Fubuntuforums.org%2Fshowthread.php%3Ft%3D108235&amp;title=C%2B%2B+function+overloading%21++Why%3F" target="socialbookmark"><img src="./C++ function overloading! Why__files/bookmarksite_digg.gif" alt="Submit to Digg" title="Submit to Digg"></a>
+	
+	<a href="http://digg.com/submit?phrase=2&amp;url=https%3A%2F%2Fubuntuforums.org%2Fshowthread.php%3Ft%3D108235&amp;title=C%2B%2B+function+overloading%21++Why%3F" target="socialbookmark">Digg</a>
+</li><li class="smallfont">
+	
+		<a href="http://del.icio.us/post?url=https%3A%2F%2Fubuntuforums.org%2Fshowthread.php%3Ft%3D108235&amp;title=C%2B%2B+function+overloading%21++Why%3F" target="socialbookmark"><img src="./C++ function overloading! Why__files/bookmarksite_delicious.gif" alt="Submit to del.icio.us" title="Submit to del.icio.us"></a>
+	
+	<a href="http://del.icio.us/post?url=https%3A%2F%2Fubuntuforums.org%2Fshowthread.php%3Ft%3D108235&amp;title=C%2B%2B+function+overloading%21++Why%3F" target="socialbookmark">del.icio.us</a>
+</li><li class="smallfont">
+	
+		<a href="http://www.stumbleupon.com/submit?url=https%3A%2F%2Fubuntuforums.org%2Fshowthread.php%3Ft%3D108235&amp;title=C%2B%2B+function+overloading%21++Why%3F" target="socialbookmark"><img src="./C++ function overloading! Why__files/bookmarksite_stumbleupon.gif" alt="Submit to StumbleUpon" title="Submit to StumbleUpon"></a>
+	
+	<a href="http://www.stumbleupon.com/submit?url=https%3A%2F%2Fubuntuforums.org%2Fshowthread.php%3Ft%3D108235&amp;title=C%2B%2B+function+overloading%21++Why%3F" target="socialbookmark">StumbleUpon</a>
+</li><li class="smallfont">
+	
+		<a href="http://www.google.com/bookmarks/mark?op=edit&amp;output=popup&amp;bkmk=https%3A%2F%2Fubuntuforums.org%2Fshowthread.php%3Ft%3D108235&amp;title=C%2B%2B+function+overloading%21++Why%3F" target="socialbookmark"><img src="./C++ function overloading! Why__files/bookmarksite_google.gif" alt="Submit to Google" title="Submit to Google"></a>
+	
+	<a href="http://www.google.com/bookmarks/mark?op=edit&amp;output=popup&amp;bkmk=https%3A%2F%2Fubuntuforums.org%2Fshowthread.php%3Ft%3D108235&amp;title=C%2B%2B+function+overloading%21++Why%3F" target="socialbookmark">Google</a>
+</li></ul>
+			</div>
+		</div>
+		
+		<div class="options_block">
+			<h4 class="collapse blockhead options_correct">
+				<a class="collapse" id="collapse_posting_rules" href="https://ubuntuforums.org/showthread.php?t=108235#top"><img src="./C++ function overloading! Why__files/collapse_40b.png" alt=""></a>
+				Posting Permissions
+			</h4>
+			<div id="posting_rules" class="thread_info_block blockbody formcontrols floatcontainer options_correct">
+				
+<div id="forumrules" class="info_subblock">
+
+	<ul class="youcandoblock">
+		<li>You <strong>may not</strong> post new threads</li>
+		<li>You <strong>may not</strong> post replies</li>
+		<li>You <strong>may not</strong> post attachments</li>
+		<li>You <strong>may not</strong> edit your posts</li>
+		<li>&nbsp;</li>
+	</ul>
+	<div class="bbcodeblock">
+		<ul>
+			<li><a href="https://ubuntuforums.org/misc.php?s=8824619ab18218b4100726fe4346b134&amp;do=bbcode" target="_blank">BB code</a> is <strong>On</strong></li>
+			<li><a href="https://ubuntuforums.org/misc.php?s=8824619ab18218b4100726fe4346b134&amp;do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></li>
+			<li><a href="https://ubuntuforums.org/misc.php?s=8824619ab18218b4100726fe4346b134&amp;do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>On</strong></li>
+			<li><a href="https://ubuntuforums.org/misc.php?s=8824619ab18218b4100726fe4346b134&amp;do=bbcode#videocode" target="_blank">[VIDEO]</a> code is <strong>Off</strong></li>
+			<li>HTML code is <strong>Off</strong></li>
+		</ul>
+	</div>
+	<p class="rules_link"><a href="https://ubuntuforums.org/misc.php?s=8824619ab18218b4100726fe4346b134&amp;do=showrules" target="_blank">Ubuntu Forums Code of Conduct</a></p>
+
+</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+<div id="footer" class="floatcontainer footer">
+
+	<form action="https://ubuntuforums.org/index.php" method="get" id="footer_select" class="footer_select">
+
+		
+			<select name="styleid" onchange="switch_id(this, &#39;style&#39;)">
+				<optgroup label="Quick Style Chooser"><option class="hidden"></option></optgroup>
+				
+					
+					<optgroup label=" Standard Styles">
+									
+					
+	<option value="117" class="" selected="selected">-- Ubuntu vB4.x</option>
+
+					
+					</optgroup>
+										
+				
+				
+					
+					<optgroup label=" Mobile Styles">
+					
+					
+	<option value="118" class="">-- Ubuntu Mobile Style</option>
+
+					
+					</optgroup>
+										
+				
+			</select>	
+		
+		
+		
+	</form>
+
+	<ul id="footer_links" class="footer_links">
+		
+		<li><a href="https://ubuntuforums.org/">Ubuntu Forums</a></li>
+		
+		
+		<li><a href="https://ubuntuforums.org/archive/index.php?s=8824619ab18218b4100726fe4346b134">Archive</a></li>
+		
+		
+		
+		<li><a href="https://ubuntuforums.org/showthread.php?t=108235#top" onclick="document.location.hash=&#39;top&#39;; return false;">Top</a></li>
+	</ul>
+	
+	
+	
+	
+	<script type="text/javascript">
+	<!--
+		// Main vBulletin Javascript Initialization
+		vBulletin_init();
+	//-->
+	</script>
+        
+</div>
+</div> <!-- closing div for body_wrapper -->
+
+<div class="below_body">
+<div id="footer_time" class="shade footer_time">All times are GMT +1. The time now is <span class="time">03:46 AM</span>.</div>
+
+<div id="footer_copyright" class="shade footer_copyright">
+	<!-- Do not remove this copyright notice -->
+	vBulletin  ©2000 - 2019, Jelsoft Enterprises Ltd. Ubuntu Logo, Ubuntu and Canonical © Canonical Ltd. Tango Icons © Tango Desktop Project. 
+<br>
+User contributions on this site are licensed under the  <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution Share Alike 4.0 International License</a>. For details and our forum data attribution, retention and privacy policy, see <a href="http://ubuntuforums.org/showthread.php?t=2231107">here</a> 
+
+	<!-- Do not remove this copyright notice -->	
+</div>
+<div id="footer_morecopyright" class="shade footer_morecopyright">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	
+</div>
+ 
+
+</div>
+
+</body></html>
