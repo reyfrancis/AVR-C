@@ -1,0 +1,618 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0073)http://www-h.eng.cam.ac.uk/help/languages/C++/c++_tutorial/functions.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- change title and metadata for each page here -->
+<title>CUED - C++ Tutorial: Functions</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<!-- remove next line if your web server adds charset-->
+
+<link rel="stylesheet" href="./CUED - C++ Tutorial_ Functions_files/layout.css" type="text/css" media="all">
+<link rel="stylesheet" href="./CUED - C++ Tutorial_ Functions_files/cued.css" type="text/css" media="all">
+<link rel="stylesheet" href="./CUED - C++ Tutorial_ Functions_files/print.css" type="text/css" media="print">
+<link rel="Shortcut Icon" href="http://www.eng.cam.ac.uk/images/favicon.ico">
+<!--[if IE 6]><link rel="stylesheet" href="global/style/ie6.css" type="text/css" media="screen" /><script type="text/javascript" src="global/js/minmax.js"></script><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="global/style/ie7.css" type="text/css" media="screen" /><![endif]-->
+
+
+</head>
+<body class="two-col dept">
+<div id="skip"> <a href="http://www-h.eng.cam.ac.uk/help/languages/C++/c++_tutorial/functions.html#skip-content" accesskey="2">Skip to content</a>&nbsp;|&nbsp;<a href="http://www.cam.ac.uk/site/accesskeys.html" accesskey="0">Access key help</a> </div><div id="header">
+  <div id="branding"><a href="http://www.cam.ac.uk/" accesskey="1"><img src="./CUED - C++ Tutorial_ Functions_files/identifier.gif" alt="University of Cambridge" class="ucam"></a>
+  </div>
+
+   <div id="site-search">
+     <form method="get" action="http://search.cam.ac.uk/web">
+      <fieldset>
+       <label for="search-term">Search</label>
+       <input name="query" type="text" id="search-term" accesskey="4" value="">
+       <input type="hidden" name="inst" value="ENG">
+       <input id="search-button" src="./CUED - C++ Tutorial_ Functions_files/button-search.gif" value="Search" alt="Search" title="Search" type="image">
+      </fieldset>
+     </form>
+
+    <ul><!-- this is marked up in reverse order as the list is floated right -->
+    <!-- <li class="last"><a href="http://www.cam.ac.uk/global/search/">Email &amp; phone search</a></li>
+    <li><a href="http://www.cam.ac.uk/global/az.html">A&ndash;Z</a></li> -->
+    <li class="last"><a href="http://www.eng.cam.ac.uk/people/">Contact us</a></li>
+    </ul>
+
+   </div><!-- #site-search ends -->
+</div>
+
+<div id="dept-title">
+  <h1><a href="http://www.eng.cam.ac.uk/">Department of Engineering</a></h1>
+  <h2>IT Services</h2>
+</div>
+<div id="container"> <a name="skip-content" id="skip-content"></a>
+    <ul id="nav-breadcrumb">
+           <li class="first"><a href="http://www.cam.ac.uk/">University of Cambridge</a></li>
+     <li><a href="http://www.eng.cam.ac.uk/">Department&nbsp;of&nbsp;Engineering</a></li>
+     <li><a href="http://www-h.eng.cam.ac.uk/help/" class="bread">Computing Help</a></li>
+     <li><a href="http://www-h.eng.cam.ac.uk/help/languages" class="bread">Languages</a></li>
+     <li><a href="http://www-h.eng.cam.ac.uk/help/languages/C++" class="bread">C++</a></li>
+
+    </ul>
+  <h4 id="title-nav-primary"></h4>
+  <ul id="nav-primary">
+<!-- Add side bar index content here -->
+<li><a href="http://www-h.eng.cam.ac.uk/help/languages/C++/c++_tutorial/contents.html">Contents</a></li>
+  <li><a href="http://www-h.eng.cam.ac.uk/help/languages/C++/c++_tutorial/introduction.html">Introduction</a></li>
+  <li><a href="http://www-h.eng.cam.ac.uk/help/languages/C++/c++_tutorial/editing.html">Editing, Compiling &amp; Executing a Simple Program </a></li>
+  <li><a href="http://www-h.eng.cam.ac.uk/help/languages/C++/c++_tutorial/variables.html">Variables &amp; Constants </a></li>
+  <li><a href="http://www-h.eng.cam.ac.uk/help/languages/C++/c++_tutorial/assignment.html">Assignment of variables </a></li>
+  <li><a href="http://www-h.eng.cam.ac.uk/help/languages/C++/c++_tutorial/simple.html">Simple Input &amp; Output </a></li>
+  <li><a href="http://www-h.eng.cam.ac.uk/help/languages/C++/c++_tutorial/control.html">Control Statements </a></li>
+  <li><a href="http://www-h.eng.cam.ac.uk/help/languages/C++/c++_tutorial/functions.html">Functions</a></li>
+  <li><a href="http://www-h.eng.cam.ac.uk/help/languages/C++/c++_tutorial/math.html">Math library &amp; system library built-in functions</a></li>
+  <li><a href="http://www-h.eng.cam.ac.uk/help/languages/C++/c++_tutorial/arrays.html">Arrays</a></li>
+  <li><a href="http://www-h.eng.cam.ac.uk/help/languages/C++/c++_tutorial/glue.html">Glue Graphics Library </a></li>
+  <li><a href="http://www-h.eng.cam.ac.uk/help/languages/C++/c++_tutorial/advanced.html">Advanced Topics</a></li>
+  <li><a href="http://www-h.eng.cam.ac.uk/help/languages/C++/c++_tutorial/further.html">Further Reading</a></li>
+<!-- End side bar index content here -->
+  </ul>
+
+  <div id="content">
+    <div id="content-primary">
+<!-- Add main page content here -->
+
+
+<div id="content"><a name="top" id="top"></a><!-- #BeginEditable "content" --> 
+  <h1>7. Functions</h1>
+  <p><img src="./CUED - C++ Tutorial_ Functions_files/cued.jpg" width="145" height="145" alt="department image" style="border:0;float:right"> Computer programs that solve real-world problems
+are usually much larger than the simple programs discussed so far.
+To design, implement and maintain larger programs it is
+necessary to break them down into 
+smaller, more manageable pieces or <em>modules</em>. 
+ Dividing the 
+problem into parts and building the solution from simpler
+parts is a key concept in problem solving and programming.</p>
+  <p>
+In C++ we can subdivide the functional features of
+a program into blocks of code known as 
+<strong>functions</strong>. 
+In effect these are
+subprograms that can be used to 
+avoid the repetition of similar code and 
+allow complicated tasks to be broken down into parts,
+making the program modular.
+</p>
+  <p>
+Until now you have encountered programs where all the code
+ (statements) has been  written inside a single function
+called <tt>main()</tt>. Every executable C++ program has at least this
+ function.
+In the next sections we will learn how to write additional
+ functions.  </p>
+  <h3><a name="definition" id="definition"></a>Function definition </h3>
+  <p> Each function has its own name, and when that name is encountered 
+in a program (the <strong>function call</strong>) 
+execution of the program branches to the body of that
+function. After the last statement of the function 
+has been processed (the <strong>return</strong> statement), 
+execution resumes on the next line after the call to the function.</p>
+  <p>
+Functions consist of a header and a body. The <strong>header</strong> 
+
+includes the name of the function and tells us 
+(and the compiler) what type of data it expects to
+receive (the <em>parameters</em>) 
+and the type of data it will return (<em>return value type</em>)
+ to the calling function or program.
+</p>
+  <p>
+The <strong>body</strong> of the function contains the instructions to
+be executed.
+If the function returns a value, it will end with a <tt>return</tt>
+statement. 
+The following is a formal description of the syntax for
+defining a function:
+</p>
+
+
+<p>
+  
+<tt>
+ &nbsp;&nbsp;<em> return-value-type</em> <em> function-name</em>(<em> parameter-list</em> )
+<br>
+&nbsp;&nbsp;&nbsp;{
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em> declaration of local variables</em>;
+
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em> statements</em>;
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return <em> return-value</em>;
+<br>
+&nbsp;&nbsp;&nbsp;}</tt></p>
+
+<p>
+The syntax is very similar to that of the <tt>main</tt> program,
+which is also a function. <tt>main()</tt> has no parameters
+ and returns the 
+integer 0  if the program executes correctly. Hence the 
+return value type of the <tt>main()</tt> function is <tt>int</tt>.
+</p>
+<pre> &nbsp;&nbsp;&nbsp;int main()
+&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em> declarations</em>;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em> statements</em>;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 0;
+&nbsp;&nbsp;&nbsp;}  </pre>
+
+  <h3><a name="example" id="example"></a>Example of function definition, declaration and call </h3>
+
+<p>Let us first look at an example of a program written entirely 
+with the function <tt>main()</tt> and then we will modify it to
+use an additional <strong>function call</strong>.</p>
+<p>
+We illustrate this with a program to calculate the factorial (n!) of 
+an integer number (n) using a <tt>for</tt> loop 
+to compute:
+</p>
+<p>
+n! = 1 x 2 x 3...(n-2) x (n-1) x n
+</p>
+
+<pre>// MainFactorial.cc
+// Program to calculate factorial of a number
+
+#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+   int i, number=0, factorial=1;
+
+   // User input must be an integer number between 1 and 10
+   while(number&lt;1 || number&gt;10)
+   {
+     cout &lt;&lt; "Enter integer number (1-10) = ";
+     cin &gt;&gt; number;
+   }
+
+   // Calculate the factorial with a FOR loop
+   for(i=1; i&lt;=number; i++)
+   {
+      factorial = factorial*i;
+   }
+
+   // Output result
+   cout &lt;&lt; "Factorial = " &lt;&lt; factorial &lt;&lt; endl;
+   return 0;
+}
+
+</pre>
+<p>
+Even though the program is very short, the code to
+calculate the factorial is best placed inside a function
+since it is likely to be executed many times in the same
+program or in different programs 
+(e.g. calculating the factorials of many different
+numbers, computing binomial coefficients and permutations and
+combinations). 
+
+</p>
+<pre>// FunctionFactorial.cc
+// Program to calculate factorial of a number with function call
+
+#include &lt;iostream&gt;
+using namespace std;
+
+// Function declaration (prototype)
+int Factorial(int M); 
+
+int main()
+{
+   int number=0, result;
+
+   // User input must be an integer number between 1 and 10
+   while(number&lt;1 || number&gt;10)
+   {
+     cout &lt;&lt; "Integer number = ";
+     cin &gt;&gt; number;
+   }
+
+   // Function call and assignment of return value to result
+   result = Factorial(number);  
+
+   //Output result
+   cout &lt;&lt; "Factorial = " &lt;&lt; result &lt;&lt; endl;
+   return 0;
+}
+
+
+// Function definition (header and body)
+// An integer, M, is passed from caller function.
+int Factorial(int M)
+{
+   int i, factorial=1;
+
+   // Calculate the factorial with a FOR loop
+   for(i=1; i&lt;=M; i++)
+   {
+      factorial = factorial*i;
+   }
+
+   return factorial; // This value is returned to caller
+}
+
+</pre>
+
+<p>
+Three modifications to the program have been made to incorporate
+a function. If we look at the modified sample program, 
+<tt>FunctionFactorial.cc</tt>,  we find:</p>
+
+<ol>
+
+<li>The <strong>declaration</strong> of the function above the main program.
+The declaration (also known as the <em>prototype</em>)
+ tells the compiler about
+the function and the <em>type</em> of data it requires and
+will <em>return</em> on completion. 
+</li>
+<li>The <strong>function  call</strong> in  the main body of the program
+determines when to branch to the function
+and how to return the value of the data computed back to the
+main program.
+
+</li>
+<li>The <strong>definition</strong> of the function <tt>Factorial()</tt> below
+the main program. The definition consists of
+a <strong>header</strong> which specifies how
+the function will interface with the main program 
+and a <strong>body</strong> which lists the statements to be executed when the function
+is called.
+</li>
+
+</ol>
+<p>
+Before a function can be used it must be declared (0), usually at the top
+of the program file. 
+When the function name is encountered in the main body of the program (1), execution
+branches to the body of the function definition (2). Copies of the
+values of function arguments are stored in the memory locations 
+allocated to the parameters. The
+statements of the function are then 
+executed (3) up to the first <tt>return</tt>
+statement when control returns to the main body (4). 
+ Any value returned by the function is stored by an assignment
+statement. Execution in the main body is resumed immediately after the
+function call (5). </p>
+ <h3><a name="head" id="head"></a>Function header and body</h3>
+ <p> The function is defined below the body of <tt>main()</tt>.
+The <strong>header</strong> in this example:</p>
+<pre>   int Factorial(int M)
+</pre>
+<p> indicates that the <tt>Factorial()</tt>
+function expects to be <strong>passed</strong> an integer value (the <em> parameter type</em>) from the
+
+<tt>main</tt> body of the program and that the value passed  will be stored
+locally in a variable named <tt>M</tt> (the <em>formal parameter name</em>).
+The <em>return value type</em> of the function is also <tt>int</tt> in this
+example,  indicating
+that at the end of executing the body of the function, an integer
+value will be returned to the statement in which the function was
+called. Functions which do not return a value have <em>return value type</em> 
+<tt>void</tt>.</p>
+
+<p>
+The <strong>body</strong> of the function computes the factorial of a number in exactly
+the same way as in the example with only a <tt>main()</tt> function.
+The execution of the function terminates with 
+a <em>return statement</em>:</p>
+<pre>   return factorial;
+</pre>
+<p>which specifies that the value stored in
+the function variable <tt>factorial</tt> should be
+ passed back to the calling function.</p>
+
+ <h3><a name="declaration" id="declaration"></a>Function declaration</h3>
+  <p>  Every function has to be <strong>declared</strong> before it is used. 
+The declaration tells the compiler
+the name, return value type and parameter types of the
+function. In this example the declaration:</p>
+<pre>   int Factorial(int M);
+</pre>
+<p>tells the compiler that the
+program passes the value of an integer to the function
+and that the <em>return value</em> must be assigned to an integer
+variable. 
+The declaration of a function is called
+its <strong>prototype</strong>, which means the ``first'' time
+the function is identified to your program.</p>
+<p>
+The function prototype and the function definition must agree exactly
+about the return value type, function name and the parameter types.
+The function prototype is usually a copy of the
+function header followed by a semicolon to make it a declaration
+and placed before  the main program in the program file.</p>
+  <h3><a name="call" id="call"></a> Function call and execution</h3>
+  <p> The function definition is entirely passive. By itself it does
+nothing unless instructed to execute. This is done by
+a statement in the main program called the <strong>function call</strong>.</p>
+
+<p>
+For example the statement:</p>
+
+<pre>   result = Factorial(number);
+</pre>
+<p>calls the function <tt>Factorial()</tt> and passes a copy of the value
+ stored in the  variable, <tt>number</tt>. 
+When the function is called, 
+computer memory is allocated for the parameter, <tt>M</tt>
+and the value passed is copied to this  memory location. Memory is also allocated
+to the (local) variables <tt>factorial</tt> and <tt>i</tt>.
+The statements of the function are then executed and assign a value to
+the variable <tt>factorial</tt>.
+ The <tt>return</tt>
+
+statement passes this value back to the
+calling function.
+The memory allocated to the parameters and
+local variables is then destroyed.
+The value returned is assigned to the variable on the left-hand side, 
+<tt>result</tt>, in the expression used to call the function.
+The net effect of executing the function in our example is that
+the variable <tt>result</tt> has been assigned the value of
+the factorial of <tt>number</tt>. </p>
+
+<p>
+A function can be called any number of times from the same or
+different parts of the program. It can be called with
+different parameter values (though they must be of the
+correct type).</p>
+<p>For example the following fragment of code can be used to print
+ out the factorials of the
+first 10 integers:</p>
+<pre>   for(i=1; i&lt;=10; i++)
+   {
+      result = Factorial(i);     
+      cout &lt;&lt; i &lt;&lt; "! = " &lt;&lt; result &lt;&lt; endl;
+   }
+
+</pre>
+<p>and:</p>
+<pre>   binomialCoefficient = Factorial(n)/(Factorial(k) * Factorial(n-k));
+</pre>
+<p>can be used to compute the binomial coefficient:   <img src="./CUED - C++ Tutorial_ Functions_files/img19.gif" alt="n factorial divided by k factorial times open brackets n minus k close brackets factorial" width="74" height="47" style="border:0;float:right"></p>
+<h3><a name="arguments" id="arguments"></a>Function arguments</h3>
+   <p>   The names of variables in
+the  statement calling the function will not in general be the same
+as the names in the function definition, although they must
+be of the same type.
+We often distinguish between the <strong>formal parameters</strong>
+in the function definition 
+(e.g. <tt>M</tt>)
+and the <strong>actual parameters</strong> for the
+values of the variables passed to the function
+(e.g. <tt>number</tt> in the 
+example above) when it is called.</p>
+<p>
+Function arguments (actual parameters) 
+can include constants and 
+mathematical expressions. For example the following statement
+assigns the value <tt>24</tt> to the variable <tt>result</tt>.</p>
+<pre>   result = Factorial(4);
+</pre>
+<p>
+The function arguments 
+can also be functions that return a value, although this
+makes the code difficult to read and debug.
+  </p>
+   <h3><a name="anotherexample" id="anotherexample"></a>Another example </h3>
+   <p>   The following is another  example of the declaration, definition and
+call of a function,  <tt>AreaTriangle()</tt>,  in a program to calculate the
+area of a regular hexagon inscribed in a circle of radius input 
+by the user. </p>
+
+<pre>// HexagonValue.cc
+// Program to calculate the area of a regular hexagon inscribed in a
+// circle as sum of areas of 6 triangles by calling AreaTriangle()
+
+#include &lt;iostream&gt;
+using namespace std;
+
+// AreaTriangle function prototype
+float AreaTriangle(float base, float height); 
+
+int main()
+{
+   float side, segmentHeight, hexagonArea;
+   float cosTheta = 0.866025;
+
+   cout &lt;&lt; "Program to calculate the area of a hexagon" &lt;&lt; endl;
+   cout &lt;&lt; "Enter side of hexagon: ";
+   cin &gt;&gt; side;
+
+   // Base of triangle is equal to side, height is side*cos(30)
+   segmentHeight = side*cosTheta;
+
+   // Function returns area of segment. 6 segments for total area.
+   hexagonArea =  6.0 * AreaTriangle(side,segmentHeight);
+
+   cout &lt;&lt; "Area of hexagon = " &lt;&lt; hexagonArea &lt;&lt; endl;
+   return 0;
+}
+
+// AreaTriangle function definition
+float AreaTriangle(float base, float height)
+{
+   float area;
+        
+   area = (base*height)/2.0;
+   return area;
+}
+
+</pre>
+<p>
+The statement:</p>
+<pre>   hexagonArea =  6.0 * AreaTriangle(side,segmentHeight);
+</pre>
+<p>calls the function to calculate the area of a triangle 
+with base and height given by the values stored in
+<tt>side</tt> and <tt>segmentHeight</tt> and then 
+assigns the value of 6 times the area (the return value of the function)
+to the variable <tt>hexagonArea</tt>. It is therefore equivalent
+to the following:</p>
+<pre>
+   segmentArea = AreaTriangle(side,segmentHeight);
+   hexagonArea = 6.0*segmentArea;
+</pre>
+
+   <h3><a name="passing" id="passing"></a>Passing by value or reference </h3>
+   <p>  There are two ways to pass values to functions. Up to
+now we have only looked at examples of 
+<strong>passing by value</strong>.
+In the <em>passing by value</em> way of passing parameters, a copy
+of the variable is made and passed to the function. Changes
+to that copy do not affect the original variable's value
+in the calling function. This prevents the accidental
+corrupting of variables by functions and so is the
+preferred method for developing correct and reliable
+software systems.</p>
+<p>One disadvantage of <em>passing by value</em> 
+
+however,  is 
+that only a single value can be returned to
+the caller. If the function has to modify the 
+value of an argument or has to return more than one value,
+then another method is required.</p>
+<p>
+An alternative uses <strong>passing by reference</strong> in which the
+function is told where in memory the data is stored (i.e. 
+the function is passed the memory address of the variables).
+In passing the address of the variable we allow the function to 
+not only read the value stored but also to change it.
+ On the other hand, by passing the  value by name
+we simply let the function know what the value is.
+</p>
+<p>
+To indicate that a function parameter is 
+<em>passed by reference</em> the symbol <code>&amp;</code>
+is placed next to the variable name in the parameter list of
+the function definition and prototype (but <strong>not</strong> the
+function call). Inside the function 
+the variable is treated like any other variable. Any changes
+made to it, however, will automatically result in changes
+in the value of the variable in the calling function.
+</p>
+
+<p>
+Passing by reference is an advanced topic in C++.
+What is really being passed is a <em>pointer</em> 
+to the <em>memory address</em> of the variable. 
+The symbol <code>&amp;</code> is called the 
+<strong>address of</strong> operator and the parameter value becomes the
+address of the variable following it. 
+</p>
+<p>
+The use of <em>pointers</em> in C++ is a powerful feature of the
+language, but is probably one of the most difficult to understand. 
+The preferred way of passing arguments to a function is by 
+
+<em>passing by value</em> calls.
+This is sufficient for the simple programs considered in this
+course in which 
+only a single value has to be returned to
+the calling function. However, if the function has to modify the 
+value of an argument or has to return more than one value,
+then this must be done by <em>passing by reference</em>.</p>
+
+<p>
+A simple example of passing by reference
+ is given below for a function which swaps the values of
+two variables in the calling function's data by reading and
+writing to the memory locations of these variables.
+Note that the parameters are mentioned only by name in the
+function call. This appears to be the same as <em>calling by value</em>.
+The function header and prototype, however, must use the
+<code>&amp;</code> symbol by the variable name to indicate that
+the call is by reference and that the function can 
+change the variable values.</p>
+
+<pre>// SortReference.cc
+// Program to sort two numbers using call by reference. 
+// Smallest number is output first.
+
+#include &lt;iostream&gt;
+
+using namespace std;
+
+// Function prototype for call by reference
+void swap(float &amp;x, float &amp;y);
+
+int main()
+{
+   float a, b;
+   
+   cout &lt;&lt; "Enter 2 numbers: " &lt;&lt; endl;
+   cin &gt;&gt; a &gt;&gt; b;
+   if(a&gt;b) 
+     swap(a,b);
+
+   // Variable a contains value of smallest number
+   cout &lt;&lt; "Sorted numbers: ";
+   cout &lt;&lt; a &lt;&lt; " " &lt;&lt; b &lt;&lt; endl;
+   return 0;
+}
+
+// A function definition for call by reference
+// The variables x and y will have their values changed.
+
+
+void swap(float &amp;x, float &amp;y)
+// Swaps x and y data of calling function
+{
+   float temp;
+
+   temp = x;
+   x = y;
+   y = temp;
+}
+
+</pre> 
+
+  
+<!-- #EndEditable -->
+<p><a href="http://www-h.eng.cam.ac.uk/help/languages/C++/c++_tutorial/functions.html#top">Back to top</a></p>
+</div>
+
+
+<!-- End main page content here -->
+    </div> <!-- content-primary -->
+  </div> <!-- content -->
+  <ul id="site-info">
+    <li class="copy">© Cambridge University, Engineering Department, Trumpington Street, Cambridge CB2 1PZ, UK (<a href="http://www-h.eng.cam.ac.uk/visitors/">map</a>)<br>
+Tel: +44 1223 332600, Fax: +44 1223 332662<br>
+<a href="http://www.cam.ac.uk/about-this-site/privacy-policy">Privacy policy</a><br><p xmlns="http://www.w3.org/1999/xhtml"> Copyright © 2004 Cambridge University Engineering Department. Site 
+    designed by <a href="http://www-g.eng.cam.ac.uk/mmg/">Multimedia Group</a>; 
+    content provided by Professor Roberto Cipolla.</p>
+     Contact: <a href="http://www.eng.cam.ac.uk/contact_addresses.html">helpdesk</a></li>
+  </ul>
+</div> <!-- container -->
+
+</body></html>

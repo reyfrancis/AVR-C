@@ -1,0 +1,1266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0058)https://www.learncpp.com/cpp-tutorial/42-global-variables/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style></style>
+
+ <title>S.4.2 — Global variables and linkage | Learn C++</title> <link rel="shortcut icon" href="https://www.learncpp.com/blog/wp-content/ata-images/learncpp.ico">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://www.learncpp.com/blog/xmlrpc.php">
+
+<!-- All in One SEO Pack 2.11 by Michael Torbert of Semper Fi Web Designob_start_detected [-1,-1] -->
+<link rel="canonical" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/">
+<!-- /all in one seo pack -->
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://gateway.gear.mycelium.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Learn C++ » Feed" href="https://www.learncpp.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Learn C++ » Comments Feed" href="https://www.learncpp.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Learn C++ » S.4.2 — Global variables and linkage Comments Feed" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/feed/">
+<link rel="stylesheet" id="mycelium-gear-widget-admin-css" href="./S.4.2 — Global variables and linkage _ Learn C++_files/mycelium-gear-widget-admin.css" type="text/css" media="">
+<link rel="stylesheet" id="crayon-css" href="./S.4.2 — Global variables and linkage _ Learn C++_files/crayon.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-theme-familiar-learncppcom-css" href="./S.4.2 — Global variables and linkage _ Learn C++_files/familiar-learncppcom.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-monaco-css" href="./S.4.2 — Global variables and linkage _ Learn C++_files/monaco.css" type="text/css" media="all">
+<link rel="stylesheet" id="learncpp-css" href="./S.4.2 — Global variables and linkage _ Learn C++_files/learncpp.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="./S.4.2 — Global variables and linkage _ Learn C++_files/jetpack.css" type="text/css" media="all">
+<script async="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/analytics.js.download"></script><script type="text/javascript" src="./S.4.2 — Global variables and linkage _ Learn C++_files/jquery.js.download" data-cfasync="true"></script>
+<script type="text/javascript" src="./S.4.2 — Global variables and linkage _ Learn C++_files/jquery-migrate.min.js.download" data-cfasync="true"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.7.1","is_admin":"0","ajaxurl":"https:\/\/www.learncpp.com\/blog\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./S.4.2 — Global variables and linkage _ Learn C++_files/crayon.min.js.download" data-cfasync="true"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var cfmonitor = {"client_ip":"1.160.207.229","max_clicks":"8","clicks":"0","is_blocked":"0","customclass":"cf_monitor","disablead":"false","currentURL":"\/cpp-tutorial\/42-global-variables\/","debug":"","caching":"1","ajaxurl":"https:\/\/www.learncpp.com\/blog\/wp-admin\/admin-ajax.php","nonce":"ee84402cd1"};
+/* ]]> */
+</script>
+<script data-cfasync="false" src="./S.4.2 — Global variables and linkage _ Learn C++_files/check_min.js.download"></script>
+<script type="text/javascript" src="./S.4.2 — Global variables and linkage _ Learn C++_files/gear-widget-host.js.download" data-cfasync="true"></script>
+<script type="text/javascript" src="./S.4.2 — Global variables and linkage _ Learn C++_files/DD_roundies.js.download" data-cfasync="true"></script>
+<link rel="https://api.w.org/" href="https://www.learncpp.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.learncpp.com/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.learncpp.com/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="S.4.1 — Blocks (compound statements)" href="https://www.learncpp.com/cpp-tutorial/41-blocks-compound-statements/">
+<link rel="next" title="S.4.3 — Static duration variables" href="https://www.learncpp.com/cpp-tutorial/43-static-duration-variables/">
+<link rel="shortlink" href="https://www.learncpp.com/?p=65">
+<link rel="alternate" type="application/json+oembed" href="https://www.learncpp.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.learncpp.com%2Fcpp-tutorial%2F42-global-variables%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.learncpp.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.learncpp.com%2Fcpp-tutorial%2F42-global-variables%2F&amp;format=xml">
+
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-2173612-1', 'auto');
+			ga('send', 'pageview');
+		</script>
+
+	<!-- Hint Code -->
+        <script type="text/javascript">
+            function cppHintToggle(hint, link, showtext, hidetext) {
+                if (hint.style.display != 'none') {
+                    hint.style.display = 'none';
+                    link.innerHTML = showtext;
+                    link.className = 'hint_link_show';
+                } else {
+                    hint.style.display = 'block';
+                    link.innerHTML = hidetext;
+                    link.className = 'hint_link_hide';
+                }
+            }
+          </script>
+<!-- wpSolution Code -->
+        <script type="text/javascript">
+            function wpSolutionToggle(solution, link, showtext, hidetext) {
+                if (solution.style.display != 'none') {
+                    solution.style.display = 'none';
+                    link.innerHTML = showtext;
+                    link.className = 'solution_link_show';
+                } else {
+                    solution.style.display = 'block';
+                    link.innerHTML = hidetext;
+                    link.className = 'solution_link_hide';
+                }
+            }
+          </script>
+<style type="text/css">img#wpstats{display:none}</style><style type="text/css">body{text-align:center;margin:0;padding:0;font-family:verdana,arial,sans-serif;font-size:13px;line-height:1.4;color:#000000;background:#bbb;padding-bottom:20px}a:link,a:visited,a:active{color:#365DA0;font-weight:bold;text-decoration:none;}a:hover{color:#365DA0;font-weight:bold;text-decoration:underline}ul,ol,dl,p,h1,h2,h3,h4,h5,h6{margin-top:10px;margin-bottom:10px;padding-top:0;padding-bottom:0;}ul ul,ul ol,ol ul,ol ol{margin-top:0;margin-bottom:0}code,pre{font-family:"Courier New",Courier,monospace;font-size:1em}pre{overflow:auto;word-wrap:normal;padding-bottom:1.5em;overflow-y:hidden;width:99%}abbr[title],acronym[title]{border-bottom:1px dotted}hr{display:block;height:2px;border:none;margin:0.5em auto;color:#cccccc;background-color:#cccccc}table{font-size:1em;}div.post,ul.commentlist li,ol.commentlist li{word-wrap:break-word;}pre,.wp_syntax{word-wrap:normal;}div#wrapper{text-align:center;margin-left:auto;margin-right:auto;display:block;width:100%}div#container{padding:20px;box-shadow:0 0 15px #333;-moz-box-shadow:0 0 15px #333;width:auto;margin-left:auto;margin-right:auto;text-align:left;display:block}table#layout{font-size:100%;width:100%;table-layout:fixed}.colone{width:200px}.colone-inner{width:10px}.coltwo{width:100% }.colthree-inner{width:10px}.colthree{width:200px}div#header.full-width{width:100%}div#header,td#header{width:auto;padding:0}table#logoarea,table#logoarea tr,table#logoarea td{margin:0;padding:0;background:none;border:0}table#logoarea{width:100%;border-spacing:0px}img.logo{display:block;margin:0 10px 0 0}td.logoarea-logo{width:1%}h1.blogtitle,h2.blogtitle{ display:block;margin:0;padding:0;letter-spacing:-1px;line-height:1.0em;font-size:200%;text-transform:uppercase;font-smooth:always}h1.blogtitle a:link,h1.blogtitle a:visited,h1.blogtitle a:active,h2.blogtitle a:link,h2.blogtitle a:visited,h2.blogtitle a:active{ text-decoration:none;color:#000000;font-weight:normal;font-smooth:always}h1.blogtitle a:hover,h2.blogtitle a:hover{ text-decoration:none;color:#AC161B;font-weight:normal}p.tagline{margin:0;padding:0;font-size:1.2em;font-weight:normal;color:#444}td.feed-icons{white-space:nowrap;}div.rss-box{height:1%;display:block;padding:10px 0 10px 10px;margin:0;width:280px}a.comments-icon{height:22px;line-height:22px;margin:0 5px 0 5px;padding-left:22px;display:block;text-decoration:none;float:right;white-space:nowrap}a.comments-icon:link,a.comments-icon:active,a.comments-icon:visited{background:transparent url(https://www.learncpp.com/blog/wp-content/themes/atahualpa/images/comment-gray.png) no-repeat scroll center left}a.comments-icon:hover{background:transparent url(https://www.learncpp.com/blog/wp-content/themes/atahualpa/images/comment.png) no-repeat scroll center left}a.posts-icon{height:22px;line-height:22px;margin:0 5px 0 0;padding-left:20px;display:block;text-decoration:none;float:right;white-space:nowrap}a.posts-icon:link,a.posts-icon:active,a.posts-icon:visited{background:transparent url(https://www.learncpp.com/blog/wp-content/themes/atahualpa/images/rss-gray.png) no-repeat scroll center left}a.posts-icon:hover{background:transparent url(https://www.learncpp.com/blog/wp-content/themes/atahualpa/images/rss.png) no-repeat scroll center left}a.email-icon{height:22px;line-height:22px;margin:0 5px 0 5px;padding-left:24px;display:block;text-decoration:none;float:right;white-space:nowrap}a.email-icon:link,a.email-icon:active,a.email-icon:visited{background:transparent url(https://www.learncpp.com/blog/wp-content/themes/atahualpa/images/email-gray.png) no-repeat scroll center left}a.email-icon:hover{background:transparent url(https://www.learncpp.com/blog/wp-content/themes/atahualpa/images/email.png) no-repeat scroll center left}td.search-box{height:1%}div.searchbox{height:35px;border-bottom:0;width:200px;margin:0;padding:0}div.searchbox-form{margin:5px 10px 5px 10px}div.horbar1,div.horbar2{font-size:1px;clear:both;display:block;position:relative;padding:0;margin:0}div.horbar1{height:0px;background:#ffffff;border-top:dashed 1px #cccccc}div.horbar2{height:0px;background:#ffffff;border-bottom:dashed 1px #cccccc}div.header-image-container-pre{position:relative;margin:0;padding:0;height:150px;}div.header-image-container{position:relative;margin:0;padding:0;height:150px;}div.codeoverlay{position:absolute;top:0;left:0;width:100%;height:100%}div.clickable{position:absolute;top:0;left:0;z-index:3;margin:0;padding:0;width:100%;height:150px;}a.divclick:link,a.divclick:visited,a.divclick:active,a.divclick:hover{width:100%;height:100%;display:block;text-decoration:none}td#left{vertical-align:top;padding-right:10px}td#left-inner{vertical-align:top;padding-right:10px}td#right{vertical-align:top;padding-left:10px}td#right-inner{vertical-align:top;padding-left:10px}td#middle{vertical-align:top;width:100%;background:#fff;padding-left:15px!important;padding-right:15px!important;border:solid 4px #eee}div#footer.full-width{width:100%}div#footer,td#footer{width:auto;background-color:#f7f7f7;border:solid 4px #eee;padding:10px;text-align:center;color:#888;font-size:11px;margin-left:220px;margin-right:220px;margin-top:20px;width:auto!important}div#footer a:link,div#footer a:visited,div#footer a:active,td#footer a:link,td#footer a:visited,td#footer a:active{text-decoration:none;color:#777777;font-weight:normal}div#footer a:hover,td#footer a:hover{text-decoration:none;color:#777777;font-weight:normal}div.widget{display:block;width:auto;font-size:12px;margin:0 0 10px 0;padding:10px;border:solid 4px #eee;background:#fff}div.widget-title{display:block;width:auto}div.widget-title h3,td#left h3.tw-widgettitle,td#right h3.tw-widgettitle,td#left ul.tw-nav-list,td#right ul.tw-nav-list{padding:0;margin:0;font-size:0.9em;text-align:center;font-weight:normal;text-transform:uppercase;letter-spacing:1px;color:#333;border-bottom:solid 1px #eee;padding-bottom:10px;margin-bottom:10px}div.widget ul,div.textwidget{display:block;width:auto;background:#fff}div.widget select{width:98%;margin-top:5px;}div.widget ul{list-style-type:none;margin:0;padding:0;width:auto}div.widget ul li{display:block;margin:2px 0 2px 0px;padding:0 0 0 0px;border-left:solid 0px #CCCCCC}div.widget ul li:hover,div.widget ul li.sfhover{display:block;width:auto;border-left:solid 0px #000000;}div.widget ul li ul li{margin:2px 0 2px 5px;padding:0 0 0 0px;border-left:solid 0px #CCCCCC;}div.widget ul li ul li:hover,div.widget ul li ul li.sfhover{border-left:solid 0px #000000;}div.widget ul li ul li ul li{margin:2px 0 2px 5px;padding:0 0 0 0px;border-left:solid 0px #CCCCCC;}div.widget ul li ul li ul li:hover,div.widget ul li ul li ul li.sfhover{border-left:solid 0px #000000;}div.widget a:link,div.widget a:visited,div.widget a:active,div.widget td a:link,div.widget td a:visited,div.widget td a:active,div.widget ul li a:link,div.widget ul li a:visited,div.widget ul li a:active{text-decoration:none;font-weight:normal;color:#365DA0;font-weight:normal;}div.widget ul li ul li a:link,div.widget ul li ul li a:visited,div.widget ul li ul li a:active{color:#365DA0;font-weight:normal;}div.widget ul li ul li ul li a:link,div.widget ul li ul li ul li a:visited,div.widget ul li ul li ul li a:active{color:#365DA0;font-weight:normal;}div.widget a:hover,div.widget ul li a:hover{color:#365DA0;}div.widget ul li ul li a:hover{color:#365DA0;}div.widget ul li ul li ul li a:hover{color:#365DA0;}div.widget ul li a:link,div.widget ul li a:visited,div.widget ul li a:active,div.widget ul li a:hover{display:inline}* html div.widget ul li a:link,* html div.widget ul li a:visited,* html div.widget ul li a:active,* html div.widget ul li a:hover{height:1%; } div.widget_nav_menu ul li,div.widget_pages ul li,div.widget_categories ul li{border-left:0 !important;padding:0 !important}div.widget_nav_menu ul li a:link,div.widget_nav_menu ul li a:visited,div.widget_nav_menu ul li a:active,div.widget_pages ul li a:link,div.widget_pages ul li a:visited,div.widget_pages ul li a:active,div.widget_categories ul li a:link,div.widget_categories ul li a:visited,div.widget_categories ul li a:active{padding:0 0 0 0px;border-left:solid 0px #CCCCCC}div.widget_nav_menu ul li a:hover,div.widget_pages ul li a:hover,div.widget_categories ul li a:hover{border-left:solid 0px #000000;}div.widget_nav_menu ul li ul li a:link,div.widget_nav_menu ul li ul li a:visited,div.widget_nav_menu ul li ul li a:active,div.widget_pages ul li ul li a:link,div.widget_pages ul li ul li a:visited,div.widget_pages ul li ul li a:active,div.widget_categories ul li ul li a:link,div.widget_categories ul li ul li a:visited,div.widget_categories ul li ul li a:active{padding:0 0 0 0px;border-left:solid 0px #CCCCCC}div.widget_nav_menu ul li ul li a:hover,div.widget_pages ul li ul li a:hover,div.widget_categories ul li ul li a:hover{border-left:solid 0px #000000;}div.widget_nav_menu ul li ul li ul li a:link,div.widget_nav_menu ul li ul li ul li a:visited,div.widget_nav_menu ul li ul li ul li a:active,div.widget_pages ul li ul li ul li a:link,div.widget_pages ul li ul li ul li a:visited,div.widget_pages ul li ul li ul li a:active,div.widget_categories ul li ul li ul li a:link,div.widget_categories ul li ul li ul li a:visited,div.widget_categories ul li ul li ul li a:active{padding:0 0 0 0px;border-left:solid 0px #CCCCCC}div.widget_nav_menu ul li ul li ul li a:hover,div.widget_pages ul li ul li ul li a:hover,div.widget_categories ul li ul li ul li a:hover{border-left:solid 0px #000000;}div.widget_nav_menu ul li a:link,div.widget_nav_menu ul li a:active,div.widget_nav_menu ul li a:visited,div.widget_nav_menu ul li a:hover,div.widget_pages ul li a:link,div.widget_pages ul li a:active,div.widget_pages ul li a:visited,div.widget_pages ul li a:hover{display:block !important}div.widget_categories ul li a:link,div.widget_categories ul li a:active,div.widget_categories ul li a:visited,div.widget_categories ul li a:hover{display:inline !important}table.subscribe{width:100%}table.subscribe td.email-text{padding:0 0 5px 0;vertical-align:top}table.subscribe td.email-field{padding:0;width:100%}table.subscribe td.email-button{padding:0 0 0 5px}table.subscribe td.post-text{padding:7px 0 0 0;vertical-align:top}table.subscribe td.comment-text{padding:7px 0 0 0;vertical-align:top}div.post,div.page{display:block;margin:0 0 30px 0;padding-top:20px}div.sticky{background:#eee url('<?php bloginfo('template_directory');?>/images/sticky.gif') 99% 5% no-repeat;border:dashed 1px #cccccc;padding:10px}div.post-kicker{margin:0 0 5px 0}div.post-kicker a:link,div.post-kicker a:visited,div.post-kicker a:active{color:#999;text-decoration:none;text-transform:uppercase;letter-spacing:1px}div.post-kicker a:hover{color:#cc0000}div.post-headline{}div.post-headline h1,div.post-headline h2{ margin:0; padding:0;padding:0;margin:0;font-size:1.7em}div.post-headline h2 a:link,div.post-headline h2 a:visited,div.post-headline h2 a:active,div.post-headline h1 a:link,div.post-headline h1 a:visited,div.post-headline h1 a:active{}div.post-headline h2 a:hover,div.post-headline h1 a:hover{}div.post-byline{margin:5px 0 10px 0;color:#999;text-transform:uppercase;letter-spacing:1px;font-size:11px}div.post-byline a:link,div.post-byline a:visited,div.post-byline a:active{}div.post-byline a:hover{}div.post-bodycopy{}div.post-bodycopy p{margin:1em 0;padding:0;display:block}div.post-pagination{}div.post-footer{clear:both;display:block;color:#999;text-transform:uppercase;letter-spacing:1px;font-size:11px}div.post-footer a:link,div.post-footer a:visited,div.post-footer a:active{color:#999;font-weight:normal;text-decoration:none}div.post-footer a:hover{color:#333;font-weight:normal;text-decoration:underline}div.post-kicker img,div.post-byline img,div.post-footer img{border:0;padding:0;margin:0 0 -1px 0;background:none}span.post-ratings{display:inline-block;width:auto;white-space:nowrap}div.navigation-top{border-top:solid 4px #eee;padding:8px 0}div.navigation-middle{margin:10px 0 20px 0;padding:8px 0;border-top:solid 4px #eee;border-bottom:solid 4px #eee}div.navigation-bottom{margin:20px 0 0 0;padding:10px 0 0 0;border-top:solid 4px #eee}div.navigation-comments-above{margin:0 0 10px 0;padding:5px 0 5px 0}div.navigation-comments-below{margin:0 0 10px 0;padding:5px 0 5px 0}div.older{float:left;width:48%;text-align:left;margin:0;padding:0}div.newer{float:right;width:48%;text-align:right;margin:0;padding:0;}div.older-home{float:left;width:44%;text-align:left;margin:0;padding:0}div.newer-home{float:right;width:44%;text-align:right;margin:0;padding:0;}div.home{float:left;width:8%;text-align:center;margin:0;padding:0}form,.feedburner-email-form{margin:0;padding:0;}fieldset{border:1px solid #cccccc;width:auto;padding:0.35em 0.625em 0.75em;display:block;}legend{color:#000000;background:#f4f4f4;border:1px solid #cccccc;padding:2px 6px;margin-bottom:15px;}form p{margin:5px 0 0 0;padding:0;}div.xhtml-tags p{margin:0}label{margin-right:0.5em;font-family:arial;cursor:pointer;}input.text,input.textbox,input.password,input.file,input.TextField,textarea{padding:3px;color:#000000;border-top:solid 1px #333333;border-left:solid 1px #333333;border-right:solid 1px #999999;border-bottom:solid 1px #cccccc;background:url(https://www.learncpp.com/blog/wp-content/themes/atahualpa/images/inputbackgr.gif) top left no-repeat}textarea{width:96%;}input.inputblur{color:#777777;width:95%}input.inputfocus{color:#000000;width:95%}input.highlight,textarea.highlight{background:#e8eff7;border-color:#37699f}.button,.Button,input[type=submit]{padding:0 2px;height:24px;line-height:16px;background-color:#777777;color:#ffffff;border:solid 2px #555555;font-weight:bold}input.buttonhover{padding:0 2px;cursor:pointer;background-color:#6b9c6b;color:#ffffff;border:solid 2px #496d49}form#commentform input#submit{ padding:0 .25em; overflow:visible}form#commentform input#submit[class]{width:auto}form#commentform input#submit{padding:4px 10px 4px 10px;font-size:1.2em;line-height:1.5em;height:36px}table.searchform{width:100%}table.searchform td.searchfield{padding:0;width:100%}table.searchform td.searchbutton{padding:0 0 0 5px}table.searchform td.searchbutton input{padding:0 0 0 5px}blockquote{height:1%;display:block;clear:both;color:#555555;padding:1em 1em;background:#f4f4f4;border:solid 1px #e1e1e1}blockquote blockquote{height:1%;display:block;clear:both;color:#444444;padding:1em 1em;background:#e1e1e1;border:solid 1px #d3d3d3}div.post table{border-collapse:collapse;margin:10px 0}div.post table caption{width:auto;margin:0 auto;background:#eeeeee;border:#999999;padding:4px 8px;color:#666666}div.post table th{background:#888888;color:#ffffff;font-weight:bold;font-size:90%;padding:4px 8px;border:solid 1px #ffffff;text-align:left}div.post table td{padding:4px 8px;background-color:#ffffff;border-bottom:1px solid #dddddd;text-align:left}div.post table tfoot td{}div.post table tr.alt td{background:#f4f4f4}div.post table tr.over td{background:#e2e2e2}#calendar_wrap{padding:0;border:none}table#wp-calendar{width:100%;font-size:90%;border-collapse:collapse;background-color:#ffffff;margin:0 auto}table#wp-calendar caption{width:auto;background:#eeeeee;border:none;;padding:3px;margin:0 auto;font-size:1em}table#wp-calendar th{border:solid 1px #eeeeee;background-color:#999999;color:#ffffff;font-weight:bold;padding:2px;text-align:center}table#wp-calendar td{padding:0;line-height:18px;background-color:#ffffff;border:1px solid #dddddd;text-align:center}table#wp-calendar tfoot td{border:solid 1px #eeeeee;background-color:#eeeeee}table#wp-calendar td a{display:block;background-color:#eeeeee;width:100%;height:100%;padding:0}div#respond{margin:25px 0;padding:25px;background:#eee;-moz-border-radius:8px;-khtml-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}p.thesetags{margin:10px 0}h3.reply,h3#reply-title{margin:0;padding:0 0 10px 0}ol.commentlist{margin:15px 0 25px 0;list-style-type:none;padding:0;display:block;border-top:dotted 1px #cccccc}ol.commentlist li{padding:15px 10px;display:block;height:1%;margin:0;background-color:#FFFFFF;border-bottom:dotted 1px #cccccc}ol.commentlist li.alt{display:block;height:1%;background-color:#EEEEEE;border-bottom:dotted 1px #cccccc}ol.commentlist li.authorcomment{display:block;height:1%;background-color:#D8D8FA}ol.commentlist span.authorname{font-weight:bold;font-size:110%}ol.commentlist span.commentdate{color:#666666;font-size:90%;margin-bottom:5px;display:block}ol.commentlist span.editcomment{display:block}ol.commentlist li p{margin:2px 0 5px 0}div.comment-number{float:right;font-size:2em;line-height:2em;font-family:georgia,serif;font-weight:bold;color:#ddd;margin:-10px 0 0 0;position:relative;height:1%}div.comment-number a:link,div.comment-number a:visited,div.comment-number a:active{color:#ccc}textarea#comment{width:98%;margin:10px 0;display:block}ul.commentlist{margin:15px 0 15px 0;list-style-type:none;padding:0;display:block;border-top:dotted 1px #cccccc}ul.commentlist ul{margin:0;border:none;list-style-type:none;padding:0}ul.commentlist li{padding:0; margin:0;display:block;clear:both;height:1%;}ul.commentlist ul.children li{ margin-left:30px}ul.commentlist div.comment-container{padding:10px;margin:0}ul.children div.comment-container{background-color:transparent;border:dotted 1px #ccc;padding:10px;margin:0 10px 8px 0; border-radius:5px}ul.children div.bypostauthor{}ul.commentlist li.thread-even{background-color:#FFFFFF;border-bottom:dotted 1px #cccccc}ul.commentlist li.thread-odd{background-color:#EEEEEE;border-bottom:dotted 1px #cccccc}ul.commentlist div.bypostauthor{background-color:#D8D8FA}ul.children div.bypostauthor{border:dotted 1px #BFBCFB}ul.commentlist span.authorname{font-size:110%}div.comment-meta a:link,div.comment-meta a:visited,div.comment-meta a:active,div.comment-meta a:hover{font-weight:normal}div#cancel-comment-reply{margin:-5px 0 10px 0}div.comment-number{float:right;font-size:2em;line-height:2em;font-family:georgia,serif;font-weight:bold;color:#ddd;margin:-10px 0 0 0;position:relative;height:1%}div.comment-number a:link,div.comment-number a:visited,div.comment-number a:active{color:#ccc}.page-numbers{padding:2px 6px;border:solid 1px #000000;border-radius:6px}span.current{background:#ddd}a.prev,a.next{border:none}a.page-numbers:link,a.page-numbers:visited,a.page-numbers:active{text-decoration:none;color:#365DA0;border-color:#365DA0}a.page-numbers:hover{text-decoration:none;color:#365DA0;border-color:#365DA0}div.xhtml-tags{display:none}abbr em{border:none !important;border-top:dashed 1px #aaa !important;display:inline-block !important;background:url(https://www.learncpp.com/blog/wp-content/themes/atahualpa/images/commentluv.gif) 0% 90% no-repeat;margin-top:8px;padding:5px 5px 2px 20px !important;font-style:normal}p.subscribe-to-comments{margin-bottom:10px}div#gsHeader{display:none;}div.g2_column{margin:0 !important;width:100% !important;font-size:1.2em}div#gsNavBar{border-top-width:0 !important}p.giDescription{font-size:1.2em;line-height:1 !important}p.giTitle{margin:0.3em 0 !important;font-size:1em;font-weight:normal;color:#666}div#wp-email img{border:0;padding:0}div#wp-email input,div#wp-email textarea{margin-top:5px;margin-bottom:2px}div#wp-email p{margin-bottom:10px}input#wp-email-submit{ padding:0; font-size:30px; height:50px; line-height:50px; overflow:visible;}img.WP-EmailIcon{ vertical-align:text-bottom !important}.tw-accordion .tw-widgettitle,.tw-accordion .tw-widgettitle:hover,.tw-accordion .tw-hovered,.tw-accordion .selected,.tw-accordion .selected:hover{ background:transparent !important; background-image:none !important}.tw-accordion .tw-widgettitle span{ padding-left:0 !important}.tw-accordion h3.tw-widgettitle{border-bottom:solid 1px #ccc}.tw-accordion h3.selected{border-bottom:none}td#left .without_title,td#right .without_title{ margin-top:0;margin-bottom:0}ul.tw-nav-list{border-bottom:solid 1px #999;display:block;margin-bottom:5px !important}td#left ul.tw-nav-list li,td#right ul.tw-nav-list li{padding:0 0 1px 0;margin:0 0 -1px 5px; border:solid 1px #ccc;border-bottom:none;border-radius:5px;border-bottom-right-radius:0;border-bottom-left-radius:0;background:#eee}td#left ul.tw-nav-list li.ui-tabs-selected,td#right ul.tw-nav-list li.ui-tabs-selected{ background:none;border:solid 1px #999;border-bottom:solid 1px #fff !important}ul.tw-nav-list li a:link,ul.tw-nav-list li a:visited,ul.tw-nav-list li a:active,ul.tw-nav-list li a:hover{padding:0 8px !important;background:none;border-left:none !important;outline:none}td#left ul.tw-nav-list li.ui-tabs-selected a,td#left li.ui-tabs-selected a:hover,td#right ul.tw-nav-list li.ui-tabs-selected a,td#right li.ui-tabs-selected a:hover{ color:#000000; text-decoration:none;font-weight:bold;background:none !important;outline:none}td#left .ui-tabs-panel,td#right .ui-tabs-panel{ margin:0; padding:0}img{border:0}#dbem-location-map img{ background:none !important}.post img{padding:5px;border:solid 1px #dddddd;background-color:#f3f3f3;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}.post img.size-full{max-width:96%;width:auto;margin:5px 0 5px 0}div.post img[class~=size-full]{height:auto;}.post img.alignleft{float:left;margin:10px 10px 5px 0;}.post img.alignright{float:right;margin:10px 0 5px 10px;}.post img.aligncenter{display:block;margin:10px auto}.aligncenter,div.aligncenter{ display:block; margin-left:auto; margin-right:auto}.alignleft,div.alignleft{float:left;margin:10px 10px 5px 0}.alignright,div.alignright{ float:right; margin:10px 0 5px 10px}div.archives-page img{border:0;padding:0;background:none;margin-bottom:0;vertical-align:-10%}.wp-caption{max-width:96%;width:auto 100%;height:auto;display:block;border:1px solid #dddddd;text-align:center;background-color:#f3f3f3;padding-top:4px;margin:10px 0 0 0;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}* html .wp-caption{height:100%;}.wp-caption img{ margin:0 !important; padding:0 !important; border:0 none !important}.wp-caption p.wp-caption-text{font-size:0.8em;line-height:13px;padding:2px 4px 5px;margin:0;color:#666666}img.wp-post-image{float:left;border:0;padding:0;background:none;margin:0 10px 5px 0}img.wp-smiley{ float:none;border:none !important;margin:0 1px -1px 1px;padding:0 !important;background:none !important}img.avatar{float:left;display:block;margin:0 8px 1px 0;padding:3px;border:solid 1px #ddd;background-color:#f3f3f3;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}#comment_quicktags{text-align:left;padding:10px 0 2px 0;display:block}#comment_quicktags input.ed_button{background:#f4f4f4;border:2px solid #cccccc;color:#444444;margin:2px 4px 2px 0;width:auto;padding:0 4px;height:24px;line-height:16px}#comment_quicktags input.ed_button_hover{background:#dddddd;border:2px solid #666666;color:#000000;margin:2px 4px 2px 0;width:auto;padding:0 4px;height:24px;line-height:16px;cursor:pointer}#comment_quicktags #ed_strong{font-weight:bold}#comment_quicktags #ed_em{font-style:italic}@media print{body{background:white;color:black;margin:0;font-size:10pt !important;font-family:arial,sans-serif;}div.post-footer{line-height:normal !important;color:#555 !important;font-size:9pt !important}a:link,a:visited,a:active,a:hover{text-decoration:underline !important;color:#000}h2{color:#000;font-size:14pt !important;font-weight:normal !important}h3{color:#000;font-size:12pt !important;}#header,#footer,.colone,.colone-inner,.colthree-inner,.colthree,.navigation,.navigation-top,.navigation-middle,.navigation-bottom,.wp-pagenavi-navigation,#comment,#respond,.remove-for-print{display:none}td#left,td#right,td#left-inner,td#right-inner{width:0;display:none}td#middle{width:100% !important;display:block}*:lang(en) td#left{ display:none}*:lang(en) td#right{ display:none}*:lang(en) td#left-inner{ display:none}*:lang(en) td#right-inner{ display:none}td#left:empty{ display:none}td#right:empty{ display:none}td#left-inner:empty{ display:none}td#right-inner:empty{ display:none}}ul.rMenu,ul.rMenu ul,ul.rMenu li,ul.rMenu a{display:block;margin:0;padding:0}ul.rMenu,ul.rMenu li,ul.rMenu ul{list-style:none}ul.rMenu ul{display:none}ul.rMenu li{position:relative;z-index:1}ul.rMenu li:hover{z-index:999}ul.rMenu li:hover > ul{display:block;position:absolute}ul.rMenu li:hover{background-position:0 0} ul.rMenu-hor li{float:left;width:auto}ul.rMenu-hRight li{float:right}ul.sub-menu li,ul.rMenu-ver li{float:none}.clearfix:after{ content:".";display:block;height:0;clear:both;visibility:hidden}.clearfix{min-width:0;display:inline-block;display:block}* html .clearfix{height:1%;}.clearboth{clear:both;height:1%;font-size:1%;line-height:1%;display:block;padding:0;margin:0}.page-id-8 .post-headline{display:none;} div.useCode{background:linear-gradient(#FFFF66,#CCCC00);border-radius:8px;padding-left:10px;padding-right:10px;padding-top:2px;padding-bottom:2px;font-size:10pt;text-align:left;display:inline-block;font-weight:550;}td#header{padding-bottom:15px;}td#middle{padding:0}div.searchbox-form{margin:5px 0 15px 5px}div#menu1 ul.rMenu{background:transparent;border:none}div#imagecontainer{border-top:solid 0px #333;border-bottom:solid 5px #333;}div.widget ul li{padding:1px 5px 1px 12px !important;background:url('<?php bloginfo('template_directory');?>/images/bullets/round-gray.gif') no-repeat 0 7px}ul.rMenu-hor ul,ul.rMenu-hRight ul{margin-top:0px;}ul.rMenu-hor li{margin-bottom:0px;margin-top:0px;margin-left:0px;}ul.rMenu-hor{padding-left:0px;}ul.rMenu-ver li{margin-top:0xp;}div#menu1 ul.rMenu li a,div#menu2 ul.rMenu li a{padding:6px 10px}div#menu1 ul.rMenu li{margin-right:5px}div#menu1 ul.rMenu li li{margin-right:0}div#menu1 ul.rMenu li,div#menu1 ul.rMenu li a{-webkit-border-top-left-radius:5px;-webkit-border-top-right-radius:5px;-moz-border-radius-topleft:5px;-moz-border-radius-topright:5px;border-top-left-radius:5px;border-top-right-radius:5px}div#menu1 ul.rMenu li li,div#menu1 ul.rMenu li li a{-webkit-border-top-left-radius:0;-webkit-border-top-right-radius:0;-moz-border-radius-topleft:0;-moz-border-radius-topright:0;border-top-left-radius:0;border-top-right-radius:0}div#menu2{ border:dashed 1px #ffffff}ul{list-style-position:inside}@media only screen and (max-width:960px) and (device-width:1920px),only screen and (max-width:840px) and (device-width:1680px),only screen and (max-width:800px) and (device-width:1600px),only screen and (max-width:720px) and (device-width:1440px),only screen and (max-width:683px) and (device-width:1366px),only screen and (max-width:680px) and (device-width:1360px),only screen and (max-width:640px) and (device-width:1280px),only screen and (max-width:512px) and (device-width:1024px),only screen and (max-device-width:1080px){.colthree,td#right{ display:none}}</style>
+<script type="text/javascript">
+//<![CDATA[
+
+
+
+/* JQUERY */
+jQuery(document).ready(function(){ 
+    
+   
+  
+
+	/* jQuery('ul#rmenu').superfish(); */
+	/* jQuery('ul#rmenu').superfish().find('ul').bgIframe({opacity:false}); */
+ 
+	/* For IE6 */
+	if (jQuery.browser.msie && /MSIE 6\.0/i.test(window.navigator.userAgent) && !/MSIE 7\.0/i.test(window.navigator.userAgent) && !/MSIE 8\.0/i.test(window.navigator.userAgent)) {
+
+		/* Max-width for images in IE6 */		
+		var centerwidth = jQuery("td#middle").width(); 
+		
+		/* Images without caption */
+		jQuery(".post img").each(function() { 
+			var maxwidth = centerwidth - 10 + 'px';
+			var imgwidth = jQuery(this).width(); 
+			var imgheight = jQuery(this).height(); 
+			var newimgheight = (centerwidth / imgwidth * imgheight) + 'px';	
+			if (imgwidth > centerwidth) { 
+				jQuery(this).css({width: maxwidth}); 
+				jQuery(this).css({height: newimgheight}); 
+			}
+		});
+		
+		/* Images with caption */
+		jQuery("div.wp-caption").each(function() { 
+			var captionwidth = jQuery(this).width(); 
+			var maxcaptionwidth = centerwidth + 'px';
+			var captionheight = jQuery(this).height();
+			var captionimgwidth =  jQuery("div.wp-caption img").width();
+			var captionimgheight =  jQuery("div.wp-caption img").height();
+			if (captionwidth > centerwidth) { 
+				jQuery(this).css({width: maxcaptionwidth}); 
+				var newcaptionheight = (centerwidth / captionwidth * captionheight) + 'px';
+				var newcaptionimgheight = (centerwidth / captionimgwidth * captionimgheight) + 'px';
+				jQuery(this).css({height: newcaptionheight}); 
+				jQuery("div.wp-caption img").css({height: newcaptionimgheight}); 
+				}
+		});
+		
+		/* sfhover for LI:HOVER support in IE6: */
+		jQuery("ul li").
+			hover( function() {
+					jQuery(this).addClass("sfhover")
+				}, 
+				function() {
+					jQuery(this).removeClass("sfhover")
+				} 
+			); 
+
+	/* End IE6 */
+	}
+	
+	
+	
+	/* Since 3.7.8: Auto resize videos (embed and iframe elements) 
+	TODO: Parse parent's dimensions only once per layout column, not per video
+	*/
+	function bfa_resize_video() {
+		jQuery('embed, iframe').each( function() {
+			var video = jQuery(this),
+			videoWidth = video.attr('width'); // use the attr here, not width() or css()
+			videoParent = video.parent(),
+			videoParentWidth = parseFloat( videoParent.css( 'width' ) ),
+			videoParentBorder = parseFloat( videoParent.css( 'border-left-width' ) ) 
+										+  parseFloat( videoParent.css( 'border-right-width' ) ),
+			videoParentPadding = parseFloat( videoParent.css( 'padding-left' ) ) 
+										+  parseFloat( videoParent.css( 'padding-right' ) ),
+			maxWidth = videoParentWidth - videoParentBorder - videoParentPadding;
+
+			if( videoWidth > maxWidth ) {
+				var videoHeight = video.attr('height'),
+				videoMaxHeight = ( maxWidth / videoWidth * videoHeight );
+				video.attr({ width: maxWidth, height: videoMaxHeight });
+			} 
+
+		});	
+	}
+	bfa_resize_video();
+	jQuery(window).resize( bfa_resize_video );
+
+		
+	jQuery(".post table tr").
+		mouseover(function() {
+			jQuery(this).addClass("over");
+		}).
+		mouseout(function() {
+			jQuery(this).removeClass("over");
+		});
+
+	
+	jQuery(".post table tr:even").
+		addClass("alt");
+
+	
+	jQuery("input.text, input.TextField, input.file, input.password, textarea").
+		focus(function () {  
+			jQuery(this).addClass("highlight"); 
+		}).
+		blur(function () { 
+			jQuery(this).removeClass("highlight"); 
+		})
+	
+	jQuery("input.inputblur").
+		focus(function () {  
+			jQuery(this).addClass("inputfocus"); 
+		}).
+		blur(function () { 
+			jQuery(this).removeClass("inputfocus"); 
+		})
+
+		
+
+	
+	jQuery("input.button, input.Button, input#submit").
+		mouseover(function() {
+			jQuery(this).addClass("buttonhover");
+		}).
+		mouseout(function() {
+			jQuery(this).removeClass("buttonhover");
+		});
+
+	/* toggle "you can use these xhtml tags" */
+	jQuery("a.xhtmltags").
+		click(function(){ 
+			jQuery("div.xhtml-tags").slideToggle(300); 
+		});
+
+	/* For the Tabbed Widgets plugin: */
+	jQuery("ul.tw-nav-list").
+		addClass("clearfix");
+
+		
+	
+});
+
+//]]>
+</script>
+
+<!--[if IE 6]>
+<script type="text/javascript">DD_roundies.addRule("a.posts-icon, a.comments-icon, a.email-icon, img.logo");</script>
+<![endif]-->
+<style type="text/css">
+.ai-viewport-3                { display: none !important;}
+.ai-viewport-2                { display: none !important;}
+.ai-viewport-1                { display: inherit !important;}
+.ai-viewport-0                { display: none !important;}
+@media (min-width: 768px) and (max-width: 979px) {
+.ai-viewport-1                { display: none !important;}
+.ai-viewport-2                { display: inherit !important;}
+}
+@media (max-width: 767px) {
+.ai-viewport-1                { display: none !important;}
+.ai-viewport-3                { display: inherit !important;}
+}
+</style>
+<script async="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/f.txt"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0588844875925051",
+          enable_page_level_ads: true
+     });
+</script>
+
+<!--
+<script type="text/javascript">
+    window._mNHandle = window._mNHandle || {};
+    window._mNHandle.queue = window._mNHandle.queue || [];
+    medianet_versionId = "121199"; 
+    (function() {
+        var sct = document.createElement("script"),
+        sctHl = document.getElementsByTagName("script")[0],
+        isSSL = 'https:' == document.location.protocol;
+        sct.type = "text/javascript";
+        sct.src = (isSSL ? 'https:' : 'http:') + '//contextual.media.net/dmedianet.js?cid=8CUIE2148' + (isSSL ? '&https=1' : '')+'';
+        sct.async = "async";
+        sctHl.parentNode.insertBefore(sct, sctHl);
+    })();
+</script>
+--></head>
+<body class="post-template-default single single-post postid-65 single-format-standard category-cpp-tutorial">
+
+		<!-- Full Width Header -->
+		<div id="header" class="full-width">
+		<div id="imagecontainer-pre" class="header-image-container-pre">    <div id="imagecontainer" class="header-image-container" style="background: url(&#39;https://www.learncpp.com/blog/wp-content/ata-images/header/LearnCpp_1920.jpg&#39;) top center no-repeat;"></div><div class="clickable"><a class="divclick" title="Learn C++" href="https://www.learncpp.com/">&nbsp;</a></div><div class="codeoverlay"></div></div>		</div>
+		<!-- / Full Width Header -->
+<div id="wrapper">
+<div id="container">
+<table id="layout" border="0" cellspacing="0" cellpadding="0">
+<colgroup>
+<col class="colone"><col class="coltwo">
+<col class="colthree"></colgroup> 
+
+	<!-- Main Body -->	
+	<tbody><tr id="bodyrow">
+
+				<!-- Left Sidebar -->
+		<td id="left">
+
+			<div id="text-2" class="widget widget_text">			<div class="textwidget"><ul>
+<li><a href="https://www.learncpp.com/"><big><big>Main Page</big></big></a></li>
+<li><a href="https://www.learncpp.com/learn-cpp-site-index/">Site Index</a></li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://www.learncpp.com/site-news/find-something-wrong/">Report an Issue</a></li>
+<li><a href="https://www.learncpp.com/about/">About / Contact</a></li>
+<li><a href="https://www.learncpp.com/about/#Support">Support LearnCpp</a></li>
+</ul>
+</div>
+		</div><div id="text-3" class="widget widget_text"><div class="widget-title"><h3>Search</h3></div>			<div class="textwidget"><!-- SiteSearch Google -->
+<form method="get" action="https://www.google.com/custom" target="google_window">
+<table border="0" bgcolor="#ffffff">
+<tbody><tr><td nowrap="nowrap" valign="top" align="center">
+
+<!--<br/>-->
+<input type="hidden" name="domains" value="LearnCpp.com">
+<label for="sbi" style="display: none">Enter your search terms</label>
+<input type="text" name="q" size="16" maxlength="255" value="" id="sbi">
+</td></tr>
+<tr>
+<td nowrap="nowrap">
+<table>
+<tbody><tr>
+<td>
+<input type="hidden" name="sitesearch" value="www.LearnCpp.com" checked="" id="ss1">
+<label for="ss1" title="Search LearnCpp.com"></label></td>
+</tr>
+</tbody></table>
+<label for="sbb" style="display: none">Submit search form</label>
+<input type="submit" name="sa" value="Google Search" id="sbb">
+<input type="hidden" name="client" value="pub-0588844875925051">
+<input type="hidden" name="forid" value="1">
+<input type="hidden" name="channel" value="7774154974">
+<input type="hidden" name="ie" value="ISO-8859-1">
+<input type="hidden" name="oe" value="ISO-8859-1">
+<input type="hidden" name="safe" value="active">
+<input type="hidden" name="flav" value="0000">
+<input type="hidden" name="sig" value="q6fLrjobHHgL00cW">
+</td></tr></tbody></table>
+</form>
+<!-- SiteSearch Google --></div>
+		</div><div id="text-9" class="widget widget_text">			<div class="textwidget"><div class="cf_monitor">
+<!-- Post - Left Sidebar - Wide Skyscraper -->
+<script async="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/f.txt"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-0588844875925051" data-ad-slot="2780990843"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div>
+		</div>
+		</td>
+		<!-- / Left Sidebar -->
+		
+				
+
+		<!-- Main Column -->
+		<td id="middle">
+
+    
+		
+	<div class="code-block code-block-1 ai-viewport-1" style="margin: 8px 8px 8px 0; float: left;">
+<div class="cf_monitor">
+<script async="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/f.txt"></script>
+<!-- Post - Top - Large Rectangle -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-0588844875925051" data-ad-slot="7945645163"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+	
+								<div class="post-65 post type-post status-publish format-standard hentry category-cpp-tutorial odd" id="post-65">
+						<div class="post-headline">		<h1>S.4.2 — Global variables and linkage</h1>
+		</div>		<div class="post-byline">By Alex on June 19th, 2007 | last modified by Alex on May 6th, 2019</div>		<div class="post-bodycopy clearfix"><p>In the last lesson, you learned that variables declared inside a function are called local variables.  Local variables have block scope (they are only visible within the block they are declared), and have automatic duration (they are created at the point of definition and destroyed when the block is exited).</p>
+<p>Variables declared <em>outside</em> of a function are called <strong>global variables</strong>.  Global variables have <strong>static duration</strong>, which means they are created when the program starts and are destroyed when it ends.  Global variables have <strong>file scope</strong> (also informally called “global scope” or “global namespace scope”), which means they are visible until the end of the file in which they are declared.</p>
+<p><strong>Defining global variables</strong></p>
+<p>By convention, global variables are declared at the top of a file, below the includes, but above any code.  Here’s an example of a couple of global variables being defined.  </p>
+<p></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf50182977788112" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row alt">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf50182977788112-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf50182977788112-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5d5b7cdf50182977788112-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf50182977788112-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5d5b7cdf50182977788112-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf50182977788112-6" style="height: 16px;">6</div><div class="crayon-num" data-line="crayon-5d5b7cdf50182977788112-7" style="height: 16px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf50182977788112-8" style="height: 16px;">8</div><div class="crayon-num" data-line="crayon-5d5b7cdf50182977788112-9" style="height: 16px;">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf50182977788112-10" style="height: 16px;">10</div><div class="crayon-num" data-line="crayon-5d5b7cdf50182977788112-11" style="height: 16px;">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf50182977788112-12" style="height: 16px;">12</div><div class="crayon-num" data-line="crayon-5d5b7cdf50182977788112-13" style="height: 16px;">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf50182977788112-14" style="height: 16px;">14</div><div class="crayon-num" data-line="crayon-5d5b7cdf50182977788112-15" style="height: 16px;">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf50182977788112-16" style="height: 16px;">16</div><div class="crayon-num" data-line="crayon-5d5b7cdf50182977788112-17" style="height: 16px;">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf50182977788112-18" style="height: 16px;">18</div><div class="crayon-num" data-line="crayon-5d5b7cdf50182977788112-19" style="height: 16px;">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf50182977788112-20" style="height: 16px;">20</div><div class="crayon-num" data-line="crayon-5d5b7cdf50182977788112-21" style="height: 16px;">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf50182977788112-22" style="height: 16px;">22</div><div class="crayon-num" data-line="crayon-5d5b7cdf50182977788112-23" style="height: 16px;">23</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf50182977788112-1"><span class="crayon-p">#include &lt;iostream&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf50182977788112-2">&nbsp;</div><div class="crayon-line" id="crayon-5d5b7cdf50182977788112-3"><span class="crayon-c">// Variables declared outside of a function are global variables</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf50182977788112-4"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">g_x</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// global variable g_x</span></div><div class="crayon-line" id="crayon-5d5b7cdf50182977788112-5"><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">g_y</span><span class="crayon-sy">(</span><span class="crayon-cn">2</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// global variable g_y</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf50182977788112-6">&nbsp;</div><div class="crayon-line" id="crayon-5d5b7cdf50182977788112-7"><span class="crayon-t">void</span><span class="crayon-h"> </span><span class="crayon-e">doSomething</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf50182977788112-8"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5d5b7cdf50182977788112-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">// global variables can be seen and used everywhere in program</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf50182977788112-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">g_x</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-cn">3</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5d5b7cdf50182977788112-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-r">cout</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-v">g_y</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-s">"\n"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf50182977788112-12"><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5d5b7cdf50182977788112-13">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf50182977788112-14"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">main</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5d5b7cdf50182977788112-15"><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf50182977788112-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">doSomething</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5d5b7cdf50182977788112-17">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf50182977788112-18"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">// global variables can be seen and used everywhere in program</span></div><div class="crayon-line" id="crayon-5d5b7cdf50182977788112-19"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">g_x</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-cn">5</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf50182977788112-20"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-r">cout</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-v">g_y</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-s">"\n"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5d5b7cdf50182977788112-21">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf50182977788112-22"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5d5b7cdf50182977788112-23"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0008 seconds] -->
+<p></p>
+<p>Similar to how variables in an inner block with the same name as a variable in an outer block hides the variable in the outer block, local variables with the same name as a global variable hide the global variable inside the block that the local variable is declared in.  However, the global scope operator (::) can be used to tell the compiler you mean the global version instead of the local version.</p>
+<p></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf5018c699620942" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf5018c699620942-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf5018c699620942-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5d5b7cdf5018c699620942-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf5018c699620942-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5d5b7cdf5018c699620942-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf5018c699620942-6" style="height: 16px;">6</div><div class="crayon-num" data-line="crayon-5d5b7cdf5018c699620942-7" style="height: 16px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf5018c699620942-8" style="height: 16px;">8</div><div class="crayon-num" data-line="crayon-5d5b7cdf5018c699620942-9" style="height: 32px;">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf5018c699620942-10" style="height: 16px;">10</div><div class="crayon-num" data-line="crayon-5d5b7cdf5018c699620942-11" style="height: 16px;">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf5018c699620942-12" style="height: 16px;">12</div><div class="crayon-num" data-line="crayon-5d5b7cdf5018c699620942-13" style="height: 16px;">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf5018c699620942-14" style="height: 16px;">14</div><div class="crayon-num" data-line="crayon-5d5b7cdf5018c699620942-15" style="height: 16px;">15</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf5018c699620942-1"><span class="crayon-p">#include &lt;iostream&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf5018c699620942-2"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-t">value</span><span class="crayon-sy">(</span><span class="crayon-cn">5</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// global variable</span></div><div class="crayon-line" id="crayon-5d5b7cdf5018c699620942-3">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf5018c699620942-4"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">main</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5d5b7cdf5018c699620942-5"><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf5018c699620942-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-t">value</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-cn">7</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// hides the global variable value</span></div><div class="crayon-line" id="crayon-5d5b7cdf5018c699620942-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">++</span><span class="crayon-t">value</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// increments local value, not global value</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf5018c699620942-8">&nbsp;</div><div class="crayon-line" id="crayon-5d5b7cdf5018c699620942-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">--</span><span class="crayon-sy">(</span><span class="crayon-o">::</span><span class="crayon-t">value</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// decrements global value, not local value (parenthesis added for readability)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf5018c699620942-10">&nbsp;</div><div class="crayon-line" id="crayon-5d5b7cdf5018c699620942-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-r">cout</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-s">"local value: "</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-t">value</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-s">"\n"</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf5018c699620942-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-r">cout</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-s">"global value: "</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-o">::</span><span class="crayon-t">value</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-s">"\n"</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5d5b7cdf5018c699620942-13">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf5018c699620942-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5d5b7cdf5018c699620942-15"><span class="crayon-sy">}</span><span class="crayon-h"> </span><span class="crayon-c">// local value is destroyed</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0007 seconds] -->
+<p></p>
+<p>This code prints:</p>
+<pre>local value: 8
+global value: 4
+</pre>
+<p>However, having local variables with the same name as global variables is usually a recipe for trouble, and should be avoided whenever possible.  By convention, many developers prefix global variable names with “g_” to indicate that they are global.  This both helps identify global variables as well as avoids naming conflicts with local variables.</p>
+<p><strong>Internal and external linkage via the static and extern keywords</strong></p>
+<p>In addition to scope and duration, variables have a third property: linkage.  A variable’s <strong>linkage</strong> determines whether multiple instances of an identifier refer to the same variable or not.</p>
+<p>A variable with no linkage can only be referred to from the limited scope it exists in.  Normal local variables are an example of variables with no linkage.  Two local variables with the same name but defined in different functions have no linkage -- each will be considered an independent variable.</p>
+<p>A variable with internal linkage is called an <strong>internal variable</strong>.  Variables with internal linkage can be used anywhere within the file they are defined in, but can not be referenced outside the file they exist in.</p>
+<p>A variable with external linkage is called an <strong>external variable</strong>.  Variables with external linkage can be used both in the file they are defined in, as well as in other files.</p>
+<p>If we want to make a global variable internal (able to be used only within a single file), we can use the <strong>static</strong> keyword to do so:</p>
+<p></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf50191039506535" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row alt">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf50191039506535-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf50191039506535-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5d5b7cdf50191039506535-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf50191039506535-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5d5b7cdf50191039506535-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf50191039506535-6" style="height: 16px;">6</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf50191039506535-1"><span class="crayon-m">static</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">g_x</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// g_x is static, and can only be used within this file</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf50191039506535-2"><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5d5b7cdf50191039506535-3"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">main</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf50191039506535-4"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5d5b7cdf50191039506535-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf50191039506535-6"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p>
+<p>Similarly, if we want to make a global variable external (able to be used anywhere in our program), we can use the <strong>extern</strong> keyword to do so:</p>
+<p></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf5019b696941539" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf5019b696941539-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf5019b696941539-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5d5b7cdf5019b696941539-3" style="height: 32px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf5019b696941539-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5d5b7cdf5019b696941539-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf5019b696941539-6" style="height: 16px;">6</div><div class="crayon-num" data-line="crayon-5d5b7cdf5019b696941539-7" style="height: 16px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf5019b696941539-8" style="height: 16px;">8</div><div class="crayon-num" data-line="crayon-5d5b7cdf5019b696941539-9" style="height: 16px;">9</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf5019b696941539-1"><span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-e">g_y</span><span class="crayon-sy">(</span><span class="crayon-cn">9.8</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// g_y is external, and can be used by other files</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf5019b696941539-2">&nbsp;</div><div class="crayon-line" id="crayon-5d5b7cdf5019b696941539-3"><span class="crayon-c">// Note: those other files will need to use a forward declaration to access this external variable</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf5019b696941539-4"><span class="crayon-c">// We'll discuss this in the next section</span></div><div class="crayon-line" id="crayon-5d5b7cdf5019b696941539-5"><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf5019b696941539-6"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">main</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5d5b7cdf5019b696941539-7"><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf5019b696941539-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5d5b7cdf5019b696941539-9"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p></p>
+<p>By default, non-const variables declared outside of a function are assumed to be external.  However, const variables declared outside of a function are assumed to be internal.</p>
+<p><strong>Variable forward declarations via the extern keyword</strong></p>
+<p>In the section on <a href="http://www.learncpp.com/cpp-tutorial/18-programs-with-multiple-files/">programs with multiple files</a>, you learned that in order to use a function declared in another file, you have to use a function forward declaration.</p>
+<p>Similarly, in order to use an external global variable that has been declared in another file, you <em>must</em> use a variable forward declaration.  For variables, creating a forward declaration is done via the <strong>extern</strong> keyword (with no initialization value).</p>
+<p>Note that this means the “extern” keyword has different meanings in different contexts.  In some contexts, extern means “give this variable external linkage”.  In other contexts, extern means “this is a forward declaration for an external variable that is defined somewhere else”.  We’ll summarize these usages in lesson <a href="https://www.learncpp.com/cpp-tutorial/4-3a-scope-duration-and-linkage-summary/">S.4.3a -- Scope, duration, and linkage summary</a>.</p>
+<p>Here is an example of using a variable forward declaration:</p>
+<p>global.cpp:</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf501a3551262246" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row alt">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf501a3551262246-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501a3551262246-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5d5b7cdf501a3551262246-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501a3551262246-4" style="height: 32px;">4</div><div class="crayon-num" data-line="crayon-5d5b7cdf501a3551262246-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501a3551262246-6" style="height: 16px;">6</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf501a3551262246-1"><span class="crayon-c">// define two global variables</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501a3551262246-2"><span class="crayon-c">// non-const globals have external linkage by default</span></div><div class="crayon-line" id="crayon-5d5b7cdf501a3551262246-3"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">g_x</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// external linkage by default</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501a3551262246-4"><span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">g_y</span><span class="crayon-sy">(</span><span class="crayon-cn">2</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// external linkage by default, so this extern is redundant and ignored</span></div><div class="crayon-line" id="crayon-5d5b7cdf501a3551262246-5">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501a3551262246-6"><span class="crayon-c">// in this file, g_x and g_y can be used anywhere beyond this point</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p>
+<p>main.cpp:</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf501a7292150058" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf501a7292150058-1" style="height: 32px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501a7292150058-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5d5b7cdf501a7292150058-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501a7292150058-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5d5b7cdf501a7292150058-5" style="height: 32px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501a7292150058-6" style="height: 16px;">6</div><div class="crayon-num" data-line="crayon-5d5b7cdf501a7292150058-7" style="height: 16px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501a7292150058-8" style="height: 16px;">8</div><div class="crayon-num" data-line="crayon-5d5b7cdf501a7292150058-9" style="height: 16px;">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501a7292150058-10" style="height: 16px;">10</div><div class="crayon-num" data-line="crayon-5d5b7cdf501a7292150058-11" style="height: 16px;">11</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf501a7292150058-1"><span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">g_x</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// forward declaration for g_x (defined in global.cpp) -- g_x can now be used beyond this point in this file</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501a7292150058-2">&nbsp;</div><div class="crayon-line" id="crayon-5d5b7cdf501a7292150058-3"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">main</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501a7292150058-4"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5d5b7cdf501a7292150058-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">g_y</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// forward declaration for g_y (defined in global.cpp) -- g_y can be used beyond this point in main() only</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501a7292150058-6">&nbsp;</div><div class="crayon-line" id="crayon-5d5b7cdf501a7292150058-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">g_x</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-cn">5</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501a7292150058-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-r">cout</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-v">g_y</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// should print 2</span></div><div class="crayon-line" id="crayon-5d5b7cdf501a7292150058-9">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501a7292150058-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5d5b7cdf501a7292150058-11"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p></p>
+<p>If the variable forward declaration is declared outside of a function, it applies for the whole file.  If the variable forward declaration is declared inside a function, it applies within that block only.</p>
+<p>If a variable is declared as static, trying to use a forward declaration to access it will not work:</p>
+<p>constants.cpp:</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf501ab247005991" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row alt">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf501ab247005991-1" style="height: 16px;">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf501ab247005991-1"><span class="crayon-m">static</span><span class="crayon-h"> </span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-e">g_gravity</span><span class="crayon-sy">(</span><span class="crayon-cn">9.8</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p>
+<p>main.cpp:</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf501ae508999822" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf501ae508999822-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501ae508999822-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5d5b7cdf501ae508999822-3" style="height: 32px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501ae508999822-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5d5b7cdf501ae508999822-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501ae508999822-6" style="height: 16px;">6</div><div class="crayon-num" data-line="crayon-5d5b7cdf501ae508999822-7" style="height: 32px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501ae508999822-8" style="height: 16px;">8</div><div class="crayon-num" data-line="crayon-5d5b7cdf501ae508999822-9" style="height: 16px;">9</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf501ae508999822-1"><span class="crayon-p">#include &lt;iostream&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501ae508999822-2">&nbsp;</div><div class="crayon-line" id="crayon-5d5b7cdf501ae508999822-3"><span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-v">g_gravity</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// This will satisfy the compiler that g_gravity exists</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501ae508999822-4">&nbsp;</div><div class="crayon-line" id="crayon-5d5b7cdf501ae508999822-5"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">main</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501ae508999822-6"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5d5b7cdf501ae508999822-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-h"> </span><span class="crayon-r">cout</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-v">g_gravity</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// This will cause a linker error because the only definition of g_gravity is inaccessible from here</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501ae508999822-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5d5b7cdf501ae508999822-9"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p></p>
+<p>Note that if you want to define an uninitialized non-const global variable, do not use the extern keyword, otherwise C++ will think you’re trying to make a forward declaration for the variable.</p>
+<p><strong>Function linkage</strong></p>
+<p>Functions have the same linkage property that variables do.  Functions always default to external linkage, but can be set to internal linkage via the static keyword:</p>
+<p></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf501b1480703802" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row alt">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf501b1480703802-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501b1480703802-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5d5b7cdf501b1480703802-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501b1480703802-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5d5b7cdf501b1480703802-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501b1480703802-6" style="height: 16px;">6</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf501b1480703802-1"><span class="crayon-c">// This function is declared as static, and can now be used only within this file</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501b1480703802-2"><span class="crayon-c">// Attempts to access it via a function prototype will fail</span></div><div class="crayon-line" id="crayon-5d5b7cdf501b1480703802-3"><span class="crayon-m">static</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">x</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">y</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501b1480703802-4"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5d5b7cdf501b1480703802-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">x</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-v">y</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501b1480703802-6"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p></p>
+<p>Function forward declarations don’t need the extern keyword.  The compiler is able to tell whether you’re defining a function or a function prototype by whether you supply a function body or not.</p>
+<p><strong>The one-definition rule and non-external linkage</strong></p>
+<p>In lesson <a href="https://www.learncpp.com/cpp-tutorial/forward-declarations/">2.7 -- Forward declarations and definitions</a>, we noted that the one-definition rule says that an object or function can’t have more than one definition, either within a file or a program.</p>
+<p>However, it’s worth noting that non-extern objects and functions in different files are considered to be different entities, even if their names and types are identical.  This makes sense, since they can’t be seen outside of their respective files anyway.</p>
+<p><strong>File scope vs. global scope</strong></p>
+<p>The terms “file scope” and “global scope” tend to cause confusion, and this is partly due to the way they are informally used.  Technically, in C++, all global variables in C++ have “file scope”.  However, informally, the term “file scope” is more often applied to file scope variables with internal linkage only, and “global scope” to file scope variables with external linkage.</p>
+<p>Consider the following program:</p>
+<p>global.cpp:</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf501b5096091568" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf501b5096091568-1" style="height: 16px;">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf501b5096091568-1"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">g_x</span><span class="crayon-sy">(</span><span class="crayon-cn">2</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// external linkage by default</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p>
+<p>main.cpp:</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf501bd622603261" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row alt">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf501bd622603261-1" style="height: 32px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501bd622603261-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5d5b7cdf501bd622603261-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501bd622603261-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5d5b7cdf501bd622603261-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501bd622603261-6" style="height: 16px;">6</div><div class="crayon-num" data-line="crayon-5d5b7cdf501bd622603261-7" style="height: 16px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501bd622603261-8" style="height: 16px;">8</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf501bd622603261-1"><span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">g_x</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// forward declaration for g_x -- g_x can be used beyond this point in this file</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501bd622603261-2">&nbsp;</div><div class="crayon-line" id="crayon-5d5b7cdf501bd622603261-3"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">main</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501bd622603261-4"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5d5b7cdf501bd622603261-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">std</span><span class="crayon-o">::</span><span class="crayon-r">cout</span><span class="crayon-h"> </span><span class="crayon-o">&lt;&lt;</span><span class="crayon-h"> </span><span class="crayon-v">g_x</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// should print 2</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501bd622603261-6">&nbsp;</div><div class="crayon-line" id="crayon-5d5b7cdf501bd622603261-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501bd622603261-8"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p></p>
+<p>g_x has file scope within global.cpp -- it can not be directly seen outside of global.cpp.  Note that even though it’s used in main.cpp, main.cpp isn’t seeing g_x, it’s seeing the forward declaration of g_x (which also has file scope).  The linker is responsible for linking up the definition of g_x in global.cpp with the use of g_x in main.cpp.</p>
+<p><strong>Global symbolic constants</strong></p>
+<p>In section <a href="http://www.learncpp.com/cpp-tutorial/2-9-symbolic-constants-and-the-const-keyword/">2.9 -- Symbolic constants and the const keyword</a>, we introduced the concept of symbolic constants, and defined them like this:</p>
+<p>constants.h:</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf501c1584729832" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf501c1584729832-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501c1584729832-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5d5b7cdf501c1584729832-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501c1584729832-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5d5b7cdf501c1584729832-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501c1584729832-6" style="height: 16px;">6</div><div class="crayon-num" data-line="crayon-5d5b7cdf501c1584729832-7" style="height: 16px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501c1584729832-8" style="height: 16px;">8</div><div class="crayon-num" data-line="crayon-5d5b7cdf501c1584729832-9" style="height: 16px;">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501c1584729832-10" style="height: 16px;">10</div><div class="crayon-num" data-line="crayon-5d5b7cdf501c1584729832-11" style="height: 16px;">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501c1584729832-12" style="height: 16px;">12</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf501c1584729832-1"><span class="crayon-p">#ifndef CONSTANTS_H</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501c1584729832-2"><span class="crayon-p">#define CONSTANTS_H</span></div><div class="crayon-line" id="crayon-5d5b7cdf501c1584729832-3"><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501c1584729832-4"><span class="crayon-c">// define your own namespace to hold constants</span></div><div class="crayon-line" id="crayon-5d5b7cdf501c1584729832-5"><span class="crayon-t">namespace</span><span class="crayon-h"> </span><span class="crayon-e">Constants</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501c1584729832-6"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5d5b7cdf501c1584729832-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-e">pi</span><span class="crayon-sy">(</span><span class="crayon-cn">3.14159</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501c1584729832-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-e">avogadro</span><span class="crayon-sy">(</span><span class="crayon-cn">6.0221413e23</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5d5b7cdf501c1584729832-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-e">my_gravity</span><span class="crayon-sy">(</span><span class="crayon-cn">9.2</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// m/s^2 -- gravity is light on this planet</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501c1584729832-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">// ... other related constants</span></div><div class="crayon-line" id="crayon-5d5b7cdf501c1584729832-11"><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501c1584729832-12"><span class="crayon-p">#endif</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p></p>
+<p>While this is simple (and fine for smaller programs), every time constants.h gets #included into a different code file, each of these variables is copied into the including code file.  Therefore, if constants.h gets included into 20 different code files, each of these variables is duplicated 20 times.  Header guards won’t stop this from happening, as they only prevent a header from being included more than once into a single including file, not from being included one time into multiple different code files.  This duplication of variables isn’t really that much of a problem (since constants aren’t likely to be huge), but changing a single constant value would require recompiling every file that includes the constants header, which can lead to lengthy rebuild times for larger projects.</p>
+<p>We can avoid this problem by turning these constants into const global variables, and changing the header file to hold only the variable forward declarations:</p>
+<p>constants.cpp:</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf501c5147116327" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row alt">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf501c5147116327-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501c5147116327-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5d5b7cdf501c5147116327-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501c5147116327-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5d5b7cdf501c5147116327-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501c5147116327-6" style="height: 32px;">6</div><div class="crayon-num" data-line="crayon-5d5b7cdf501c5147116327-7" style="height: 16px;">7</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf501c5147116327-1"><span class="crayon-t">namespace</span><span class="crayon-h"> </span><span class="crayon-e">Constants</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501c5147116327-2"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5d5b7cdf501c5147116327-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">// actual global variables</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501c5147116327-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-e">pi</span><span class="crayon-sy">(</span><span class="crayon-cn">3.14159</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5d5b7cdf501c5147116327-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-e">avogadro</span><span class="crayon-sy">(</span><span class="crayon-cn">6.0221413e23</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501c5147116327-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-e">my_gravity</span><span class="crayon-sy">(</span><span class="crayon-cn">9.2</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// m/s^2 -- gravity is light on this planet</span></div><div class="crayon-line" id="crayon-5d5b7cdf501c5147116327-7"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p></p>
+<p>constants.h:</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf501c8285351758" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf501c8285351758-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501c8285351758-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5d5b7cdf501c8285351758-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501c8285351758-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5d5b7cdf501c8285351758-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501c8285351758-6" style="height: 32px;">6</div><div class="crayon-num" data-line="crayon-5d5b7cdf501c8285351758-7" style="height: 16px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501c8285351758-8" style="height: 16px;">8</div><div class="crayon-num" data-line="crayon-5d5b7cdf501c8285351758-9" style="height: 16px;">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501c8285351758-10" style="height: 16px;">10</div><div class="crayon-num" data-line="crayon-5d5b7cdf501c8285351758-11" style="height: 16px;">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501c8285351758-12" style="height: 16px;">12</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf501c8285351758-1"><span class="crayon-p">#ifndef CONSTANTS_H</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501c8285351758-2"><span class="crayon-p">#define CONSTANTS_H</span></div><div class="crayon-line" id="crayon-5d5b7cdf501c8285351758-3">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501c8285351758-4"><span class="crayon-t">namespace</span><span class="crayon-h"> </span><span class="crayon-e">Constants</span></div><div class="crayon-line" id="crayon-5d5b7cdf501c8285351758-5"><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501c8285351758-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">// since the actual variables are inside a namespace, the forward declarations need to be inside a namespace as well</span></div><div class="crayon-line" id="crayon-5d5b7cdf501c8285351758-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-v">pi</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501c8285351758-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-v">avogadro</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5d5b7cdf501c8285351758-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-v">my_gravity</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501c8285351758-10"><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5d5b7cdf501c8285351758-11">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501c8285351758-12"><span class="crayon-p">#endif</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p></p>
+<p>Use in the code file stays the same:</p>
+<p></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf501cc546164019" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row alt">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf501cc546164019-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501cc546164019-2" style="height: 16px;">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf501cc546164019-1"><span class="crayon-p">#include "constants.h"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501cc546164019-2"><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-v">circumference</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-cn">2</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">radius</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-v">Constants</span><span class="crayon-o">::</span><span class="crayon-v">pi</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p>
+<p>Because global symbolic constants should be namespaced (to avoid naming conflicts with other identifiers in the global namespace) and are read-only, the use of the g_ prefix is not necessary.</p>
+<p>Now the symbolic constants will get instantiated only once (in constants.cpp), instead of once every time constants.h is #included, and the other uses will simply refer to the version in constants.cpp.  Any changes made to constants.cpp will require recompiling only constants.cpp.</p>
+<p>However, there are a couple of downsides to doing this.  First, these constants are now considered compile-time constants only within the file they are actually defined in (constants.cpp), not anywhere else they are used.  This means that outside of constants.cpp, they can’t be used anywhere that requires a compile-time constant (such as for the length of a fixed array, something we talk about in chapter 6).  Second, the compiler may not be able to optimize these as much.</p>
+<p>Given the above downsides, we recommend defining your constants in the header file.  If you find that for some reason those constants are causing trouble, you can move them into a .cpp file as per the above as needed.</p>
+<p><strong>A word of caution about (non-const) global variables</strong></p>
+<p>New programmers are often tempted to use lots of global variables, because they are easy to work with, especially when many functions are involved.  However, use of non-const global variables should generally be avoided altogether!  We’ll discuss why in the next section.</p>
+<p><strong>Summary</strong></p>
+<p>Global variables have global scope, and can be used anywhere in the program.  Like functions, you must use a forward declaration (via keyword extern) to use a global variable defined in another file.</p>
+<p>By default, non-const global variables have external linkage.  You can use the static keyword to explicitly make them internal if desired.<br>
+By default, const global variables have internal linkage.  You can use the extern keyword to explicitly make them external if desired.</p>
+<p>Use a g_ prefix to help identify your non-const global variables.</p>
+<p>Here’s a summary chart of the use of the extern and static keywords for non-const and const variable use cases:</p>
+<p></p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf501d5540692823" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf501d5540692823-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501d5540692823-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5d5b7cdf501d5540692823-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501d5540692823-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5d5b7cdf501d5540692823-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501d5540692823-6" style="height: 16px;">6</div><div class="crayon-num" data-line="crayon-5d5b7cdf501d5540692823-7" style="height: 32px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501d5540692823-8" style="height: 32px;">8</div><div class="crayon-num" data-line="crayon-5d5b7cdf501d5540692823-9" style="height: 16px;">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501d5540692823-10" style="height: 16px;">10</div><div class="crayon-num" data-line="crayon-5d5b7cdf501d5540692823-11" style="height: 16px;">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501d5540692823-12" style="height: 16px;">12</div><div class="crayon-num" data-line="crayon-5d5b7cdf501d5540692823-13" style="height: 16px;">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501d5540692823-14" style="height: 16px;">14</div><div class="crayon-num" data-line="crayon-5d5b7cdf501d5540692823-15" style="height: 16px;">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf501d5540692823-16" style="height: 32px;">16</div><div class="crayon-num" data-line="crayon-5d5b7cdf501d5540692823-17" style="height: 32px;">17</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf501d5540692823-1"><span class="crayon-c">// Uninitialized definition:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501d5540692823-2"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">g_x</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">// defines uninitialized global variable (external linkage)</span></div><div class="crayon-line" id="crayon-5d5b7cdf501d5540692823-3"><span class="crayon-m">static</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">g_x</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// defines uninitialized static variable (internal linkage)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501d5540692823-4"><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">g_x</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c">// not allowed: const variables must be initialized</span></div><div class="crayon-line" id="crayon-5d5b7cdf501d5540692823-5">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501d5540692823-6"><span class="crayon-c">// Forward declaration via extern keyword:</span></div><div class="crayon-line" id="crayon-5d5b7cdf501d5540692823-7"><span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">g_z</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-c">// forward declaration for global variable defined elsewhere</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501d5540692823-8"><span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">g_z</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// forward declaration for const global variable defined elsewhere</span></div><div class="crayon-line" id="crayon-5d5b7cdf501d5540692823-9">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501d5540692823-10"><span class="crayon-c">// Initialized definition:</span></div><div class="crayon-line" id="crayon-5d5b7cdf501d5540692823-11"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">g_y</span><span class="crayon-sy">(</span><span class="crayon-cn">1</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">// defines initialized global variable (external linkage)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501d5540692823-12"><span class="crayon-m">static</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">g_y</span><span class="crayon-sy">(</span><span class="crayon-cn">1</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// defines initialized static variable (internal linkage)</span></div><div class="crayon-line" id="crayon-5d5b7cdf501d5540692823-13"><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">g_y</span><span class="crayon-sy">(</span><span class="crayon-cn">1</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c">// defines initialized const variable (internal linkage)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501d5540692823-14">&nbsp;</div><div class="crayon-line" id="crayon-5d5b7cdf501d5540692823-15"><span class="crayon-c">// Initialized definition w/extern keyword:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf501d5540692823-16"><span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">g_w</span><span class="crayon-sy">(</span><span class="crayon-cn">1</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-c">// defines initialized global variable (external linkage, extern keyword is redundant in this case)</span></div><div class="crayon-line" id="crayon-5d5b7cdf501d5540692823-17"><span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">g_w</span><span class="crayon-sy">(</span><span class="crayon-cn">1</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// defines initialized const global variable (external linkage)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0008 seconds] -->
+<p></p>
+<p><strong>Quiz</strong><br>
+1) What’s the difference between a variable’s scope, duration, and linkage?  What kind of scope, duration, and linkage do global variables have?</p>
+<p><strong>Quiz Solutions</strong></p>
+<p>1) <a class="solution_link_show" href="javascript:void(0)" onclick="wpSolutionToggle(document.getElementById(&#39;id1630167043&#39;), this, &#39;Show Solution&#39;, &#39;Hide Solution&#39;)">Show Solution</a></p>
+<div class="solution_div" id="id1630167043" style="display:none">
+Scope determines where a variable is accessible.  Duration determines where a variable is created and destroyed.  Linkage determines whether the variable can be exported to another file or not.<p></p>
+<p>Global variables have global scope (aka. file scope), which means they can be accessed from the point of declaration to the end of the file in which they are declared.</p>
+<p>Global variables have static duration, which means they are created when the program is started, and destroyed when it ends.</p>
+<p>Global variables can have either internal or external linkage, via the static and extern keywords respectively.
+</p></div>
+<table border="0" cellpadding="3">
+<tbody><tr class="alt"><td>
+	<a href="https://www.learncpp.com/cpp-tutorial/4-2a-why-global-variables-are-evil/" style="text-decoration:none"><img src="./S.4.2 — Global variables and linkage _ Learn C++_files/next.png" align="middle"> S.4.2a -- Why global variables are evil</a>
+</td></tr>
+<tr><td>
+        <a href="https://www.learncpp.com/" style="text-decoration:none"><img src="./S.4.2 — Global variables and linkage _ Learn C++_files/up.png" align="middle"> Index</a>
+</td></tr>
+<tr class="alt"><td>
+	<a href="https://www.learncpp.com/cpp-tutorial/4-1a-local-variables-and-local-scope/" style="text-decoration:none"><img src="./S.4.2 — Global variables and linkage _ Learn C++_files/prev.png" align="middle"> S.4.1a -- Local variables, scope, and duration</a>
+</td></tr>
+</tbody></table>
+
+<div class="code-block code-block-2" style="margin: 8px 8px 8px 0; float: left;">
+<div class="cf_monitor">
+<script async="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/f.txt"></script>
+<!-- Post - Below Content - Large Rectangle -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-0588844875925051" data-ad-slot="8689484849"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+
+</div>
+</div>						<div class="post-footer"><img src="./S.4.2 — Global variables and linkage _ Learn C++_files/folder-gray.gif" alt=""> <a class="cpp-tutorial" href="https://www.learncpp.com/category/cpp-tutorial/" title="View all posts in C++ Tutorial">C++ Tutorial</a>   | <a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/print/" title="Print This Post" rel="nofollow"><img class="WP-PrintIcon" src="./S.4.2 — Global variables and linkage _ Learn C++_files/printer_famfamfam.gif" alt="Print This Post" title="Print This Post" style="border: 0px;"></a>&nbsp;<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/print/" title="Print This Post" rel="nofollow">Print This Post</a></div>		</div><!-- / Post -->	
+						
+	
+			
+
+	<a name="comments"></a><!-- named anchor for skip links -->
+	<h3 id="comments">229 comments to S.4.2 — Global variables and linkage</h3>
+
+	<div class="clearfix navigation-comments-above"><a class="prev page-numbers" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-3/#comments">« Older Comments</a>
+<a class="page-numbers" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-1/#comments">1</a>
+<a class="page-numbers" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-2/#comments">2</a>
+<a class="page-numbers" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-3/#comments">3</a>
+<span aria-current="page" class="page-numbers current">4</span></div>
+	<!-- Comment List -->
+	<ul class="commentlist">
+		
+			<li class="comment even thread-even depth-1 clearfix" id="comment-419067">
+		<div id="div-comment-419067" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">murat yilmaz</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-4/#comment-419067">
+		August 12, 2019 at 1:52 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#comment-419067" onclick="return addComment.moveForm( &quot;comment-419067&quot;, &quot;419067&quot;, &quot;respond&quot;, &quot;65&quot; )" aria-label="Reply to murat yilmaz"> · Reply</a></span>		 
+		</div>
+		<p>In find this topic hard to understand.</p>
+<p>What is the difference between scope and linkage? </p>
+<p>What is the difference between global variables and external variables? (They have automatically the extern keyword)</p>
+<p>What is the difference between intern variables and global variables or functions with the keyword "static"?</p>
+<p>Why would you want to make variables only visible to that specific file by placing the static keyword?</p>
+		</div>
+<ul class="children">
+		<li class="comment odd alt depth-2 clearfix" id="comment-419307">
+		<div id="div-comment-419307" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/a98d93deb58c812d5bb287d26595c3cax96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/a98d93deb58c812d5bb287d26595c3cax192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">potterman28wxcv</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-4/#comment-419307">
+		August 13, 2019 at 8:08 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#comment-419307" onclick="return addComment.moveForm( &quot;comment-419307&quot;, &quot;419307&quot;, &quot;respond&quot;, &quot;65&quot; )" aria-label="Reply to potterman28wxcv"> · Reply</a></span>		 
+		</div>
+		<p>&gt; What is the difference between scope and linkage? </p>
+<p>The scope defines where you can use a given variable in the C++ code.</p>
+<p>Linkage is the process of linking several object (binary) files into one executable. In this process, each object file has a number of symbols that are defined - if you create a constant in your C++ code, your constant will have a symbol in the object file. However, if your constant is static, then that symbol will not be able to be used by the other object files - the "scope" of the symbol will be local to the object file corresponding to your C++ source file.</p>
+<p>I'm not sure how exactly does a symbol stay local to an object file. But the result is that the other object files won't be able to see your symbol. So if you use your constant (that was defined static) in another C++ source file, the corresponding object will use it as well, but when the linker tries to form one executable, it won't be able to link the symbol to its location.</p>
+<p>I don't know if it makes it more clear - you might want to re-read the chapter about the compilation process.</p>
+<p>&gt; What is the difference between intern variables and global variables or functions with the keyword "static"?</p>
+<p>Global variables and functions (with or without the static keyword), will have a symbol attached to them by the compiler, in the object file. If you compile with the -S option (which stops at the assembly), and then read the generated assembly, you will see that your static identifiers have all been translated into a symbol (something that ends with a ':').</p>
+<p>On the other hand, intern variables won't have any symbol attached to them. And the compiler will decide whether the intern variable will reside in a processor register, or somewhere on the stack (in memory), or a combination of both. By the way, it is much more efficient to manipulate registers than it is to manipulate memory, so intern variables will always be more efficient than global variables.</p>
+<p>&gt; Why would you want to make variables only visible to that specific file by placing the static keyword?</p>
+<p>It's a bit like a principle of encapsulation. You want to know where this or that variable is used. If there is no static keyword, then that variable could be used anywhere in your code - and if a bug happens related to that specific variable, then it will potentially be a lot harder for you to pinpoint where something went wrong.</p>
+<p>In the examples of these tutorials it's always easy because you never have more than 100 lines of code. On real life projects (even those that you do by yourself), your codebase can reach easily 1000+ lines of code, sometimes even 10000. Good luck trying to find what went wrong if you only use global variables - moreover if none of these global variables have the "static" keyword.</p>
+<p>Global variables have their uses - but you should avoid them whenever you can. Because it is much simpler to reason in terms of local variables that reside in 40-50 lines of code, rather than having to deal with variables shared by all the program, and that could be modified anywhere.</p>
+<p>I'm not sure about the 2nd question.</p>
+		</div>
+</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-tarindel bypostauthor even depth-2 clearfix" id="comment-419352">
+		<div id="div-comment-419352" class="clearfix comment-container bypostauthor">
+		<div class="comment-author vcard">
+		<img alt="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/a4e62d28c29f6c864923207d4c17993bx96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/a4e62d28c29f6c864923207d4c17993bx192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Alex</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-4/#comment-419352">
+		August 13, 2019 at 11:44 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#comment-419352" onclick="return addComment.moveForm( &quot;comment-419352&quot;, &quot;419352&quot;, &quot;respond&quot;, &quot;65&quot; )" aria-label="Reply to Alex"> · Reply</a></span>		 
+		</div>
+		<p>&gt; What is the difference between global variables and external variables? (They have automatically the extern keyword)</p>
+<p>Nothing, they are the same thing.</p>
+		</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1 clearfix" id="comment-415279">
+		<div id="div-comment-415279" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Abhinav</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-4/#comment-415279">
+		July 9, 2019 at 8:12 pm</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#comment-415279" onclick="return addComment.moveForm( &quot;comment-415279&quot;, &quot;415279&quot;, &quot;respond&quot;, &quot;65&quot; )" aria-label="Reply to Abhinav"> · Reply</a></span>		 
+		</div>
+		<p>I have a question regarding linkage and duration with respect to your example above. Global variables have static duration right? So the variables inside constants.cpp are destroyed when we leave that program right? So how come if I #include constants.h in my main.cpp file, I can access constants defined in constants.cpp, even though constants.cpp has ended executing (Or its not?) ?</p>
+<p>edit: Is my following understanding correct:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1)global variables (file scope) have static duration, i.e<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;destroyed when file finishes execution.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2)extern variables (true global scope) do not have static<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duration but persist even after file execution completes.</p>
+		</div>
+<ul class="children">
+		<li class="comment even depth-2 clearfix" id="comment-415308">
+		<div id="div-comment-415308" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/11b09338d6108681887f55d784841888x96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/11b09338d6108681887f55d784841888x192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname"><a href="https://cre3per.gitlab.io/learncpp" rel="external nofollow" class="url">nascardriver</a></span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-4/#comment-415308">
+		July 10, 2019 at 4:43 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#comment-415308" onclick="return addComment.moveForm( &quot;comment-415308&quot;, &quot;415308&quot;, &quot;respond&quot;, &quot;65&quot; )" aria-label="Reply to nascardriver"> · Reply</a></span>		 
+		</div>
+		<p>Files don't execute, files only matter to your compiler, but not a runtime. Static variables die when the program ends.</p>
+<p>&gt; global variables (file scope) have static duration<br>
+Yes</p>
+<p>&gt; destroyed when file finishes execution<br>
+No</p>
+<p>&gt; extern variables (true global scope) do not have static duration<br>
+They have static duration</p>
+<p>&gt; persist even after file execution completes<br>
+There is no "file execution", they die when the program ends.</p>
+		</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1 clearfix" id="comment-412461">
+		<div id="div-comment-412461" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Vir1oN</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-4/#comment-412461">
+		June 14, 2019 at 6:40 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#comment-412461" onclick="return addComment.moveForm( &quot;comment-412461&quot;, &quot;412461&quot;, &quot;respond&quot;, &quot;65&quot; )" aria-label="Reply to Vir1oN"> · Reply</a></span>		 
+		</div>
+		<p>Hey @Alex<br>
+I’ve just read the chapter for several times, and one thing remains unclear: what happens with external variables’ scope, when they are exported to another file? You wrote:</p>
+<p> “Global variables have global scope (aka. file scope), which means they can be accessed from the point of declaration to the end of the file in which they are declared.”</p>
+<p>As well as:</p>
+<p>“Global variables have global scope, and can be used anywhere in the program“</p>
+<p>Thus I make the conclusion that scope must be renewed or something, or how the variable can be accessed in the other files otherwise?</p>
+<p>Also it’s still a bit hard for me to understand the difference between the terms of “linkage” and “scope”. In the quiz solution you wrote:</p>
+<p>“Scope determines where a variable is accessible”<br>
+“Linkage determines whether the variable can be exported to another file or not”</p>
+<p>But couldn’t the second sentence be rephrased as “ linkage determines whether the variable can be accessed from another file or not”? If so, linkage seems to be scope in the broader sense. Or I just don’t understand it correctly?</p>
+		</div>
+<ul class="children">
+		<li class="comment byuser comment-author-tarindel bypostauthor even depth-2 clearfix" id="comment-413050">
+		<div id="div-comment-413050" class="clearfix comment-container bypostauthor">
+		<div class="comment-author vcard">
+		<img alt="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/a4e62d28c29f6c864923207d4c17993bx96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/a4e62d28c29f6c864923207d4c17993bx192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Alex</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-4/#comment-413050">
+		June 19, 2019 at 11:49 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#comment-413050" onclick="return addComment.moveForm( &quot;comment-413050&quot;, &quot;413050&quot;, &quot;respond&quot;, &quot;65&quot; )" aria-label="Reply to Alex"> · Reply</a></span>		 
+		</div>
+		<p>When a global variable is defined, in the file for which it is defined, it can then be accessed from the point of definition to the end of the file.<br>
+However, via a forward declaration, the variable can be used from other files (assuming external linkage), from the point of the forward declaration to the end of the file containing the forward declaration.  The compiler doesn't know this is the same variable as in another file.</p>
+<p>Scope works file by file and is enforced by the compiler.<br>
+Linkage works across files, and is enforced by the linker.<br>
+Thus, in order to be accessed from another file, the variable must have external linkage (to satisfy the linker) AND it must be in scope (to satisfy the compiler).</p>
+		</div>
+<ul class="children">
+		<li class="comment odd alt depth-3 clearfix" id="comment-413054">
+		<div id="div-comment-413054" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Vir1oN</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-4/#comment-413054">
+		June 19, 2019 at 12:26 pm</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#comment-413054" onclick="return addComment.moveForm( &quot;comment-413054&quot;, &quot;413054&quot;, &quot;respond&quot;, &quot;65&quot; )" aria-label="Reply to Vir1oN"> · Reply</a></span>		 
+		</div>
+		<p>Thank you for your comprehensive answer, seems like everything fell into place in my head</p>
+		</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1 clearfix" id="comment-411610">
+		<div id="div-comment-411610" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Sweta</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-4/#comment-411610">
+		June 5, 2019 at 11:11 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#comment-411610" onclick="return addComment.moveForm( &quot;comment-411610&quot;, &quot;411610&quot;, &quot;respond&quot;, &quot;65&quot; )" aria-label="Reply to Sweta"> · Reply</a></span>		 
+		</div>
+		<p>It was my understanding from one of the previous topics that constexpr must be used for constants that are initialised during compile-time, and const must be used for constants that are initialised during run-time, yet the above example uses "const" for compile-time initialisation. Is there a particular reason for this?</p>
+		</div>
+<ul class="children">
+		<li class="comment byuser comment-author-tarindel bypostauthor odd alt depth-2 clearfix" id="comment-412209">
+		<div id="div-comment-412209" class="clearfix comment-container bypostauthor">
+		<div class="comment-author vcard">
+		<img alt="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/a4e62d28c29f6c864923207d4c17993bx96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/a4e62d28c29f6c864923207d4c17993bx192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Alex</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-4/#comment-412209">
+		June 12, 2019 at 12:26 pm</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#comment-412209" onclick="return addComment.moveForm( &quot;comment-412209&quot;, &quot;412209&quot;, &quot;respond&quot;, &quot;65&quot; )" aria-label="Reply to Alex"> · Reply</a></span>		 
+		</div>
+		<p>Const can be used for either runtime or compile-time constants.</p>
+<p>It's more precise to use constexpr if you can, but it's not necessary to update older code/examples that already work unless there's a specific reason to.</p>
+		</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1 clearfix" id="comment-407052">
+		<div id="div-comment-407052" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Louis Cloete</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-4/#comment-407052">
+		April 29, 2019 at 1:19 pm</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#comment-407052" onclick="return addComment.moveForm( &quot;comment-407052&quot;, &quot;407052&quot;, &quot;respond&quot;, &quot;65&quot; )" aria-label="Reply to Louis Cloete"> · Reply</a></span>		 
+		</div>
+		<p>@Alex, since you suggest that one namespace non-const global variables, maybe you should explain how to forward declare a namespaced global variable. It has not been obvious to me when I wanted to use a global Mersenne twister over multiple files for the game in chapter 11.x's quiz. I found out by trial and error after a lot of different errors about duplicate definition and undefined symbols that it is like this:</p>
+<p>foo.cpp:</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf54ccf927056039" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf54ccf927056039-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf54ccf927056039-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5d5b7cdf54ccf927056039-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf54ccf927056039-4" style="height: 16px;">4</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf54ccf927056039-1"><span class="crayon-t">namespace</span><span class="crayon-h"> </span><span class="crayon-e">MyNamespace</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf54ccf927056039-2"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5d5b7cdf54ccf927056039-3">&nbsp;&nbsp;&nbsp;&nbsp;<span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">g_maxPoints</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-cn">100</span><span class="crayon-h"> </span><span class="crayon-sy">}</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// define the global object</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf54ccf927056039-4"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p>
+<p>bar.cpp:</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf54cd9425772258" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf54cd9425772258-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf54cd9425772258-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5d5b7cdf54cd9425772258-3" style="height: 32px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf54cd9425772258-4" style="height: 16px;">4</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf54cd9425772258-1"><span class="crayon-t">namespace</span><span class="crayon-h"> </span><span class="crayon-e">MyNamespace</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf54cd9425772258-2"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5d5b7cdf54cd9425772258-3">&nbsp;&nbsp;&nbsp;&nbsp;<span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">g_maxPoints</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-c">// forward declare the global object to use it later in the file</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf54cd9425772258-4"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p>
+		</div>
+<ul class="children">
+		<li class="comment byuser comment-author-tarindel bypostauthor odd alt depth-2 clearfix" id="comment-407939">
+		<div id="div-comment-407939" class="clearfix comment-container bypostauthor">
+		<div class="comment-author vcard">
+		<img alt="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/a4e62d28c29f6c864923207d4c17993bx96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/a4e62d28c29f6c864923207d4c17993bx192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Alex</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-4/#comment-407939">
+		May 6, 2019 at 12:12 pm</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#comment-407939" onclick="return addComment.moveForm( &quot;comment-407939&quot;, &quot;407939&quot;, &quot;respond&quot;, &quot;65&quot; )" aria-label="Reply to Alex"> · Reply</a></span>		 
+		</div>
+		<p>Thanks for the feedback.  There's an example in this very lesson already on how to do this -- perhaps it wasn't obvious enough.  I've updated the comments in the example to make it more explicit that the forward declarations need to go in a namespace.</p>
+		</div>
+<ul class="children">
+		<li class="comment even depth-3 clearfix" id="comment-408013">
+		<div id="div-comment-408013" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Louis Cloete</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-4/#comment-408013">
+		May 7, 2019 at 3:52 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#comment-408013" onclick="return addComment.moveForm( &quot;comment-408013&quot;, &quot;408013&quot;, &quot;respond&quot;, &quot;65&quot; )" aria-label="Reply to Louis Cloete"> · Reply</a></span>		 
+		</div>
+		<p>Indeed! I missed it. Anyway, it is better to be more explicit for idiots like me ;)</p>
+		</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1 clearfix" id="comment-405221">
+		<div id="div-comment-405221" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Alireza</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-4/#comment-405221">
+		April 16, 2019 at 1:47 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#comment-405221" onclick="return addComment.moveForm( &quot;comment-405221&quot;, &quot;405221&quot;, &quot;respond&quot;, &quot;65&quot; )" aria-label="Reply to Alireza"> · Reply</a></span>		 
+		</div>
+		<p>Hi and greeting,<br>
+I'm using Qt Creator 4.7.<br>
+I have written this code:</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf54db9954058396" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf54db9954058396-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf54db9954058396-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5d5b7cdf54db9954058396-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf54db9954058396-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5d5b7cdf54db9954058396-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf54db9954058396-6" style="height: 16px;">6</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf54db9954058396-1"><span class="crayon-c">// mathematical.h</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf54db9954058396-2"><span class="crayon-t">namespace</span><span class="crayon-h"> </span><span class="crayon-e">constants</span></div><div class="crayon-line" id="crayon-5d5b7cdf54db9954058396-3"><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf54db9954058396-4">&nbsp;&nbsp;&nbsp;&nbsp;<span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-v">g</span><span class="crayon-sy">_</span>pi<span class="crayon-h"> </span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5d5b7cdf54db9954058396-5">&nbsp;&nbsp;&nbsp;&nbsp;<span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-v">g</span><span class="crayon-sy">_</span>gravity<span class="crayon-h"> </span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf54db9954058396-6"><span class="crayon-sy">}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="crayon-h"> </span><span class="crayon-c">// there's no error</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p>however in mathematical.cpp file:</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf54dbf453867753" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf54dbf453867753-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf54dbf453867753-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5d5b7cdf54dbf453867753-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf54dbf453867753-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5d5b7cdf54dbf453867753-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf54dbf453867753-6" style="height: 16px;">6</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf54dbf453867753-1"><span class="crayon-c">// mathematical.cpp</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf54dbf453867753-2"><span class="crayon-t">namespace</span><span class="crayon-h"> </span><span class="crayon-e">constants</span></div><div class="crayon-line" id="crayon-5d5b7cdf54dbf453867753-3"><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf54dbf453867753-4">&nbsp;&nbsp;&nbsp;&nbsp;<span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-e">g_pi</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-cn">3.14</span><span class="crayon-s">'15'</span><span class="crayon-cn">9</span><span class="crayon-h"> </span><span class="crayon-sy">}</span><span class="crayon-h"> </span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5d5b7cdf54dbf453867753-5">&nbsp;&nbsp;&nbsp;&nbsp;<span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-e">g_gravity</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-cn">9.8</span><span class="crayon-s">'06'</span><span class="crayon-cn">6</span><span class="crayon-h"> </span><span class="crayon-sy">}</span><span class="crayon-h"> </span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf54dbf453867753-6"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p></p>
+<p>it gives me this warning for both variables @g_pi and g_gravity :</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf54dc3618354130" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf54dc3618354130-1" style="height: 32px;">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf54dc3618354130-1"><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">\</span><span class="crayon-v">mathematical</span><span class="crayon-sy">.</span><span class="crayon-v">cpp</span><span class="crayon-o">:</span><span class="crayon-cn">10</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-v">warning</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">no </span><span class="crayon-e">previous </span><span class="crayon-m">extern</span><span class="crayon-h"> </span><span class="crayon-e">declaration </span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-v">non</span><span class="crayon-o">-</span><span class="crayon-m">static</span><span class="crayon-h"> </span><span class="crayon-i">variable</span><span class="crayon-h"> </span><span class="crayon-s">'g_pi'</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p></p>
+<p>What do you suggest for it ?</p>
+		</div>
+<ul class="children">
+		<li class="comment even depth-2 clearfix" id="comment-405242">
+		<div id="div-comment-405242" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/11b09338d6108681887f55d784841888x96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/11b09338d6108681887f55d784841888x192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname"><a href="https://cre3per.gitlab.io/learncpp" rel="external nofollow" class="url">nascardriver</a></span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-4/#comment-405242">
+		April 16, 2019 at 4:33 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#comment-405242" onclick="return addComment.moveForm( &quot;comment-405242&quot;, &quot;405242&quot;, &quot;respond&quot;, &quot;65&quot; )" aria-label="Reply to nascardriver"> · Reply</a></span>		 
+		</div>
+		<p>Include mathematical.h in mathematical.cpp so it sees the declaration, or use inline variables.</p><!-- Crayon Syntax Highlighter v2.7.1 -->
+
+		<div id="crayon-5d5b7cdf54d71081032027" class="crayon-syntax crayon-theme-familiar-learncppcom crayon-font-monaco crayon-os-mac print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-5d5b7cdf54d71081032027-1" style="height: 16px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf54d71081032027-2" style="height: 16px;">2</div><div class="crayon-num" data-line="crayon-5d5b7cdf54d71081032027-3" style="height: 16px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf54d71081032027-4" style="height: 16px;">4</div><div class="crayon-num" data-line="crayon-5d5b7cdf54d71081032027-5" style="height: 16px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf54d71081032027-6" style="height: 16px;">6</div><div class="crayon-num" data-line="crayon-5d5b7cdf54d71081032027-7" style="height: 16px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5d5b7cdf54d71081032027-8" style="height: 16px;">8</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5d5b7cdf54d71081032027-1"><span class="crayon-c">// mathematical.hpp</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf54d71081032027-2">&nbsp;</div><div class="crayon-line" id="crayon-5d5b7cdf54d71081032027-3"><span class="crayon-t">namespace</span><span class="crayon-h"> </span><span class="crayon-e">Constants</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf54d71081032027-4"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5d5b7cdf54d71081032027-5">&nbsp;&nbsp;<span class="crayon-m">inline</span><span class="crayon-h"> </span><span class="crayon-t">constexpr</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-e">pi</span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-cn">3.14159</span><span class="crayon-h"> </span><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf54d71081032027-6">&nbsp;&nbsp;<span class="crayon-m">inline</span><span class="crayon-h"> </span><span class="crayon-t">constexpr</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-e">avogadro</span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-cn">6.0221413e23</span><span class="crayon-h"> </span><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5d5b7cdf54d71081032027-7">&nbsp;&nbsp;<span class="crayon-m">inline</span><span class="crayon-h"> </span><span class="crayon-t">constexpr</span><span class="crayon-h"> </span><span class="crayon-t">double</span><span class="crayon-h"> </span><span class="crayon-e">my_gravity</span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-cn">9.2</span><span class="crayon-h"> </span><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5d5b7cdf54d71081032027-8"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p></p>
+<p>By using inline variable you don't need another source file, because inline variables are allowed to be defined multiple times.</p>
+		</div>
+<ul class="children">
+		<li class="comment odd alt depth-3 clearfix" id="comment-406252">
+		<div id="div-comment-406252" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">Alireza</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-4/#comment-406252">
+		April 24, 2019 at 4:03 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#comment-406252" onclick="return addComment.moveForm( &quot;comment-406252&quot;, &quot;406252&quot;, &quot;respond&quot;, &quot;65&quot; )" aria-label="Reply to Alireza"> · Reply</a></span>		 
+		</div>
+		<p>thank you so much, it works</p>
+		</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1 clearfix" id="comment-402827">
+		<div id="div-comment-402827" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/default96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/mystery192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname">_weedfox</span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-4/#comment-402827">
+		April 2, 2019 at 2:59 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#comment-402827" onclick="return addComment.moveForm( &quot;comment-402827&quot;, &quot;402827&quot;, &quot;respond&quot;, &quot;65&quot; )" aria-label="Reply to _weedfox"> · Reply</a></span>		 
+		</div>
+		<p>So if im working with only 1 file is it better to use static since it will be only used for this file anyway or let it be external since its easier and wont be used external anyway?</p>
+		</div>
+<ul class="children">
+		<li class="comment odd alt depth-2 clearfix" id="comment-402830">
+		<div id="div-comment-402830" class="clearfix comment-container">
+		<div class="comment-author vcard">
+		<img alt="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/11b09338d6108681887f55d784841888x96.png" srcset="//www.learncpp.com/blog/wp-content/uploads/fv-gravatar-cache/11b09338d6108681887f55d784841888x192.png 2x" class="avatar avatar-65 photo" height="65" width="65">		<span class="authorname"><a href="https://cre3per.gitlab.io/learncpp" rel="external nofollow" class="url">nascardriver</a></span>
+		</div>
+				<div class="comment-meta commentmetadata">
+		<a href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-4/#comment-402830">
+		April 2, 2019 at 3:05 am</a>
+        <span class="comment-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#comment-402830" onclick="return addComment.moveForm( &quot;comment-402830&quot;, &quot;402830&quot;, &quot;respond&quot;, &quot;65&quot; )" aria-label="Reply to nascardriver"> · Reply</a></span>		 
+		</div>
+		<p>It doesn't matter. You can omit both static and extern.</p>
+		</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	
+	</ul>
+	<!-- / Comment List -->
+
+	<div class="clearfix navigation-comments-below"><a class="prev page-numbers" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-3/#comments">« Older Comments</a>
+<a class="page-numbers" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-1/#comments">1</a>
+<a class="page-numbers" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-2/#comments">2</a>
+<a class="page-numbers" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/comment-page-3/#comments">3</a>
+<span aria-current="page" class="page-numbers current">4</span></div>
+
+
+
+	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.learncpp.com/cpp-tutorial/42-global-variables/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="https://www.learncpp.com/blog/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p><textarea autocomplete="nope" id="comment" name="e9daedd5f9" rows="10" cols="10" tabindex="4"></textarea><textarea id="afaadf5c27e5249cd5ddde1f8aacf2d4" aria-hidden="true" name="comment" autocomplete="nope" style="padding:0;clip:rect(1px, 1px, 1px, 1px);position:absolute !important;white-space:nowrap;height:1px;width:1px;overflow:hidden;" tabindex="-1"></textarea><script type="text/javascript">document.getElementById("comment").setAttribute( "id", "afaadf5c27e5249cd5ddde1f8aacf2d4" );document.getElementById("e9daedd5f9").setAttribute( "id", "comment" );</script></p><div class="useCode">Put all code inside code tags: [code]your code here[/code]</div><p><input class="text author" id="author" name="author" type="text" value="" size="30" tabindex="1">&nbsp;&nbsp;<label for="author"><strong>Name </strong> (required)</label></p>
+<p><input class="text email" id="email" name="email" type="text" value="" size="30" tabindex="2">&nbsp;&nbsp;<label for="email"><strong>Email</strong> (will not be published) (required)</label></p>
+<p><input class="text url" id="url" name="url" type="text" value="" size="30" tabindex="3">&nbsp;&nbsp;<label for="url">Website</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="65" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p>			</form>
+			</div><!-- #respond -->
+	<div class="code-block code-block-7" style="margin: 8px 0; clear: both;">
+<div class="cf_monitor">
+<script async="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/f.txt"></script>
+<!-- Post - Below Content - Responsive -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0588844875925051" data-ad-slot="5999600639" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+</div>
+		
+    
+
+</td>
+<!-- / Main Column -->
+
+<!-- Right Inner Sidebar -->
+
+<!-- Right Sidebar -->
+<td id="right">
+
+	<div id="text-7" class="widget widget_text">			<div class="textwidget"><div class="cf_monitor">
+<!-- Post - Right Sidebar - Wide Sky -->
+<script async="" src="./S.4.2 — Global variables and linkage _ Learn C++_files/f.txt"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-0588844875925051" data-ad-slot="0955932809"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div>
+		</div><!--
+Plugin: Custom Meta Widget
+Plugin URL: http://shinraholdings.com/plugins/custom-meta-widget/
+-->
+<div id="custommetawidget-2" class="widget customMetaWidget"><div class="widget-title"><h3>Admin</h3></div>		<ul>
+
+		
+					<li><a href="https://www.learncpp.com/blog/wp-login.php">Log in</a></li>
+		
+		
+
+		
+				</ul>
+
+	</div>
+</td>
+<!-- / Right Sidebar -->
+
+</tr>
+<!-- / Main Body -->
+
+
+</tbody></table><!-- / layout -->
+</div><!-- / container -->
+</div><!-- / wrapper -->
+		<!-- Full Width Footer -->
+		<div id="footer" class="full-width">
+    LearnCpp.com -- Teaching you how to program in C++ since 2007.<br>Copyright © 2019 <a href="https://www.learncpp.com/">Learn C++</a> - All Rights Reserved<br>    
+    
+    <script type="text/javascript" src="./S.4.2 — Global variables and linkage _ Learn C++_files/comment-reply.min.js.download" data-cfasync="true"></script>
+<script type="text/javascript" src="./S.4.2 — Global variables and linkage _ Learn C++_files/devicepx-jetpack.js.download" data-cfasync="true"></script>
+<script type="text/javascript" src="./S.4.2 — Global variables and linkage _ Learn C++_files/wp-embed.min.js.download" data-cfasync="true"></script>
+<script type="text/javascript" src="./S.4.2 — Global variables and linkage _ Learn C++_files/e-201934.js.download" async="async" defer="defer"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:6.9',blog:'3928254',post:'65',tz:'-8',srv:'www.learncpp.com'} ]);
+	_stq.push([ 'clickTrackerInit', '3928254', '65' ]);
+</script>
+		</div>
+		<!-- / Full Width Footer -->
+
+
+
+<!-- Dynamic page generated in 0.338 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-08-19 20:53:51 -->
+
+<!-- super cache --></body></html>
