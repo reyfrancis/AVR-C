@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)https://www.tutorialspoint.com/cplusplus/cpp_pointer_to_an_array.htm -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.mui-textfield.mui-textfield--float-label > label {-webkit-transition:all .15s ease-out;-moz-transition:all .15s ease-out;-o-transition:all .15s ease-out;transition:all .15s ease-out;}</style><style type="text/css">@keyframes mui-btn-inserted{from{transform:none;}to{transform:none;}}.mui-btn{animation-duration:0.0001s;animation-name:mui-btn-inserted;}@keyframes mui-dropdown-inserted{from{transform:none;}to{transform:none;}}[data-mui-toggle="dropdown"]{animation-duration:0.0001s;animation-name:mui-dropdown-inserted;}@keyframes mui-btn-inserted,mui-dropdown-inserted{from{transform:none;}to{transform:none;}}.mui-btn[data-mui-toggle="dropdown"]{animation-duration:0.0001s;animation-name:mui-btn-inserted,mui-dropdown-inserted;}@keyframes mui-tab-inserted{from{transform:none;}to{transform:none;}}[data-mui-toggle="tab"]{animation-duration:0.0001s;animation-name:mui-tab-inserted;}@keyframes mui-textfield-inserted{from{transform:none;}to{transform:none;}}.mui-textfield > input{animation-duration:0.0001s;animation-name:mui-textfield-inserted;}@keyframes mui-textfield-inserted{from{transform:none;}to{transform:none;}}.mui-textfield > textarea{animation-duration:0.0001s;animation-name:mui-textfield-inserted;}@keyframes mui-select-inserted{from{transform:none;}to{transform:none;}}.mui-select > select{animation-duration:0.0001s;animation-name:mui-select-inserted;}@keyframes mui-node-inserted{from{transform:none;}to{transform:none;}}.mui-select > select ~ .mui-event-trigger{animation-duration:0.0001s;animation-name:mui-node-inserted;}@keyframes mui-node-disabled{from{transform:none;}to{transform:none;}}.mui-select > select:disabled ~ .mui-event-trigger{animation-duration:0.0001s;animation-name:mui-node-disabled;}</style>
+<title>C++ Pointer to an Array</title>
+
+<meta name="description" content="The best text and video tutorials to provide simple and easy learning of various technical and non-technical subjects with suitable examples and code snippets.">
+<meta name="keywords" content="C, C++, Python, Java, HTML, CSS, JavaScript, SQL, PHP, jQuery, XML, DOM, Bootstrap, Tutorials, Articles, Programming, training, learning, quiz, preferences, examples, code">
+<link rel="canonical" href="https://www.tutorialspoint.com/cplusplus/cpp_pointer_to_an_array.htm">
+<link rel="shortcut icon" href="https://www.tutorialspoint.com/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<script src="./C++ Pointer to an Array_files/script-min-v2.js.download"></script><link rel="stylesheet" type="text/css" href="./C++ Pointer to an Array_files/prettify.css">
+<link rel="stylesheet" href="./C++ Pointer to an Array_files/style-min-v2.css">
+<script type="text/javascript" src="./C++ Pointer to an Array_files/saved_resource" defer="" async=""></script>
+<script> var vitag = vitag || {};</script>
+<script> vitag.outStreamConfig = { enablePC: false, enableMobile: false };</script>  
+<style>
+.right-menu .mui-btn {
+    background-color:#004481;
+}
+a.demo {
+    background:#004481;
+}
+li.heading {
+    background:#004481;
+}
+.course-box{background:#004481}
+.home-intro-sub p{color:#004481}
+</style>
+</head>
+<body>
+<header id="header" class="fixed">
+<!-- Top sub-menu Starts Here -->
+<div class="mui-appbar mui-container-fulid top-menu">
+<div class="mui-container">
+<div class="top-menu-item home">
+<a href="https://www.tutorialspoint.com/index.htm" target="_blank" title="TutorialsPoint - Home"><i class="fal fa-home"></i> <span>Home</span></a>
+</div>
+<div class="top-menu-item qa">
+<a href="https://www.tutorialspoint.com/about/about_careers.htm" target="_blank" title="Job @ Tutorials Point"><i class="fa fa-suitcase"></i> <span>Jobs</span></a>
+</div>
+<div class="top-menu-item tools">
+<a href="https://www.tutorialspoint.com/online_dev_tools.htm" target="_blank" title="Tools - Online Development and Testing Tools"><i class="fal fa-cogs"></i> <span>Tools</span></a>
+</div>
+<div class="top-menu-item coding-ground">
+<a href="https://www.tutorialspoint.com/codingground.htm" target="_blank" title="Coding Ground - Free Online IDE and Terminal"><i class="fal fa-code"></i> <span>Coding Ground </span></a> 
+</div>
+<div class="top-menu-item current-affairs">
+<a href="https://www.tutorialspoint.com/current_affairs.htm" target="_blank" title="Daily Current Affairs"><i class="fal fa-layer-plus"></i> <span>Current Affairs</span></a>
+</div>
+<div class="top-menu-item upsc-notes">
+<a href="https://www.tutorialspoint.com/upsc_ias_exams.htm" target="_blank" title="UPSC IAS Exams Notes - TutorialsPoint"><i class="fal fa-user-tie"></i> <span>UPSC Notes</span></a>
+</div>      
+<div class="top-menu-item online-tutoris">
+<a href="https://www.tutorialspoint.com/tutor_connect/index.php" target="_blank" title="Top Online Tutors - Tutor Connect"><i class="fal fa-user"></i> <span>Online Tutors</span></a>
+</div>
+<div class="top-menu-item whiteboard">
+<a href="https://www.tutorialspoint.com/whiteboard.htm" target="_blank" title="Free Online Whiteboard"><i class="fal fa-chalkboard"></i> <span>Whiteboard</span></a>
+</div>
+<div class="top-menu-item net-meeting">
+<a href="https://www.tutorialspoint.com/netmeeting.php" target="_blank" title="A free tool for online video conferencing"><i class="fal fa-chalkboard-teacher"></i> <span>Net Meeting</span></a> 
+</div>
+<div class="top-menu-item articles">
+<a href="https://www.tutorix.com/" target="_blank" title="Tutorx - The Best Learning App" rel="nofollow"><i class="fal fa-video"></i> <span>Tutorix</span></a> 
+</div>        
+<div class="social-menu-item">
+<a href="https://www.facebook.com/tutorialspointindia" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint @ Facebook"><i class="fab fa-facebook-f"></i></a> 
+<a href="https://plus.google.com/u/0/116678774017490391259/posts" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint @ Google+"><i class="fab fa-google-plus-g"></i></a>
+<a href="https://www.twitter.com/tutorialspoint" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint @ Twitter"><i class="fab fa-twitter"></i></a>
+<a href="https://www.linkedin.com/company/tutorialspoint" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint @ Linkedin"><i class="fab fa-linkedin-in"></i></a>
+<a href="https://www.youtube.com/channel/UCVLbzhxVTiTLiVKeGV7WEBg" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint YouTube"><i class="fab fa-youtube"></i></a>
+</div>        
+</div>
+</div>
+<!-- Top sub-menu Ends Here -->
+<!-- Top main-menu Starts Here -->
+<div class="mui-appbar mui-container-fulid mui--appbar-line-height mui--z1 sticky" id="logo-menu">
+<div class="mui-container">
+<div class="left-menu">
+<a href="https://www.tutorialspoint.com/index.htm" title="Tutorialspoint">
+<img class="tp-logo" alt="tutorialspoint" src="./C++ Pointer to an Array_files/logo.png">
+</a>
+<div class="mui-dropdown">
+<a class="mui-btn mui-btn--primary categories" data-mui-toggle="dropdown"><i class="fa fa-th-large"></i> 
+<span>Categories <span class="mui-caret"></span></span></a>            
+<ul class="mui-dropdown__menu cat-menu">
+<li>
+<ul>
+<li><a href="https://www.tutorialspoint.com/academic_tutorials.htm"><i class="fa fa-caret-right"></i> Academic Tutorials</a></li>
+<li><a href="https://www.tutorialspoint.com/big_data_tutorials.htm"><i class="fa fa-caret-right"></i> Big Data &amp; Analytics </a></li>
+<li><a href="https://www.tutorialspoint.com/computer_programming_tutorials.htm"><i class="fa fa-caret-right"></i> Computer Programming </a></li>
+<li><a href="https://www.tutorialspoint.com/computer_science_tutorials.htm"><i class="fa fa-caret-right"></i> Computer Science </a></li>
+<li><a href="https://www.tutorialspoint.com/database_tutorials.htm"><i class="fa fa-caret-right"></i> Databases </a></li>
+<li><a href="https://www.tutorialspoint.com/devops_tutorials.htm"><i class="fa fa-caret-right"></i> DevOps </a></li>
+<li><a href="https://www.tutorialspoint.com/digital_marketing_tutorials.htm"><i class="fa fa-caret-right"></i> Digital Marketing </a></li>
+<li><a href="https://www.tutorialspoint.com/engineering_tutorials.htm"><i class="fa fa-caret-right"></i> Engineering Tutorials </a></li>
+<li><a href="https://www.tutorialspoint.com/upsc_ias_exams.htm"><i class="fa fa-caret-right"></i> Exams Syllabus </a></li>
+<li><a href="https://www.tutorialspoint.com/famous_monuments.htm"><i class="fa fa-caret-right"></i> Famous Monuments </a></li>
+<li><a href="https://www.tutorialspoint.com/gate_exams_tutorials.htm"><i class="fa fa-caret-right"></i> GATE Exams Tutorials</a></li>
+<li><a href="https://www.tutorialspoint.com/latest_technologies.htm"><i class="fa fa-caret-right"></i> Latest Technologies </a></li>
+<li><a href="https://www.tutorialspoint.com/machine_learning_tutorials.htm"><i class="fa fa-caret-right"></i> Machine Learning </a></li>
+<li><a href="https://www.tutorialspoint.com/mainframe_tutorials.htm"><i class="fa fa-caret-right"></i> Mainframe Development </a></li>
+<li><a href="https://www.tutorialspoint.com/management_tutorials.htm"><i class="fa fa-caret-right"></i> Management Tutorials </a></li>
+<li><a href="https://www.tutorialspoint.com/maths_tutorials.htm"><i class="fa fa-caret-right"></i> Mathematics Tutorials</a></li>
+<li><a href="https://www.tutorialspoint.com/microsoft_technologies_tutorials.htm"><i class="fa fa-caret-right"></i> Microsoft Technologies </a></li>
+<li><a href="https://www.tutorialspoint.com/misc_tutorials.htm"><i class="fa fa-caret-right"></i> Misc tutorials </a></li>
+<li><a href="https://www.tutorialspoint.com/mobile_development_tutorials.htm"><i class="fa fa-caret-right"></i> Mobile Development </a></li>
+<li><a href="https://www.tutorialspoint.com/java_technology_tutorials.htm"><i class="fa fa-caret-right"></i> Java Technologies </a></li>
+<li><a href="https://www.tutorialspoint.com/python_technologies_tutorials.htm"><i class="fa fa-caret-right"></i> Python Technologies </a></li>
+<li><a href="https://www.tutorialspoint.com/sap_tutorials.htm"><i class="fa fa-caret-right"></i> SAP Tutorials </a></li>
+<li><a href="https://www.tutorialspoint.com/scripting_lnaguage_tutorials.htm"><i class="fa fa-caret-right"></i>Programming Scripts </a></li>
+<li><a href="https://www.tutorialspoint.com/selected_reading.htm"><i class="fa fa-caret-right"></i> Selected Reading </a></li>
+<li><a href="https://www.tutorialspoint.com/software_quality_tutorials.htm"><i class="fa fa-caret-right"></i> Software Quality </a></li>
+<li><a href="https://www.tutorialspoint.com/soft_skill_tutorials.htm"><i class="fa fa-caret-right"></i> Soft Skills </a></li>
+<li><a href="https://www.tutorialspoint.com/telecom_tutorials.htm"><i class="fa fa-caret-right"></i> Telecom Tutorials </a></li>
+<li><a href="https://www.tutorialspoint.com/upsc_ias_exams.htm"><i class="fa fa-caret-right"></i> UPSC IAS Exams </a></li>
+<li><a href="https://www.tutorialspoint.com/web_development_tutorials.htm"><i class="fa fa-caret-right"></i> Web Development </a></li>
+<li><a href="https://www.tutorialspoint.com/sports_tutorials.htm"><i class="fa fa-caret-right"></i> Sports Tutorials </a></li>
+<li><a href="https://www.tutorialspoint.com/xml_technologies_tutorials.htm"><i class="fa fa-caret-right"></i> XML Technologies </a></li>
+<li><a href="https://www.tutorialspoint.com/multi_language_tutorials.htm"><i class="fa fa-caret-right"></i> Multi-Language Tutorials</a></li>
+<li><a href="https://www.tutorialspoint.com/questions_and_answers.htm"><i class="fa fa-caret-right"></i> Interview Questions</a></li>
+</ul>
+</li>
+</ul>
+<div class="clear"></div>
+</div> 
+</div>
+<div class="right-menu">
+<div class="toc-toggle">
+<a href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+</div>
+<div class="mobile-search-btn">
+<a href="https://www.tutorialspoint.com/search.htm"><i class="fal fa-search"></i></a>
+</div>
+<div class="search-box">
+<form method="get" class="" name="searchform" action="https://www.google.com/search" target="_blank" novalidate="">
+<input type="hidden" name="sitesearch" value="www.tutorialspoint.com" class="user-valid valid">
+<input class="header-search-box" type="text" id="search-string" name="q" placeholder="Search your favorite tutorials..." onfocus="if (this.value == &#39;Search your favorite tutorials...&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;Search your favorite tutorials...&#39;;}" autocomplete="off">
+<button><i class="fal fa-search"></i></button>
+</form>
+</div>
+<div class="menu-btn library-btn">
+<a href="https://www.tutorialspoint.com/tutorialslibrary.htm"><i class="fal fa-cubes"></i> <span>Library</span></a>
+</div>
+<div class="menu-btn videos-btn">
+<a href="https://www.tutorialspoint.com/videotutorials/index.htm"><i class="fal fa-video"></i> <span>Videos</span></a> 
+</div>
+<div class="menu-btn videos-btn">
+<a href="https://www.tutorialspoint.com/questions/index.php"><i class="fa fa-location-arrow"></i> <span>Q/A</span></a>
+</div>
+<div class="menu-btn ebooks-btn">
+<a href="https://store.tutorialspoint.com/"><i class="fal fa-book"></i> <span>eBooks</span></a>
+</div>
+<div class="mui-dropdown">
+<button class="mui-btn mui-btn--primary" data-mui-toggle="dropdown" type="button">
+<span class="mui-caret"></span>
+</button>
+<ul class="mui-dropdown__menu">
+<li><a href="https://www.tutorialspoint.com/tutorialslibrary.htm"><i class="fal fa-cubes"></i> <span>Library</span></a></li>
+<li><a href="https://www.tutorialspoint.com/videotutorials/index.htm"><i class="fal fa-video"></i> <span>Videos</span></a></li>
+<li><a href="https://store.tutorialspoint.com/"><i class="fal fa-book"></i> <span>eBooks</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Top main-menu Ends Here -->
+</header>
+<div class="mui-container-fluid content">
+<div class="mui-container">
+<!-- Tutorial ToC Starts Here -->
+<div class="mui-col-md-3 tutorial-toc">
+<div class="mini-logo">
+<img src="./C++ Pointer to an Array_files/cpp-mini-logo.jpg" alt="C++ Tutorial">
+</div>
+<ul class="toc chapters">
+<li class="heading">C++ Basics</li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/index.htm">C++ Home</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_overview.htm">C++ Overview</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_environment_setup.htm">C++ Environment Setup</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_basic_syntax.htm">C++ Basic Syntax</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_comments.htm">C++ Comments</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_data_types.htm">C++ Data Types</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_variable_types.htm">C++ Variable Types</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_variable_scope.htm">C++ Variable Scope</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_constants_literals.htm">C++ Constants/Literals</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_modifier_types.htm">C++ Modifier Types</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_storage_classes.htm">C++ Storage Classes</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_operators.htm">C++ Operators</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_loop_types.htm">C++ Loop Types</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_decision_making.htm">C++ Decision Making</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_functions.htm">C++ Functions</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_numbers.htm">C++ Numbers</a></li>
+<li style="background-color: rgb(214, 214, 214);"><a href="https://www.tutorialspoint.com/cplusplus/cpp_arrays.htm">C++ Arrays</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_strings.htm">C++ Strings</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_pointers.htm">C++ Pointers</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_references.htm">C++ References</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_date_time.htm">C++ Date &amp; Time</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_basic_input_output.htm">C++ Basic Input/Output</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_data_structures.htm">C++ Data Structures</a></li>
+</ul>
+<ul class="toc chapters">
+<li class="heading">C++ Object Oriented</li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_classes_objects.htm">C++ Classes &amp; Objects</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_inheritance.htm">C++ Inheritance</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_overloading.htm">C++ Overloading</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_polymorphism.htm">C++ Polymorphism</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_data_abstraction.htm">C++ Abstraction</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_data_encapsulation.htm">C++ Encapsulation</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_interfaces.htm">C++ Interfaces</a></li>
+</ul>
+<ul class="toc chapters">
+<li class="heading">C++ Advanced</li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_files_streams.htm">C++ Files and Streams</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_exceptions_handling.htm">C++ Exception Handling</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_dynamic_memory.htm">C++ Dynamic Memory</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_namespaces.htm">C++ Namespaces</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_templates.htm">C++ Templates</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_preprocessor.htm">C++ Preprocessor</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_signal_handling.htm">C++ Signal Handling</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_multithreading.htm">C++ Multithreading</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_web_programming.htm">C++ Web Programming</a></li>
+</ul>
+<ul class="toc chapters">
+<li class="heading">C++ Useful Resources</li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_questions_answers.htm">C++ Questions and Answers</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_quick_guide.htm">C++ Quick Guide</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_object_oriented.htm">C++ Object Oriented</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_stl_tutorial.htm">C++ STL Tutorial</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_standard_library.htm">C++ Standard Library</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_useful_resources.htm">C++ Useful Resources</a></li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/cpp_discussion.htm">C++ Discussion</a></li>
+</ul>
+<ul class="toc reading">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="https://www.tutorialspoint.com/upsc_ias_exams.htm">UPSC IAS Exams Notes</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/questions_and_answers.htm">Questions and Answers</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/hr_interview_questions/index.htm">HR Interview Questions</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="https://www.tutorialspoint.com/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+</div>
+<!-- Tutorial ToC Ends Here -->
+<!-- Tutorial Content Starts Here -->
+<div class="mui-col-md-6 tutorial-content" style="min-height: 2203px;">
+<h1>C++ Pointer to an Array</h1>
+<hr>
+<div class="top-ad-heading">Advertisements</div>
+<div style="text-align: center;">
+<script><!--
+google_ad_client = "pub-7133395778201029";
+var width = document.getElementsByClassName("tutorial-content")[0].clientWidth - 40;
+google_ad_width = width;
+google_ad_height = 150;
+google_ad_format = width + "x150_as";
+google_ad_type = "image";
+google_ad_channel = "";
+//--></script>
+<script src="./C++ Pointer to an Array_files/f.txt">
+</script>
+</div>
+<div class="mui-container-fluid button-borders">
+<div class="pre-btn">
+<a href="https://www.tutorialspoint.com/cplusplus/cpp_arrays.htm"><i class="fal fa-chevron-circle-left"></i> Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="https://www.tutorialspoint.com/cplusplus/cpp_arrays.htm">Next Page <i class="fal fa-chevron-circle-right"></i>&nbsp;</a>
+</div>
+</div>
+<div class="clearer"></div>
+<p>It is most likely that you would not understand this chapter until you go through the chapter related C++ Pointers.</p>
+<p>So assuming you have bit understanding on pointers in C++, let us start: An array name is a constant pointer to the first element of the array. Therefore, in the declaration −</p>
+<pre class="result notranslate">double balance[50];
+</pre>
+<p><b>balance</b> is a pointer to &amp;balance[0], which is the address of the first element of the array balance. Thus, the following program fragment assigns <b>p</b> the address of the first element of <b>balance</b> −</p>
+<pre class="result notranslate">double *p;
+double balance[10];
+
+p = balance;
+</pre>
+<p>It is legal to use array names as constant pointers, and vice versa. Therefore, *(balance + 4) is a legitimate way of accessing the data at balance[4].</p>
+<p>Once you store the address of first element in p, you can access array elements using *p, *(p+1), *(p+2) and so on. Below is the example to show all the concepts discussed above −</p>
+<div class="demo-view">
+<a href="http://tpcg.io/KlljEG" target="_blank" rel="nofollow" class="demo"><i class="fa-external-link"></i> Live Demo</a>
+</div>
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="com">#include</span><span class="pln"> </span><span class="str">&lt;iostream&gt;</span><span class="pln">
+</span><span class="kwd">using</span><span class="pln"> </span><span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span><span class="pln">
+ 
+</span><span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="com">// an array with 5 elements.</span><span class="pln">
+   </span><span class="kwd">double</span><span class="pln"> balance</span><span class="pun">[</span><span class="lit">5</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="lit">1000.0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2.0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3.4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">17.0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">50.0</span><span class="pun">};</span><span class="pln">
+   </span><span class="kwd">double</span><span class="pln"> </span><span class="pun">*</span><span class="pln">p</span><span class="pun">;</span><span class="pln">
+
+   p </span><span class="pun">=</span><span class="pln"> balance</span><span class="pun">;</span><span class="pln">
+ 
+   </span><span class="com">// output each array element's value </span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span><span class="pln"> </span><span class="str">"Array values using pointer "</span><span class="pln"> </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   
+   </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span><span class="pln"> </span><span class="str">"*(p + "</span><span class="pln"> </span><span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span><span class="pln"> </span><span class="str">") : "</span><span class="pun">;</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span><span class="pln"> </span><span class="pun">*(</span><span class="pln">p </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span><span class="pln"> </span><span class="str">"Array values using balance as address "</span><span class="pln"> </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   
+   </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span><span class="pln"> </span><span class="str">"*(balance + "</span><span class="pln"> </span><span class="pun">&lt;&lt;</span><span class="pln"> i </span><span class="pun">&lt;&lt;</span><span class="pln"> </span><span class="str">") : "</span><span class="pun">;</span><span class="pln">
+      cout </span><span class="pun">&lt;&lt;</span><span class="pln"> </span><span class="pun">*(</span><span class="pln">balance </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+ 
+   </span><span class="kwd">return</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result −</p>
+<pre class="result notranslate">Array values using pointer
+*(p + 0) : 1000
+*(p + 1) : 2
+*(p + 2) : 3.4
+*(p + 3) : 17
+*(p + 4) : 50
+Array values using balance as address
+*(balance + 0) : 1000
+*(balance + 1) : 2
+*(balance + 2) : 3.4
+*(balance + 3) : 17
+*(balance + 4) : 50
+</pre>
+<p>In the above example, p is a pointer to double which means it can store address of a variable of double type. Once we have address in p, then <b>*p</b> will give us value available at the address stored in p, as we have shown in the above example.</p>
+<div class="parent-file">cpp_arrays.htm</div>
+<div class="mui-container-fluid button-borders">
+<div class="pre-btn">
+<a href="https://www.tutorialspoint.com/cplusplus/cpp_arrays.htm"><i class="fal fa-chevron-circle-left"></i> Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="https://www.tutorialspoint.com/cplusplus/cpp_arrays.htm">Next Page <i class="fal fa-chevron-circle-right"></i>&nbsp;</a>
+</div>
+</div>
+<div class="google-bottom-ads">
+<div>Advertisements</div>
+<script><!--
+var width = 580;
+var height = 400;
+var format = "580x400_as";
+if( window.innerWidth < 468 ){
+   width = 300;
+   height = 250;
+   format = "300x250_as";
+}
+google_ad_client = "pub-7133395778201029";
+google_ad_width = width;
+google_ad_height = height;
+google_ad_format = format;
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script src="./C++ Pointer to an Array_files/f.txt">
+</script>
+<div class="space-bottom"></div>
+</div>
+</div>
+<!-- Tutorial Content Ends Here -->
+<!-- Right Column Starts Here -->
+<div class="mui-col-md-2 google-right-ads">
+<div class="space-top"></div>
+<div class="google-right-ad">
+<script><!--
+google_ad_client = "pub-2537027957187252";
+/* Right Side Ad */
+google_ad_slot = "right_side_ad";
+google_ad_width = 300;
+google_ad_height = 250;
+//--></script>
+<script src="./C++ Pointer to an Array_files/f.txt">
+</script>
+</div>
+<div class="google-right-ad">
+<script><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 600;
+google_ad_format = "300x600_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script src="./C++ Pointer to an Array_files/f.txt">
+</script>
+</div>
+<div class="google-right-ad">
+<div class="adsbyvli" data-ad-slot="vi_9012177"></div>
+<script>(vitag.Init = window.vitag.Init || []).push(function(){viAPItag.display("vi_9012177")})</script>
+</div>
+<div class="space-bottom"></div>
+</div>
+<!-- Right Column Ends Here -->
+</div>
+</div>
+<div class="clear"></div>
+<footer id="footer">
+<div class="mui--text-center">
+<div class="mui--text-caption mui--text-light">
+<a href="https://www.tutorialspoint.com/index.htm" class="logo"><img class="img-responsive" src="./C++ Pointer to an Array_files/logo-black.png" alt="Tutorials Point" title="Tutorials Point"></a>
+</div>
+<ul class="mui-list--inline mui--text-body2 mui--text-light">
+<li><a href="https://www.tutorialspoint.com/about/index.htm"><i class="fal fa-globe"></i> About us</a></li>
+<li><a href="https://www.tutorialspoint.com/about/about_terms_of_use.htm"><i class="fal fa-asterisk"></i> Terms of use</a></li>
+<li><a href="https://www.tutorialspoint.com/about/about_privacy.htm#cookies"> <i class="fal fa-shield-check"></i> Cookies Policy</a></li>
+<li><a href="https://www.tutorialspoint.com/about/faq.htm"><i class="fal fa-question-circle"></i> FAQ's</a></li>
+<li><a href="https://www.tutorialspoint.com/about/about_helping.htm"><i class="fal fa-hands-helping"></i> Helping</a></li>
+<li><a href="https://www.tutorialspoint.com/about/contact_us.htm"><i class="fal fa-map-marker-alt"></i> Contact</a></li>
+</ul>
+<div class="mui--text-caption mui--text-light bottom-copyright-text">© Copyright 2019. All Rights Reserved.</div>
+</div>
+<div id="privacy-banner" style="display: none;">
+  <div>
+    <p>
+      We use cookies to provide and improve our services. By using our site, you consent to our Cookies Policy.
+      <a id="banner-accept" href="https://www.tutorialspoint.com/cplusplus/cpp_pointer_to_an_array.htm#">Accept</a>
+      <a id="banner-learn" href="https://www.tutorialspoint.com/about/about_cookies.htm" target="_blank">Learn more</a>
+    </p>
+  </div>
+</div>
+<script async="" src="./C++ Pointer to an Array_files/js"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-232293-6');
+</script>
+</footer>
+
+
+</body></html>
