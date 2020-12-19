@@ -13,11 +13,9 @@ Project state
 **Development:**
 This project will be **no longer developed** by the author as he will be moving to 32-bit MCU's.
 
-**TODOs:**
 * UART - incomplete
 * USART - incomplete
 * Print Class - incomplete
-* Garretlab
 
 Contents
 --------
